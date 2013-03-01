@@ -30,6 +30,7 @@ has max_inline_list_length => ( is => 'rw', isa => 'Num' );
 
 sub parse {
     my ($self, $in) = @_;
+    $self->{img_number} = 0;
     return $self->to_inao($in);
 }
 
@@ -71,6 +72,7 @@ sub visual_length {
 }
 
 sub parse_inline {
+    my $self = shift;
     my $elem = shift;
     my $is_special_italic = shift;
     my $ret = '';
@@ -97,6 +99,16 @@ sub parse_inline {
             my $url   = $inline->attr('href');
             my $title = $inline->as_trimmed_text;
             $ret .= sprintf "%s(注:%s)", $title, $url;
+        }
+        elsif ($inline->tag eq 'img') {
+            my $url   = $inline->attr('src');
+            my $title = $inline->attr('alt') || $inline->attr('title');
+            $ret .= sprintf(
+                "●図%d::%s[%s]",
+                ++$self->{img_number},
+                $title,
+                $url,
+            );
         }
         elsif ($inline->tag eq 'code') {
             $ret .= '◆cmd/◆';
@@ -173,7 +185,7 @@ sub to_inao {
             $inao .= "\n";
         }
         elsif ($elem->tag eq 'p') {
-            my $p = parse_inline($elem, $is_column);
+            my $p = $self->parse_inline($elem, $is_column);
 
             if ($p !~ /^[\s　]+$/) {
                 $inao .= "$p\n";
@@ -226,7 +238,7 @@ sub to_inao {
         }
         elsif ($elem->tag eq 'ul') {
             for my $list ($elem->find('li')) {
-                $inao .= '・' . parse_inline($list, 1) . "\n";
+                $inao .= '・' . $self->parse_inline($list, 1) . "\n";
             }
         }
         elsif ($elem->tag eq 'ol') {
@@ -236,7 +248,7 @@ sub to_inao {
             for my $list ($elem->find('li')) {
                 $inao .=
                     to_list_style((sprintf('(%s%d)', $s, ++$i)) .
-                    parse_inline($list, 1)) . "\n";
+                    $self->parse_inline($list, 1)) . "\n";
             }
         }
         elsif ($elem->tag eq 'table') {
@@ -272,7 +284,7 @@ sub to_inao {
         elsif ($elem->tag eq 'blockquote') {
             my $blockquote = '';
             for my $p ($elem->content_list) {
-                $blockquote = parse_inline($p, 1);
+                $blockquote = $self->parse_inline($p, 1);
             }
             $blockquote =~ s/(\s)//g;
             $inao .= "◆quote/◆\n";
