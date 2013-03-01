@@ -3,7 +3,9 @@ use strict;
 use warnings;
 
 use Pod::Usage;
-use Project::Libs;
+use File::Spec;
+use FindBin::libs;
+
 use Text::Md2Inao;
 
 my $infile  = $ARGV[0]
