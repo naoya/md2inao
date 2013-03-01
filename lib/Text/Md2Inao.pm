@@ -2,6 +2,8 @@ package Text::Md2Inao;
 use strict;
 use warnings;
 
+our $VERSION = '0.01';
+
 use Class::Accessor::Fast qw/antlers/;
 use Encode;
 use HTML::TreeBuilder;

@@ -3,7 +3,7 @@ How to use
 
     % cpanm Carton
     % carton
-    % carton exec perl md2inao.pl your_markdown.md
+    % carton exec perl bin/md2inao.pl your_markdown.md > path/to/output.txt
     
 出力見本
 ----------
@@ -18,8 +18,21 @@ https://docs.google.com/open?id=0BzbGMS73rIkDUXpyUVlrSUxURXlmMXhQRV9Ua2JCUQ
 
 https://docs.google.com/open?id=0BzbGMS73rIkDZjdCTnBkMDFUaGF2UDJIdTNfaVJUUQ
 
-導入方法です。(古い)
+How to test
 ----------
 
-・はじめる！markdown2inao « blog.udzura.jp
-http://blog.udzura.jp/2012/09/10/install-markdown2inao/
+    % carton exec -Ilib -- prove  
+
+Authors
+----------
+
+* @typester : Original version: https://gist.github.com/typester/380428
+* @inao : Current product owner & maintainer
+* @naoya : Refactoring, Add some tests
+* @hsbt
+* @hokaccha
+
+捕捉
+----------
+
+* gist から普通のレポジトリにする方法わかんなくて新規に切っちゃいました。すみません (@naoya)
