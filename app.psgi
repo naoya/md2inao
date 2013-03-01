@@ -21,19 +21,15 @@ post '/upload' => sub {
         if $self->req->is_limit_exceeded;
 
     return $self->redirect_to('form')
-        unless my $md = $self->param('markdown');
+        unless my $file = $self->param('markdown');
 
-    my $size = $md->size;
-    my $name = $md->filename;
-
-    my $text = $md->slurp;
-
+    my $md = $file->slurp;
     my $p = Text::Md2Inao->new({
         default_list           => 'disc',
         max_list_length        => 63,
         max_inline_list_length => 55,
     });
-    $self->render(text => decode_utf8($p->parse($text)), format => 'txt');
+    $self->render(text => decode_utf8($p->parse($md)), format => 'txt');
 };
 
 app->start;
