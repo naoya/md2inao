@@ -22,11 +22,5 @@ my $out    = $p->parse(slurp "./t/x_input.txt");
 my $origin = slurp("./t/x_output.txt");
 
 is length $origin, length $out;
-# is $origin, $out;
-
-# warn;
-# # warn length $out;
-# warn length slurp("./t/x_output.txt");
-# is $out, slurp("./t/x_output.txt");
 
 done_testing;
