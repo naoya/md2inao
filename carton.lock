@@ -107,6 +107,68 @@
          "target" : "Class::Accessor::Fast",
          "version" : "0.34"
       },
+      "FindBin::libs" : {
+         "dist" : "FindBin-libs-1.65.2",
+         "mymeta" : {
+            "abstract" : "FindBin::libs - locate and a 'use lib' or export \ndirectories based on .\n",
+            "author" : [
+               "Steven Lembark <lembark@wrkhors.com"
+            ],
+            "dynamic_config" : 0,
+            "generated_by" : "Module::Build version 0.4003, CPAN::Meta::Converter version 2.120921",
+            "license" : [
+               "perl_5"
+            ],
+            "meta-spec" : {
+               "url" : "http://search.cpan.org/perldoc?CPAN::Meta::Spec",
+               "version" : "2"
+            },
+            "name" : "FindBin-libs",
+            "prereqs" : {
+               "configure" : {
+                  "requires" : {
+                     "Module::Build" : "0.4003"
+                  }
+               },
+               "runtime" : {
+                  "requires" : {
+                     "Carp" : "0",
+                     "Cwd" : "0",
+                     "File::Spec" : "0",
+                     "File::Temp" : "0",
+                     "FindBin" : "0",
+                     "List::Util" : "0",
+                     "Symbol" : "0",
+                     "Test::More" : "0",
+                     "strict" : "0"
+                  }
+               }
+            },
+            "provides" : {
+               "FindBin::libs" : {
+                  "file" : "lib/FindBin/libs_curr.pm",
+                  "version" : "v1.63.0"
+               }
+            },
+            "release_status" : "stable",
+            "resources" : {
+               "license" : [
+                  "http://dev.perl.org/licenses/"
+               ]
+            },
+            "version" : "v1.65.2"
+         },
+         "name" : "FindBin::libs",
+         "pathname" : "L/LE/LEMBARK/FindBin-libs-1.65.2.tar.gz",
+         "provides" : {
+            "FindBin::libs" : {
+               "file" : "FindBin/libs.pm",
+               "version" : "0"
+            }
+         },
+         "target" : "FindBin::libs",
+         "version" : "1.65.2"
+      },
       "HTML::Parser" : {
          "dist" : "HTML-Parser-3.69",
          "mymeta" : {
@@ -594,6 +656,71 @@
          },
          "target" : "List::MoreUtils",
          "version" : "0.33"
+      },
+      "Project::Libs" : {
+         "dist" : "Project-Libs-0.01",
+         "mymeta" : {
+            "abstract" : "Add module directories of a project into @INC",
+            "author" : [
+               "Kentaro Kuribayashi, <kentarok@cpan.org>"
+            ],
+            "dynamic_config" : 0,
+            "generated_by" : "Module::Install version 1.00, CPAN::Meta::Converter version 2.120921",
+            "license" : [
+               "mit"
+            ],
+            "meta-spec" : {
+               "url" : "http://search.cpan.org/perldoc?CPAN::Meta::Spec",
+               "version" : "2"
+            },
+            "name" : "Project-Libs",
+            "no_index" : {
+               "directory" : [
+                  "inc",
+                  "t"
+               ]
+            },
+            "prereqs" : {
+               "build" : {
+                  "requires" : {
+                     "ExtUtils::MakeMaker" : "6.42",
+                     "Test::More" : "0.96"
+                  }
+               },
+               "configure" : {
+                  "requires" : {
+                     "ExtUtils::MakeMaker" : "6.42"
+                  }
+               },
+               "runtime" : {
+                  "requires" : {
+                     "FindBin::libs" : "0",
+                     "perl" : "5.008001"
+                  }
+               }
+            },
+            "release_status" : "stable",
+            "resources" : {
+               "license" : [
+                  "http://opensource.org/licenses/mit-license.php"
+               ],
+               "repository" : {
+                  "type" : "git",
+                  "url" : "git://github.com/kentaro/perl-project-libs.git"
+               }
+            },
+            "version" : "0.01"
+         },
+         "name" : "Project::Libs",
+         "pathname" : "K/KE/KENTARO/Project-Libs-0.01.tar.gz",
+         "provides" : {
+            "Project::Libs" : {
+               "file" : "Project/Libs.pm",
+               "version" : "0.01"
+            }
+         },
+         "target" : "Project::Libs",
+         "version" : "0.01"
       },
       "Sub::Uplevel" : {
          "dist" : "Sub-Uplevel-0.24",
