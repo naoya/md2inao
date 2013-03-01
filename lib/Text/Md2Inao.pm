@@ -93,6 +93,11 @@ sub parse_inline {
 
             $ret .= $inline;
         }
+        elsif ($inline->tag eq 'a') {
+            my $url   = $inline->attr('href');
+            my $title = $inline->as_trimmed_text;
+            $ret .= sprintf "%s(注:%s)", $title, $url;
+        }
         elsif ($inline->tag eq 'code') {
             $ret .= '◆cmd/◆';
             $ret .= $inline->as_trimmed_text;
