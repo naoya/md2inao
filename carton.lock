@@ -245,6 +245,85 @@
          "target" : "Class::Inspector",
          "version" : "1.28"
       },
+      "Data::Dump" : {
+         "dist" : "Data-Dump-1.21",
+         "mymeta" : {
+            "abstract" : "Pretty printing of data structures",
+            "author" : [
+               "Gisle Aas <gisle@activestate.com>"
+            ],
+            "dynamic_config" : 0,
+            "generated_by" : "ExtUtils::MakeMaker version 6.57_05, CPAN::Meta::Converter version 2.120921",
+            "license" : [
+               "perl_5"
+            ],
+            "meta-spec" : {
+               "url" : "http://search.cpan.org/perldoc?CPAN::Meta::Spec",
+               "version" : "2"
+            },
+            "name" : "Data-Dump",
+            "no_index" : {
+               "directory" : [
+                  "t",
+                  "inc"
+               ]
+            },
+            "prereqs" : {
+               "build" : {
+                  "requires" : {
+                     "Test" : "0"
+                  }
+               },
+               "configure" : {
+                  "requires" : {
+                     "ExtUtils::MakeMaker" : "0"
+                  }
+               },
+               "runtime" : {
+                  "recommends" : {
+                     "MIME::Base64" : "0"
+                  },
+                  "requires" : {
+                     "Symbol" : "0",
+                     "perl" : "5.006"
+                  }
+               }
+            },
+            "release_status" : "stable",
+            "resources" : {
+               "repository" : {
+                  "url" : "http://github.com/gisle/data-dump"
+               }
+            },
+            "version" : "1.21"
+         },
+         "name" : "Data::Dump",
+         "pathname" : "G/GA/GAAS/Data-Dump-1.21.tar.gz",
+         "provides" : {
+            "Data::Dump" : {
+               "file" : "Data/Dump.pm",
+               "version" : "1.21"
+            },
+            "Data::Dump::FilterContext" : {
+               "file" : "Data/Dump/FilterContext.pm"
+            },
+            "Data::Dump::Filtered" : {
+               "file" : "Data/Dump/Filtered.pm"
+            },
+            "Data::Dump::Trace" : {
+               "file" : "Data/Dump/Trace.pm",
+               "version" : "0.02"
+            },
+            "Data::Dump::Trace::Call" : {
+               "file" : "Data/Dump/Trace.pm"
+            },
+            "Data::Dump::Trace::Wrapper" : {
+               "file" : "Data/Dump/Trace.pm"
+            }
+         },
+         "target" : "Data::Dump",
+         "version" : "1.21"
+      },
       "Devel::StackTrace" : {
          "dist" : "Devel-StackTrace-1.30",
          "mymeta" : {
@@ -1611,6 +1690,137 @@
          "target" : "HTTP::Negotiate",
          "version" : "6.01"
       },
+      "HTTP::Parser::XS" : {
+         "dist" : "HTTP-Parser-XS-0.15",
+         "mymeta" : {
+            "abstract" : "a fast, primitive HTTP request parser",
+            "author" : [
+               "- Kazuho Oku",
+               "Kazuho Oku"
+            ],
+            "dynamic_config" : 0,
+            "generated_by" : "Module::Install version 1.00, CPAN::Meta::Converter version 2.120921",
+            "license" : [
+               "perl_5"
+            ],
+            "meta-spec" : {
+               "url" : "http://search.cpan.org/perldoc?CPAN::Meta::Spec",
+               "version" : "2"
+            },
+            "name" : "HTTP-Parser-XS",
+            "no_index" : {
+               "directory" : [
+                  "inc",
+                  "t"
+               ]
+            },
+            "prereqs" : {
+               "build" : {
+                  "requires" : {
+                     "ExtUtils::MakeMaker" : "6.42",
+                     "Test::More" : "0.96"
+                  }
+               },
+               "configure" : {
+                  "requires" : {
+                     "ExtUtils::MakeMaker" : "6.42"
+                  }
+               },
+               "runtime" : {
+                  "requires" : {}
+               }
+            },
+            "release_status" : "stable",
+            "resources" : {
+               "license" : [
+                  "http://dev.perl.org/licenses/"
+               ]
+            },
+            "version" : "0.15"
+         },
+         "name" : "HTTP::Parser::XS",
+         "pathname" : "K/KA/KAZUHO/HTTP-Parser-XS-0.15.tar.gz",
+         "provides" : {
+            "HTTP::Parser::XS" : {
+               "file" : "HTTP/Parser/XS.pm",
+               "version" : "0.15"
+            },
+            "HTTP::Parser::XS::PP" : {
+               "file" : "HTTP/Parser/XS/PP.pm"
+            }
+         },
+         "target" : "HTTP::Parser::XS",
+         "version" : "0.15"
+      },
+      "HTTP::Server::Simple" : {
+         "dist" : "HTTP-Server-Simple-0.44",
+         "mymeta" : {
+            "abstract" : "unknown",
+            "author" : [
+               "unknown"
+            ],
+            "dynamic_config" : 0,
+            "generated_by" : "Module::Install version 1.00, CPAN::Meta::Converter version 2.120921",
+            "license" : [
+               "perl_5"
+            ],
+            "meta-spec" : {
+               "url" : "http://search.cpan.org/perldoc?CPAN::Meta::Spec",
+               "version" : "2"
+            },
+            "name" : "HTTP-Server-Simple",
+            "no_index" : {
+               "directory" : [
+                  "inc",
+                  "t"
+               ]
+            },
+            "prereqs" : {
+               "build" : {
+                  "requires" : {
+                     "ExtUtils::MakeMaker" : "6.42"
+                  }
+               },
+               "configure" : {
+                  "requires" : {
+                     "ExtUtils::MakeMaker" : "6.42"
+                  }
+               },
+               "runtime" : {
+                  "requires" : {
+                     "CGI" : "0",
+                     "Socket" : "0",
+                     "Test::More" : "0"
+                  }
+               }
+            },
+            "release_status" : "stable",
+            "resources" : {
+               "license" : [
+                  "http://dev.perl.org/licenses/"
+               ]
+            },
+            "version" : "0.44"
+         },
+         "name" : "HTTP::Server::Simple",
+         "pathname" : "J/JE/JESSE/HTTP-Server-Simple-0.44.tar.gz",
+         "provides" : {
+            "HTTP::Server::Simple" : {
+               "file" : "HTTP/Server/Simple.pm",
+               "version" : "0.44"
+            },
+            "HTTP::Server::Simple::CGI" : {
+               "file" : "HTTP/Server/Simple/CGI.pm",
+               "version" : "0"
+            },
+            "HTTP::Server::Simple::CGI::Environment" : {
+               "file" : "HTTP/Server/Simple/CGI/Environment.pm",
+               "version" : "0"
+            }
+         },
+         "target" : "HTTP::Server::Simple::CGI",
+         "version" : "0.44"
+      },
       "Hash::MultiValue" : {
          "dist" : "Hash-MultiValue-0.13",
          "mymeta" : {
@@ -2718,6 +2928,201 @@
          "target" : "Net::HTTP",
          "version" : "6.05"
       },
+      "Net::Server" : {
+         "dist" : "Net-Server-2.007",
+         "mymeta" : {
+            "abstract" : "Extensible, general Perl server engine",
+            "author" : [
+               "Paul Seamons (paul@seamons.com) and Rob Brown (bbb@cpan.org)"
+            ],
+            "dynamic_config" : 0,
+            "generated_by" : "ExtUtils::MakeMaker version 6.57_05, CPAN::Meta::Converter version 2.120921",
+            "license" : [
+               "unknown"
+            ],
+            "meta-spec" : {
+               "url" : "http://search.cpan.org/perldoc?CPAN::Meta::Spec",
+               "version" : "2"
+            },
+            "name" : "Net-Server",
+            "no_index" : {
+               "directory" : [
+                  "t",
+                  "inc"
+               ]
+            },
+            "prereqs" : {
+               "build" : {
+                  "requires" : {
+                     "ExtUtils::MakeMaker" : "0"
+                  }
+               },
+               "configure" : {
+                  "requires" : {
+                     "ExtUtils::MakeMaker" : "0"
+                  }
+               },
+               "runtime" : {
+                  "requires" : {
+                     "IO::Socket" : "0",
+                     "POSIX" : "0",
+                     "Socket" : "0"
+                  }
+               }
+            },
+            "release_status" : "stable",
+            "version" : "2.007"
+         },
+         "name" : "Net::Server",
+         "pathname" : "R/RH/RHANDOM/Net-Server-2.007.tar.gz",
+         "provides" : {
+            "Net::Server" : {
+               "file" : "Net/Server.pm",
+               "version" : "2.007"
+            },
+            "Net::Server::Daemonize" : {
+               "file" : "Net/Server/Daemonize.pm",
+               "version" : "0.06"
+            },
+            "Net::Server::Fork" : {
+               "file" : "Net/Server/Fork.pm"
+            },
+            "Net::Server::HTTP" : {
+               "file" : "Net/Server/HTTP.pm"
+            },
+            "Net::Server::INET" : {
+               "file" : "Net/Server/INET.pm"
+            },
+            "Net::Server::INET::Handle" : {
+               "file" : "Net/Server/INET.pm"
+            },
+            "Net::Server::Log::Log::Log4perl" : {
+               "file" : "Net/Server/Log/Log/Log4perl.pm"
+            },
+            "Net::Server::Log::Sys::Syslog" : {
+               "file" : "Net/Server/Log/Sys/Syslog.pm"
+            },
+            "Net::Server::MultiType" : {
+               "file" : "Net/Server/MultiType.pm"
+            },
+            "Net::Server::Multiplex" : {
+               "file" : "Net/Server/Multiplex.pm",
+               "version" : "0"
+            },
+            "Net::Server::Multiplex::MUX" : {
+               "file" : "Net/Server/Multiplex.pm",
+               "version" : "0"
+            },
+            "Net::Server::PSGI" : {
+               "file" : "Net/Server/PSGI.pm"
+            },
+            "Net::Server::PreFork" : {
+               "file" : "Net/Server/PreFork.pm"
+            },
+            "Net::Server::PreForkSimple" : {
+               "file" : "Net/Server/PreForkSimple.pm"
+            },
+            "Net::Server::Proto" : {
+               "file" : "Net/Server/Proto.pm"
+            },
+            "Net::Server::Proto::SSL" : {
+               "file" : "Net/Server/Proto/SSL.pm"
+            },
+            "Net::Server::Proto::SSLEAY" : {
+               "file" : "Net/Server/Proto/SSLEAY.pm"
+            },
+            "Net::Server::Proto::TCP" : {
+               "file" : "Net/Server/Proto/TCP.pm"
+            },
+            "Net::Server::Proto::UDP" : {
+               "file" : "Net/Server/Proto/UDP.pm"
+            },
+            "Net::Server::Proto::UNIX" : {
+               "file" : "Net/Server/Proto/UNIX.pm"
+            },
+            "Net::Server::Proto::UNIXDGRAM" : {
+               "file" : "Net/Server/Proto/UNIXDGRAM.pm"
+            },
+            "Net::Server::SIG" : {
+               "file" : "Net/Server/SIG.pm",
+               "version" : "0.03"
+            },
+            "Net::Server::Single" : {
+               "file" : "Net/Server/Single.pm"
+            },
+            "Net::Server::TiedHandle" : {
+               "file" : "Net/Server.pm"
+            }
+         },
+         "target" : "Net::Server",
+         "version" : "2.007"
+      },
+      "Net::Server::SS::PreFork" : {
+         "dist" : "Net-Server-SS-PreFork-0.05",
+         "mymeta" : {
+            "abstract" : "a hot-deployable variant of Net::Server::PreFork",
+            "author" : [
+               "Kazuho Oku"
+            ],
+            "dynamic_config" : 0,
+            "generated_by" : "Module::Install version 0.93, CPAN::Meta::Converter version 2.120921",
+            "license" : [
+               "perl_5"
+            ],
+            "meta-spec" : {
+               "url" : "http://search.cpan.org/perldoc?CPAN::Meta::Spec",
+               "version" : "2"
+            },
+            "name" : "Net-Server-SS-PreFork",
+            "no_index" : {
+               "directory" : [
+                  "inc",
+                  "t"
+               ]
+            },
+            "prereqs" : {
+               "build" : {
+                  "requires" : {
+                     "ExtUtils::MakeMaker" : "6.42",
+                     "HTTP::Server::Simple::CGI" : "0",
+                     "LWP::Simple" : "0",
+                     "Test::TCP" : "0.06"
+                  }
+               },
+               "configure" : {
+                  "requires" : {
+                     "ExtUtils::MakeMaker" : "6.42"
+                  }
+               },
+               "runtime" : {
+                  "requires" : {
+                     "HTTP::Server::Simple::CGI" : "0",
+                     "LWP::Simple" : "0",
+                     "Net::Server" : "0",
+                     "Server::Starter" : "0.02",
+                     "Test::TCP" : "0.06"
+                  }
+               }
+            },
+            "release_status" : "stable",
+            "resources" : {
+               "license" : [
+                  "http://dev.perl.org/licenses/"
+               ]
+            },
+            "version" : "0.05"
+         },
+         "name" : "Net::Server::SS::PreFork",
+         "pathname" : "K/KA/KAZUHO/Net-Server-SS-PreFork-0.05.tar.gz",
+         "provides" : {
+            "Net::Server::SS::PreFork" : {
+               "file" : "Net/Server/SS/PreFork.pm",
+               "version" : "0.05"
+            }
+         },
+         "target" : "Net::Server::SS::PreFork",
+         "version" : "0.05"
+      },
       "Plack" : {
          "dist" : "Plack-1.0016",
          "mymeta" : {
@@ -3263,6 +3668,93 @@
          },
          "target" : "Server::Starter",
          "version" : "0.12"
+      },
+      "Starman" : {
+         "dist" : "Starman-0.3006",
+         "mymeta" : {
+            "abstract" : "High-performance preforking PSGI/Plack web server",
+            "author" : [
+               "Tatsuhiko Miyagawa <miyagawa@bulknews.net>"
+            ],
+            "dynamic_config" : 0,
+            "generated_by" : "Module::Install version 1.06, CPAN::Meta::Converter version 2.120921",
+            "license" : [
+               "perl_5"
+            ],
+            "meta-spec" : {
+               "url" : "http://search.cpan.org/perldoc?CPAN::Meta::Spec",
+               "version" : "2"
+            },
+            "name" : "Starman",
+            "no_index" : {
+               "directory" : [
+                  "inc",
+                  "t",
+                  "xt"
+               ]
+            },
+            "prereqs" : {
+               "build" : {
+                  "requires" : {
+                     "ExtUtils::MakeMaker" : "6.59",
+                     "Test::More" : "0",
+                     "Test::Requires" : "0"
+                  }
+               },
+               "configure" : {
+                  "requires" : {
+                     "ExtUtils::MakeMaker" : "6.59"
+                  }
+               },
+               "runtime" : {
+                  "recommends" : {
+                     "Net::Server::SS::PreFork" : "0",
+                     "Server::Starter" : "0.12"
+                  },
+                  "requires" : {
+                     "Data::Dump" : "0",
+                     "HTTP::Date" : "0",
+                     "HTTP::Parser::XS" : "0",
+                     "HTTP::Status" : "0",
+                     "Net::Server" : "0.91",
+                     "Plack" : "0.9971",
+                     "Test::TCP" : "1.11",
+                     "parent" : "0",
+                     "perl" : "5.008001"
+                  }
+               }
+            },
+            "release_status" : "stable",
+            "resources" : {
+               "license" : [
+                  "http://dev.perl.org/licenses/"
+               ],
+               "repository" : {
+                  "type" : "git",
+                  "url" : "git://github.com/miyagawa/Starman.git"
+               }
+            },
+            "version" : "0.3006"
+         },
+         "name" : "Starman",
+         "pathname" : "M/MI/MIYAGAWA/Starman-0.3006.tar.gz",
+         "provides" : {
+            "HTTP::Server::PSGI::Net::Server::PreFork" : {
+               "file" : "HTTP/Server/PSGI/Net/Server/PreFork.pm"
+            },
+            "Plack::Handler::Starman" : {
+               "file" : "Plack/Handler/Starman.pm"
+            },
+            "Starman" : {
+               "file" : "Starman.pm",
+               "version" : "0.3006"
+            },
+            "Starman::Server" : {
+               "file" : "Starman/Server.pm"
+            }
+         },
+         "target" : "Starman",
+         "version" : "0.3006"
       },
       "Stream::Buffered" : {
          "dist" : "Stream-Buffered-0.02",

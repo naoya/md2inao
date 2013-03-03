@@ -10,3 +10,5 @@ requires 'FindBin::libs';
 requires 'Mojolicious::Lite';
 requires 'Plack';
 requires 'Server::Starter';
+requires 'Starman';
+requires 'Net::Server::SS::PreFork';
