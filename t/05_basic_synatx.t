@@ -1,7 +1,3 @@
-package Text::Md2Inao::Test;
-use Test::Base -Base;
-
-package main;
 use Test::Base;
 use Text::Md2Inao;
 
