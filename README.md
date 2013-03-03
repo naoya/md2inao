@@ -1,3 +1,10 @@
+Markdown で書かれたテキストを「inaoフォーマット」に変換します。
+
+* bin/md2inao.pl : CUIコマンド版
+* http://md2inao.bloghackers.net/ : Web版
+
+markdown2inao.pl 改め md2inao.pl のこれまでについては https://gist.github.com/inao/baea09bc6fc53551886b を見て下さい。
+
 How to use
 ----------
 
