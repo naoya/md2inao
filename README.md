@@ -37,7 +37,7 @@ Authors
 
 * @typester : Original version: https://gist.github.com/typester/380428
 * @inao : Current product owner & maintainer
-* @naoya : Refactoring, Add some tests
+* @naoya : Refactoring, Add some tests, Web version
 * @hsbt
 * @hokaccha
 
