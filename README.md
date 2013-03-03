@@ -1,3 +1,5 @@
+# Markdown to Inao-Format
+
 Markdown で書かれたテキストを「inaoフォーマット」に変換します。
 
 * bin/md2inao.pl : CUIコマンド版
