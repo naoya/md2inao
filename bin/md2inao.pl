@@ -21,7 +21,7 @@ my $p = Text::Md2Inao->new({
     max_inline_list_length => 55,
 });
 
-print $p->to_inao($text);
+print $p->parse($text);
 
 __END__
 
