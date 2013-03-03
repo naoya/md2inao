@@ -27,10 +27,10 @@ __END__
 
 =head1 NAME
 
-markdown2inao.pl - markdown to inao converter
+md2inao.pl - markdown to inao converter
 
 =head1 SYNOPSIS
 
-    markdown2inao.pl input.markdown.txt
+    md2inao.pl your_markdown_text.md > inao_format.txt
 
 =cut
