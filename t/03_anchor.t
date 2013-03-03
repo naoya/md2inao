@@ -15,7 +15,7 @@ hoge [RubyMotion](http://www.rubymotion.com/) fuga
 EOF
 
 is $p->parse($in), <<EOF;
-hoge RubyMotion(注:http://www.rubymotion.com/) fuga
+hoge RubyMotion◆注/◆http://www.rubymotion.com/◆/注◆ fuga
 EOF
 
 done_testing;

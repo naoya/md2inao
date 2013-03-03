@@ -76,11 +76,19 @@ sub parse_inline {
     my $elem = shift;
     my $is_special_italic = shift;
     my $ret = '';
+    my $flag_note;
 
     for my $inline ($elem->content_list) {
         if (ref $inline eq '') {
             # (注:)は脚注としてあつかう
-            $inline =~ s!\(注:(.+?)\)!◆注/◆$1◆/注◆!gs;
+            if ($inline =~ m!\(注:!) {
+                $inline =~ s!\(注:(.+?)!◆注/◆$1!gs;
+                $flag_note++;
+            }
+            if ($inline =~ m!\)! && $flag_note) {
+                $inline =~ s!\)!◆/注◆!;
+                $flag_note--;
+            }
 
             # 改行を取り除く
             $inline =~ s/(\n|\r)//g;
@@ -98,7 +106,7 @@ sub parse_inline {
         elsif ($inline->tag eq 'a') {
             my $url   = $inline->attr('href');
             my $title = $inline->as_trimmed_text;
-            $ret .= sprintf "%s(注:%s)", $title, $url;
+            $ret .= sprintf "%s◆注/◆%s◆/注◆", $title, $url;
         }
         elsif ($inline->tag eq 'img') {
             my $url   = $inline->attr('src');
