@@ -9,3 +9,4 @@ requires 'FindBin::libs';
 ## for web app
 requires 'Mojolicious::Lite';
 requires 'Plack';
+requires 'Server::Starter';
