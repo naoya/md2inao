@@ -37,13 +37,13 @@ task server => {
     start => sub {
         my ($host, @args) = @_;
         remote {
-            sudo "supervisorctl start amazlet";
+            sudo "supervisorctl start md2inao";
         } $host;
     },
     stop => sub {
         my ($host, @args) = @_;
         remote {
-            sudo "supervisorctl stop amazlet";
+            sudo "supervisorctl stop md2inao";
         } $host;
     },
     restart => sub {
