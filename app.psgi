@@ -7,7 +7,7 @@ use Encode qw/decode_utf8/;
 
 use Text::Md2Inao;
 
-# Increase limit to 1GB from 5MB
+# Increase limit to 1GB from 1GB
 # $ENV{MOJO_MAX_MESSAGE_SIZE} = 1073741824;
 
 get '/' => sub {
