@@ -2,6 +2,7 @@
 use strict;
 use warnings;
 
+use Encode;
 use Pod::Usage;
 use File::Spec;
 use FindBin::libs;
@@ -11,7 +12,7 @@ use Text::Md2Inao;
 my $infile  = $ARGV[0]
     or pod2usage(-1);
 
-open my $fh, '<', $infile or die $!;
+open my $fh, '<:utf8', $infile or die $!;
 my $text = do { local $/; <$fh> };
 close $fh;
 
@@ -21,7 +22,7 @@ my $p = Text::Md2Inao->new({
     max_inline_list_length => 55,
 });
 
-print $p->parse($text);
+print encode_utf8 $p->parse($text);
 
 __END__
 

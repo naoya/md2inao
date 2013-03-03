@@ -29,7 +29,7 @@ post '/upload' => sub {
         max_list_length        => 63,
         max_inline_list_length => 55,
     });
-    $self->render(text => decode_utf8($p->parse($md)), format => 'txt');
+    $self->render(text => $p->parse(decode_utf8 $md), format => 'txt');
 };
 
 app->start;

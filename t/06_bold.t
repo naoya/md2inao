@@ -1,7 +1,7 @@
-use utf8;
-
 use strict;
 use warnings;
+
+use utf8;
 use Test::More;
 
 use Text::Md2Inao;
@@ -12,17 +12,12 @@ my $p = Text::Md2Inao->new({
     max_inline_list_length => 55,
 });
 
-my $out = $p->parse(<<EOF);
-# Hello, World
-
-* list 1
-* list 2
+my $in = <<EOF;
+通常の本文**太字**通常の本文
 EOF
 
-is $out, <<EOF;
-■Hello, World
-・list 1
-・list 2
+is $p->parse($in), <<EOF;
+通常の本文◆b/◆太字◆/b◆通常の本文
 EOF
 
 done_testing;

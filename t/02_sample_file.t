@@ -3,10 +3,11 @@ use warnings;
 use Test::More;
 
 use Text::Md2Inao;
+use Encode;
 
 sub slurp {
     my $file = shift;
-    open my $fh, '<', $file or die $!;
+    open my $fh, '<:utf8', $file or die $!;
     my $text = do { local $/; <$fh> };
     close $fh;
     return $text;

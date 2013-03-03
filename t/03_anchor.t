@@ -1,3 +1,5 @@
+use utf8;
+
 use strict;
 use warnings;
 use Test::More;

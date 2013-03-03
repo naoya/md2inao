@@ -1,4 +1,5 @@
 package Text::Md2Inao;
+use utf8;
 use strict;
 use warnings;
 
@@ -171,7 +172,9 @@ sub parse_inline {
 sub to_html_tree {
     my $text = shift;
 
-    my $html = markdown($text);
+    ## Work Around: Text::Markdown が flagged string だと一部 buggy なので encode してから渡している
+    my $html = decode_utf8 markdown(encode_utf8 $text);
+
     my $tree = HTML::TreeBuilder->new;
     $tree->no_space_compacting(1);
     $tree->parse_content(\$html);

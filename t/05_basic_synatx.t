@@ -1,5 +1,9 @@
+use utf8;
+
 use Test::Base;
 use Text::Md2Inao;
+
+use Encode;
 
 plan tests => 1 * blocks;
 
