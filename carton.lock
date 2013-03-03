@@ -3669,6 +3669,70 @@
          "target" : "Server::Starter",
          "version" : "0.12"
       },
+      "Spiffy" : {
+         "dist" : "Spiffy-0.31",
+         "mymeta" : {
+            "abstract" : "Spiffy Perl Interface Framework For You",
+            "author" : [
+               "Ingy döt Net <ingy@ingy.net>"
+            ],
+            "dynamic_config" : 0,
+            "generated_by" : "Module::Install version 1.06, CPAN::Meta::Converter version 2.120921",
+            "license" : [
+               "perl_5"
+            ],
+            "meta-spec" : {
+               "url" : "http://search.cpan.org/perldoc?CPAN::Meta::Spec",
+               "version" : "2"
+            },
+            "name" : "Spiffy",
+            "no_index" : {
+               "directory" : [
+                  "inc",
+                  "t"
+               ]
+            },
+            "prereqs" : {
+               "build" : {
+                  "requires" : {
+                     "ExtUtils::MakeMaker" : "6.59"
+                  }
+               },
+               "configure" : {
+                  "requires" : {
+                     "ExtUtils::MakeMaker" : "6.59"
+                  }
+               },
+               "runtime" : {
+                  "requires" : {
+                     "perl" : "5.006001"
+                  }
+               }
+            },
+            "release_status" : "stable",
+            "resources" : {
+               "homepage" : "https://github.com/ingydotnet/spiffy-pm/tree",
+               "license" : [
+                  "http://dev.perl.org/licenses/"
+               ]
+            },
+            "version" : "0.31",
+            "x_module_name" : "Spiffy"
+         },
+         "name" : "Spiffy",
+         "pathname" : "I/IN/INGY/Spiffy-0.31.tar.gz",
+         "provides" : {
+            "Spiffy" : {
+               "file" : "Spiffy.pm",
+               "version" : "0.31"
+            },
+            "Spiffy::mixin" : {
+               "file" : "Spiffy/mixin.pm"
+            }
+         },
+         "target" : "Spiffy",
+         "version" : "0.31"
+      },
       "Starman" : {
          "dist" : "Starman-0.3006",
          "mymeta" : {
@@ -4159,6 +4223,84 @@
          },
          "target" : "Template",
          "version" : "2.24"
+      },
+      "Test::Base" : {
+         "dist" : "Test-Base-0.60",
+         "mymeta" : {
+            "abstract" : "A Data Driven Testing Framework",
+            "author" : [
+               "Ingy döt Net <ingy@cpan.org>"
+            ],
+            "dynamic_config" : 0,
+            "generated_by" : "Module::Install version 1.00, CPAN::Meta::Converter version 2.120921",
+            "license" : [
+               "perl_5"
+            ],
+            "meta-spec" : {
+               "url" : "http://search.cpan.org/perldoc?CPAN::Meta::Spec",
+               "version" : "2"
+            },
+            "name" : "Test-Base",
+            "no_index" : {
+               "directory" : [
+                  "inc",
+                  "t"
+               ]
+            },
+            "prereqs" : {
+               "build" : {
+                  "requires" : {
+                     "ExtUtils::MakeMaker" : "6.42"
+                  }
+               },
+               "configure" : {
+                  "requires" : {
+                     "ExtUtils::MakeMaker" : "6.42"
+                  }
+               },
+               "runtime" : {
+                  "recommends" : {
+                     "Test::Deep" : "0"
+                  },
+                  "requires" : {
+                     "Filter::Util::Call" : "0",
+                     "Spiffy" : "0.30",
+                     "Test::More" : "0.62",
+                     "perl" : "5.006001"
+                  }
+               }
+            },
+            "release_status" : "stable",
+            "resources" : {
+               "license" : [
+                  "http://dev.perl.org/licenses/"
+               ]
+            },
+            "version" : "0.60"
+         },
+         "name" : "Test::Base",
+         "pathname" : "I/IN/INGY/Test-Base-0.60.tar.gz",
+         "provides" : {
+            "Module::Install::TestBase" : {
+               "file" : "Module/Install/TestBase.pm",
+               "version" : "0.60"
+            },
+            "Test::Base" : {
+               "file" : "Test/Base.pm",
+               "version" : "0.60"
+            },
+            "Test::Base::Block" : {
+               "file" : "Test/Base.pm"
+            },
+            "Test::Base::Filter" : {
+               "file" : "Test/Base/Filter.pm"
+            },
+            "Test::Base::Handle" : {
+               "file" : "Test/Base.pm"
+            }
+         },
+         "target" : "Test::Base",
+         "version" : "0.60"
       },
       "Test::Deep" : {
          "dist" : "Test-Deep-0.110",
