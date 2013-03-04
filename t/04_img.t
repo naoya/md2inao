@@ -12,17 +12,23 @@ my $p = Text::Md2Inao->new({
 });
 
 my $in = <<EOF;
-hoge ![Command Line Toolsのインストール](http://cdn.bloghackers.net/images/20130220_204748.png) fuga
+![Command Line Toolsのインストール](http://cdn.bloghackers.net/images/20130220_204748.png)
 
-hoge ![Command Line Toolsのインストール](http://cdn.bloghackers.net/images/20130220_204748.png) fuga
+![Command Line Toolsのインストール](http://cdn.bloghackers.net/images/20130220_204748.png)
 
-hoge <img src="http://cdn.bloghackers.net/images/20130220_204748.png" title="Command Line Toolsのインストール"> fuga
+<img src="http://cdn.bloghackers.net/images/20130220_204748.png" title="Command Line Toolsのインストール">
 EOF
 
 is $p->parse($in), <<EOF;
-hoge ●図1::Command Line Toolsのインストール[http://cdn.bloghackers.net/images/20130220_204748.png] fuga
-hoge ●図2::Command Line Toolsのインストール[http://cdn.bloghackers.net/images/20130220_204748.png] fuga
-hoge ●図3::Command Line Toolsのインストール[http://cdn.bloghackers.net/images/20130220_204748.png] fuga
+●図1	Command Line Toolsのインストール
+http://cdn.bloghackers.net/images/20130220_204748.png
+
+●図2	Command Line Toolsのインストール
+http://cdn.bloghackers.net/images/20130220_204748.png
+
+●図3	Command Line Toolsのインストール
+http://cdn.bloghackers.net/images/20130220_204748.png
+
 EOF
 
 done_testing;

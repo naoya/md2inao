@@ -113,7 +113,7 @@ sub parse_inline {
             my $url   = $inline->attr('src');
             my $title = $inline->attr('alt') || $inline->attr('title');
             $ret .= sprintf(
-                "●図%d::%s[%s]",
+                "●図%d\t%s\n%s\n",
                 ++$self->{img_number},
                 $title,
                 $url,
