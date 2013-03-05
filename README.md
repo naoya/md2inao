@@ -40,6 +40,7 @@ Authors
 * @naoya : Refactoring, Add some tests, Web version
 * @hsbt
 * @hokaccha
+* @suzuki
 
 捕捉
 ----------
