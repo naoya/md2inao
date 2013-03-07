@@ -174,10 +174,18 @@ sub to_html_tree {
 
     ## Work Around: Text::Markdown が flagged string だと一部 buggy なので encode してから渡している
     my $html = decode_utf8 markdown(encode_utf8 $text);
+    $html = prepare_html_for_inao($html);
 
     my $tree = HTML::TreeBuilder->new;
     $tree->no_space_compacting(1);
     $tree->parse_content(\$html);
+}
+
+sub prepare_html_for_inao {
+    my $html = shift;
+    $html =~ s!<li><p>(.+)</p>\n\n<p>(.+)</p></li>\n</ul>!<li>$1</li>\n</ul>\n\n<p>  $2</p>!g;
+    $html =~ s!<li><p>(.+)</p></li>\n!<li>$1</li>\n!g;
+    return $html;
 }
 
 sub to_inao {
