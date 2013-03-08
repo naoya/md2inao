@@ -172,6 +172,8 @@ sub parse_inline {
 sub to_html_tree {
     my $text = shift;
 
+    $text = prepare_text_for_markdown($text);
+
     ## Work Around: Text::Markdown が flagged string だと一部 buggy なので encode してから渡している
     my $html = decode_utf8 markdown(encode_utf8 $text);
     $html = prepare_html_for_inao($html);
@@ -181,9 +183,18 @@ sub to_html_tree {
     $tree->parse_content(\$html);
 }
 
+sub prepare_text_for_markdown {
+    my $text = shift;
+
+    ## Work Around: 先頭空白は字下げとみなし全角空白に置き換える (issue #4)
+    $text =~ s/^[ ]{1,3}([^ ])/　$1/mg;
+    return $text;
+}
+
 sub prepare_html_for_inao {
     my $html = shift;
-    $html =~ s!<li><p>(.+)</p>\n\n<p>(.+)</p></li>\n</ul>!<li>$1</li>\n</ul>\n\n<p>  $2</p>!g;
+    ## Work Around: リスト周りと inao 記法の相性が悪い
+    # see also: t/07_list.t
     $html =~ s!<li><p>(.+)</p></li>\n!<li>$1</li>\n!g;
     return $html;
 }

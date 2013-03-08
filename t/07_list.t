@@ -19,7 +19,7 @@ sub md2inao {
 }
 
 __END__
-===
+=== case 1
 --- in md2inao
 * Foo
 * Bar
@@ -30,9 +30,9 @@ __END__
 ・Foo
 ・Bar
 ・Baz
-  Piyo
+　Piyo
 
-===
+=== case 2
 --- in md2inao
 * Foo
 * Bar
@@ -45,7 +45,7 @@ Piyo
 ・Baz
 Piyo
 
-===
+=== case 3
 --- in md2inao
 * あ
 * あ
@@ -54,9 +54,9 @@ Piyo
 --- expected
 ・あ
 ・あ
-  い
+　い
 
-===
+=== case 4
 --- in md2inao
 * Foo
 
@@ -69,7 +69,7 @@ Piyo
 ・Bar
 ・Baz
 
-===
+=== case 5
 --- in md2inao
 * あ
 
@@ -78,7 +78,7 @@ Piyo
 ・あ
 ・い
 
-===
+=== case 6
 --- in md2inao
 * あ
 
@@ -87,7 +87,7 @@ Piyo
 ・あ
 い
 
-===
+=== case 7
 --- in md2inao
 * あ
 
@@ -99,27 +99,19 @@ Piyo
 い
 ・あ
 
-===
+=== case 8
 --- in md2inao
-あ
+  blah blah
 
- い
+* Hoge
+* Foo
 
-  う
+  bar
 
-    え
-
-     お
-
-　か
+  baz
 --- expected
-あ
-い
-う
-◆list/◆
-え
-
- お
-◆/list◆
-　か
-
+　blah blah
+・Hoge
+・Foo
+　bar
+　baz
