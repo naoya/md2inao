@@ -241,6 +241,9 @@ sub prepare_html_for_inao {
     ## Work Around: リスト周りと inao 記法の相性が悪い
     # see also: t/07_list.t
     $html =~ s!<li><p>(.+)</p></li>\n!<li>$1</li>\n!g;
+
+    ## 段落切り替えの意図が見えるのにそうならないケースを補正 (issue #8)
+    $html =~ s!<p>(.*)\n　!<p>$1</p>\n<p>　!g;
     return $html;
 }
 
