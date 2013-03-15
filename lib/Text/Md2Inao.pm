@@ -77,18 +77,59 @@ sub parse_inline {
     my $elem = shift;
     my $is_special_italic = shift;
     my $ret = '';
-    my $flag_note;
+    my $in_footnote;
 
     for my $inline ($elem->content_list) {
         if (ref $inline eq '') {
             # (注:)は脚注としてあつかう
-            if ($inline =~ m!\(注:!) {
-                $inline =~ s!\(注:(.+?)!◆注/◆$1!gs;
-                $flag_note++;
-            }
-            if ($inline =~ m!\)! && $flag_note) {
-                $inline =~ s!\)!◆/注◆!;
-                $flag_note--;
+            if ($inline =~ m!\(注:! or $in_footnote) {
+                # $flag_note++;
+
+                ## 1文字ずつ追って括弧の対応を調べる
+                my @char = split //, $inline;
+                my @end_pos;
+                my $level  = 0;
+                my $index  = 0;
+
+                for (@char) {
+                    if ($_ eq '(') {
+                        if ($char[$index + 1] eq '注' and $char[$index + 2] eq ':') {
+                            $in_footnote++;
+                        }
+                        if ($in_footnote) {
+                            $level++;
+                        }
+                    }
+
+                    if ($_ eq ')') {
+                        if ($in_footnote) {
+                            ## $in_footnote && $level == 0
+                            ## (注: _italic_ ) とかで中で $inline が分断されたケース
+                            if ($level == 0) {
+                                push @end_pos, $index;
+                                $in_footnote--;
+                            }
+                            ## 普通に (注: の対応括弧が見つかった
+                            elsif ($level == 1) {
+                                push @end_pos, $index;
+                                $level = 0;
+                                $in_footnote--;
+                            }
+
+                            ## (注: の中に入れ子になっている括弧の対応括弧が見つかった
+                            else {
+                                $level--;
+                            }
+                        }
+                    }
+                    $index++;
+                }
+
+                ## 前から置換してくと置換後文字のが文字数多くて位置がずれるので後ろから
+                for my $pos (reverse @end_pos) {
+                    substr $inline, $pos, 1, '◆/注◆';
+                }
+                $inline =~ s!\(注:!◆注/◆!g;
             }
 
             # 改行を取り除く
