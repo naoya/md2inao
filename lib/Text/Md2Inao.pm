@@ -72,6 +72,50 @@ sub visual_length {
     return $ret;
 }
 
+sub find_closing_parenthesis {
+    my ($line, $in_footnote) = @_;
+    my @end_pos;
+
+    ## 1文字ずつ追って括弧の対応を調べる
+    my @char = split //, $line;
+    my $level  = 0;
+    my $index  = 0;
+
+    for (@char) {
+        if ($_ eq '(') {
+            if ($char[$index + 1] eq '注' and $char[$index + 2] eq ':') {
+                $$in_footnote++;
+            }
+            if ($$in_footnote) {
+                $level++;
+            }
+        }
+        if ($_ eq ')') {
+            if ($$in_footnote) {
+                ## $in_footnote && $level == 0
+                ## (注: _italic_ ) とかで中で $line が分断されたケース
+                if ($level == 0) {
+                    push @end_pos, $index;
+                    $$in_footnote--;
+                }
+                ## 普通に (注: の対応括弧が見つかった
+                elsif ($level == 1) {
+                    push @end_pos, $index;
+                    $level = 0;
+                    $$in_footnote--;
+                }
+
+                ## (注: の中に入れ子になっている括弧の対応括弧が見つかった
+                else {
+                    $level--;
+                }
+            }
+        }
+        $index++;
+    }
+    return @end_pos;
+}
+
 sub parse_inline {
     my $self = shift;
     my $elem = shift;
@@ -81,49 +125,8 @@ sub parse_inline {
 
     for my $inline ($elem->content_list) {
         if (ref $inline eq '') {
-            # (注:)は脚注としてあつかう
             if ($inline =~ m!\(注:! or $in_footnote) {
-                # $flag_note++;
-
-                ## 1文字ずつ追って括弧の対応を調べる
-                my @char = split //, $inline;
-                my @end_pos;
-                my $level  = 0;
-                my $index  = 0;
-
-                for (@char) {
-                    if ($_ eq '(') {
-                        if ($char[$index + 1] eq '注' and $char[$index + 2] eq ':') {
-                            $in_footnote++;
-                        }
-                        if ($in_footnote) {
-                            $level++;
-                        }
-                    }
-
-                    if ($_ eq ')') {
-                        if ($in_footnote) {
-                            ## $in_footnote && $level == 0
-                            ## (注: _italic_ ) とかで中で $inline が分断されたケース
-                            if ($level == 0) {
-                                push @end_pos, $index;
-                                $in_footnote--;
-                            }
-                            ## 普通に (注: の対応括弧が見つかった
-                            elsif ($level == 1) {
-                                push @end_pos, $index;
-                                $level = 0;
-                                $in_footnote--;
-                            }
-
-                            ## (注: の中に入れ子になっている括弧の対応括弧が見つかった
-                            else {
-                                $level--;
-                            }
-                        }
-                    }
-                    $index++;
-                }
+                my @end_pos = find_closing_parenthesis($inline, \$in_footnote);
 
                 ## 前から置換してくと置換後文字のが文字数多くて位置がずれるので後ろから
                 for my $pos (reverse @end_pos) {
@@ -302,7 +305,14 @@ sub to_inao {
             }
 
             # コード内コメント
-            $text =~ s!\(注:(.+?)\)!◆$comment_label/◆$1◆/$comment_label◆!g;
+            my $in_footnote;
+            if ($text =~ m!\(注:! or $in_footnote) {
+                my @end_pos = find_closing_parenthesis($text, \$in_footnote);
+                for my $pos (reverse @end_pos) {
+                    substr $text, $pos, 1, "◆/$comment_label◆";
+                }
+                $text =~ s!\(注:!◆$comment_label/◆!g;                
+            }
 
             # コード内強調
             $text =~ s!\*\*(.+?)\*\*!◆cmd-b/◆$1◆/cmd-b◆!g;

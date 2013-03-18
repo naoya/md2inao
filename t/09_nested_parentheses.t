@@ -67,9 +67,26 @@ __END__
 --- expected
 本文(普通の括弧の中に◆注/◆脚注◆/注◆がある)本文の続き。
 
+===
+--- in md2inao
+    ●リスト1::リストの注
+    (注:リストの注)
+    codecodecodecodecodecodecodecodecode
+    codecodecodecodecodecodecode
+    codecodecode
+--- expected
+◆list/◆
+●リスト1	リストの注
+◆comment/◆リストの注◆/comment◆
+codecodecodecodecodecodecodecodecode
+codecodecodecodecodecodecode
+codecodecode
+◆/list◆
 
-
-
-
-
-
+===
+--- in md2inao
+    (注:リストの中も()があるとおかしくなる)
+--- expected
+◆list/◆
+◆comment/◆リストの中も()があるとおかしくなる◆/comment◆
+◆/list◆
