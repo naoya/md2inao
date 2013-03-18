@@ -72,8 +72,11 @@ sub visual_length {
     return $ret;
 }
 
-sub find_closing_parenthesis {
-    my ($line, $in_footnote) = @_;
+# 脚注記法への変換
+# (注: ... ) → ◆注/◆ ... ◆/注◆
+# 入れ子の括弧も考慮る
+sub replace_note_parenthesis {
+    my ($line, $label, $in_footnote) = @_;
     my @end_pos;
 
     ## 1文字ずつ追って括弧の対応を調べる
@@ -113,7 +116,14 @@ sub find_closing_parenthesis {
         }
         $index++;
     }
-    return @end_pos;
+
+    ## 前から置換してくと置換後文字のが文字数多くて位置がずれるので後ろから
+    for my $pos (reverse @end_pos) {
+        substr $line, $pos, 1, "◆/$label◆";
+    }
+
+    $line =~ s!\(注:!◆$label/◆!g;
+    return $line;
 }
 
 sub parse_inline {
@@ -126,13 +136,7 @@ sub parse_inline {
     for my $inline ($elem->content_list) {
         if (ref $inline eq '') {
             if ($inline =~ m!\(注:! or $in_footnote) {
-                my @end_pos = find_closing_parenthesis($inline, \$in_footnote);
-
-                ## 前から置換してくと置換後文字のが文字数多くて位置がずれるので後ろから
-                for my $pos (reverse @end_pos) {
-                    substr $inline, $pos, 1, '◆/注◆';
-                }
-                $inline =~ s!\(注:!◆注/◆!g;
+                $inline = replace_note_parenthesis($inline, '注', \$in_footnote);
             }
 
             # 改行を取り除く
@@ -309,11 +313,7 @@ sub to_inao {
             # コード内コメント
             my $in_footnote;
             if ($text =~ m!\(注:! or $in_footnote) {
-                my @end_pos = find_closing_parenthesis($text, \$in_footnote);
-                for my $pos (reverse @end_pos) {
-                    substr $text, $pos, 1, "◆/$comment_label◆";
-                }
-                $text =~ s!\(注:!◆$comment_label/◆!g;                
+                $text = replace_note_parenthesis($text, $comment_label, \$in_footnote);
             }
 
             # コード内強調
