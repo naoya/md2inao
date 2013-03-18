@@ -151,7 +151,9 @@ sub parse_inline {
         elsif ($inline->tag eq 'a') {
             my $url   = $inline->attr('href');
             my $title = $inline->as_trimmed_text;
-            $ret .= sprintf "%s◆注/◆%s◆/注◆", $title, $url;
+            if ($url and $title) {
+                $ret .= sprintf "%s◆注/◆%s◆/注◆", $title, $url;
+            }
         }
         elsif ($inline->tag eq 'img') {
             my $url   = $inline->attr('src');
