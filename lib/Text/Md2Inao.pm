@@ -352,6 +352,16 @@ sub to_inao {
                     $self->parse_inline($list, 1)) . "\n";
             }
         }
+        elsif ($elem->tag eq 'dl') {
+            for ($elem->descendants) {
+                if ($_->tag eq 'dt') {
+                    $inao .= sprintf "・%s\n", $self->parse_inline($_);
+                }
+                elsif ($_->tag eq 'dd') {
+                    $inao .= sprintf "・・%s\n", $self->parse_inline($_);
+                }
+            }
+        }
         elsif ($elem->tag eq 'table') {
             my $summary = $elem->attr('summary') || '';
             $summary =~ s!(.+?)::(.+)!●$1\t$2\n!;
