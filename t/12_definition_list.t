@@ -9,8 +9,6 @@ plan tests => 1 * blocks;
 run_is in => 'expected';
 
 sub md2inao {
-    $Text::Md2Inao::Logger::STOP = 1;
-
     my $p = Text::Md2Inao->new({
         default_list           => 'disc',
         max_list_length        => 63,

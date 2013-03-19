@@ -193,6 +193,16 @@ sub parse_inline {
             $ret .= $inline->as_trimmed_text;
             $ret .= '▲';
         }
+        elsif ($inline->tag eq 'ul') {
+            ## parse_inline の中の ul は入れ子の ul だと決め打ちで平気だろうか?
+            $ret .= "\n";
+            for ($inline->content_list) {
+                if ($_->tag eq 'li') {
+                    $ret .= sprintf "＊・%s\n", $self->parse_inline($_, 1);
+                }
+            }
+            chomp $ret;
+        }
         elsif ($inline->tag eq 'span') {
             my $class = $inline->attr('class');
 
@@ -338,7 +348,7 @@ sub to_inao {
             $inao .= "◆/$list_label◆\n";
         }
         elsif ($elem->tag eq 'ul') {
-            for my $list ($elem->find('li')) {
+            for my $list ($elem->content_list) {
                 $inao .= '・' . $self->parse_inline($list, 1) . "\n";
             }
         }
