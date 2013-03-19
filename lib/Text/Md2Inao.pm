@@ -5,12 +5,15 @@ use warnings;
 
 our $VERSION = '0.01';
 
+use Carp;
 use Class::Accessor::Fast qw/antlers/;
 use Encode;
 use HTML::TreeBuilder;
 use List::Util 'max';
 use Text::Markdown 'markdown';
 use Unicode::EastAsianWidth;
+
+use Text::Md2Inao::Logger;
 
 # デフォルトのリストスタイル
 # disc:   黒丸
@@ -157,6 +160,8 @@ sub parse_inline {
             my $title = $inline->as_trimmed_text;
             if ($url and $title) {
                 $ret .= sprintf "%s◆注/◆%s◆/注◆", $title, $url;
+            } else {
+                $ret .= fallback_to_html($inline)
             }
         }
         elsif ($inline->tag eq 'img') {
@@ -214,6 +219,12 @@ sub parse_inline {
                 $ret .= $inline->as_trimmed_text;
                 $ret .= '◆';
             }
+            else {
+                $ret .= fallback_to_html($inline);
+            }
+        } else {
+            ## 要警告
+            $ret .= fallback_to_html($inline);
         }
     }
     return $ret;
@@ -301,12 +312,12 @@ sub to_inao {
             my $max = max(map { visual_length($_) } split /\r?\n/, $text);
             if ($text =~ /^●/) {
                 if ($max > $self->max_list_length) {
-                    warn "リストは" . $self->max_list_length . "文字まで！(現在${max}使用):\n$text\n\n";
+                    log warn => "リストは" . $self->max_list_length . "文字まで！(現在${max}使用):\n$text\n\n";
                 }
             }
             else {
                 if ($max > $self->max_inline_list_length) {
-                    warn "本文埋め込みリストは" . $self->max_inline_list_length . "文字まで！(現在${max}使用):\n$text\n\n";
+                    log warn => "本文埋め込みリストは" . $self->max_inline_list_length . "文字まで！(現在${max}使用):\n$text\n\n";
                 }
             }
 
@@ -381,9 +392,18 @@ sub to_inao {
             $inao .= $blockquote;
             $inao .= "\n◆/quote◆\n";
         }
+        else {
+            $inao .= fallback_to_html($elem) . "\n";
+        }
     }
 
     return $inao;
+}
+
+sub fallback_to_html {
+    my $element = shift;
+    log warn => sprintf "HTMLタグは `<%s>` でエスケープしてください。しない場合の出力は不定です", $element->tag;
+    return $element->as_HTML('', '', {});
 }
 
 1;

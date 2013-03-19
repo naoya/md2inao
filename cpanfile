@@ -4,6 +4,7 @@ requires 'Unicode::EastAsianWidth';
 requires 'Pod::Usage';
 requires 'Class::Accessor::Fast';
 requires 'FindBin::libs';
+requires 'Term::ANSIColor';
 
 ## for web app
 requires 'Mojolicious::Lite';
