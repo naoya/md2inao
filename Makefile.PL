@@ -1,4 +1,3 @@
-use lib 'lib';
 use inc::Module::Install;
 name 'Text-Md2Inao';
 all_from 'lib/Text/Md2Inao.pm';
