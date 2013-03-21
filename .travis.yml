@@ -7,7 +7,7 @@ before_install:
   - cpanm Module::Install::ReadmeFromPod
   - cpanm Module::Install::CPANfile
   - cpanm Test::Base
-script: "make test"
+script: "perl Makefile.PL && make test"
 notifications:
   email:
     - i.naoya+md2inao@gmail.com
