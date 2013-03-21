@@ -1,5 +1,8 @@
 .carton
 local/
+MYMETA.json
+MYMETA.yml
+META.json
 
 ### /Users/naoya/.gitignore-boilerplates/Global/OSX.gitignore
 
@@ -35,5 +38,3 @@ META.yml
 MYMETA.yml
 nytprof.out
 pm_to_blib
-
-

@@ -427,3 +427,22 @@ sub fallback_to_html {
 }
 
 1;
+
+=head1 NAME
+
+Text::Md2Inao - Convert markdown text to Inao-format
+
+=head1 SYNOPSIS
+
+=head1 DESCRIPTION
+
+=head1 AUTHOR
+
+Naoya Ito E<lt>i.naoya@gmail.comE<gt>
+
+=head1 LICENSE
+
+This library is free software; you can redistribute it and/or modify
+it under the same terms as Perl itself.
+
+=cut
