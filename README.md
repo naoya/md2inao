@@ -1,5 +1,7 @@
 # Markdown to Inao-Format
 
+[![Build Status](https://travis-ci.org/naoya/md2inao.pl.png?branch=master)](https://travis-ci.org/naoya/md2inao.pl)
+
 Markdown で書かれたテキストを「inaoフォーマット」に変換します。
 
 * bin/md2inao.pl : CUIコマンド版
