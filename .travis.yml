@@ -1,0 +1,8 @@
+language: perl
+perl:
+  - "5.16"
+  - "5.14"
+  - "5.10"
+notifications:
+  email:
+    - i.naoya+md2inao@gmail.com
