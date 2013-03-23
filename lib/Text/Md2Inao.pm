@@ -38,6 +38,10 @@ has max_inline_list_length => ( is => 'rw', isa => 'Num' );
 
 has is_inline => (is => 'rw');
 
+sub is_block {
+    !shift->is_inline
+}
+
 sub parse {
     my ($self, $in) = @_;
     return $self->to_inao($in);
@@ -162,38 +166,9 @@ sub parse_inline {
 
             $ret .= $inline;
         }
-        # elsif ($inline->tag eq 'a') {
-        #     $ret .= inode($inline)->to_inao;
-        # }
-        # elsif ($inline->tag eq 'img') {
-        #     $ret .= inode($inline)->to_inao;
-        # }
-        # elsif ($inline->tag eq 'code') {
-        #     $ret .= inode($inline)->to_inao;
-        # }
-        # elsif ($inline->tag eq 'strong') {
-        #     $ret .= inode($inline)->to_inao;
-        # }
         elsif ($inline->tag eq 'em') {
             $ret .= inode($self, $inline, { special_italic => $is_special_italic })->to_inao;
         }
-        # elsif ($inline->tag eq 'kbd') {
-        #     $ret .= inode($inline)->to_inao;
-
-        # }
-        # elsif ($inline->tag eq 'ul') {
-        #     ## parse_inline の中の ul は入れ子の ul だと決め打ちで平気だろうか?
-        #     $ret .= "\n";
-        #     for ($inline->content_list) {
-        #         if ($_->tag eq 'li') {
-        #             $ret .= sprintf "＊・%s\n", $self->parse_inline($_, 1);
-        #         }
-        #     }
-        #     chomp $ret;
-        # }
-        # elsif ($inline->tag eq 'span') {
-        #     $ret .= inode($inline)->to_inao;
-        #  }
         else {
             $ret .= inode($self, $inline)->to_inao;
         }
@@ -310,12 +285,6 @@ sub to_inao {
             $inao .= $text;
             $inao .= "◆/$list_label◆\n";
         }
-        elsif ($elem->tag eq 'ul') {
-            # for my $list ($elem->content_list) {
-            #     $inao .= '・' . $self->parse_inline($list, 1) . "\n";
-            # }
-            $inao .= inode($self, $elem)->to_inao;
-        }
         elsif ($elem->tag eq 'ol') {
             my $list_style = $elem->attr('class') || $self->default_list;
             my $s = substr $list_style, 0, 1;
@@ -325,36 +294,6 @@ sub to_inao {
                     to_list_style((sprintf('(%s%d)', $s, ++$i)) .
                     $self->parse_inline($list, 1)) . "\n";
             }
-        }
-        elsif ($elem->tag eq 'dl') {
-            for ($elem->descendants) {
-                if ($_->tag eq 'dt') {
-                    $inao .= sprintf "・%s\n", $self->parse_inline($_);
-                }
-                elsif ($_->tag eq 'dd') {
-                    $inao .= sprintf "・・%s\n", $self->parse_inline($_);
-                }
-            }
-        }
-        elsif ($elem->tag eq 'table') {
-            my $summary = $elem->attr('summary') || '';
-            $summary =~ s!(.+?)::(.+)!●$1\t$2\n!;
-            $inao .= "◆table/◆\n";
-            $inao .= $summary;
-            $inao .= "◆table-title◆";
-            for my $table ($elem->find('tr')) {
-                for my $item ($table->find('th')){
-                    $inao .= $item->as_trimmed_text;
-                    $inao .= "\t";
-                }
-                for my $item ($table->find('td')){
-                    $inao .= $item->as_trimmed_text;
-                    $inao .= "\t";
-                }
-                chop($inao);
-                $inao .= "\n"
-            }
-            $inao .= "◆/table◆\n";
         }
         elsif ($elem->tag eq 'div' and $elem->attr('class') eq 'column') {
             # HTMLとして取得してcolumn自信のdivタグを削除
@@ -366,18 +305,8 @@ sub to_inao {
             $inao .= $self->to_inao($html, 1);
             $inao .= "◆/column◆\n";
         }
-        elsif ($elem->tag eq 'blockquote') {
-            my $blockquote = '';
-            for my $p ($elem->content_list) {
-                $blockquote = $self->parse_inline($p, 1);
-            }
-            $blockquote =~ s/(\s)//g;
-            $inao .= "◆quote/◆\n";
-            $inao .= $blockquote;
-            $inao .= "\n◆/quote◆\n";
-        }
         else {
-            $inao .= fallback_to_html($elem) . "\n";
+            $inao .= inode($self, $elem)->to_inao;
         }
     }
 
