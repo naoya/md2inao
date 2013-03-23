@@ -14,6 +14,7 @@ use Text::Markdown 'markdown';
 use Unicode::EastAsianWidth;
 use Module::Load;
 
+use Text::Md2Inao::Util;
 use Text::Md2Inao::Logger;
 
 use Exporter::Lite;
@@ -45,43 +46,6 @@ sub is_block {
 sub parse {
     my ($self, $in) = @_;
     return $self->to_inao($in);
-}
-
-# 本文中に（◯1）や（1）など、リストを参照するときの形式に変換する
-# 「リスト1.1(c1)を見てください」
-# -> 
-# 「リスト1.1（◯1）を見てください」となる
-#
-# (d1) -> （1）   # desc
-# (c1) -> （◯1） # circle
-# (s1) -> ［1］   # square
-# (a1) -> （a）   # alpha
-#
-# エスケープも可能
-# (\d1) -> (d1)
-# (\c1) -> (c1)
-sub to_list_style {
-    my $text = shift;
-
-    # convert
-    $text =~ s/\(d(\d+)\)/（$1）/g;
-    $text =~ s/\(c(\d+)\)/（○$1）/g;
-    $text =~ s/\(s(\d+)\)/［$1］/g;
-    $text =~ s/\(a(\d+)\)/'（' . chr($1 + 96)  . '）'/ge;
-
-    # escape
-    $text =~ s/\(\\([dcsa]?\d+)\)/($1)/g;
-
-    return $text;
-}
-
-# 文字幅計算
-# http://d.hatena.ne.jp/tokuhirom/20070514/1179108961
-sub visual_length {
-    local $_ = Encode::decode_utf8(shift);
-    my $ret = 0;
-    while (/(?:(\p{InFullwidth}+)|(\p{InHalfwidth}+))/g) { $ret += ($1 ? length($1)*2 : length($2)) }
-    return $ret;
 }
 
 # 脚注記法への変換
@@ -285,16 +249,6 @@ sub to_inao {
             $inao .= $text;
             $inao .= "◆/$list_label◆\n";
         }
-        elsif ($elem->tag eq 'ol') {
-            my $list_style = $elem->attr('class') || $self->default_list;
-            my $s = substr $list_style, 0, 1;
-            my $i = 0;
-            for my $list ($elem->find('li')) {
-                $inao .=
-                    to_list_style((sprintf('(%s%d)', $s, ++$i)) .
-                    $self->parse_inline($list, 1)) . "\n";
-            }
-        }
         elsif ($elem->tag eq 'div' and $elem->attr('class') eq 'column') {
             # HTMLとして取得してcolumn自信のdivタグを削除
             my $html = $elem->as_HTML('');
@@ -313,15 +267,10 @@ sub to_inao {
     return $inao;
 }
 
-sub fallback_to_html {
-    my $element = shift;
-    log warn => sprintf "HTMLタグは `<%s>` でエスケープしてください。しない場合の出力は不定です", $element->tag;
-    return $element->as_HTML('', '', {});
-}
-
 use Text::Md2Inao::Node::Unknown;
 use Errno ();
 
+## Factory Method
 sub inode {
     my ($p, $h, $args) = @_;
     $args ||= {};
