@@ -37,7 +37,6 @@ has max_inline_list_length => ( is => 'rw', isa => 'Num' );
 
 sub parse {
     my ($self, $in) = @_;
-    $self->{img_number} = 0;
     return $self->to_inao($in);
 }
 
@@ -168,14 +167,6 @@ sub parse_inline {
             }
         }
         elsif ($inline->tag eq 'img') {
-            # my $url   = $inline->attr('src');
-            # my $title = $inline->attr('alt') || $inline->attr('title');
-            # $ret .= sprintf(
-            #     "●図%d\t%s\n%s\n",
-            #     ++$self->{img_number},
-            #     $title,
-            #     $url,
-            # );
             $ret .= inode($inline)->to_inao;
         }
         elsif ($inline->tag eq 'code') {
@@ -403,6 +394,7 @@ use Text::Md2Inao::Node::Code;
 use Text::Md2Inao::Node::Em;
 use Text::Md2Inao::Node::Strong;
 use Text::Md2Inao::Node::Img;
+use Text::Md2Inao::Node::A;
 
 sub inode {
     my ($h, $args) = @_;
@@ -430,6 +422,10 @@ sub inode {
 
     if ($h->tag eq 'img') {
         return Text::Md2Inao::Node::Img->new({ element => $h });
+    }
+
+    if ($h->tag eq 'a') {
+        return Text::Md2Inao::Node::A->new({ element => $h });
     }
 }
 
