@@ -12,6 +12,7 @@ use HTML::TreeBuilder;
 use List::Util 'max';
 use Text::Markdown 'markdown';
 use Unicode::EastAsianWidth;
+use Module::Load;
 
 use Text::Md2Inao::Logger;
 
@@ -389,53 +390,24 @@ sub fallback_to_html {
     return $element->as_HTML('', '', {});
 }
 
-use Text::Md2Inao::Node::Span;
-use Text::Md2Inao::Node::Kbd;
-use Text::Md2Inao::Node::Code;
-use Text::Md2Inao::Node::Em;
-use Text::Md2Inao::Node::Strong;
-use Text::Md2Inao::Node::Img;
-use Text::Md2Inao::Node::A;
-use Text::Md2Inao::Node::Ul;
 use Text::Md2Inao::Node::Unknown;
+use Errno ();
 
 sub inode {
     my ($p, $h, $args) = @_;
     $args ||= {};
 
-    if ($h->tag eq 'span') {
-        return Text::Md2Inao::Node::Span->new({ context => $p, element => $h });
+    my $pkg = sprintf "Text::Md2Inao::Node::%s", ucfirst $h->tag;
+    eval {
+        load $pkg;
+    };
+    if ($@) {
+        if ($! ==  Errno::ENOENT) {
+            return Text::Md2Inao::Node::Unknown->new({ context => $p, element => $h });
+        }
+    } else {
+        return $pkg->new({ context => $p, element => $h, %$args });
     }
-
-    if ($h->tag eq 'kbd') {
-        return Text::Md2Inao::Node::Kbd->new({ context => $p, element => $h });
-    }
-
-    if ($h->tag eq 'code') {
-        return Text::Md2Inao::Node::Code->new({ context => $p, element => $h });
-    }
-
-    if ($h->tag eq 'em') {
-        return Text::Md2Inao::Node::Em->new({ context => $p, element => $h, %$args });
-    }
-
-    if ($h->tag eq 'strong') {
-        return Text::Md2Inao::Node::Strong->new({ context => $p, element => $h });
-    }
-
-    if ($h->tag eq 'img') {
-        return Text::Md2Inao::Node::Img->new({ context => $p, element => $h });
-    }
-
-    if ($h->tag eq 'a') {
-        return Text::Md2Inao::Node::A->new({ context => $p, element => $h });
-    }
-
-    if ($h->tag eq 'ul') {
-        return Text::Md2Inao::Node::Ul->new({ context => $p, element => $h });
-    }
-
-    return Text::Md2Inao::Node::Unknown->new({ context => $p, element => $h });
 }
 
 1;
