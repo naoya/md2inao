@@ -35,6 +35,8 @@ has max_list_length => ( is => 'rw', isa => 'Num' );
 # 書籍の場合、本文リストは1行73桁（文字）まで
 has max_inline_list_length => ( is => 'rw', isa => 'Num' );
 
+has is_inline => (is => 'rw');
+
 sub parse {
     my ($self, $in) = @_;
     return $self->to_inao($in);
@@ -138,6 +140,8 @@ sub parse_inline {
     my $ret = '';
     my $in_footnote;
 
+    $self->is_inline(1);
+
     for my $inline ($elem->content_list) {
         if (ref $inline eq '') {
             if ($inline =~ m!\(注:! or $in_footnote) {
@@ -176,16 +180,16 @@ sub parse_inline {
         #     $ret .= inode($inline)->to_inao;
 
         # }
-        elsif ($inline->tag eq 'ul') {
-            ## parse_inline の中の ul は入れ子の ul だと決め打ちで平気だろうか?
-            $ret .= "\n";
-            for ($inline->content_list) {
-                if ($_->tag eq 'li') {
-                    $ret .= sprintf "＊・%s\n", $self->parse_inline($_, 1);
-                }
-            }
-            chomp $ret;
-        }
+        # elsif ($inline->tag eq 'ul') {
+        #     ## parse_inline の中の ul は入れ子の ul だと決め打ちで平気だろうか?
+        #     $ret .= "\n";
+        #     for ($inline->content_list) {
+        #         if ($_->tag eq 'li') {
+        #             $ret .= sprintf "＊・%s\n", $self->parse_inline($_, 1);
+        #         }
+        #     }
+        #     chomp $ret;
+        # }
         # elsif ($inline->tag eq 'span') {
         #     $ret .= inode($inline)->to_inao;
         #  }
@@ -193,6 +197,8 @@ sub parse_inline {
             $ret .= inode($self, $inline)->to_inao;
         }
     }
+
+    $self->is_inline(0);
     return $ret;
 }
 
@@ -304,9 +310,10 @@ sub to_inao {
             $inao .= "◆/$list_label◆\n";
         }
         elsif ($elem->tag eq 'ul') {
-            for my $list ($elem->content_list) {
-                $inao .= '・' . $self->parse_inline($list, 1) . "\n";
-            }
+            # for my $list ($elem->content_list) {
+            #     $inao .= '・' . $self->parse_inline($list, 1) . "\n";
+            # }
+            $inao .= inode($self, $elem)->to_inao;
         }
         elsif ($elem->tag eq 'ol') {
             my $list_style = $elem->attr('class') || $self->default_list;
@@ -389,6 +396,7 @@ use Text::Md2Inao::Node::Em;
 use Text::Md2Inao::Node::Strong;
 use Text::Md2Inao::Node::Img;
 use Text::Md2Inao::Node::A;
+use Text::Md2Inao::Node::Ul;
 use Text::Md2Inao::Node::Unknown;
 
 sub inode {
@@ -421,6 +429,10 @@ sub inode {
 
     if ($h->tag eq 'a') {
         return Text::Md2Inao::Node::A->new({ context => $p, element => $h });
+    }
+
+    if ($h->tag eq 'ul') {
+        return Text::Md2Inao::Node::Ul->new({ context => $p, element => $h });
     }
 
     return Text::Md2Inao::Node::Unknown->new({ context => $p, element => $h });

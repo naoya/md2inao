@@ -7,14 +7,22 @@ use parent 'Text::Md2Inao::Node';
 
 sub to_inao {
     my $self = shift;
-    my $ret = "\n";
-    for ($self->element->content_list) {
-        if ($_->tag eq 'li') {
-            # FIXME: $self->parse_inline() ここどうするか?
-            $ret .= sprintf "＊・%s\n", $self->parse_inline($_, 1);
+    if ($self->context->is_inline) {
+        my $ret = "\n";
+        for ($self->element->content_list) {
+            if ($_->tag eq 'li') {
+                $ret .= sprintf "＊・%s\n", $self->context->parse_inline($_, 1);
+            }
         }
+        chomp $ret;
+        return $ret;
+    } else {
+        my $ret;
+        for my $list ($self->element->content_list) {
+            $ret .= '・' . $self->context->parse_inline($list, 1) . "\n";
+        }
+        return $ret;
     }
-    chomp $ret;
 }
 
 1;
