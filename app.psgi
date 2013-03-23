@@ -10,9 +10,7 @@ use Text::Md2Inao;
 # Increase limit to 1GB from 1GB
 # $ENV{MOJO_MAX_MESSAGE_SIZE} = 1073741824;
 
-get '/' => sub {
-    shift->render;
-} => 'index';
+get '/' => 'index';
 
 post '/upload' => sub {
     my $self = shift;
