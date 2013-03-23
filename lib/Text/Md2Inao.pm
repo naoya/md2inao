@@ -178,9 +178,7 @@ sub parse_inline {
             );
         }
         elsif ($inline->tag eq 'code') {
-            $ret .= '◆cmd/◆';
-            $ret .= $inline->as_trimmed_text;
-            $ret .= '◆/cmd◆';
+            $ret .= inode($inline)->to_inao;
         }
         elsif ($inline->tag eq 'strong') {
             $ret .= '◆b/◆';
@@ -188,12 +186,11 @@ sub parse_inline {
             $ret .= '◆/b◆';
         }
         elsif ($inline->tag eq 'em') {
-            $ret .= $is_special_italic ? '◆i-j/◆' : '◆i/◆';
-            $ret .= $inline->as_trimmed_text;
-            $ret .= $is_special_italic ? '◆/i-j◆' : '◆/i◆';
+            $ret .= inode($inline, { special_italic => $is_special_italic })->to_inao;
         }
         elsif ($inline->tag eq 'kbd') {
             $ret .= inode($inline)->to_inao;
+
         }
         elsif ($inline->tag eq 'ul') {
             ## parse_inline の中の ul は入れ子の ul だと決め打ちで平気だろうか?
@@ -404,9 +401,13 @@ sub fallback_to_html {
 use Text::Md2Inao::Node::Span;
 use Text::Md2Inao::Node::Kbd;
 use Text::Md2Inao::Node::Code;
+use Text::Md2Inao::Node::Em;
+use Text::Md2Inao::Node::Strong;
 
 sub inode {
-    my $h = shift;
+    my ($h, $args) = @_;
+    $args ||= {};
+
     if ($h->tag eq 'span') {
         return Text::Md2Inao::Node::Span->new({ element => $h });
     }
@@ -417,6 +418,14 @@ sub inode {
 
     if ($h->tag eq 'code') {
         return Text::Md2Inao::Node::Code->new({ element => $h });
+    }
+
+    if ($h->tag eq 'em') {
+        return Text::Md2Inao::Node::Em->new({ element => $h, %$args });
+    }
+
+    if ($h->tag eq 'strong') {
+        return Text::Md2Inao::Node::Strong->new({ element => $h });
     }
 }
 
