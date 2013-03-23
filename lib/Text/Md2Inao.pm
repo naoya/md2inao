@@ -15,6 +15,9 @@ use Unicode::EastAsianWidth;
 
 use Text::Md2Inao::Logger;
 
+use Exporter::Lite;
+our @EXPORT = qw/inode/;
+
 # デフォルトのリストスタイル
 # disc:   黒丸
 # square: 四角
@@ -204,34 +207,7 @@ sub parse_inline {
             chomp $ret;
         }
         elsif ($inline->tag eq 'span') {
-            my $class = $inline->attr('class');
-
-            # 赤字
-            # <span class='red'>赤字</span>
-            if ($class eq 'red') {
-                $ret .= '◆red/◆';
-                $ret .= $inline->as_trimmed_text;
-                $ret .= '◆/red◆';
-            }
-
-            # ruby
-            # <span class='ruby'>漢字(かんじ)</span>
-            elsif ($class eq 'ruby') {
-                my $ruby = $inline->as_trimmed_text;
-                $ruby =~ s!(.+)\((.+)\)!◆ルビ/◆$1◆$2◆/ルビ◆!;
-                $ret .= $ruby;
-            }
-
-            # その他の記号
-            # <span class='symbol'>＝＞</span>
-            elsif ($class eq 'symbol') {
-                $ret .= '◆';
-                $ret .= $inline->as_trimmed_text;
-                $ret .= '◆';
-            }
-            else {
-                $ret .= fallback_to_html($inline);
-            }
+            $ret .= inode($inline)->to_inao;
         } else {
             ## 要警告
             $ret .= fallback_to_html($inline);
@@ -424,6 +400,15 @@ sub fallback_to_html {
     my $element = shift;
     log warn => sprintf "HTMLタグは `<%s>` でエスケープしてください。しない場合の出力は不定です", $element->tag;
     return $element->as_HTML('', '', {});
+}
+
+use Text::Md2Inao::Node::Span;
+
+sub inode {
+    my $h = shift;
+    if ($h->tag eq 'span') {
+        return Text::Md2Inao::Node::Span->new({ element => $h });
+    }
 }
 
 1;

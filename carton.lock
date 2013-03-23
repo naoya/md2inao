@@ -523,6 +523,49 @@
          "target" : "Encode::Locale",
          "version" : "1.03"
       },
+      "Exporter::Lite" : {
+         "dist" : "Exporter-Lite-0.02",
+         "mymeta" : {
+            "abstract" : "unknown",
+            "author" : [
+               "unknown"
+            ],
+            "dynamic_config" : 0,
+            "generated_by" : "ExtUtils::MakeMaker version 6.31, CPAN::Meta::Converter version 2.120921",
+            "license" : [
+               "perl_5"
+            ],
+            "meta-spec" : {
+               "url" : "http://search.cpan.org/perldoc?CPAN::Meta::Spec",
+               "version" : "2"
+            },
+            "name" : "Exporter-Lite",
+            "prereqs" : {
+               "build" : {
+                  "requires" : {
+                     "ExtUtils::MakeMaker" : "0"
+                  }
+               },
+               "runtime" : {
+                  "requires" : {
+                     "Test::More" : "0.34"
+                  }
+               }
+            },
+            "release_status" : "stable",
+            "version" : "0.02"
+         },
+         "name" : "Exporter::Lite",
+         "pathname" : "M/MS/MSCHWERN/Exporter-Lite-0.02.tar.gz",
+         "provides" : {
+            "Exporter::Lite" : {
+               "file" : "Exporter/Lite.pm",
+               "version" : "0.02"
+            }
+         },
+         "target" : "Exporter::Lite",
+         "version" : "0.02"
+      },
       "File::Listing" : {
          "dist" : "File-Listing-6.04",
          "mymeta" : {

@@ -5,6 +5,7 @@ requires 'Pod::Usage';
 requires 'Class::Accessor::Fast';
 requires 'FindBin::libs';
 requires 'Term::ANSIColor';
+requires 'Exporter::Lite';
 
 ## for web app
 # requires 'Mojolicious::Lite';
