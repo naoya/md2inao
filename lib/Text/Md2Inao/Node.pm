@@ -14,4 +14,6 @@ sub fallback_to_html {
     return $self->element->as_HTML('', '', {});
 }
 
+sub to_inao {}
+
 1;

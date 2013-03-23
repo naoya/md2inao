@@ -193,8 +193,7 @@ sub parse_inline {
             $ret .= $is_special_italic ? '◆/i-j◆' : '◆/i◆';
         }
         elsif ($inline->tag eq 'kbd') {
-            $ret .= $inline->as_trimmed_text;
-            $ret .= '▲';
+            $ret .= inode($inline)->to_inao;
         }
         elsif ($inline->tag eq 'ul') {
             ## parse_inline の中の ul は入れ子の ul だと決め打ちで平気だろうか?
@@ -403,11 +402,21 @@ sub fallback_to_html {
 }
 
 use Text::Md2Inao::Node::Span;
+use Text::Md2Inao::Node::Kbd;
+use Text::Md2Inao::Node::Code;
 
 sub inode {
     my $h = shift;
     if ($h->tag eq 'span') {
         return Text::Md2Inao::Node::Span->new({ element => $h });
+    }
+
+    if ($h->tag eq 'kbd') {
+        return Text::Md2Inao::Node::Kbd->new({ element => $h });
+    }
+
+    if ($h->tag eq 'code') {
+        return Text::Md2Inao::Node::Code->new({ element => $h });
     }
 }
 
