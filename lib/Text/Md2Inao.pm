@@ -157,25 +157,25 @@ sub parse_inline {
 
             $ret .= $inline;
         }
-        elsif ($inline->tag eq 'a') {
-            $ret .= inode($inline)->to_inao;
-        }
-        elsif ($inline->tag eq 'img') {
-            $ret .= inode($inline)->to_inao;
-        }
-        elsif ($inline->tag eq 'code') {
-            $ret .= inode($inline)->to_inao;
-        }
-        elsif ($inline->tag eq 'strong') {
-            $ret .= inode($inline)->to_inao;
-        }
+        # elsif ($inline->tag eq 'a') {
+        #     $ret .= inode($inline)->to_inao;
+        # }
+        # elsif ($inline->tag eq 'img') {
+        #     $ret .= inode($inline)->to_inao;
+        # }
+        # elsif ($inline->tag eq 'code') {
+        #     $ret .= inode($inline)->to_inao;
+        # }
+        # elsif ($inline->tag eq 'strong') {
+        #     $ret .= inode($inline)->to_inao;
+        # }
         elsif ($inline->tag eq 'em') {
             $ret .= inode($inline, { special_italic => $is_special_italic })->to_inao;
         }
-        elsif ($inline->tag eq 'kbd') {
-            $ret .= inode($inline)->to_inao;
+        # elsif ($inline->tag eq 'kbd') {
+        #     $ret .= inode($inline)->to_inao;
 
-        }
+        # }
         elsif ($inline->tag eq 'ul') {
             ## parse_inline の中の ul は入れ子の ul だと決め打ちで平気だろうか?
             $ret .= "\n";
@@ -186,9 +186,10 @@ sub parse_inline {
             }
             chomp $ret;
         }
-        elsif ($inline->tag eq 'span') {
-            $ret .= inode($inline)->to_inao;
-        } else {
+        # elsif ($inline->tag eq 'span') {
+        #     $ret .= inode($inline)->to_inao;
+        #  }
+        else {
             $ret .= inode($inline)->to_inao;
         }
     }
