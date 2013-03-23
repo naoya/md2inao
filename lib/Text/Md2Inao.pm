@@ -181,9 +181,7 @@ sub parse_inline {
             $ret .= inode($inline)->to_inao;
         }
         elsif ($inline->tag eq 'strong') {
-            $ret .= '◆b/◆';
-            $ret .= $inline->as_trimmed_text;
-            $ret .= '◆/b◆';
+            $ret .= inode($inline)->to_inao;
         }
         elsif ($inline->tag eq 'em') {
             $ret .= inode($inline, { special_italic => $is_special_italic })->to_inao;
