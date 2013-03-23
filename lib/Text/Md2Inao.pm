@@ -170,7 +170,7 @@ sub parse_inline {
         #     $ret .= inode($inline)->to_inao;
         # }
         elsif ($inline->tag eq 'em') {
-            $ret .= inode($inline, { special_italic => $is_special_italic })->to_inao;
+            $ret .= inode($self, $inline, { special_italic => $is_special_italic })->to_inao;
         }
         # elsif ($inline->tag eq 'kbd') {
         #     $ret .= inode($inline)->to_inao;
@@ -190,7 +190,7 @@ sub parse_inline {
         #     $ret .= inode($inline)->to_inao;
         #  }
         else {
-            $ret .= inode($inline)->to_inao;
+            $ret .= inode($self, $inline)->to_inao;
         }
     }
     return $ret;
@@ -392,38 +392,38 @@ use Text::Md2Inao::Node::A;
 use Text::Md2Inao::Node::Unknown;
 
 sub inode {
-    my ($h, $args) = @_;
+    my ($p, $h, $args) = @_;
     $args ||= {};
 
     if ($h->tag eq 'span') {
-        return Text::Md2Inao::Node::Span->new({ element => $h });
+        return Text::Md2Inao::Node::Span->new({ context => $p, element => $h });
     }
 
     if ($h->tag eq 'kbd') {
-        return Text::Md2Inao::Node::Kbd->new({ element => $h });
+        return Text::Md2Inao::Node::Kbd->new({ context => $p, element => $h });
     }
 
     if ($h->tag eq 'code') {
-        return Text::Md2Inao::Node::Code->new({ element => $h });
+        return Text::Md2Inao::Node::Code->new({ context => $p, element => $h });
     }
 
     if ($h->tag eq 'em') {
-        return Text::Md2Inao::Node::Em->new({ element => $h, %$args });
+        return Text::Md2Inao::Node::Em->new({ context => $p, element => $h, %$args });
     }
 
     if ($h->tag eq 'strong') {
-        return Text::Md2Inao::Node::Strong->new({ element => $h });
+        return Text::Md2Inao::Node::Strong->new({ context => $p, element => $h });
     }
 
     if ($h->tag eq 'img') {
-        return Text::Md2Inao::Node::Img->new({ element => $h });
+        return Text::Md2Inao::Node::Img->new({ context => $p, element => $h });
     }
 
     if ($h->tag eq 'a') {
-        return Text::Md2Inao::Node::A->new({ element => $h });
+        return Text::Md2Inao::Node::A->new({ context => $p, element => $h });
     }
 
-    return Text::Md2Inao::Node::Unknown->new({ element => $h });
+    return Text::Md2Inao::Node::Unknown->new({ context => $p, element => $h });
 }
 
 1;

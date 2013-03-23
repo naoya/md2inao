@@ -6,6 +6,7 @@ use warnings;
 use Class::Accessor::Fast qw/antlers/;
 use Text::Md2Inao::Logger;
 
+has context => ( is => 'rw');
 has element => ( is => 'rw', isa => 'HTML::Element');
 
 sub fallback_to_html {
