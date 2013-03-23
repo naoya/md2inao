@@ -158,13 +158,7 @@ sub parse_inline {
             $ret .= $inline;
         }
         elsif ($inline->tag eq 'a') {
-            my $url   = $inline->attr('href');
-            my $title = $inline->as_trimmed_text;
-            if ($url and $title) {
-                $ret .= sprintf "%s◆注/◆%s◆/注◆", $title, $url;
-            } else {
-                $ret .= fallback_to_html($inline)
-            }
+            $ret .= inode($inline)->to_inao;
         }
         elsif ($inline->tag eq 'img') {
             $ret .= inode($inline)->to_inao;
