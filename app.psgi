@@ -30,6 +30,7 @@ post '/upload' => sub {
     $self->render(text => $p->parse(decode_utf8 $md), format => 'txt');
 };
 
+app->types->type(txt => "text/plain;charset=UTF-8");
 app->start;
 
 __DATA__
