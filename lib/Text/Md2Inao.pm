@@ -189,8 +189,7 @@ sub parse_inline {
         elsif ($inline->tag eq 'span') {
             $ret .= inode($inline)->to_inao;
         } else {
-            ## 要警告
-            $ret .= fallback_to_html($inline);
+            $ret .= inode($inline)->to_inao;
         }
     }
     return $ret;
@@ -389,6 +388,7 @@ use Text::Md2Inao::Node::Em;
 use Text::Md2Inao::Node::Strong;
 use Text::Md2Inao::Node::Img;
 use Text::Md2Inao::Node::A;
+use Text::Md2Inao::Node::Unknown;
 
 sub inode {
     my ($h, $args) = @_;
@@ -421,6 +421,8 @@ sub inode {
     if ($h->tag eq 'a') {
         return Text::Md2Inao::Node::A->new({ element => $h });
     }
+
+    return Text::Md2Inao::Node::Unknown->new({ element => $h });
 }
 
 1;
