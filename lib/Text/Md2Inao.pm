@@ -9,7 +9,6 @@ use Carp;
 use Class::Accessor::Fast qw/antlers/;
 use Encode;
 use HTML::TreeBuilder;
-use List::Util 'max';
 use Text::Markdown 'markdown';
 use Unicode::EastAsianWidth;
 use Module::Load;
@@ -38,6 +37,7 @@ has max_list_length => ( is => 'rw', isa => 'Num' );
 has max_inline_list_length => ( is => 'rw', isa => 'Num' );
 
 has is_inline => (is => 'rw');
+has in_footnote => (is => 'rw');
 
 sub is_block {
     !shift->is_inline
@@ -52,7 +52,7 @@ sub parse {
 # (注: ... ) → ◆注/◆ ... ◆/注◆
 # 入れ子の括弧も考慮る
 sub replace_note_parenthesis {
-    my ($line, $label, $in_footnote) = @_;
+    my ($self, $line, $label) = @_;
     my @end_pos;
 
     ## 1文字ずつ追って括弧の対応を調べる
@@ -63,25 +63,25 @@ sub replace_note_parenthesis {
     for (@char) {
         if ($_ eq '(') {
             if ($char[$index + 1] eq '注' and $char[$index + 2] eq ':') {
-                $$in_footnote++;
+                $self->in_footnote(1);
             }
-            if ($$in_footnote) {
+            if ($self->in_footnote) {
                 $level++;
             }
         }
         if ($_ eq ')') {
-            if ($$in_footnote) {
+            if ($self->in_footnote) {
                 ## $in_footnote && $level == 0
                 ## (注: _italic_ ) とかで中で $line が分断されたケース
                 if ($level == 0) {
                     push @end_pos, $index;
-                    $$in_footnote--;
+                    $self->in_footnote(0);
                 }
                 ## 普通に (注: の対応括弧が見つかった
                 elsif ($level == 1) {
                     push @end_pos, $index;
                     $level = 0;
-                    $$in_footnote--;
+                    $self->in_footnote(0);
                 }
 
                 ## (注: の中に入れ子になっている括弧の対応括弧が見つかった
@@ -107,14 +107,13 @@ sub parse_inline {
     my $elem = shift;
     my $is_special_italic = shift;
     my $ret = '';
-    my $in_footnote;
 
     $self->is_inline(1);
 
     for my $inline ($elem->content_list) {
         if (ref $inline eq '') {
-            if ($inline =~ m!\(注:! or $in_footnote) {
-                $inline = replace_note_parenthesis($inline, '注', \$in_footnote);
+            if ($inline =~ m!\(注:! or $self->in_footnote) {
+                $inline = $self->replace_note_parenthesis($inline, '注');
             }
 
             # 改行を取り除く
@@ -200,54 +199,6 @@ sub to_inao {
             if ($p !~ /^[\s　]+$/) {
                 $inao .= "$p\n";
             }
-        }
-        elsif ($elem->tag eq 'pre') {
-            my $code = $elem->find('code');
-            my $text = $code ? $code->as_text : '';
-            my $list_label = 'list';
-            my $comment_label = 'comment';
-
-            # キャプション
-            $text =~ s!●(.+?)::(.+)!●$1\t$2!g;
-
-            # 「!!! cmd」で始まるコードブロックはコマンドライン（黒背景）
-            if ($text =~ /!!!(\s+)?cmd/) {
-                $text =~ s/.+?\n//;
-                $list_label .= '-white';
-                $comment_label .= '-white';
-            }
-
-            # リストスタイル
-            $text = to_list_style($text);
-
-            # 文字数カウント
-            my $max = max(map { visual_length($_) } split /\r?\n/, $text);
-            if ($text =~ /^●/) {
-                if ($max > $self->max_list_length) {
-                    log warn => "リストは" . $self->max_list_length . "文字まで！(現在${max}使用):\n$text\n\n";
-                }
-            }
-            else {
-                if ($max > $self->max_inline_list_length) {
-                    log warn => "本文埋め込みリストは" . $self->max_inline_list_length . "文字まで！(現在${max}使用):\n$text\n\n";
-                }
-            }
-
-            # コード内コメント
-            my $in_footnote;
-            if ($text =~ m!\(注:! or $in_footnote) {
-                $text = replace_note_parenthesis($text, $comment_label, \$in_footnote);
-            }
-
-            # コード内強調
-            $text =~ s!\*\*(.+?)\*\*!◆cmd-b/◆$1◆/cmd-b◆!g;
-
-            # コード内イタリック
-            $text =~ s!\___(.+?)\___!◆i-j/◆$1◆/i-j◆!g;
-
-            $inao .= "◆$list_label/◆\n";
-            $inao .= $text;
-            $inao .= "◆/$list_label◆\n";
         }
         elsif ($elem->tag eq 'div' and $elem->attr('class') eq 'column') {
             # HTMLとして取得してcolumn自信のdivタグを削除
