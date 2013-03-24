@@ -187,16 +187,6 @@ sub to_inao {
                 $inao .= "$p\n";
             }
         }
-        elsif ($elem->tag eq 'div' and $elem->attr('class') eq 'column') {
-            # HTMLとして取得してcolumn自信のdivタグを削除
-            my $html = $elem->as_HTML('');
-            $html =~ s/^<div.+?>//;
-            $html =~ s/<\/div>$//;
-
-            $inao .= "◆column/◆\n";
-            $inao .= $self->to_inao($html, 1);
-            $inao .= "◆/column◆\n";
-        }
         else {
             $inao .= inode($self, $elem)->to_inao;
         }
