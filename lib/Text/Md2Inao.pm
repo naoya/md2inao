@@ -173,21 +173,9 @@ sub to_inao {
     my ($self, $text) = @_;
     my $tree = to_html_tree($text);
     my $inao = q[];
-    my $body = $tree->find('body');
-
-    for my $elem ($body->content_list) {
-        ## FIXME: このへんも Factory Method 内に入れる
-        if ($elem->tag eq 'p') {
-            my $p = $self->parse_inline($elem);
-            if ($p !~ /^[\s　]+$/) {
-                $inao .= "$p\n";
-            }
-        }
-        else {
-            $inao .= inode($self, $elem)->to_inao;
-        }
+    for my $h ($tree->find('body')->content_list) {
+        $inao .= inode($self, $h)->to_inao;
     }
-
     return $inao;
 }
 
