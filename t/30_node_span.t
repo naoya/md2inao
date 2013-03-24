@@ -23,6 +23,7 @@ my $p = Text::Md2Inao->new;
 }
 
 {
+    $Text::Md2Inao::Logger::STOP = 1;
     my $h = HTML::Element->new('span', class => 'unknown');
     $h->push_content('hoge');
     is inode($p, $h)->to_inao, '<span class="unknown">hoge</span>'
