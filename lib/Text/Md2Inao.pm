@@ -155,11 +155,8 @@ sub parse_inline {
 
 sub parse_element {
     my ($self, $elem) = @_;
-    my $out = '';
-    for my $h ($elem->content_list) {
-        $out .= inode($self, $h)->to_inao;
-    }
-    return $out;
+    my @out = map { inode($self, $_)->to_inao } $elem->content_list;
+    return join '', @out;
 }
 
 sub parse {
