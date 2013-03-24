@@ -11,13 +11,11 @@ use Encode;
 use HTML::TreeBuilder;
 use Text::Markdown 'markdown';
 use Unicode::EastAsianWidth;
-use Module::Load;
-
-use Text::Md2Inao::Util;
-use Text::Md2Inao::Logger;
 
 use Exporter::Lite;
 our @EXPORT = qw/inode/;
+
+use Text::Md2Inao::NodeFactory;
 
 # デフォルトのリストスタイル
 # disc:   黒丸
@@ -169,36 +167,8 @@ sub parse {
     return $self->parse_element(to_html_tree($in)->find('body'));
 }
 
-use Text::Md2Inao::Node::Text;
-use Text::Md2Inao::Node::Unknown;
-use Text::Md2Inao::Node::Heading;
-use Errno ();
-
-## Factory Method
 sub inode {
-    my ($p, $h, $args) = @_;
-    $args ||= {};
-
-    if (not ref $h) {
-        return Text::Md2Inao::Node::Text->new({ context => $p, element => $h });
-    }
-
-    if ($h->tag =~ /^h\d+$/) {
-        return Text::Md2Inao::Node::Heading->new({ context => $p, element => $h });
-    }
-
-    ## FIXME: 毎回 load してるのは非効率かも。クラスローダーを変える?
-    my $pkg = sprintf "Text::Md2Inao::Node::%s", ucfirst $h->tag;
-    eval {
-        load $pkg;
-    };
-    if ($@) {
-        if ($! ==  Errno::ENOENT) {
-            return Text::Md2Inao::Node::Unknown->new({ context => $p, element => $h });
-        }
-    } else {
-        return $pkg->new({ context => $p, element => $h, %$args });
-    }
+    return Text::Md2Inao::NodeFactory->factory(@_);
 }
 
 1;
