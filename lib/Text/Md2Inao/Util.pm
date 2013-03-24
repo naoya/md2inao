@@ -6,7 +6,7 @@ use warnings;
 use Exporter::Lite;
 use Unicode::EastAsianWidth;
 
-our @EXPORT = qw/to_list_style visual_length/;
+our @EXPORT = qw/to_list_style visual_length replace_note_parenthesis/;
 
 # 本文中に（◯1）や（1）など、リストを参照するときの形式に変換する
 # 「リスト1.1(c1)を見てください」
@@ -43,6 +43,60 @@ sub visual_length {
     my $ret = 0;
     while (/(?:(\p{InFullwidth}+)|(\p{InHalfwidth}+))/g) { $ret += ($1 ? length($1)*2 : length($2)) }
     return $ret;
+}
+
+# 脚注記法への変換
+# (注: ... ) → ◆注/◆ ... ◆/注◆
+# 入れ子の括弧も考慮る
+sub replace_note_parenthesis {
+    my ($context, $line, $label) = @_;
+    my @end_pos;
+
+    ## 1文字ずつ追って括弧の対応を調べる
+    my @char = split //, $line;
+    my $level  = 0;
+    my $index  = 0;
+
+    for (@char) {
+        if ($_ eq '(') {
+            if ($char[$index + 1] eq '注' and $char[$index + 2] eq ':') {
+                $context->in_footnote(1);
+            }
+            if ($context->in_footnote) {
+                $level++;
+            }
+        }
+        if ($_ eq ')') {
+            if ($context->in_footnote) {
+                ## $in_footnote && $level == 0
+                ## (注: _italic_ ) とかで中で $line が分断されたケース
+                if ($level == 0) {
+                    push @end_pos, $index;
+                    $context->in_footnote(0);
+                }
+                ## 普通に (注: の対応括弧が見つかった
+                elsif ($level == 1) {
+                    push @end_pos, $index;
+                    $level = 0;
+                    $context->in_footnote(0);
+                }
+
+                ## (注: の中に入れ子になっている括弧の対応括弧が見つかった
+                else {
+                    $level--;
+                }
+            }
+        }
+        $index++;
+    }
+
+    ## 前から置換してくと置換後文字のが文字数多くて位置がずれるので後ろから
+    for my $pos (reverse @end_pos) {
+        substr $line, $pos, 1, "◆/$label◆";
+    }
+
+    $line =~ s!\(注:!◆$label/◆!g;
+    return $line;
 }
 
 1;

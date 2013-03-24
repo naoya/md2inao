@@ -12,7 +12,7 @@ sub to_inao {
     my $text = $self->element;
 
     if ($text =~ m!\(注:! or $self->context->in_footnote) {
-        $text = $self->context->replace_note_parenthesis($text, '注');
+        $text = replace_note_parenthesis($self->context, $text, '注');
     }
 
     # 改行を取り除く

@@ -50,60 +50,6 @@ sub use_special_italic {
     return;
 }
 
-# 脚注記法への変換
-# (注: ... ) → ◆注/◆ ... ◆/注◆
-# 入れ子の括弧も考慮る
-sub replace_note_parenthesis {
-    my ($self, $line, $label) = @_;
-    my @end_pos;
-
-    ## 1文字ずつ追って括弧の対応を調べる
-    my @char = split //, $line;
-    my $level  = 0;
-    my $index  = 0;
-
-    for (@char) {
-        if ($_ eq '(') {
-            if ($char[$index + 1] eq '注' and $char[$index + 2] eq ':') {
-                $self->in_footnote(1);
-            }
-            if ($self->in_footnote) {
-                $level++;
-            }
-        }
-        if ($_ eq ')') {
-            if ($self->in_footnote) {
-                ## $in_footnote && $level == 0
-                ## (注: _italic_ ) とかで中で $line が分断されたケース
-                if ($level == 0) {
-                    push @end_pos, $index;
-                    $self->in_footnote(0);
-                }
-                ## 普通に (注: の対応括弧が見つかった
-                elsif ($level == 1) {
-                    push @end_pos, $index;
-                    $level = 0;
-                    $self->in_footnote(0);
-                }
-
-                ## (注: の中に入れ子になっている括弧の対応括弧が見つかった
-                else {
-                    $level--;
-                }
-            }
-        }
-        $index++;
-    }
-
-    ## 前から置換してくと置換後文字のが文字数多くて位置がずれるので後ろから
-    for my $pos (reverse @end_pos) {
-        substr $line, $pos, 1, "◆/$label◆";
-    }
-
-    $line =~ s!\(注:!◆$label/◆!g;
-    return $line;
-}
-
 sub prepare_text_for_markdown {
     my $text = shift;
 

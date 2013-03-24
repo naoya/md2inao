@@ -48,7 +48,7 @@ sub to_inao {
     # コード内コメント
     # my $in_footnote;
     if ($text =~ m!\(注:! or $self->context->in_footnote) {
-        $text = $self->context->replace_note_parenthesis($text, $comment_label);
+        $text = replace_note_parenthesis($self->context, $text, $comment_label);
     }
 
     # コード内強調
