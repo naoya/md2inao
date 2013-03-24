@@ -35,11 +35,11 @@ has max_list_length => ( is => 'rw', isa => 'Num' );
 has max_inline_list_length => ( is => 'rw', isa => 'Num' );
 
 # コンテキスト判定のための属性
-has in_footnote    => (is => 'rw');
-has in_column      => (is => 'rw');
-has in_code_block  => (is => 'rw');
-has in_list        => (is => 'rw');
-has in_quote_block => (is => 'rw');
+has in_footnote    => (is => 'rw', isa => 'Bool');
+has in_column      => (is => 'rw', isa => 'Bool');
+has in_code_block  => (is => 'rw', isa => 'Bool');
+has in_list        => (is => 'rw', isa => 'Bool');
+has in_quote_block => (is => 'rw', isa => 'Bool');
 
 sub use_special_italic {
     my $self = shift;
