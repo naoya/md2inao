@@ -102,6 +102,8 @@ sub replace_note_parenthesis {
     return $line;
 }
 
+use Text::Md2Inao::Node::Text;
+
 sub parse_inline {
     my $self = shift;
     my $elem = shift;
@@ -112,22 +114,8 @@ sub parse_inline {
 
     for my $inline ($elem->content_list) {
         if (ref $inline eq '') {
-            if ($inline =~ m!\(注:! or $self->in_footnote) {
-                $inline = $self->replace_note_parenthesis($inline, '注');
-            }
-
-            # 改行を取り除く
-            $inline =~ s/(\n|\r)//g;
-
-            # キャプション
-            if ($inline =~ s!^●(.+?)::(.+)!●$1\t$2!) {
-                $inline =~ s!\[(.+)\]$!\n$1!;
-            }
-
-            # リストスタイル文字の変換
-            $inline = to_list_style($inline);
-
-            $ret .= $inline;
+            my $node = Text::Md2Inao::Node::Text->new({ context => $self, element => $inline });
+            $ret .= $node->to_inao;
         }
         elsif ($inline->tag eq 'em') {
             $ret .= inode($self, $inline, { special_italic => $is_special_italic })->to_inao;
