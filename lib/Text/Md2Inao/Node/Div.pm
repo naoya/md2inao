@@ -20,7 +20,7 @@ sub to_inao {
         $html =~ s/<\/div>$//;
 
         $out .= "◆column/◆\n";
-        $out .= $self->context->to_inao($html);
+        $out .= $self->context->parse($html);
         $out .= "◆/column◆\n";
 
         $self->context->is_column(0);

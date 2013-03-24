@@ -110,33 +110,6 @@ sub replace_note_parenthesis {
     return $line;
 }
 
-sub parse_inline {
-    my ($self, $elem) = @_;
-    my $ret = '';
-    $self->is_inline(1);
-
-    for my $h ($elem->content_list) {
-        $ret .= inode($self, $h)->to_inao;
-    }
-
-    $self->is_inline(0);
-    return $ret;
-}
-
-sub to_html_tree {
-    my $text = shift;
-
-    $text = prepare_text_for_markdown($text);
-
-    ## Work Around: Text::Markdown が flagged string だと一部 buggy なので encode してから渡している
-    my $html = decode_utf8 markdown(encode_utf8 $text);
-    $html = prepare_html_for_inao($html);
-
-    my $tree = HTML::TreeBuilder->new;
-    $tree->no_space_compacting(1);
-    $tree->parse_content(\$html);
-}
-
 sub prepare_text_for_markdown {
     my $text = shift;
 
@@ -160,15 +133,40 @@ sub prepare_html_for_inao {
     return $html;
 }
 
-## メソッド名を to_inao から parse_block に
-sub to_inao {
-    my ($self, $text) = @_;
-    my $tree = to_html_tree($text);
-    my $inao = q[];
-    for my $h ($tree->find('body')->content_list) {
-        $inao .= inode($self, $h)->to_inao;
+sub to_html_tree {
+    my $text = shift;
+
+    $text = prepare_text_for_markdown($text);
+
+    ## Work Around: Text::Markdown が flagged string だと一部 buggy なので encode してから渡している
+    my $html = decode_utf8 markdown(encode_utf8 $text);
+    $html = prepare_html_for_inao($html);
+
+    my $tree = HTML::TreeBuilder->new;
+    $tree->no_space_compacting(1);
+    $tree->parse_content(\$html);
+}
+
+sub parse_inline {
+    my ($self, $elem) = @_;
+    $self->is_inline(1);
+    my $ret = $self->parse_element($elem);
+    $self->is_inline(0);
+    return $ret;
+}
+
+sub parse_element {
+    my ($self, $elem) = @_;
+    my $out = '';
+    for my $h ($elem->content_list) {
+        $out .= inode($self, $h)->to_inao;
     }
-    return $inao;
+    return $out;
+}
+
+sub parse {
+    my ($self, $in) = @_;
+    return $self->parse_element(to_html_tree($in)->find('body'));
 }
 
 use Text::Md2Inao::Node::Text;
@@ -201,11 +199,6 @@ sub inode {
     } else {
         return $pkg->new({ context => $p, element => $h, %$args });
     }
-}
-
-sub parse {
-    my ($self, $in) = @_;
-    return $self->to_inao($in);
 }
 
 1;
