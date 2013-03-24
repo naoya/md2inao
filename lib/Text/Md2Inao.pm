@@ -35,22 +35,22 @@ has max_list_length => ( is => 'rw', isa => 'Num' );
 has max_inline_list_length => ( is => 'rw', isa => 'Num' );
 
 has in_footnote    => (is => 'rw');
-has is_inline      => (is => 'rw');
-has is_column      => (is => 'rw');
-has is_code_block  => (is => 'rw');
-has is_list        => (is => 'rw');
-has is_quote_block => (is => 'rw');
+has in_column      => (is => 'rw');
+has in_code_block  => (is => 'rw');
+has in_list        => (is => 'rw');
+has in_quote_block => (is => 'rw');
 
+has is_inline      => (is => 'rw');
 sub is_block {
     !shift->is_inline
 }
 
 sub use_special_italic {
     my $self = shift;
-    return 1 if $self->is_column;
-    return 1 if $self->is_code_block;
-    return 1 if $self->is_list;
-    return 1 if $self->is_quote_block;
+    return 1 if $self->in_column;
+    return 1 if $self->in_code_block;
+    return 1 if $self->in_list;
+    return 1 if $self->in_quote_block;
     return;
 }
 
@@ -145,6 +145,8 @@ sub to_html_tree {
     $tree->parse_content(\$html);
 }
 
+## FIXME: リファクタリングの結果 is_inline が Unknown ブロックの改行の取り扱いにのみしか使われてない
+## なんとか parse_inline ごと削除したい
 sub parse_inline {
     my ($self, $elem) = @_;
     $self->is_inline(1);

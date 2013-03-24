@@ -7,13 +7,11 @@ use parent 'Text::Md2Inao::Node';
 
 sub to_inao {
     my $self = shift;
-    if ($self->context->is_inline) {
+    if ($self->context->in_list) {
         my $ret = "\n";
         for ($self->element->content_list) {
             if ($_->tag eq 'li') {
-                $self->context->is_list(1);
                 $ret .= sprintf "＊・%s\n", $self->context->parse_inline($_);
-                $self->context->is_list(0);
             }
         }
         chomp $ret;
@@ -21,9 +19,9 @@ sub to_inao {
     } else {
         my $ret;
         for my $list ($self->element->content_list) {
-            $self->context->is_list(1);
+            $self->context->in_list(1);
             $ret .= '・' . $self->context->parse_inline($list) . "\n";
-            $self->context->is_list(0);
+            $self->context->in_list(0);
         }
         return $ret;
     }

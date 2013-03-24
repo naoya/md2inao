@@ -7,13 +7,13 @@ use parent 'Text::Md2Inao::Node';
 
 sub to_inao {
     my $self = shift;
-    $self->context->is_quote_block(1);
+    $self->context->in_quote_block(1);
     my $blockquote = '';
     for my $p ($self->element->content_list) {
-        $blockquote .= $self->context->parse_inline($p, 1);
+        $blockquote .= $self->context->parse_inline($p);
     }
     $blockquote =~ s/(\s)//g;
-    $self->context->is_quote_block(0);
+    $self->context->in_quote_block(0);
 
     return <<EOF;
 ◆quote/◆

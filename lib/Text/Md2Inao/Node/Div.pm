@@ -12,7 +12,7 @@ sub to_inao {
     my $out = '';
 
     if ($self->element->attr('class') eq 'column') {
-        $self->context->is_column(1);
+        $self->context->in_column(1);
 
         # HTMLとして取得してcolumn自信のdivタグを削除
         my $html = $self->element->as_HTML('');
@@ -23,7 +23,7 @@ sub to_inao {
         $out .= $self->context->parse($html);
         $out .= "◆/column◆\n";
 
-        $self->context->is_column(0);
+        $self->context->in_column(0);
     } else {
         my $node = Text::Md2Inao::Node::Unknown->new({
             context => $self->context,

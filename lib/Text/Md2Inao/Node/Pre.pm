@@ -11,7 +11,7 @@ use Text::Md2Inao::Util;
 
 sub to_inao {
     my $self = shift;
-    $self->context->is_code_block(1);
+    $self->context->in_code_block(1);
 
     my $code = $self->element->find('code');
     my $text = $code ? $code->as_text : '';
@@ -58,7 +58,7 @@ sub to_inao {
     $text =~ s!\___(.+?)\___!◆i-j/◆$1◆/i-j◆!g;
     chomp $text;
 
-    $self->context->is_code_block(0);
+    $self->context->in_code_block(0);
 
     return <<EOF;
 ◆$list_label/◆
