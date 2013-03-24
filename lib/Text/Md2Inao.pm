@@ -160,8 +160,6 @@ sub prepare_html_for_inao {
     return $html;
 }
 
-use Text::Md2Inao::Node::Heading;
-
 ## メソッド名を to_inao から parse_block に
 sub to_inao {
     my ($self, $text) = @_;
