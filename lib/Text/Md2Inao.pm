@@ -56,11 +56,6 @@ sub use_special_italic {
     return;
 }
 
-sub parse {
-    my ($self, $in) = @_;
-    return $self->to_inao($in);
-}
-
 # 脚注記法への変換
 # (注: ... ) → ◆注/◆ ... ◆/注◆
 # 入れ子の括弧も考慮る
@@ -167,7 +162,6 @@ sub prepare_html_for_inao {
 
 use Text::Md2Inao::Node::Heading;
 
-## FIXME: is_column を context object へ
 ## メソッド名を to_inao から parse_block に
 sub to_inao {
     my ($self, $text) = @_;
@@ -197,6 +191,7 @@ sub inode {
         return Text::Md2Inao::Node::Heading->new({ context => $p, element => $h });
     }
 
+    ## FIXME: 毎回 load してるのは非効率かも。クラスローダーを変える?
     my $pkg = sprintf "Text::Md2Inao::Node::%s", ucfirst $h->tag;
     eval {
         load $pkg;
@@ -208,6 +203,11 @@ sub inode {
     } else {
         return $pkg->new({ context => $p, element => $h, %$args });
     }
+}
+
+sub parse {
+    my ($self, $in) = @_;
+    return $self->to_inao($in);
 }
 
 1;
