@@ -102,8 +102,6 @@ sub replace_note_parenthesis {
     return $line;
 }
 
-use Text::Md2Inao::Node::Text;
-
 sub parse_inline {
     my $self = shift;
     my $elem = shift;
@@ -113,11 +111,9 @@ sub parse_inline {
     $self->is_inline(1);
 
     for my $inline ($elem->content_list) {
-        if (ref $inline eq '') {
-            my $node = Text::Md2Inao::Node::Text->new({ context => $self, element => $inline });
-            $ret .= $node->to_inao;
-        }
-        elsif ($inline->tag eq 'em') {
+        ## FIXME: このへんも Factory Method 内に入れる
+        ## special_italic かどうかの条件を調べてここで扱わないようにする
+        if (ref $inline and $inline->tag eq 'em') {
             $ret .= inode($self, $inline, { special_italic => $is_special_italic })->to_inao;
         }
         else {
@@ -168,6 +164,8 @@ sub prepare_html_for_inao {
 
 use Text::Md2Inao::Node::Heading;
 
+## FIXME: is_column を context object へ
+## メソッド名を to_inao から parse_block に
 sub to_inao {
     my ($self, $text, $is_column) = @_;
 
@@ -176,11 +174,8 @@ sub to_inao {
     my $body = $tree->find('body');
 
     for my $elem ($body->content_list) {
-        if ($elem->tag =~ /^h\d+$/) {
-            my $node = Text::Md2Inao::Node::Heading->new({ context => $self, element => $elem });
-            $inao .= $node->to_inao;
-        }
-        elsif ($elem->tag eq 'p') {
+        ## FIXME: このへんも Factory Method 内に入れる
+        if ($elem->tag eq 'p') {
             my $p = $self->parse_inline($elem, $is_column);
 
             if ($p !~ /^[\s　]+$/) {
@@ -195,13 +190,23 @@ sub to_inao {
     return $inao;
 }
 
+use Text::Md2Inao::Node::Text;
 use Text::Md2Inao::Node::Unknown;
+use Text::Md2Inao::Node::Heading;
 use Errno ();
 
 ## Factory Method
 sub inode {
     my ($p, $h, $args) = @_;
     $args ||= {};
+
+    if (not ref $h) {
+        return Text::Md2Inao::Node::Text->new({ context => $p, element => $h });
+    }
+
+    if ($h->tag =~ /^h\d+$/) {
+        return Text::Md2Inao::Node::Heading->new({ context => $p, element => $h });
+    }
 
     my $pkg = sprintf "Text::Md2Inao::Node::%s", ucfirst $h->tag;
     eval {
