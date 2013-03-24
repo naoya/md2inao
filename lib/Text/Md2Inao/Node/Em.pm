@@ -11,9 +11,9 @@ has special_italic => ( is => 'rw');
 sub to_inao {
     my $self = shift;
     my $ret;
-    $ret .= $self->special_italic ? '◆i-j/◆' : '◆i/◆';
+    $ret .= $self->context->use_special_italic ? '◆i-j/◆' : '◆i/◆';
     $ret .= $self->element->as_trimmed_text;
-    $ret .= $self->special_italic ? '◆/i-j◆' : '◆/i◆';
+    $ret .= $self->context->use_special_italic ? '◆/i-j◆' : '◆/i◆';
     return $ret;
 }
 

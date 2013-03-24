@@ -11,7 +11,9 @@ sub to_inao {
         my $ret = "\n";
         for ($self->element->content_list) {
             if ($_->tag eq 'li') {
-                $ret .= sprintf "＊・%s\n", $self->context->parse_inline($_, 1);
+                $self->context->is_list(1);
+                $ret .= sprintf "＊・%s\n", $self->context->parse_inline($_);
+                $self->context->is_list(0);
             }
         }
         chomp $ret;
@@ -19,7 +21,9 @@ sub to_inao {
     } else {
         my $ret;
         for my $list ($self->element->content_list) {
-            $ret .= '・' . $self->context->parse_inline($list, 1) . "\n";
+            $self->context->is_list(1);
+            $ret .= '・' . $self->context->parse_inline($list) . "\n";
+            $self->context->is_list(0);
         }
         return $ret;
     }

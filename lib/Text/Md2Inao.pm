@@ -36,11 +36,24 @@ has max_list_length => ( is => 'rw', isa => 'Num' );
 # 書籍の場合、本文リストは1行73桁（文字）まで
 has max_inline_list_length => ( is => 'rw', isa => 'Num' );
 
-has is_inline => (is => 'rw');
-has in_footnote => (is => 'rw');
+has in_footnote    => (is => 'rw');
+has is_inline      => (is => 'rw');
+has is_column      => (is => 'rw');
+has is_code_block  => (is => 'rw');
+has is_list        => (is => 'rw');
+has is_quote_block => (is => 'rw');
 
 sub is_block {
     !shift->is_inline
+}
+
+sub use_special_italic {
+    my $self = shift;
+    return 1 if $self->is_column;
+    return 1 if $self->is_code_block;
+    return 1 if $self->is_list;
+    return 1 if $self->is_quote_block;
+    return;
 }
 
 sub parse {
@@ -103,22 +116,12 @@ sub replace_note_parenthesis {
 }
 
 sub parse_inline {
-    my $self = shift;
-    my $elem = shift;
-    my $is_special_italic = shift;
+    my ($self, $elem) = @_;
     my $ret = '';
-
     $self->is_inline(1);
 
-    for my $inline ($elem->content_list) {
-        ## FIXME: このへんも Factory Method 内に入れる
-        ## special_italic かどうかの条件を調べてここで扱わないようにする
-        if (ref $inline and $inline->tag eq 'em') {
-            $ret .= inode($self, $inline, { special_italic => $is_special_italic })->to_inao;
-        }
-        else {
-            $ret .= inode($self, $inline)->to_inao;
-        }
+    for my $h ($elem->content_list) {
+        $ret .= inode($self, $h)->to_inao;
     }
 
     $self->is_inline(0);
@@ -167,8 +170,7 @@ use Text::Md2Inao::Node::Heading;
 ## FIXME: is_column を context object へ
 ## メソッド名を to_inao から parse_block に
 sub to_inao {
-    my ($self, $text, $is_column) = @_;
-
+    my ($self, $text) = @_;
     my $tree = to_html_tree($text);
     my $inao = q[];
     my $body = $tree->find('body');
@@ -176,8 +178,7 @@ sub to_inao {
     for my $elem ($body->content_list) {
         ## FIXME: このへんも Factory Method 内に入れる
         if ($elem->tag eq 'p') {
-            my $p = $self->parse_inline($elem, $is_column);
-
+            my $p = $self->parse_inline($elem);
             if ($p !~ /^[\s　]+$/) {
                 $inao .= "$p\n";
             }
