@@ -178,6 +178,8 @@ sub prepare_html_for_inao {
     return $html;
 }
 
+use Text::Md2Inao::Node::Heading;
+
 sub to_inao {
     my ($self, $text, $is_column) = @_;
 
@@ -186,12 +188,9 @@ sub to_inao {
     my $body = $tree->find('body');
 
     for my $elem ($body->content_list) {
-        if ($elem->tag =~ /^h(\d+)/) {
-            my $level = $1;
-
-            $inao .= '■' x $level;
-            $inao .= $elem->as_trimmed_text;
-            $inao .= "\n";
+        if ($elem->tag =~ /^h\d+$/) {
+            my $node = Text::Md2Inao::Node::Heading->new({ context => $self, element => $elem });
+            $inao .= $node->to_inao;
         }
         elsif ($elem->tag eq 'p') {
             my $p = $self->parse_inline($elem, $is_column);
