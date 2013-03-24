@@ -40,11 +40,6 @@ has in_code_block  => (is => 'rw');
 has in_list        => (is => 'rw');
 has in_quote_block => (is => 'rw');
 
-has is_inline      => (is => 'rw');
-sub is_block {
-    !shift->is_inline
-}
-
 sub use_special_italic {
     my $self = shift;
     return 1 if $self->in_column;
@@ -143,16 +138,6 @@ sub to_html_tree {
     my $tree = HTML::TreeBuilder->new;
     $tree->no_space_compacting(1);
     $tree->parse_content(\$html);
-}
-
-## FIXME: リファクタリングの結果 is_inline が Unknown ブロックの改行の取り扱いにのみしか使われてない
-## なんとか parse_inline ごと削除したい
-sub parse_inline {
-    my ($self, $elem) = @_;
-    $self->is_inline(1);
-    my $ret = $self->parse_element($elem);
-    $self->is_inline(0);
-    return $ret;
 }
 
 sub parse_element {

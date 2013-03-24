@@ -14,7 +14,7 @@ sub to_inao {
     my $s = substr $list_style, 0, 1;
     my $i = 0;
     for my $list ($self->element->find('li')) {
-        $out .= to_list_style((sprintf '(%s%d)', $s, ++$i) . $self->context->parse_inline($list)) . "\n";
+        $out .= to_list_style((sprintf '(%s%d)', $s, ++$i) . $self->context->parse_element($list)) . "\n";
     }
 
     return $out;

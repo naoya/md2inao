@@ -7,7 +7,7 @@ use parent 'Text::Md2Inao::Node';
 
 sub to_inao {
     my $self = shift;
-    my $p = $self->context->parse_inline($self->element);
+    my $p = $self->context->parse_element($self->element);
     if ($p !~ /^[\s　]+$/) {
         return "$p\n";
     }

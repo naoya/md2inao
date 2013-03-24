@@ -10,9 +10,9 @@ sub to_inao {
     my $out = '';
     for ($self->element->descendants) {
         if ($_->tag eq 'dt') {
-            $out .= sprintf "・%s\n", $self->context->parse_inline($_);
+            $out .= sprintf "・%s\n", $self->context->parse_element($_);
         } elsif ($_->tag eq 'dd') {
-            $out .= sprintf "・・%s\n", $self->context->parse_inline($_);
+            $out .= sprintf "・・%s\n", $self->context->parse_element($_);
         }
     }
     return $out;

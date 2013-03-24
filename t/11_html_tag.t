@@ -120,6 +120,6 @@ RubyMotion◆注/◆http://www.rubymotion.org/◆/注◆
 --- in md2inao
 test
 <div class="unknown">foobar</div>
---- expected
+--- expected chomp
 test
 <div class="unknown">foobar</div>

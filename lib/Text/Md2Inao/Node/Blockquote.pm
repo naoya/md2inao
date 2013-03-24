@@ -9,8 +9,8 @@ sub to_inao {
     my $self = shift;
     $self->context->in_quote_block(1);
     my $blockquote = '';
-    for my $p ($self->element->content_list) {
-        $blockquote .= $self->context->parse_inline($p);
+    for ($self->element->content_list) {
+        $blockquote .= $self->context->parse_element($_);
     }
     $blockquote =~ s/(\s)//g;
     $self->context->in_quote_block(0);
