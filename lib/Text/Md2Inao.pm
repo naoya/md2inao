@@ -110,7 +110,13 @@ Text::Md2Inao - Convert markdown text to Inao-format
 
 =head1 SYNOPSIS
 
-=head1 DESCRIPTION
+    my $p = Text::Md2Inao->new({
+        default_list           => 'disc',
+        max_list_length        => 63,
+        max_inline_list_length => 55,
+    });
+
+    print encode_utf8 $p->parse($markdown_text);
 
 =head1 AUTHOR
 
