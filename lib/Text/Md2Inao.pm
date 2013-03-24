@@ -10,7 +10,6 @@ use Class::Accessor::Fast qw/antlers/;
 use Encode;
 use HTML::TreeBuilder;
 use Text::Markdown 'markdown';
-use Unicode::EastAsianWidth;
 
 use Exporter::Lite;
 our @EXPORT = qw/inode/;
