@@ -38,6 +38,8 @@ has in_code_block  => (is => 'rw', isa => 'Bool');
 has in_list        => (is => 'rw', isa => 'Bool');
 has in_quote_block => (is => 'rw', isa => 'Bool');
 
+has builder => ( is => 'rw' );
+
 sub use_special_italic {
     my $self = shift;
     return 1 if $self->in_column;
@@ -86,7 +88,7 @@ sub to_html_tree {
 
 sub parse_element {
     my ($self, $elem) = @_;
-    my $builder  = Text::Md2Inao::Builder::Inao->new;
+    my $builder  = $self->builder || Text::Md2Inao::Builder::Inao->new;
     my $director = Text::Md2Inao::Director->new($builder);
     my @out = map { $director->process($self, $_) } $elem->content_list;
     return join '', @out;

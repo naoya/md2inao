@@ -10,12 +10,12 @@ use Text::Md2Inao::Logger;
 has dispatch_table => ( is => 'rw' );
 
 {
-    my $singleton;
+    my %singleton;
     sub new {
         my $class = shift;
-        $singleton
-            ? return $singleton
-            : return $singleton = $class->SUPER::new({ dispatch_table => {} });
+        $singleton{$class}
+            ? return $singleton{$class}
+            : return $singleton{$class} = $class->SUPER::new({ dispatch_table => {} });
     }
 }
 
@@ -30,8 +30,8 @@ our @EXPORT = qw/case fallback_to_html/;
 
 sub case ($&) {
     my ($select, $code) = @_;
-    my $self = __PACKAGE__->new;
-
+    my $class = (caller)[0];
+    my $self = $class->new;
     for (split ",", $select) {
         s/\s+//g;
         $self->dispatch_table->{$_} = $code;
