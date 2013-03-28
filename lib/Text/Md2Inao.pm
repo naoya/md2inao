@@ -11,10 +11,8 @@ use Encode;
 use HTML::TreeBuilder;
 use Text::Markdown 'markdown';
 
-use Exporter::Lite;
-our @EXPORT = qw/inode/;
-
-use Text::Md2Inao::NodeFactory;
+use Text::Md2Inao::Director;
+use Text::Md2Inao::Builder::Inao;
 
 # デフォルトのリストスタイル
 # disc:   黒丸
@@ -88,17 +86,15 @@ sub to_html_tree {
 
 sub parse_element {
     my ($self, $elem) = @_;
-    my @out = map { inode($self, $_)->to_inao } $elem->content_list;
+    my $builder  = Text::Md2Inao::Builder::Inao->new;
+    my $director = Text::Md2Inao::Director->new($builder);
+    my @out = map { $director->process($self, $_) } $elem->content_list;
     return join '', @out;
 }
 
 sub parse {
     my ($self, $in) = @_;
     return $self->parse_element(to_html_tree($in)->find('body'));
-}
-
-sub inode {
-    return Text::Md2Inao::NodeFactory->factory(@_);
 }
 
 1;

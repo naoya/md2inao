@@ -8,6 +8,13 @@ set repository  => 'git@github.com:naoya/md2inao.pl.git';
 set user        => 'fiorung';
 set password    => '';
 
+role development => ['sandbox'], {
+    user        => 'ec2-user',
+    repository  => 'git://github.com/naoya/md2inao.pl.git',
+    deploy_to   => '/home/ec2-user/md2inao',
+    branch      => 'master',
+};
+
 role production => ['md2inao.bloghackers.net'], {
     deploy_to   => '/home/fiorung/md2inao',
     branch      => 'master',
