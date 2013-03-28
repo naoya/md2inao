@@ -16,12 +16,12 @@ my $p = Text::Md2Inao->new({
 
 my $out = $p->parse(<<EOF);
 # blah blah
-hogehoge
+hogehoge **piyo** hogehoge
 EOF
 
 is $out, <<EOF;
 <ParaStyle:大見出し>blah blah
-<ParaStyle:本文>hogehoge
+<ParaStyle:本文>hogehoge <CharStyle:太字>piyo<CharStyle:> hogehoge
 EOF
 
 done_testing;

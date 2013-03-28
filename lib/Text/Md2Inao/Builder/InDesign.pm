@@ -22,6 +22,11 @@ case "h1" => sub {
     return sprintf "<ParaStyle:大見出し>%s\n", $h->as_trimmed_text;
 };
 
+case "strong" => sub {
+    my ($c, $h) = @_;
+    return sprintf "<CharStyle:太字>%s<CharStyle:>", $h->as_trimmed_text;
+};
+
 case p => sub {
     my ($c, $h) = @_;
     my $text = $c->parse_element($h);
