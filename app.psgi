@@ -10,7 +10,9 @@ use Text::Md2Inao;
 # Increase limit to 1GB from 1GB
 # $ENV{MOJO_MAX_MESSAGE_SIZE} = 1073741824;
 
-get '/' => 'index';
+get '/' => sub {
+    shift->render('index', version => $Text::Md2Inao::VERSION);
+};
 
 post '/upload' => sub {
     my $self = shift;
@@ -51,8 +53,9 @@ __DATA__
   %= submit_button 'upload markdown file'
 %end
 </div>
+
 <div id="footer">
-  <p><a href="http://github.com/naoya/md2inao.pl">view source on github</a></p>
+  <p><a href="http://github.com/naoya/md2inao.pl">Text::Md2Inao</code> <%= $version %></a> (github)</p>
 </div>
 </div>
 
