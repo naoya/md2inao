@@ -26,7 +26,9 @@ __END__
 > ぜ　ん　か　く　あ　き
 --- expected
 ◆quote/◆
-a b c d e f.は ん か く あ きぜ　ん　か　く　あ　き
+a b c d e f.
+は ん か く あ き
+ぜ　ん　か　く　あ　き
 ◆/quote◆
 
 ===
@@ -47,3 +49,28 @@ a b c d e f.は ん か く あ きぜ　ん　か　く　あ　き
 --- expected
 改行ですよね
 
+===
+--- in md2inao
+> ABC
+> 
+> DEF
+> 
+> GHI
+--- expected
+◆quote/◆
+ABC
+DEF
+GHI
+◆/quote◆
+
+===
+--- in md2inao
+ABC
+
+DEF
+
+GHI
+--- expected
+ABC
+DEF
+GHI

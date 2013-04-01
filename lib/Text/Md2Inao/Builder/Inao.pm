@@ -49,12 +49,12 @@ case a => sub {
 
 case blockquote => sub {
     my ($c, $h) = @_;
+
     $c->in_quote_block(1);
-    my $blockquote = '';
-    for ($h->content_list) {
-        $blockquote .= $c->parse_element($_);
-    }
+    my $blockquote = $c->parse_element($h);
     $c->in_quote_block(0);
+
+    chomp $blockquote;
 
     return <<EOF;
 ◆quote/◆
