@@ -21,6 +21,10 @@ case text => sub {
     if ($text =~ m!\(注:! or $c->in_footnote) {
         $text = replace_note_parenthesis($c, $text, '注');
     }
+
+    # 各行の余計な先頭空白を取り除く (全角は字下げ指定なので残す)
+    $text =~ s/^[ ]+//mg;
+
     # 改行を取り除く
     $text =~ s/(\n|\r)//g;
     # キャプション
@@ -50,7 +54,6 @@ case blockquote => sub {
     for ($h->content_list) {
         $blockquote .= $c->parse_element($_);
     }
-    $blockquote =~ s/(\s)//g;
     $c->in_quote_block(0);
 
     return <<EOF;
