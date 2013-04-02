@@ -30,8 +30,10 @@ case text => sub {
     if ($text =~ s!^●(.+?)::(.+)!●$1\t$2!) {
         $text =~ s!\[(.+)\]$!\n$1!;
     }
-    # リストスタイル文字の変換
-    $text = to_list_style($text);
+
+    # FIXME: リストスタイル文字の変換
+    # $text = to_list_style($text);
+
     return $text;
 };
 
