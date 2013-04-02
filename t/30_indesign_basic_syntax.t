@@ -213,3 +213,12 @@ __END__
     }
 --- expected
 
+=== pre
+--- in md2inao
+    function bar(b) {
+        alert(b);
+    }
+--- expected
+<ParaStyle:リスト>function bar(b) {
+<ParaStyle:リスト>    alert(b);
+<ParaStyle:リスト>}

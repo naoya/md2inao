@@ -10,6 +10,8 @@ use Text::Md2Inao::Util;
 use Text::Md2Inao::Builder;
 use parent qw/Text::Md2Inao::Builder/;
 
+use List::Util qw/max/;
+
 case default => sub {
     my ($c, $h) = @_;
     $h->as_HTML('', '', {});
@@ -183,6 +185,7 @@ case ol => sub {
     return $out;
 };
 
+## FIXME: subroutine name
 sub _to_list_style {
     my ($style, $i) = @_;
 
@@ -204,5 +207,60 @@ sub _to_list_style {
         return sprintf "<CharStyle:丸文字><cLigatures:0><cOTFContAlt:0><cOTFeatureList:nalt,3>%s<cLigatures:><cOTFContAlt:><cOTFeatureList:><CharStyle:>", chr($i + 96);
     }
 }
+
+## FIXME: 前半の処理は手つかず
+case pre => sub {
+    my ($c, $h) = @_;
+    $c->in_code_block(1);
+
+    my $code = $h->find('code');
+    my $text = $code ? $code->as_text : '';
+
+    my $list_label = 'list';
+    my $comment_label = 'comment';
+
+    # キャプション
+    $text =~ s!●(.+?)::(.+)!●$1\t$2!g;
+
+    # 「!!! cmd」で始まるコードブロックはコマンドライン（黒背景）
+    if ($text =~ /!!!(\s+)?cmd/) {
+        $text =~ s/.+?\n//;
+        $list_label .= '-white';
+        $comment_label .= '-white';
+    }
+
+    # リストスタイル
+    $text = to_list_style($text);
+
+    # 文字数カウント
+    my $max = max(map { visual_length($_) } split /\r?\n/, $text);
+    if ($text =~ /^●/) {
+        if ($max > $c->max_list_length) {
+            log warn => "リストは" . $c->max_list_length . "文字まで！(現在${max}使用):\n$text\n\n";
+        }
+    }
+    else {
+        if ($max > $c->max_inline_list_length) {
+            log warn => "本文埋め込みリストは" . $c->max_inline_list_length . "文字まで！(現在${max}使用):\n$text\n\n";
+        }
+    }
+
+    # コード内コメント
+    if ($text =~ m!\(注:! or $c->in_footnote) {
+        $text = replace_note_parenthesis($c, $text, $comment_label);
+    }
+
+    # コード内強調
+    $text =~ s!\*\*(.+?)\*\*!◆cmd-b/◆$1◆/cmd-b◆!g;
+
+    # コード内イタリック
+    $text =~ s!\___(.+?)\___!◆i-j/◆$1◆/i-j◆!g;
+    chomp $text;
+
+    $c->in_code_block(0);
+
+    my @lines = map { sprintf "<ParaStyle:リスト>%s\n", $_ } split /\n/, $text;
+    return join "", @lines;
+};
 
 1;
