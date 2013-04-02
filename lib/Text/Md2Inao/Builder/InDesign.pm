@@ -48,6 +48,16 @@ case "h3" => sub {
     return sprintf "<ParaStyle:小見出し>%s\n", $h->as_trimmed_text;
 };
 
+case "h4" => sub {
+    my ($c, $h) = @_;
+    return sprintf "<ParaStyle:コラムタイトル>%s\n", $h->as_trimmed_text;
+};
+
+case "h5" => sub {
+    my ($c, $h) = @_;
+    return sprintf "<ParaStyle:コラム小見出し>%s\n", $h->as_trimmed_text;
+};
+
 case "strong" => sub {
     my ($c, $h) = @_;
     return sprintf "<CharStyle:太字>%s<CharStyle:>", $h->as_trimmed_text;
@@ -71,7 +81,8 @@ case p => sub {
     my ($c, $h) = @_;
     my $text = $c->parse_element($h);
     if ($text !~ /^[\s　]+$/) {
-        return sprintf "<ParaStyle:本文>%s\n", $text;
+        my $label = $c->in_column ? 'コラム本文' : '本文';
+        return sprintf "<ParaStyle:%s>%s\n", $label, $text;
     }
 };
 
@@ -113,6 +124,25 @@ case blockquote => sub {
 <ParaStyle:引用>
 <ParaStyle:引用>$blockquote
 EOF
+};
+
+case div => sub {
+    my ($c,  $h) = @_;
+
+    if ($h->attr('class') eq 'column') {
+        $c->in_column(1);
+
+        # HTMLとして取得してcolumn自信のdivタグを削除
+        my $html = $h->as_HTML('');
+        $html =~ s/^<div.+?>//;
+        $html =~ s/<\/div>$//;
+
+        my $column = $c->parse($html);
+        $c->in_column(0);
+        return sprintf "<ParaStyle:コラム本文>\n%s", $column;
+    } else {
+        return fallback_to_html($h);
+    }
 };
 
 1;

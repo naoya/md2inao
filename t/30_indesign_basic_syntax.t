@@ -97,3 +97,22 @@ __END__
 --- expected
 <ParaStyle:引用>
 <ParaStyle:引用>これは引用です。これは引用です。これは引用です。これは<CharStyle:太字>強調<CharStyle:>と<CharStyle:イタリック（変形斜体）>イタリック<CharStyle:>です。
+
+=== column
+--- in md2inao
+<div class="column">
+#### コラム見出し
+
+　コラム本文コラム本文コラム本文コラム本文コラム本文コラム本文コラム本文コラム本文コラム本文コラム本文コラム。
+
+##### コラム小見出し
+
+　コラム内でも**強調**や_イタリック_などが使えます。
+</div>
+--- expected
+<ParaStyle:コラム本文>
+<ParaStyle:コラムタイトル>コラム見出し
+<ParaStyle:コラム本文>　コラム本文コラム本文コラム本文コラム本文コラム本文コラム本文コラム本文コラム本文コラム本文コラム本文コラム。
+<ParaStyle:コラム小見出し>コラム小見出し
+<ParaStyle:コラム本文>　コラム内でも<CharStyle:太字>強調<CharStyle:>や<CharStyle:イタリック（変形斜体）>イタリック<CharStyle:>などが使えます。
+
