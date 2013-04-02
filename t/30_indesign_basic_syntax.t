@@ -116,3 +116,17 @@ __END__
 <ParaStyle:コラム小見出し>コラム小見出し
 <ParaStyle:コラム本文>　コラム内でも<CharStyle:太字>強調<CharStyle:>や<CharStyle:イタリック（変形斜体）>イタリック<CharStyle:>などが使えます。
 
+=== list
+--- in md2inao
+* 通常の箇条書き
+* 通常の箇条書き
+* 通常の箇条書き
+* **強調**
+* _イタリック_
+--- expected
+<ParaStyle:箇条書き>・通常の箇条書き
+<ParaStyle:箇条書き>・通常の箇条書き
+<ParaStyle:箇条書き>・通常の箇条書き
+<ParaStyle:箇条書き>・<CharStyle:太字>強調<CharStyle:>
+<ParaStyle:箇条書き>・<CharStyle:イタリック（変形斜体）>イタリック<CharStyle:>
+

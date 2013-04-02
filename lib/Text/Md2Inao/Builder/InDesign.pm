@@ -145,4 +145,27 @@ case div => sub {
     }
 };
 
+case ul => sub {
+    my ($c, $h) = @_;
+    if ($c->in_list) {
+        ## FIXME: 仕様確認中
+        my $ret = "\n";
+        for ($h->content_list) {
+            if ($_->tag eq 'li') {
+                $ret .= sprintf "＊・%s\n", $c->parse_element($_);
+            }
+        }
+        chomp $ret;
+        return $ret;
+    } else {
+        my $ret;
+        for my $list ($h->content_list) {
+            $c->in_list(1);
+            $ret .= '<ParaStyle:箇条書き>・' . $c->parse_element($list) . "\n";
+            $c->in_list(0);
+        }
+        return $ret;
+    }
+};
+
 1;
