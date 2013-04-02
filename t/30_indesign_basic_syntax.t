@@ -130,3 +130,86 @@ __END__
 <ParaStyle:箇条書き>・<CharStyle:太字>強調<CharStyle:>
 <ParaStyle:箇条書き>・<CharStyle:イタリック（変形斜体）>イタリック<CharStyle:>
 
+=== ordered list (disc)
+--- in md2inao
+1. 連番箇条書き（黒丸数字）
+2. 連番箇条書き（黒丸数字）
+3. 連番箇条書き（黒丸数字）
+4. 連番箇条書き（黒丸数字）
+5. 連番箇条書き（黒丸数字）
+--- expected
+<ParaStyle:箇条書き><CharStyle:丸文字><2776><CharStyle:>連番箇条書き（黒丸数字）
+<ParaStyle:箇条書き><CharStyle:丸文字><2777><CharStyle:>連番箇条書き（黒丸数字）
+<ParaStyle:箇条書き><CharStyle:丸文字><2778><CharStyle:>連番箇条書き（黒丸数字）
+<ParaStyle:箇条書き><CharStyle:丸文字><2779><CharStyle:>連番箇条書き（黒丸数字）
+<ParaStyle:箇条書き><CharStyle:丸文字><277a><CharStyle:>連番箇条書き（黒丸数字）
+
+=== ordered list (circle)
+--- in md2inao
+<ol class='circle'>
+    <li>連番箇条書き（白丸数字）</li>
+    <li>連番箇条書き（白丸数字）</li>
+    <li>連番箇条書き（白丸数字）</li>
+    <li>連番箇条書き（白丸数字）</li>
+    <li>連番箇条書き（白丸数字）</li>
+</ol>
+--- expected
+<ParaStyle:箇条書き><CharStyle:丸文字><2460><CharStyle:>連番箇条書き（白丸数字）
+<ParaStyle:箇条書き><CharStyle:丸文字><2461><CharStyle:>連番箇条書き（白丸数字）
+<ParaStyle:箇条書き><CharStyle:丸文字><2462><CharStyle:>連番箇条書き（白丸数字）
+<ParaStyle:箇条書き><CharStyle:丸文字><2463><CharStyle:>連番箇条書き（白丸数字）
+<ParaStyle:箇条書き><CharStyle:丸文字><2464><CharStyle:>連番箇条書き（白丸数字）
+
+=== ordered list (square)
+--- in md2inao
+<ol class='square'>
+    <li>連番箇条書き（黒四角数字）</li>
+    <li>連番箇条書き（黒四角数字）</li>
+    <li>連番箇条書き（黒四角数字）</li>
+    <li>連番箇条書き（黒四角数字）</li>
+    <li>連番箇条書き（黒四角数字）</li>
+</ol>
+--- expected
+<ParaStyle:箇条書き><cTypeface:B><cFont:A-OTF ゴシックMB101 Pro><cotfcalt:0><cotfl:nalt,7>1<cTypeface:><cFont:><cotfcalt:><cotfl:>連番箇条書き（黒四角数字）
+<ParaStyle:箇条書き><cTypeface:B><cFont:A-OTF ゴシックMB101 Pro><cotfcalt:0><cotfl:nalt,7>2<cTypeface:><cFont:><cotfcalt:><cotfl:>連番箇条書き（黒四角数字）
+<ParaStyle:箇条書き><cTypeface:B><cFont:A-OTF ゴシックMB101 Pro><cotfcalt:0><cotfl:nalt,7>3<cTypeface:><cFont:><cotfcalt:><cotfl:>連番箇条書き（黒四角数字）
+<ParaStyle:箇条書き><cTypeface:B><cFont:A-OTF ゴシックMB101 Pro><cotfcalt:0><cotfl:nalt,7>4<cTypeface:><cFont:><cotfcalt:><cotfl:>連番箇条書き（黒四角数字）
+<ParaStyle:箇条書き><cTypeface:B><cFont:A-OTF ゴシックMB101 Pro><cotfcalt:0><cotfl:nalt,7>5<cTypeface:><cFont:><cotfcalt:><cotfl:>連番箇条書き（黒四角数字）
+
+=== ordered list (alpha)
+--- in md2inao
+<ol class='alpha'>
+    <li>連番箇条書き（アルファベット）</li>
+    <li>連番箇条書き（アルファベット）</li>
+    <li>連番箇条書き（アルファベット）</li>
+    <li>連番箇条書き（アルファベット）</li>
+    <li>連番箇条書き（アルファベット）</li>
+</ol>
+--- expected
+<ParaStyle:箇条書き><CharStyle:丸文字><cLigatures:0><cOTFContAlt:0><cOTFeatureList:nalt,3>a<cLigatures:><cOTFContAlt:><cOTFeatureList:><CharStyle:>連番箇条書き（アルファベット）
+<ParaStyle:箇条書き><CharStyle:丸文字><cLigatures:0><cOTFContAlt:0><cOTFeatureList:nalt,3>b<cLigatures:><cOTFContAlt:><cOTFeatureList:><CharStyle:>連番箇条書き（アルファベット）
+<ParaStyle:箇条書き><CharStyle:丸文字><cLigatures:0><cOTFContAlt:0><cOTFeatureList:nalt,3>c<cLigatures:><cOTFContAlt:><cOTFeatureList:><CharStyle:>連番箇条書き（アルファベット）
+<ParaStyle:箇条書き><CharStyle:丸文字><cLigatures:0><cOTFContAlt:0><cOTFeatureList:nalt,3>d<cLigatures:><cOTFContAlt:><cOTFeatureList:><CharStyle:>連番箇条書き（アルファベット）
+<ParaStyle:箇条書き><CharStyle:丸文字><cLigatures:0><cOTFContAlt:0><cOTFeatureList:nalt,3>e<cLigatures:><cOTFContAlt:><cOTFeatureList:><CharStyle:>連番箇条書き（アルファベット）
+
+=== numbers in body and lists
+--- SKIP in md2inao
+### 本文やリスト中での番号
+
+　箇条書き以外の本文やリスト中で番号を書きたいときは、(d1)、(d2)、(c1)、(c2)、(s1)、(s2)、(a1)、(a2)のように書いてください。
+
+<ol class='square'>
+    <li>hogehogeをします</li>
+    <li>fugafugaと(s1)の結果を足し合わせます</li>
+</ol>
+
+　リスト1.1(c1)ではアラートを出しています。(c2)でもアラートを出しています。(\a1)エスケープできます。
+
+    ●リスト1.1::キャプション（コードのタイトル）
+    function hoge() {
+        alert(foo);　… (c1)
+        alert(bar);　… (c2)
+        alert(\c1); // \でエスケープできます
+    }
+--- expected
+

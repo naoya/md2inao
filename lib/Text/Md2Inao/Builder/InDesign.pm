@@ -168,4 +168,41 @@ case ul => sub {
     }
 };
 
+case ol => sub {
+    my ($c, $h) = @_;
+    my $out = '';
+    my $style = $h->attr('class') || $c->default_list;
+    my $i = 0;
+    for my $list ($h->find('li')) {
+        $out .= sprintf(
+            "<ParaStyle:箇条書き>%s%s\n",
+            _to_list_style($style, ++$i),
+            $c->parse_element($list)
+        );
+    }
+    return $out;
+};
+
+sub _to_list_style {
+    my ($style, $i) = @_;
+
+    if ($style eq 'disc') {
+        my $code = 0x2776 - 1;
+        return sprintf "<CharStyle:丸文字><%x><CharStyle:>", $code + $i;
+    }
+
+    if ($style eq 'circle') {
+        my $code = 0x2460 - 1;
+        return sprintf "<CharStyle:丸文字><%x><CharStyle:>", $code + $i;
+    }
+
+    if ($style eq 'square') {
+        return sprintf "<cTypeface:B><cFont:A-OTF ゴシックMB101 Pro><cotfcalt:0><cotfl:nalt,7>%d<cTypeface:><cFont:><cotfcalt:><cotfl:>", $i;
+    }
+
+    if ($style eq 'alpha') {
+        return sprintf "<CharStyle:丸文字><cLigatures:0><cOTFContAlt:0><cOTFeatureList:nalt,3>%s<cLigatures:><cOTFContAlt:><cOTFeatureList:><CharStyle:>", chr($i + 96);
+    }
+}
+
 1;
