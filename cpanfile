@@ -14,10 +14,8 @@ requires 'Exporter::Lite';
 # requires 'Starman';
 # requires 'Net::Server::SS::PreFork';
 
-# on 'test' => sub {
-#     requires 'Test::More';
-#     requires 'Test::Base';
-# };
+on 'test' => sub {
+    requires 'Test::More';
+    requires 'Test::Base';
+};
 
-test_requires 'Test::More';
-test_requires 'Test::Base';
