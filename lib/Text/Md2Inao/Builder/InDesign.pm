@@ -328,24 +328,23 @@ case dl => sub {
 case table => sub {
     my ($c, $h) = @_;
     my $out = '';
+
+    $out .= "<ParaStyle:表>\n";
+
     my $summary = $h->attr('summary') || '';
-    $summary =~ s!(.+?)::(.+)!●$1\t$2\n!;
-    $out .= "◆table/◆\n";
-    $out .= $summary;
-    $out .= "◆table-title◆";
+    $summary =~ m!(.+?)::(.+)!;
+    $out .= sprintf "<ParaStyle:キャプション>%s\t%s\n", $1, $2;
+
     for my $table ($h->find('tr')) {
-        for my $item ($table->find('th')) {
-            $out .= $item->as_trimmed_text;
-            $out .= "\t";
+        if (my $header = join "\t", map { $_->as_trimmed_text } $table->find('th')) {
+            $out .= sprintf "<ParaStyle:表見出し行>%s\n", $header;
         }
-        for my $item ($table->find('td')) {
-            $out .= $item->as_trimmed_text;
-            $out .= "\t";
+
+        if (my $data = join "\t", map { $_->as_trimmed_text } $table->find('td')) {
+            $out .= sprintf "<ParaStyle:表>%s\n", $data;
         }
-        chop($out);
-        $out .= "\n"
     }
-    $out .= "◆/table◆\n";
+
     return $out;
 };
 

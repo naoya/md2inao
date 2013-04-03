@@ -347,3 +347,26 @@ __END__
 <ParaStyle:箇条書き>・Xenoblade
 <ParaStyle:箇条書き説明>Fiorung
 <ParaStyle:箇条書き説明>Shulk
+
+=== table
+--- in md2inao
+<table summary='表1.1::キャプション（表のタイトル）'>
+    <tr>
+        <th>表タイトル1</th>
+        <th>表タイトル2</th>
+    </tr>
+    <tr>
+        <td>内容1</td>
+        <td>内容2</td>
+    </tr>
+    <tr>
+        <td>内容1</td>
+        <td>内容2</td>
+    </tr>
+</table>
+--- expected
+<ParaStyle:表>
+<ParaStyle:キャプション>表1.1	キャプション（表のタイトル）
+<ParaStyle:表見出し行>表タイトル1	表タイトル2
+<ParaStyle:表>内容1	内容2
+<ParaStyle:表>内容1	内容2
