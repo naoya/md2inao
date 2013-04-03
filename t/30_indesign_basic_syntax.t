@@ -217,7 +217,7 @@ __END__
 <ParaStyle:本文>(d1)
 
 === numbers in body and lists
---- SKIP in md2inao
+--- in md2inao
 ### 本文やリスト中での番号
 
 　箇条書き以外の本文やリスト中で番号を書きたいときは、(d1)、(d2)、(c1)、(c2)、(s1)、(s2)、(a1)、(a2)のように書いてください。
@@ -236,6 +236,19 @@ __END__
         alert(\c1); // \でエスケープできます
     }
 --- expected
+<ParaStyle:小見出し>本文やリスト中での番号
+<ParaStyle:本文>　箇条書き以外の本文やリスト中で番号を書きたいときは、<CharStyle:丸文字><2776><CharStyle:>、<CharStyle:丸文字><2777><CharStyle:>、<CharStyle:丸文字><2460><CharStyle:>、<CharStyle:丸文字><2461><CharStyle:>、<cTypeface:B><cFont:A-OTF ゴシックMB101 Pro><cotfcalt:0><cotfl:nalt,7>1<cTypeface:><cFont:><cotfcalt:><cotfl:>、<cTypeface:B><cFont:A-OTF ゴシックMB101 Pro><cotfcalt:0><cotfl:nalt,7>2<cTypeface:><cFont:><cotfcalt:><cotfl:>、<CharStyle:丸文字><cLigatures:0><cOTFContAlt:0><cOTFeatureList:nalt,3>a<cLigatures:><cOTFContAlt:><cOTFeatureList:><CharStyle:>、<CharStyle:丸文字><cLigatures:0><cOTFContAlt:0><cOTFeatureList:nalt,3>b<cLigatures:><cOTFContAlt:><cOTFeatureList:><CharStyle:>のように書いてください。
+<ParaStyle:箇条書き><cTypeface:B><cFont:A-OTF ゴシックMB101 Pro><cotfcalt:0><cotfl:nalt,7>1<cTypeface:><cFont:><cotfcalt:><cotfl:>hogehogeをします
+<ParaStyle:箇条書き><cTypeface:B><cFont:A-OTF ゴシックMB101 Pro><cotfcalt:0><cotfl:nalt,7>2<cTypeface:><cFont:><cotfcalt:><cotfl:>fugafugaと<cTypeface:B><cFont:A-OTF ゴシックMB101 Pro><cotfcalt:0><cotfl:nalt,7>1<cTypeface:><cFont:><cotfcalt:><cotfl:>の結果を足し合わせます
+<ParaStyle:本文>　リスト1.1<CharStyle:丸文字><2460><CharStyle:>ではアラートを出しています。<CharStyle:丸文字><2461><CharStyle:>でもアラートを出しています。(a1)エスケープできます。
+<ParaStyle:リスト>
+<ParaStyle:キャプション>リスト1.1キャプション（コードのタイトル）
+<ParaStyle:リスト>function hoge() {
+<ParaStyle:リスト>    alert(foo);　… <CharStyle:丸文字><2460><CharStyle:>
+<ParaStyle:リスト>    alert(bar);　… <CharStyle:丸文字><2461><CharStyle:>
+<ParaStyle:リスト>    alert(c1); // \でエスケープできます
+<ParaStyle:リスト>}
+
 
 === pre
 --- in md2inao

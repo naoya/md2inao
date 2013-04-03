@@ -220,7 +220,6 @@ case ol => sub {
     return $out;
 };
 
-## FIXME: 前半の処理は手つかず
 case pre => sub {
     my ($c, $h) = @_;
     $c->in_code_block(1);
@@ -231,9 +230,7 @@ case pre => sub {
     my $list_label = 'list';
     my $comment_label = 'comment';
 
-    # キャプション
-    # $text =~ s!●(.+?)::(.+)!●$1\t$2!g;
-
+    ## FIXME: 未対応
     # 「!!! cmd」で始まるコードブロックはコマンドライン（黒背景）
     if ($text =~ /!!!(\s+)?cmd/) {
         $text =~ s/.+?\n//;
@@ -242,7 +239,7 @@ case pre => sub {
     }
 
     ## リストスタイル
-    # $text = to_list_style($text);
+    $text = replace_list_maker($text);
 
     # 文字数カウント
     my $max = max(map { visual_length($_) } split /\r?\n/, $text);
