@@ -300,7 +300,7 @@ EOF
 case a => sub {
     my ($c, $h) = @_;
     my $url   = $h->attr('href');
-    my $title = $h->as_trimmed_text;
+    my $title = $c->parse_element($h);
     if ($url and $title) {
         return sprintf "%s<fnStart:><pstyle:注釈>%s<fnEnd:><cstyle:>", $title, $url;
     } else {
@@ -349,11 +349,11 @@ case table => sub {
     $out .= sprintf "<ParaStyle:キャプション>%s\t%s\n", $1, $2;
 
     for my $table ($h->find('tr')) {
-        if (my $header = join "\t", map { $_->as_trimmed_text } $table->find('th')) {
+        if (my $header = join "\t", map { $c->parse_element($_) } $table->find('th')) {
             $out .= sprintf "<ParaStyle:表見出し行>%s\n", $header;
         }
 
-        if (my $data = join "\t", map { $_->as_trimmed_text } $table->find('td')) {
+        if (my $data = join "\t", map { $c->parse_element($_) } $table->find('td')) {
             $out .= sprintf "<ParaStyle:表>%s\n", $data;
         }
     }
