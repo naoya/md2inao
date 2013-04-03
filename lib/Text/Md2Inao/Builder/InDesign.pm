@@ -297,4 +297,16 @@ case a => sub {
     }
 };
 
+## FIXME: 要仕様確認
+case img => sub {
+    my ($c, $h) = @_;
+    $c->{img_number} += 1;
+    return sprintf (
+        "●図%d\t%s\n%s\n",
+        $c->{img_number},
+        $h->attr('alt') || $h->attr('title'),
+        $h->attr('src')
+    );
+};
+
 1;

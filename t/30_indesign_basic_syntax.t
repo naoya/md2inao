@@ -330,3 +330,9 @@ __END__
 [RubyMotion](http://rubymotion.com)
 --- expected
 <ParaStyle:本文>RubyMotion<fnStart:><pstyle:注釈>http://rubymotion.com<fnEnd:><cstyle:>
+
+=== img
+--- SKIP in md2inao
+![Command Line Tool](http://cdn.bloghackers.net/images/20130220_204748.png)
+--- expected
+
