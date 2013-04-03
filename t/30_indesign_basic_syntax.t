@@ -324,3 +324,9 @@ __END__
 <ParaStyle:リスト白文字>function bar(b) {
 <ParaStyle:リスト白文字>    alert(b);
 <ParaStyle:リスト白文字>}
+
+=== anchor
+--- in md2inao
+[RubyMotion](http://rubymotion.com)
+--- expected
+<ParaStyle:本文>RubyMotion<fnStart:><pstyle:注釈>http://rubymotion.com<fnEnd:><cstyle:>

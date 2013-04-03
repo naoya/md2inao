@@ -286,4 +286,15 @@ $lines
 EOF
 };
 
+case a => sub {
+    my ($c, $h) = @_;
+    my $url   = $h->attr('href');
+    my $title = $h->as_trimmed_text;
+    if ($url and $title) {
+        return sprintf "%s<fnStart:><pstyle:注釈>%s<fnEnd:><cstyle:>", $title, $url;
+    } else {
+        return fallback_to_html($h);
+    }
+};
+
 1;
