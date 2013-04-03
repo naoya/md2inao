@@ -304,7 +304,6 @@ case a => sub {
     }
 };
 
-## FIXME: 要仕様確認
 case img => sub {
     my ($c, $h) = @_;
     $c->{img_number} += 1;
