@@ -232,7 +232,7 @@ case pre => sub {
     my $comment_label = 'comment';
 
     # キャプション
-    $text =~ s!●(.+?)::(.+)!●$1\t$2!g;
+    # $text =~ s!●(.+?)::(.+)!●$1\t$2!g;
 
     # 「!!! cmd」で始まるコードブロックはコマンドライン（黒背景）
     if ($text =~ /!!!(\s+)?cmd/) {
@@ -241,8 +241,8 @@ case pre => sub {
         $comment_label .= '-white';
     }
 
-    # リストスタイル
-    $text = to_list_style($text);
+    ## リストスタイル
+    # $text = to_list_style($text);
 
     # 文字数カウント
     my $max = max(map { visual_length($_) } split /\r?\n/, $text);
@@ -273,8 +273,20 @@ case pre => sub {
 
     $c->in_code_block(0);
 
-    my @lines = map { sprintf "<ParaStyle:リスト>%s\n", $_ } split /\n/, $text;
-    return join "", @lines;
+    my @lines = map {
+        if (m/^●(.+?)::(.+)/) {
+            sprintf "<ParaStyle:キャプション>%s%s", $1, $2;
+        }
+        else {
+            sprintf "<ParaStyle:リスト>%s", $_
+        }
+    } split /\n/, $text;
+
+    my $lines = join "\n", @lines;
+    return <<EOF;
+<ParaStyle:リスト>
+$lines
+EOF
 };
 
 1;
