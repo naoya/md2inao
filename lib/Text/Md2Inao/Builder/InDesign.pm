@@ -260,7 +260,7 @@ case pre => sub {
     # コード内コメント
     if ($text =~ m!\(注:! or $c->in_footnote) {
         $text = replace_note_parenthesis($c, $text, '注');
-        $text =~ s!◆注/◆!<CharStyle:リストコメント白地黒文字> !g;
+        $text =~ s!◆注/◆!<CharStyle:リストコメント> !g;
         $text =~ s!◆/注◆! <CharStyle:>!g;
     }
 

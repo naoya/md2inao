@@ -254,5 +254,17 @@ __END__
     }
 --- expected
 <ParaStyle:リスト>function bar(b) {
-<ParaStyle:リスト>    alert(b); <CharStyle:リストコメント白地黒文字> コメント <CharStyle:>
+<ParaStyle:リスト>    alert(b); <CharStyle:リストコメント> コメント <CharStyle:>
+<ParaStyle:リスト>}
+
+=== notes in pre #2
+--- in md2inao
+    (注:見出し的にも使えます)
+    function bar(b) {
+        alert(b);
+    }
+--- expected
+<ParaStyle:リスト><CharStyle:リストコメント> 見出し的にも使えます <CharStyle:>
+<ParaStyle:リスト>function bar(b) {
+<ParaStyle:リスト>    alert(b);
 <ParaStyle:リスト>}
