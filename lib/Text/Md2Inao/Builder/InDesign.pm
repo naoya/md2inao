@@ -96,12 +96,12 @@ case "h5" => sub {
     return sprintf "<ParaStyle:コラム小見出し>%s\n", $h->as_trimmed_text;
 };
 
-case "strong" => sub {
+case strong => sub {
     my ($c, $h) = @_;
     return sprintf "<CharStyle:太字>%s<CharStyle:>", $h->as_trimmed_text;
 };
 
-case "em" => sub {
+case em => sub {
     my ($c, $h) = @_;
     my $ret;
     $ret .= $c->use_special_italic ? '<CharStyle:イタリック（変形斜体）>' : '<CharStyle:イタリック（変形斜体）>';
@@ -110,7 +110,7 @@ case "em" => sub {
     return $ret;
 };
 
-case "code" => sub {
+case code => sub {
     my ($c, $h) = @_;
     return sprintf "<CharStyle:コマンド>%s<CharStyle:>", $h->as_trimmed_text;
 };
@@ -140,9 +140,12 @@ case span => sub {
         $ruby =~ s!(.+)\((.+)\)!<cr:1><crstr:$2><cmojir:0>$1<cr:><crstr:><cmojir:>!;
         return $ruby;
     }
+
+    ## FIXME
     elsif ($h->attr('class') eq 'symbol') {
         return sprintf "◆%s◆",$h->as_trimmed_text;
     }
+
     else {
         return fallback_to_html($h);
     }
@@ -307,6 +310,43 @@ case img => sub {
         $h->attr('alt') || $h->attr('title'),
         $h->attr('src')
     );
+};
+
+case dl => sub {
+    my ($c, $h) = @_;
+    my $out = '';
+    for ($h->descendants) {
+        if ($_->tag eq 'dt') {
+            $out .= sprintf "<ParaStyle:箇条書き>・%s\n", $c->parse_element($_);
+        } elsif ($_->tag eq 'dd') {
+            $out .= sprintf "<ParaStyle:箇条書き説明>%s\n", $c->parse_element($_);
+        }
+    }
+    return $out;
+};
+
+case table => sub {
+    my ($c, $h) = @_;
+    my $out = '';
+    my $summary = $h->attr('summary') || '';
+    $summary =~ s!(.+?)::(.+)!●$1\t$2\n!;
+    $out .= "◆table/◆\n";
+    $out .= $summary;
+    $out .= "◆table-title◆";
+    for my $table ($h->find('tr')) {
+        for my $item ($table->find('th')) {
+            $out .= $item->as_trimmed_text;
+            $out .= "\t";
+        }
+        for my $item ($table->find('td')) {
+            $out .= $item->as_trimmed_text;
+            $out .= "\t";
+        }
+        chop($out);
+        $out .= "\n"
+    }
+    $out .= "◆/table◆\n";
+    return $out;
 };
 
 1;

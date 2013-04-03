@@ -336,3 +336,14 @@ __END__
 ![Command Line Tool](http://cdn.bloghackers.net/images/20130220_204748.png)
 --- expected
 
+=== dl
+--- in md2inao
+<dl>
+  <dt>Xenoblade</dt>
+  <dd>Fiorung</dd>
+  <dd>Shulk</dd>
+</dl>
+--- expected
+<ParaStyle:箇条書き>・Xenoblade
+<ParaStyle:箇条書き説明>Fiorung
+<ParaStyle:箇条書き説明>Shulk
