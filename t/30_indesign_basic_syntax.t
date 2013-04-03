@@ -373,8 +373,14 @@ __END__
 <ParaStyle:表>内容1	内容2
 <ParaStyle:表>内容1	内容2
 
-=== hr
+=== horizontal rule
 --- in md2inao
-<hr>
+Hello
+
+=-=-=
+
+World
 --- expected
+<ParaStyle:本文>Hello
 <ParaStyle:区切り線>
+<ParaStyle:本文>World
