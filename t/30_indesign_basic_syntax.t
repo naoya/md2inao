@@ -246,3 +246,13 @@ __END__
 <ParaStyle:リスト>function bar(b) {
 <ParaStyle:リスト>    alert(b);
 <ParaStyle:リスト>}
+
+=== notes in pre
+--- in md2inao
+    function bar(b) {
+        alert(b); (注:コメント)
+    }
+--- expected
+<ParaStyle:リスト>function bar(b) {
+<ParaStyle:リスト>    alert(b); <CharStyle:リストコメント白地黒文字> コメント <CharStyle:>
+<ParaStyle:リスト>}
