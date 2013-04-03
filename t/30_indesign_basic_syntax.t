@@ -302,3 +302,25 @@ __END__
 <ParaStyle:リスト>
 <ParaStyle:リスト><CharStyle:コマンド太字>use strict<CharStyle:>;
 <ParaStyle:リスト><CharStyle:イタリック（変形斜体）>foo('bar');<CharStyle:> // コード内<CharStyle:イタリック（変形斜体）>イタリック<CharStyle:>
+
+=== pre for command
+--- in md2inao
+    !!! cmd
+    ●図1.1::キャプション（コマンドのタイトル）
+    $ command  **foo** // コマンド内強調
+    bar (注:こんな風にコメントがつけられます)
+
+    (注:見出し的にも使えます)
+    function bar(b) {
+        alert(b);
+    }
+--- expected
+<ParaStyle:リスト白文字>
+<ParaStyle:キャプション>図1.1キャプション（コマンドのタイトル）
+<ParaStyle:リスト白文字>$ command  <CharStyle:コマンド太字>foo<CharStyle:> // コマンド内強調
+<ParaStyle:リスト白文字>bar <CharStyle:リストコメント白地黒文字> こんな風にコメントがつけられます <CharStyle:>
+<ParaStyle:リスト白文字>
+<ParaStyle:リスト白文字><CharStyle:リストコメント白地黒文字> 見出し的にも使えます <CharStyle:>
+<ParaStyle:リスト白文字>function bar(b) {
+<ParaStyle:リスト白文字>    alert(b);
+<ParaStyle:リスト白文字>}

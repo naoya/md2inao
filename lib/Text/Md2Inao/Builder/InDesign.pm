@@ -227,15 +227,14 @@ case pre => sub {
     my $code = $h->find('code');
     my $text = $code ? $code->as_text : '';
 
-    my $list_label = 'list';
-    my $comment_label = 'comment';
+    my $list_label = 'リスト';
+    my $comment_label = 'リストコメント';
 
-    ## FIXME: 未対応
     # 「!!! cmd」で始まるコードブロックはコマンドライン（黒背景）
     if ($text =~ /!!!(\s+)?cmd/) {
         $text =~ s/.+?\n//;
-        $list_label .= '-white';
-        $comment_label .= '-white';
+        $list_label .= '白文字';
+        $comment_label .= '白地黒文字';
     }
 
     ## リストスタイル
@@ -257,7 +256,7 @@ case pre => sub {
     # コード内コメント
     if ($text =~ m!\(注:! or $c->in_footnote) {
         $text = replace_note_parenthesis($c, $text, '注');
-        $text =~ s!◆注/◆!<CharStyle:リストコメント> !g;
+        $text =~ s!◆注/◆!<CharStyle:$comment_label> !g;
         $text =~ s!◆/注◆! <CharStyle:>!g;
     }
 
@@ -276,13 +275,13 @@ case pre => sub {
             sprintf "<ParaStyle:キャプション>%s%s", $1, $2;
         }
         else {
-            sprintf "<ParaStyle:リスト>%s", $_
+            sprintf "<ParaStyle:%s>%s", $list_label, $_;
         }
     } split /\n/, $text;
 
     my $lines = join "\n", @lines;
     return <<EOF;
-<ParaStyle:リスト>
+<ParaStyle:$list_label>
 $lines
 EOF
 };
