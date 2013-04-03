@@ -204,6 +204,18 @@ __END__
 <ParaStyle:箇条書き><CharStyle:丸文字><cLigatures:0><cOTFContAlt:0><cOTFeatureList:nalt,3>d<cLigatures:><cOTFContAlt:><cOTFeatureList:><CharStyle:>連番箇条書き（アルファベット）
 <ParaStyle:箇条書き><CharStyle:丸文字><cLigatures:0><cOTFContAlt:0><cOTFeatureList:nalt,3>e<cLigatures:><cOTFContAlt:><cOTFeatureList:><CharStyle:>連番箇条書き（アルファベット）
 
+=== numbers in body
+--- in md2inao
+　箇条書き以外の本文やリスト中で番号を書きたいときは、(d1)、(d2)、(c1)、(c2)、(s1)、(s2)、(a1)、(a2)のように書いてください。
+--- expected
+<ParaStyle:本文>　箇条書き以外の本文やリスト中で番号を書きたいときは、<CharStyle:丸文字><2776><CharStyle:>、<CharStyle:丸文字><2777><CharStyle:>、<CharStyle:丸文字><2460><CharStyle:>、<CharStyle:丸文字><2461><CharStyle:>、<cTypeface:B><cFont:A-OTF ゴシックMB101 Pro><cotfcalt:0><cotfl:nalt,7>1<cTypeface:><cFont:><cotfcalt:><cotfl:>、<cTypeface:B><cFont:A-OTF ゴシックMB101 Pro><cotfcalt:0><cotfl:nalt,7>2<cTypeface:><cFont:><cotfcalt:><cotfl:>、<CharStyle:丸文字><cLigatures:0><cOTFContAlt:0><cOTFeatureList:nalt,3>a<cLigatures:><cOTFContAlt:><cOTFeatureList:><CharStyle:>、<CharStyle:丸文字><cLigatures:0><cOTFContAlt:0><cOTFeatureList:nalt,3>b<cLigatures:><cOTFContAlt:><cOTFeatureList:><CharStyle:>のように書いてください。
+
+=== numbers in body but escaped
+--- in md2inao
+(\d1)
+--- expected
+<ParaStyle:本文>(d1)
+
 === numbers in body and lists
 --- SKIP in md2inao
 ### 本文やリスト中での番号

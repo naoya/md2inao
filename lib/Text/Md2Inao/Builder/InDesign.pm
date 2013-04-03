@@ -12,6 +12,44 @@ use parent qw/Text::Md2Inao::Builder/;
 
 use List::Util qw/max/;
 
+
+sub list_marker {
+    my ($style, $i) = @_;
+
+    if ($style eq 'disc') {
+        my $code = 0x2776 - 1;
+        return sprintf "<CharStyle:丸文字><%x><CharStyle:>", $code + $i;
+    }
+
+    if ($style eq 'circle') {
+        my $code = 0x2460 - 1;
+        return sprintf "<CharStyle:丸文字><%x><CharStyle:>", $code + $i;
+    }
+
+    if ($style eq 'square') {
+        return sprintf "<cTypeface:B><cFont:A-OTF ゴシックMB101 Pro><cotfcalt:0><cotfl:nalt,7>%d<cTypeface:><cFont:><cotfcalt:><cotfl:>", $i;
+    }
+
+    if ($style eq 'alpha') {
+        return sprintf "<CharStyle:丸文字><cLigatures:0><cOTFContAlt:0><cOTFeatureList:nalt,3>%s<cLigatures:><cOTFContAlt:><cOTFeatureList:><CharStyle:>", chr($i + 96);
+    }
+}
+
+sub replace_list_maker {
+    my $text = shift;
+
+    # convert
+    $text =~ s/\(d(\d+)\)/list_marker('disc', $1)/eg;
+    $text =~ s/\(c(\d+)\)/list_marker('circle', $1)/eg;
+    $text =~ s/\(s(\d+)\)/list_marker('square', $1)/eg;
+    $text =~ s/\(a(\d+)\)/list_marker('alpha', $1)/eg;
+
+    # escape
+    $text =~ s/\(\\([dcsa]?\d+)\)/($1)/g;
+
+    return $text;
+}
+
 case default => sub {
     my ($c, $h) = @_;
     $h->as_HTML('', '', {});
@@ -31,10 +69,7 @@ case text => sub {
         $text =~ s!\[(.+)\]$!\n$1!;
     }
 
-    # FIXME: リストスタイル文字の変換
-    # $text = to_list_style($text);
-
-    return $text;
+    return replace_list_maker $text;
 };
 
 case "h1" => sub {
@@ -179,35 +214,12 @@ case ol => sub {
     for my $list ($h->find('li')) {
         $out .= sprintf(
             "<ParaStyle:箇条書き>%s%s\n",
-            _to_list_style($style, ++$i),
+            list_marker($style, ++$i),
             $c->parse_element($list)
         );
     }
     return $out;
 };
-
-## FIXME: subroutine name
-sub _to_list_style {
-    my ($style, $i) = @_;
-
-    if ($style eq 'disc') {
-        my $code = 0x2776 - 1;
-        return sprintf "<CharStyle:丸文字><%x><CharStyle:>", $code + $i;
-    }
-
-    if ($style eq 'circle') {
-        my $code = 0x2460 - 1;
-        return sprintf "<CharStyle:丸文字><%x><CharStyle:>", $code + $i;
-    }
-
-    if ($style eq 'square') {
-        return sprintf "<cTypeface:B><cFont:A-OTF ゴシックMB101 Pro><cotfcalt:0><cotfl:nalt,7>%d<cTypeface:><cFont:><cotfcalt:><cotfl:>", $i;
-    }
-
-    if ($style eq 'alpha') {
-        return sprintf "<CharStyle:丸文字><cLigatures:0><cOTFContAlt:0><cOTFeatureList:nalt,3>%s<cLigatures:><cOTFContAlt:><cOTFeatureList:><CharStyle:>", chr($i + 96);
-    }
-}
 
 ## FIXME: 前半の処理は手つかず
 case pre => sub {
