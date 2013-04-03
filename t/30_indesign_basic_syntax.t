@@ -281,3 +281,11 @@ __END__
 <ParaStyle:キャプション>リスト1.1キャプション
 <ParaStyle:リスト>use strict;
 
+=== em/italic in pre
+--- in md2inao
+    **use strict**;
+    ___foo('bar');___ // コード内___イタリック___
+--- expected
+<ParaStyle:リスト>
+<ParaStyle:リスト><CharStyle:コマンド太字>use strict<CharStyle:>;
+<ParaStyle:リスト><CharStyle:イタリック（変形斜体）>foo('bar');<CharStyle:> // コード内<CharStyle:イタリック（変形斜体）>イタリック<CharStyle:>

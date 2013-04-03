@@ -265,10 +265,11 @@ case pre => sub {
     }
 
     # コード内強調
-    $text =~ s!\*\*(.+?)\*\*!◆cmd-b/◆$1◆/cmd-b◆!g;
+    $text =~ s!\*\*(.+?)\*\*!<CharStyle:コマンド太字>$1<CharStyle:>!g;
 
     # コード内イタリック
-    $text =~ s!\___(.+?)\___!◆i-j/◆$1◆/i-j◆!g;
+    $text =~ s!\___(.+?)\___!<CharStyle:イタリック（変形斜体）>$1<CharStyle:>!g;
+
     chomp $text;
 
     $c->in_code_block(0);
