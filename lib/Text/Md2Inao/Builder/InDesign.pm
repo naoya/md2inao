@@ -12,7 +12,6 @@ use parent qw/Text::Md2Inao::Builder/;
 
 use List::Util qw/max/;
 
-
 sub list_marker {
     my ($style, $i) = @_;
 
