@@ -1,5 +1,5 @@
 #!/bin/bash
-HOME=/home/fiorung
+HOME=/home/ec2-user
 source ~/perl5/perlbrew/etc/bashrc
 
 CURDIR=`dirname $0`
