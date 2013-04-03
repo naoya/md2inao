@@ -119,8 +119,12 @@ case p => sub {
     my ($c, $h) = @_;
     my $text = $c->parse_element($h);
     if ($text !~ /^[\s　]+$/) {
-        my $label = $c->in_column ? 'コラム本文' : '本文';
-        return sprintf "<ParaStyle:%s>%s\n", $label, $text;
+        if ($text =~ /^<ParaStyle:キャプション>/) { ## Dirty Hack...
+            return $text;
+        } else {
+            my $label = $c->in_column ? 'コラム本文' : '本文';
+            return sprintf "<ParaStyle:%s>%s\n", $label, $text;
+        }
     }
 };
 
@@ -304,8 +308,14 @@ case a => sub {
 case img => sub {
     my ($c, $h) = @_;
     $c->{img_number} += 1;
+
+    my $template = <<EOF;
+<ParaStyle:キャプション>●図%d\t%s
+<ParaStyle:赤字>%s
+EOF
+
     return sprintf (
-        "●図%d\t%s\n%s\n",
+        $template,
         $c->{img_number},
         $h->attr('alt') || $h->attr('title'),
         $h->attr('src')
