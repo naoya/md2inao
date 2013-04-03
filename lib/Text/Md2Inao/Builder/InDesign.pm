@@ -357,4 +357,9 @@ case table => sub {
     return $out;
 };
 
+case hr => sub {
+    my ($c, $h) = @_;
+    return "<ParaStyle:区切り線>\n"
+};
+
 1;

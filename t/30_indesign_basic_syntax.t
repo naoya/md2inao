@@ -372,3 +372,9 @@ __END__
 <ParaStyle:表見出し行>表タイトル1	表タイトル2
 <ParaStyle:表>内容1	内容2
 <ParaStyle:表>内容1	内容2
+
+=== hr
+--- in md2inao
+<hr>
+--- expected
+<ParaStyle:区切り線>
