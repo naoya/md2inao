@@ -6,6 +6,7 @@ use Plack::Builder;
 use Encode qw/decode_utf8/;
 
 use Text::Md2Inao;
+use Text::Md2Inao::Builder::InDesign;
 
 # Increase limit to 1GB from 1GB
 # $ENV{MOJO_MAX_MESSAGE_SIZE} = 1073741824;
@@ -29,6 +30,11 @@ post '/upload' => sub {
         max_list_length        => 63,
         max_inline_list_length => 55,
     });
+
+    if ($self->req->param('in_design')) {
+        $p->builder( Text::Md2Inao::Builder::InDesign->new );
+    }
+
     $self->render(text => $p->parse(decode_utf8 $md), format => 'txt');
 };
 
@@ -51,6 +57,8 @@ __DATA__
 %= form_for upload => (enctype => 'multipart/form-data') => begin
   %= file_field 'markdown'
   %= submit_button 'upload markdown file'
+  %= check_box in_design => 1, id => 'in_design'
+  <label for='in_design'>InDesign出力</label>
 %end
 </div>
 
