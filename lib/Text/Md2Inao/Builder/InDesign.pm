@@ -152,11 +152,10 @@ case div => sub {
 case ul => sub {
     my ($c, $h) = @_;
     if ($c->in_list) {
-        ## FIXME: 仕様確認中
         my $ret = "\n";
         for ($h->content_list) {
             if ($_->tag eq 'li') {
-                $ret .= sprintf "＊・%s\n", $c->parse_element($_);
+                $ret .= sprintf "<ParaStyle:箇条書き2階層目>・%s\n", $c->parse_element($_);
             }
         }
         chomp $ret;

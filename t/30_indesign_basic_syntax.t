@@ -130,6 +130,18 @@ __END__
 <ParaStyle:箇条書き>・<CharStyle:太字>強調<CharStyle:>
 <ParaStyle:箇条書き>・<CharStyle:イタリック（変形斜体）>イタリック<CharStyle:>
 
+=== nested list
+--- in md2inao
+- Hello
+    - Markdown
+    - Inao
+    - InDesign
+--- expected
+<ParaStyle:箇条書き>・Hello
+<ParaStyle:箇条書き2階層目>・Markdown
+<ParaStyle:箇条書き2階層目>・Inao
+<ParaStyle:箇条書き2階層目>・InDesign
+
 === ordered list (disc)
 --- in md2inao
 1. 連番箇条書き（黒丸数字）
