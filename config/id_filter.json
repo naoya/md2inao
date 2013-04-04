@@ -1,0 +1,7 @@
+{
+    "before_filter": {
+    },
+    "after_filter": {
+        "★" : "<CharStyle:赤字>★<CharStyle:>"
+    }
+}

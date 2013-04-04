@@ -5,6 +5,8 @@ use warnings;
 
 use Class::Accessor::Fast qw/antlers/;
 
+use JSON;
+use Path::Tiny;
 use Text::Md2Inao::Logger;
 
 has dispatch_table => ( is => 'rw' );
@@ -25,6 +27,18 @@ has after_filter_config  => ( is => 'rw' );
 sub dispatch {
     my ($self, $select) = @_;
     return $self->dispatch_table->{$select} || $self->dispatch_table->{default};
+}
+
+sub load_filter_config {
+    my ($self, $path) = @_;
+    my $json = path($path)->slurp;
+    my $config = decode_json $json;
+    for (qw/before_filter after_filter/) {
+        if ($config->{$_}) {
+            my $meth = sprintf "%s_config", $_;
+            $self->$meth($config->{$_});
+        }
+    }
 }
 
 sub before_filter {
