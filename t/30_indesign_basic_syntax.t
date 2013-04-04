@@ -10,12 +10,15 @@ plan tests => 1 * blocks;
 
 run_is in => 'expected';
 
+my $builder = Text::Md2Inao::Builder::InDesign->new;
+$builder->load_filter_config('./config/id_filter.json');
+
 sub md2inao {
     my $p = Text::Md2Inao->new({
         default_list           => 'disc',
         max_list_length        => 63,
         max_inline_list_length => 55,
-        builder                => Text::Md2Inao::Builder::InDesign->new,
+        builder                => $builder,
     });
     $p->parse($_);
 }
@@ -384,3 +387,9 @@ World
 <ParaStyle:本文>Hello
 <ParaStyle:区切り線>
 <ParaStyle:本文>World
+
+=== star
+--- in md2inao
+★
+--- expected
+<ParaStyle:本文><CharStyle:赤字>★<CharStyle:>
