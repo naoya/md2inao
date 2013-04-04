@@ -10,10 +10,9 @@ plan tests => 1 * blocks;
 
 run_is in => 'expected';
 
-my $builder = Text::Md2Inao::Builder::InDesign->new;
-$builder->load_filter_config('./config/id_filter.json');
-
 sub md2inao {
+    my $builder = Text::Md2Inao::Builder::InDesign->new;
+    $builder->load_filter_config('./config/id_filter.json');
     my $p = Text::Md2Inao->new({
         default_list           => 'disc',
         max_list_length        => 63,
