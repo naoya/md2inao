@@ -95,7 +95,6 @@ __END__
 > これは引用です。
 > これは**強調**と_イタリック_です。
 --- expected
-<ParaStyle:引用>
 <ParaStyle:引用>これは引用です。これは引用です。これは引用です。これは<CharStyle:太字>強調<CharStyle:>と<CharStyle:イタリック（変形斜体）>イタリック<CharStyle:>です。
 
 === column
@@ -110,7 +109,6 @@ __END__
 　コラム内でも**強調**や_イタリック_などが使えます。
 </div>
 --- expected
-<ParaStyle:コラム本文>
 <ParaStyle:コラムタイトル>コラム見出し
 <ParaStyle:コラム本文>　コラム本文コラム本文コラム本文コラム本文コラム本文コラム本文コラム本文コラム本文コラム本文コラム本文コラム。
 <ParaStyle:コラム小見出し>コラム小見出し
@@ -241,7 +239,6 @@ __END__
 <ParaStyle:箇条書き><cTypeface:B><cFont:A-OTF ゴシックMB101 Pro><cotfcalt:0><cotfl:nalt,7>1<cTypeface:><cFont:><cotfcalt:><cotfl:>hogehogeをします
 <ParaStyle:箇条書き><cTypeface:B><cFont:A-OTF ゴシックMB101 Pro><cotfcalt:0><cotfl:nalt,7>2<cTypeface:><cFont:><cotfcalt:><cotfl:>fugafugaと<cTypeface:B><cFont:A-OTF ゴシックMB101 Pro><cotfcalt:0><cotfl:nalt,7>1<cTypeface:><cFont:><cotfcalt:><cotfl:>の結果を足し合わせます
 <ParaStyle:本文>　リスト1.1<CharStyle:丸文字><2460><CharStyle:>ではアラートを出しています。<CharStyle:丸文字><2461><CharStyle:>でもアラートを出しています。(a1)エスケープできます。
-<ParaStyle:リスト>
 <ParaStyle:キャプション>リスト1.1キャプション（コードのタイトル）
 <ParaStyle:リスト>function hoge() {
 <ParaStyle:リスト>    alert(foo);　… <CharStyle:丸文字><2460><CharStyle:>
@@ -256,7 +253,6 @@ __END__
         alert(b);
     }
 --- expected
-<ParaStyle:リスト>
 <ParaStyle:リスト>function bar(b) {
 <ParaStyle:リスト>    alert(b);
 <ParaStyle:リスト>}
@@ -267,7 +263,6 @@ __END__
         alert(b); (注:コメント)
     }
 --- expected
-<ParaStyle:リスト>
 <ParaStyle:リスト>function bar(b) {
 <ParaStyle:リスト>    alert(b); <CharStyle:リストコメント> コメント <CharStyle:>
 <ParaStyle:リスト>}
@@ -279,7 +274,6 @@ __END__
         alert(b);
     }
 --- expected
-<ParaStyle:リスト>
 <ParaStyle:リスト><CharStyle:リストコメント> 見出し的にも使えます <CharStyle:>
 <ParaStyle:リスト>function bar(b) {
 <ParaStyle:リスト>    alert(b);
@@ -290,7 +284,6 @@ __END__
     ●リスト1.1::キャプション
     use strict;
 --- expected
-<ParaStyle:リスト>
 <ParaStyle:キャプション>リスト1.1キャプション
 <ParaStyle:リスト>use strict;
 
@@ -299,7 +292,6 @@ __END__
     **use strict**;
     ___foo('bar');___ // コード内___イタリック___
 --- expected
-<ParaStyle:リスト>
 <ParaStyle:リスト><CharStyle:コマンド太字>use strict<CharStyle:>;
 <ParaStyle:リスト><CharStyle:イタリック（変形斜体）>foo('bar');<CharStyle:> // コード内<CharStyle:イタリック（変形斜体）>イタリック<CharStyle:>
 
@@ -315,7 +307,6 @@ __END__
         alert(b);
     }
 --- expected
-<ParaStyle:リスト白文字>
 <ParaStyle:キャプション>図1.1キャプション（コマンドのタイトル）
 <ParaStyle:リスト白文字>$ command  <CharStyle:コマンド太字>foo<CharStyle:> // コマンド内強調
 <ParaStyle:リスト白文字>bar <CharStyle:リストコメント白地黒文字> こんな風にコメントがつけられます <CharStyle:>
@@ -367,7 +358,6 @@ __END__
     </tr>
 </table>
 --- expected
-<ParaStyle:表>
 <ParaStyle:キャプション>表1.1	キャプション（表のタイトル）
 <ParaStyle:表見出し行>表タイトル1	表タイトル2
 <ParaStyle:表>内容1	内容2
