@@ -68,7 +68,7 @@ __END__
 --- in md2inao
 これは(注:ここは注釈です)です
 --- expected
-<ParaStyle:本文>これは<fnStart:><pstyle:注釈>ここは注釈です<fnEnd:><cstyle:>です
+<ParaStyle:本文>これは<cstyle:上付き><fnStart:><pstyle:注釈>ここは注釈です<fnEnd:><cstyle:>です
 
 === kbd
 --- SKIP in md2inao
