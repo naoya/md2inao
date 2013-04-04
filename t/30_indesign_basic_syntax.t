@@ -320,7 +320,7 @@ __END__
 --- in md2inao
 [RubyMotion](http://rubymotion.com)
 --- expected
-<ParaStyle:本文>RubyMotion<fnStart:><pstyle:注釈>http://rubymotion.com<fnEnd:><cstyle:>
+<ParaStyle:本文>RubyMotion<cstyle:上付き><fnStart:><pstyle:注釈>http://rubymotion.com<fnEnd:><cstyle:>
 
 === img
 --- in md2inao
