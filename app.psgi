@@ -32,7 +32,9 @@ post '/upload' => sub {
     });
 
     if ($self->req->param('in_design')) {
-        $p->builder( Text::Md2Inao::Builder::InDesign->new );
+        my $builder = Text::Md2Inao::Builder::InDesign->new;
+        $builder->load_filter_config('./config/id_filter.json');
+        $p->builder($builder);
     }
 
     $self->render(text => $p->parse(decode_utf8 $md), format => 'txt');

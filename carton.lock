@@ -245,6 +245,99 @@
          "target" : "Class::Inspector",
          "version" : "1.28"
       },
+      "Cwd" : {
+         "dist" : "PathTools-3.40",
+         "mymeta" : {
+            "abstract" : "unknown",
+            "author" : [
+               "unknown"
+            ],
+            "dynamic_config" : 0,
+            "generated_by" : "ExtUtils::MakeMaker version 6.62, CPAN::Meta::Converter version 2.112150, CPAN::Meta::Converter version 2.120921",
+            "license" : [
+               "unknown"
+            ],
+            "meta-spec" : {
+               "url" : "http://search.cpan.org/perldoc?CPAN::Meta::Spec",
+               "version" : "2"
+            },
+            "name" : "PathTools",
+            "no_index" : {
+               "directory" : [
+                  "t",
+                  "inc"
+               ]
+            },
+            "prereqs" : {
+               "build" : {
+                  "requires" : {
+                     "ExtUtils::MakeMaker" : "0"
+                  }
+               },
+               "configure" : {
+                  "requires" : {
+                     "ExtUtils::MakeMaker" : "0"
+                  }
+               },
+               "runtime" : {
+                  "requires" : {
+                     "Carp" : "0",
+                     "File::Basename" : "0",
+                     "Scalar::Util" : "0",
+                     "Test" : "0"
+                  }
+               }
+            },
+            "release_status" : "stable",
+            "version" : "3.40"
+         },
+         "name" : "Cwd",
+         "pathname" : "S/SM/SMUELLER/PathTools-3.40.tar.gz",
+         "provides" : {
+            "Cwd" : {
+               "file" : "Cwd.pm",
+               "version" : "3.40"
+            },
+            "File::Spec" : {
+               "file" : "File/Spec.pm",
+               "version" : "3.40"
+            },
+            "File::Spec::Cygwin" : {
+               "file" : "File/Spec/Cygwin.pm",
+               "version" : "3.40"
+            },
+            "File::Spec::Epoc" : {
+               "file" : "File/Spec/Epoc.pm",
+               "version" : "3.40"
+            },
+            "File::Spec::Functions" : {
+               "file" : "File/Spec/Functions.pm",
+               "version" : "3.40"
+            },
+            "File::Spec::Mac" : {
+               "file" : "File/Spec/Mac.pm",
+               "version" : "3.40"
+            },
+            "File::Spec::OS2" : {
+               "file" : "File/Spec/OS2.pm",
+               "version" : "3.40"
+            },
+            "File::Spec::Unix" : {
+               "file" : "File/Spec/Unix.pm",
+               "version" : "3.40"
+            },
+            "File::Spec::VMS" : {
+               "file" : "File/Spec/VMS.pm",
+               "version" : "3.40"
+            },
+            "File::Spec::Win32" : {
+               "file" : "File/Spec/Win32.pm",
+               "version" : "3.40"
+            }
+         },
+         "target" : "File::Spec",
+         "version" : "3.40"
+      },
       "Data::Dump" : {
          "dist" : "Data-Dump-1.21",
          "mymeta" : {
@@ -323,6 +416,69 @@
          },
          "target" : "Data::Dump",
          "version" : "1.21"
+      },
+      "Devel::Hide" : {
+         "dist" : "Devel-Hide-0.0009",
+         "mymeta" : {
+            "abstract" : "Forces the unavailability of specified Perl modules (for testing)",
+            "author" : [
+               "A. R. Ferreira <ferreira@cpan.org>"
+            ],
+            "dynamic_config" : 0,
+            "generated_by" : "ExtUtils::MakeMaker version 6.62, CPAN::Meta::Converter version 2.113640, CPAN::Meta::Converter version 2.120921",
+            "license" : [
+               "perl_5"
+            ],
+            "meta-spec" : {
+               "url" : "http://search.cpan.org/perldoc?CPAN::Meta::Spec",
+               "version" : "2"
+            },
+            "name" : "Devel-Hide",
+            "no_index" : {
+               "directory" : [
+                  "t",
+                  "inc"
+               ]
+            },
+            "prereqs" : {
+               "build" : {
+                  "requires" : {
+                     "ExtUtils::MakeMaker" : "0"
+                  }
+               },
+               "configure" : {
+                  "requires" : {
+                     "ExtUtils::MakeMaker" : "0"
+                  }
+               },
+               "runtime" : {
+                  "recommends" : {
+                     "Test::Pod" : "1.18",
+                     "Test::Pod::Coverage" : "1.04"
+                  },
+                  "requires" : {
+                     "Test::More" : "0"
+                  }
+               }
+            },
+            "release_status" : "stable",
+            "resources" : {
+               "repository" : {
+                  "url" : "https://github.com/aferreira/cpan-Devel-Hide"
+               }
+            },
+            "version" : "0.0009"
+         },
+         "name" : "Devel::Hide",
+         "pathname" : "F/FE/FERREIRA/Devel-Hide-0.0009.tar.gz",
+         "provides" : {
+            "Devel::Hide" : {
+               "file" : "Devel/Hide.pm",
+               "version" : "0.0009"
+            }
+         },
+         "target" : "Devel::Hide",
+         "version" : "0.0009"
       },
       "Devel::StackTrace" : {
          "dist" : "Devel-StackTrace-1.30",
@@ -712,6 +868,97 @@
          },
          "target" : "File::ShareDir",
          "version" : "1.03"
+      },
+      "File::pushd" : {
+         "dist" : "File-pushd-1.005",
+         "mymeta" : {
+            "abstract" : "change directory temporarily for a limited scope",
+            "author" : [
+               "David Golden <dagolden@cpan.org>"
+            ],
+            "dynamic_config" : 0,
+            "generated_by" : "Dist::Zilla version 4.300031, CPAN::Meta::Converter version 2.120921",
+            "license" : [
+               "apache_2_0"
+            ],
+            "meta-spec" : {
+               "url" : "http://search.cpan.org/perldoc?CPAN::Meta::Spec",
+               "version" : "2"
+            },
+            "name" : "File-pushd",
+            "no_index" : {
+               "directory" : [
+                  "t",
+                  "xt",
+                  "examples",
+                  "corpus"
+               ],
+               "package" : [
+                  "DB"
+               ]
+            },
+            "prereqs" : {
+               "build" : {
+                  "requires" : {
+                     "ExtUtils::MakeMaker" : "0",
+                     "File::Basename" : "0",
+                     "File::Find" : "0",
+                     "File::Spec::Functions" : "0",
+                     "List::Util" : "0",
+                     "Test::More" : "0"
+                  }
+               },
+               "configure" : {
+                  "requires" : {
+                     "ExtUtils::MakeMaker" : "6.30"
+                  }
+               },
+               "runtime" : {
+                  "requires" : {
+                     "Carp" : "0",
+                     "Cwd" : "0",
+                     "Exporter" : "0",
+                     "File::Path" : "0",
+                     "File::Spec" : "0",
+                     "File::Temp" : "0",
+                     "overload" : "0",
+                     "strict" : "0",
+                     "warnings" : "0"
+                  }
+               }
+            },
+            "provides" : {
+               "File::pushd" : {
+                  "file" : "lib/File/pushd.pm",
+                  "version" : "1.005"
+               }
+            },
+            "release_status" : "stable",
+            "resources" : {
+               "bugtracker" : {
+                  "web" : "https://github.com/dagolden/file-pushd/issues"
+               },
+               "homepage" : "https://metacpan.org/release/File-pushd",
+               "repository" : {
+                  "type" : "git",
+                  "url" : "git://github.com/dagolden/file-pushd.git"
+               }
+            },
+            "version" : "1.005",
+            "x_contributors" : [
+               "Diab Jerius <djerius@cfa.harvard.edu>"
+            ]
+         },
+         "name" : "File::pushd",
+         "pathname" : "D/DA/DAGOLDEN/File-pushd-1.005.tar.gz",
+         "provides" : {
+            "File::pushd" : {
+               "file" : "File/pushd.pm",
+               "version" : "1.005"
+            }
+         },
+         "target" : "File::pushd",
+         "version" : "1.005"
       },
       "Filesys::Notify::Simple" : {
          "dist" : "Filesys-Notify-Simple-0.10",
@@ -2175,6 +2422,90 @@
          "target" : "IO::HTML",
          "version" : "1.00"
       },
+      "JSON" : {
+         "dist" : "JSON-2.53",
+         "mymeta" : {
+            "abstract" : "JSON (JavaScript Object Notation) encoder/decoder",
+            "author" : [
+               "Makamaka Hannyaharamitu, E<lt>makamaka[at]cpan.orgE<gt>"
+            ],
+            "dynamic_config" : 0,
+            "generated_by" : "ExtUtils::MakeMaker version 6.56, CPAN::Meta::Converter version 2.120921",
+            "license" : [
+               "perl_5"
+            ],
+            "meta-spec" : {
+               "url" : "http://search.cpan.org/perldoc?CPAN::Meta::Spec",
+               "version" : "2"
+            },
+            "name" : "JSON",
+            "no_index" : {
+               "directory" : [
+                  "t",
+                  "inc"
+               ]
+            },
+            "prereqs" : {
+               "build" : {
+                  "requires" : {
+                     "ExtUtils::MakeMaker" : "0"
+                  }
+               },
+               "configure" : {
+                  "requires" : {
+                     "ExtUtils::MakeMaker" : "0"
+                  }
+               },
+               "runtime" : {
+                  "requires" : {
+                     "Test::More" : "0"
+                  }
+               }
+            },
+            "release_status" : "stable",
+            "resources" : {
+               "repository" : {
+                  "url" : "http://github.com/makamaka/JSON"
+               }
+            },
+            "version" : "2.53"
+         },
+         "name" : "JSON",
+         "pathname" : "M/MA/MAKAMAKA/JSON-2.53.tar.gz",
+         "provides" : {
+            "JSON" : {
+               "file" : "JSON.pm",
+               "version" : "2.53"
+            },
+            "JSON::Backend::PP" : {
+               "file" : "JSON.pm"
+            },
+            "JSON::Boolean" : {
+               "file" : "JSON.pm"
+            },
+            "JSON::PP" : {
+               "file" : "JSON/backportPP.pm",
+               "version" : "2.27200"
+            },
+            "JSON::PP5005" : {
+               "file" : "JSON/backportPP/Compat5005.pm",
+               "version" : "1.10"
+            },
+            "JSON::PP56" : {
+               "file" : "JSON/backportPP/Compat5006.pm",
+               "version" : "1.08"
+            },
+            "JSON::PP::IncrParser" : {
+               "file" : "JSON/backportPP.pm",
+               "version" : "1.01"
+            },
+            "JSON::backportPP::Boolean" : {
+               "file" : "JSON/backportPP.pm"
+            }
+         },
+         "target" : "JSON",
+         "version" : "2.53"
+      },
       "LWP" : {
          "dist" : "libwww-perl-6.04",
          "mymeta" : {
@@ -3165,6 +3496,114 @@
          },
          "target" : "Net::Server::SS::PreFork",
          "version" : "0.05"
+      },
+      "Path::Tiny" : {
+         "dist" : "Path-Tiny-0.017",
+         "mymeta" : {
+            "abstract" : "File path utility",
+            "author" : [
+               "David Golden <dagolden@cpan.org>"
+            ],
+            "dynamic_config" : 0,
+            "generated_by" : "Dist::Zilla version 4.300031, CPAN::Meta::Converter version 2.120921",
+            "license" : [
+               "apache_2_0"
+            ],
+            "meta-spec" : {
+               "url" : "http://search.cpan.org/perldoc?CPAN::Meta::Spec",
+               "version" : "2"
+            },
+            "name" : "Path-Tiny",
+            "no_index" : {
+               "directory" : [
+                  "t",
+                  "xt",
+                  "examples",
+                  "corpus"
+               ],
+               "package" : [
+                  "DB"
+               ]
+            },
+            "prereqs" : {
+               "build" : {
+                  "requires" : {
+                     "Config" : "0",
+                     "Devel::Hide" : "0",
+                     "ExtUtils::MakeMaker" : "0",
+                     "File::Find" : "0",
+                     "File::Spec::Functions" : "0",
+                     "File::Spec::Unix" : "0",
+                     "File::pushd" : "0",
+                     "List::Util" : "0",
+                     "Test::Deep" : "0",
+                     "Test::Fatal" : "0",
+                     "Test::More" : "0.96",
+                     "open" : "0"
+                  }
+               },
+               "configure" : {
+                  "requires" : {
+                     "ExtUtils::MakeMaker" : "6.30"
+                  }
+               },
+               "runtime" : {
+                  "recommends" : {
+                     "Unicode::UTF8" : "0.58"
+                  },
+                  "requires" : {
+                     "Carp" : "0",
+                     "Cwd" : "0",
+                     "Exporter" : "5.57",
+                     "Fcntl" : "0",
+                     "File::Copy" : "0",
+                     "File::Path" : "2.07",
+                     "File::Spec" : "3.40",
+                     "File::Temp" : "0.18",
+                     "File::stat" : "0",
+                     "autodie::exception" : "2.14",
+                     "constant" : "0",
+                     "overload" : "0",
+                     "strict" : "0",
+                     "warnings" : "0"
+                  }
+               }
+            },
+            "provides" : {
+               "Path::Tiny" : {
+                  "file" : "lib/Path/Tiny.pm",
+                  "version" : "0.017"
+               }
+            },
+            "release_status" : "stable",
+            "resources" : {
+               "bugtracker" : {
+                  "web" : "https://github.com/dagolden/path-tiny/issues"
+               },
+               "homepage" : "https://metacpan.org/release/Path-Tiny",
+               "repository" : {
+                  "type" : "git",
+                  "url" : "git://github.com/dagolden/path-tiny.git"
+               }
+            },
+            "version" : "0.017",
+            "x_contributors" : [
+               "Chris Williams <bingos@cpan.org>",
+               "George Hartzell <hartzell@cpan.org>",
+               "Karen Etheridge <ether@cpan.org>",
+               "Michael G. Schwern <mschwern@cpan.org>"
+            ]
+         },
+         "name" : "Path::Tiny",
+         "pathname" : "D/DA/DAGOLDEN/Path-Tiny-0.017.tar.gz",
+         "provides" : {
+            "Path::Tiny" : {
+               "file" : "Path/Tiny.pm",
+               "version" : "0.017"
+            }
+         },
+         "target" : "Path::Tiny",
+         "version" : "0.017"
       },
       "Plack" : {
          "dist" : "Plack-1.0016",
@@ -5790,6 +6229,110 @@
          },
          "target" : "WWW::RobotRules",
          "version" : "6.02"
+      },
+      "autodie" : {
+         "dist" : "autodie-2.16",
+         "mymeta" : {
+            "abstract" : "Replace functions with ones that succeed or die with lexical scope",
+            "author" : [
+               "Paul Fenwick <pjf@cpan.org>"
+            ],
+            "dynamic_config" : 0,
+            "generated_by" : "Dist::Zilla version 4.300030, CPAN::Meta::Converter version 2.120921",
+            "license" : [
+               "perl_5"
+            ],
+            "meta-spec" : {
+               "url" : "http://search.cpan.org/perldoc?CPAN::Meta::Spec",
+               "version" : "2"
+            },
+            "name" : "autodie",
+            "prereqs" : {
+               "build" : {
+                  "requires" : {
+                     "File::Copy" : "0",
+                     "File::Spec" : "0",
+                     "File::Temp" : "0",
+                     "FindBin" : "0",
+                     "IO::Handle" : "0",
+                     "Socket" : "0",
+                     "Test::More" : "0",
+                     "open" : "0"
+                  }
+               },
+               "configure" : {
+                  "requires" : {
+                     "ExtUtils::MakeMaker" : "6.30"
+                  }
+               },
+               "runtime" : {
+                  "recommends" : {
+                     "IPC::System::Simple" : "0.12",
+                     "Sub::Identify" : "0",
+                     "perl" : "5.010"
+                  },
+                  "requires" : {
+                     "B" : "0",
+                     "Carp" : "0",
+                     "Config" : "0",
+                     "Exporter" : "0",
+                     "Fcntl" : "0",
+                     "POSIX" : "0",
+                     "Tie::RefHash" : "0",
+                     "base" : "0",
+                     "constant" : "0",
+                     "if" : "0",
+                     "overload" : "0",
+                     "strict" : "0",
+                     "warnings" : "0"
+                  }
+               }
+            },
+            "release_status" : "stable",
+            "resources" : {
+               "bugtracker" : {
+                  "web" : "http://rt.cpan.org/NoAuth/Bugs.html?Dist=autodie"
+               },
+               "repository" : {
+                  "type" : "git",
+                  "url" : "git://github.com/pfenwick/autodie"
+               }
+            },
+            "version" : "2.16"
+         },
+         "name" : "autodie",
+         "pathname" : "P/PJ/PJF/autodie-2.16.tar.gz",
+         "provides" : {
+            "Fatal" : {
+               "file" : "Fatal.pm",
+               "version" : "2.16"
+            },
+            "autodie" : {
+               "file" : "autodie.pm",
+               "version" : "2.16"
+            },
+            "autodie::Scope::Guard" : {
+               "file" : "Fatal.pm"
+            },
+            "autodie::exception" : {
+               "file" : "autodie/exception.pm",
+               "version" : "2.16"
+            },
+            "autodie::exception::system" : {
+               "file" : "autodie/exception/system.pm",
+               "version" : "2.16"
+            },
+            "autodie::hints" : {
+               "file" : "autodie/hints.pm",
+               "version" : "2.16"
+            },
+            "autodie::skip" : {
+               "file" : "autodie/skip.pm",
+               "version" : "2.16"
+            }
+         },
+         "target" : "autodie::exception",
+         "version" : "2.16"
       }
    },
    "version" : "0.9"

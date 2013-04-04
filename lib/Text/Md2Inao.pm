@@ -95,11 +95,14 @@ sub parse_element {
 
 sub parse {
     my ($self, $in) = @_;
-
     my $builder  = $self->builder || Text::Md2Inao::Builder::Inao->new;
     $self->director( Text::Md2Inao::Director->new($builder) );
 
-    return $self->parse_element(to_html_tree($in)->find('body'));
+    $in = $self->director->process_before_filter($self, $in);
+
+    my $out = $self->parse_element(to_html_tree($in)->find('body'));
+
+    return $self->director->process_after_filter($self, $out);
 }
 
 1;
