@@ -123,10 +123,6 @@ case p => sub {
             return $text;
         }
 
-        if ($text =~ /^=-=-=$/) {
-            return sprintf "<ParaStyle:区切り線>\n";
-        }
-
         my $label = $c->in_column ? 'コラム本文' : '本文';
         return sprintf "<ParaStyle:%s>%s\n", $label, $text;
     }
@@ -363,7 +359,7 @@ case table => sub {
 
 case hr => sub {
     my ($c, $h) = @_;
-    return "\n<ParaStyle:区切り線>\n"
+    return "<ParaStyle:区切り線>\n"
 };
 
 1;

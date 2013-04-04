@@ -279,3 +279,16 @@ function bar(b) {
 <span class='symbol'>←→</span>
 --- expected
 ◆←→◆
+
+=== hr
+--- in md2inao
+hogehoge
+
+---
+
+fugafuga
+--- expected
+hogehoge
+=-=-=
+fugafuga
+

@@ -377,7 +377,7 @@ __END__
 --- in md2inao
 Hello
 
-=-=-=
+---
 
 World
 --- expected

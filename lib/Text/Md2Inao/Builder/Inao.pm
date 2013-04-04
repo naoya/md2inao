@@ -295,4 +295,9 @@ case ul => sub {
     }
 };
 
+case hr => sub {
+    my ($c, $h) = @_;
+    return "=-=-=\n";
+};
+
 1;
