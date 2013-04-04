@@ -12,6 +12,32 @@ use parent qw/Text::Md2Inao::Builder/;
 
 use Text::Md2Inao::Builder::DSL;
 
+sub after_filter {
+    my ($self, $c, $text) = @_;
+
+    if ($c->metadata) {
+        my @lines;
+        if (my $chapter = $c->metadata->{chapter}) {
+            push @lines, sprintf "章番号：%d章", $chapter;
+        }
+
+        if (my $serial = $c->metadata->{serial}) {
+            push @lines, sprintf "連載回数：第%d回", $serial;
+        }
+
+        if (my $title = $c->metadata->{title}) {
+            push @lines, sprintf "タイトル：%s", $title;
+        }
+
+        if (my $subtitle = $c->metadata->{subtitle}) {
+            push @lines, sprintf "キャッチ：%s", $subtitle;
+        }
+        $text = join "\n", @lines, $text;
+    }
+
+    return $self->SUPER::after_filter($c, $text);
+}
+
 case default => sub {
     my ($c, $h) = @_;
     fallback_to_html($h);

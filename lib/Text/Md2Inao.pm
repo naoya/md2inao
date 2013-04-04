@@ -40,6 +40,7 @@ has in_quote_block => (is => 'rw', isa => 'Bool');
 
 has director => ( is => 'rw' );
 has builder  => ( is => 'rw' );
+has metadata => ( is => 'rw' );
 
 sub use_special_italic {
     my $self = shift;
@@ -98,10 +99,43 @@ sub parse_markdown {
     return $self->parse_element(to_html_tree($md)->find('body'));
 }
 
+sub parse_metadata {
+    my ($self, $in) = @_;
+    if ($in =~ /^.+?:.+\n/m) {
+        my $has_metadata;
+        my @lines = split /\n/, $in;
+        my %meta;
+
+        for (@lines) {
+            if (m/^(.+?):(.+)/) {
+                my ($k, $v) = ($1, $2);
+                $v =~ s/^\s+//;
+                $v =~ s/\s+$//;
+                $meta{lc $k} = $v;
+                next;
+            }
+            if ($_ eq '') { # 区切りの空行
+                $has_metadata = 1;
+                $self->metadata(\%meta);
+                last;
+            }
+            else {
+                last;
+            }
+        }
+        if ($has_metadata) {
+            $in =~ s/^.+?\n\n//s;
+            return $in;
+        }
+    }
+    return $in;
+}
+
 sub parse {
     my ($self, $md) = @_;
     my $builder  = $self->builder || Text::Md2Inao::Builder::Inao->new;
     $self->director( Text::Md2Inao::Director->new($builder) );
+    $md = $self->parse_metadata($md);
     $md = $self->director->process_before_filter($self, $md);
     my $out = $self->parse_markdown($md);
     return $self->director->process_after_filter($self, $out);
