@@ -68,7 +68,7 @@ case text => sub {
     my ($c, $text) = @_;
     if ($text =~ m!\(注:! or $c->in_footnote) {
         $text = replace_note_parenthesis($c, $text, '注');
-        $text =~ s!◆注/◆!<fnStart:><pstyle:注釈>!g;
+        $text =~ s!◆注/◆!<cstyle:上付き><fnStart:><pstyle:注釈>!g;
         $text =~ s!◆/注◆!<fnEnd:><cstyle:>!g;
     }
     # 改行を取り除く
@@ -176,7 +176,6 @@ case blockquote => sub {
     $c->in_quote_block(0);
 
     return <<EOF;
-<ParaStyle:引用>
 <ParaStyle:引用>$blockquote
 EOF
 };
@@ -194,7 +193,7 @@ case div => sub {
 
         my $column = $c->parse_markdown($md);
         $c->in_column(0);
-        return sprintf "<ParaStyle:コラム本文>\n%s", $column;
+        return $column;
     } else {
         return fallback_to_html($h);
     }
@@ -237,7 +236,7 @@ case ol => sub {
     return $out;
 };
 
-case pre => sub {
+case pre=> sub {
     my ($c, $h) = @_;
     $c->in_code_block(1);
 
@@ -289,7 +288,7 @@ case pre => sub {
 
     my @lines = map {
         if (m/^●(.+?)::(.+)/) {
-            sprintf "<ParaStyle:キャプション>%s%s", $1, $2;
+            sprintf "<ParaStyle:キャプション>%s\t%s", $1, $2;
         }
         else {
             sprintf "<ParaStyle:%s>%s", $list_label, $_;
@@ -298,7 +297,6 @@ case pre => sub {
 
     my $lines = join "\n", @lines;
     return <<EOF;
-<ParaStyle:$list_label>
 $lines
 EOF
 };
@@ -308,7 +306,7 @@ case a => sub {
     my $url   = $h->attr('href');
     my $title = $c->parse_element($h);
     if ($url and $title) {
-        return sprintf "%s<fnStart:><pstyle:注釈>%s<fnEnd:><cstyle:>", $title, $url;
+        return sprintf "%s<cstyle:上付き><fnStart:><pstyle:注釈>%s<fnEnd:><cstyle:>", $title, $url;
     } else {
         return fallback_to_html($h);
     }
@@ -347,8 +345,6 @@ case dl => sub {
 case table => sub {
     my ($c, $h) = @_;
     my $out = '';
-
-    $out .= "<ParaStyle:表>\n";
 
     my $summary = $h->attr('summary') || '';
     $summary =~ m!(.+?)::(.+)!;
