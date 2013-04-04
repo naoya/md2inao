@@ -239,7 +239,7 @@ __END__
 <ParaStyle:箇条書き><cTypeface:B><cFont:A-OTF ゴシックMB101 Pro><cotfcalt:0><cotfl:nalt,7>1<cTypeface:><cFont:><cotfcalt:><cotfl:>hogehogeをします
 <ParaStyle:箇条書き><cTypeface:B><cFont:A-OTF ゴシックMB101 Pro><cotfcalt:0><cotfl:nalt,7>2<cTypeface:><cFont:><cotfcalt:><cotfl:>fugafugaと<cTypeface:B><cFont:A-OTF ゴシックMB101 Pro><cotfcalt:0><cotfl:nalt,7>1<cTypeface:><cFont:><cotfcalt:><cotfl:>の結果を足し合わせます
 <ParaStyle:本文>　リスト1.1<CharStyle:丸文字><2460><CharStyle:>ではアラートを出しています。<CharStyle:丸文字><2461><CharStyle:>でもアラートを出しています。(a1)エスケープできます。
-<ParaStyle:キャプション>リスト1.1キャプション（コードのタイトル）
+<ParaStyle:キャプション>リスト1.1	キャプション（コードのタイトル）
 <ParaStyle:リスト>function hoge() {
 <ParaStyle:リスト>    alert(foo);　… <CharStyle:丸文字><2460><CharStyle:>
 <ParaStyle:リスト>    alert(bar);　… <CharStyle:丸文字><2461><CharStyle:>
@@ -284,7 +284,7 @@ __END__
     ●リスト1.1::キャプション
     use strict;
 --- expected
-<ParaStyle:キャプション>リスト1.1キャプション
+<ParaStyle:キャプション>リスト1.1	キャプション
 <ParaStyle:リスト>use strict;
 
 === em/italic in pre
@@ -307,7 +307,7 @@ __END__
         alert(b);
     }
 --- expected
-<ParaStyle:キャプション>図1.1キャプション（コマンドのタイトル）
+<ParaStyle:キャプション>図1.1	キャプション（コマンドのタイトル）
 <ParaStyle:リスト白文字>$ command  <CharStyle:コマンド太字>foo<CharStyle:> // コマンド内強調
 <ParaStyle:リスト白文字>bar <CharStyle:リストコメント白地黒文字> こんな風にコメントがつけられます <CharStyle:>
 <ParaStyle:リスト白文字>
