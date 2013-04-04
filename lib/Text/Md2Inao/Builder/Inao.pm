@@ -8,8 +8,9 @@ use List::Util qw/max/;
 use Text::Md2Inao::Logger;
 use Text::Md2Inao::Util;
 
-use Text::Md2Inao::Builder;
 use parent qw/Text::Md2Inao::Builder/;
+
+use Text::Md2Inao::Builder::DSL;
 
 case default => sub {
     my ($c, $h) = @_;
@@ -84,7 +85,7 @@ case div => sub {
         $html =~ s/<\/div>$//;
 
         $out .= "◆column/◆\n";
-        $out .= $c->parse($html);
+        $out .= $c->parse_markdown($html);
         $out .= "◆/column◆\n";
 
         $c->in_column(0);

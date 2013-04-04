@@ -93,15 +93,17 @@ sub parse_element {
     return join '', @out;
 }
 
+sub parse_markdown {
+    my ($self, $md) = @_;
+    return $self->parse_element(to_html_tree($md)->find('body'));
+}
+
 sub parse {
-    my ($self, $in) = @_;
+    my ($self, $md) = @_;
     my $builder  = $self->builder || Text::Md2Inao::Builder::Inao->new;
     $self->director( Text::Md2Inao::Director->new($builder) );
-
-    $in = $self->director->process_before_filter($self, $in);
-
-    my $out = $self->parse_element(to_html_tree($in)->find('body'));
-
+    $md = $self->director->process_before_filter($self, $md);
+    my $out = $self->parse_markdown($md);
     return $self->director->process_after_filter($self, $out);
 }
 

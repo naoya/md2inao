@@ -12,7 +12,9 @@ use Text::Md2Inao::Builder::InDesign;
 # $ENV{MOJO_MAX_MESSAGE_SIZE} = 1073741824;
 
 get '/' => sub {
-    shift->render('index', version => $Text::Md2Inao::VERSION);
+    my $self = shift;
+    $self->app->types->type(txt => "text/plain;charset=UTF-8");
+    $self->render('index', version => $Text::Md2Inao::VERSION);
 };
 
 post '/upload' => sub {
@@ -35,12 +37,17 @@ post '/upload' => sub {
         my $builder = Text::Md2Inao::Builder::InDesign->new;
         $builder->load_filter_config('./config/id_filter.json');
         $p->builder($builder);
+
+        ### FIXME: hmm, looks like dirty way...
+        $self->app->types->type(txt => "text/plain;charset=Shift_JIS");
+        $self->app->plugin(Charset => { charset => 'Shift_JIS' });
+    } else {
+        $self->app->types->type(txt => "text/plain;charset=UTF-8");
     }
 
     $self->render(text => $p->parse(decode_utf8 $md), format => 'txt');
 };
 
-app->types->type(txt => "text/plain;charset=UTF-8");
 app->start;
 
 __DATA__

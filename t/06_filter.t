@@ -29,6 +29,7 @@ use Text::Md2Inao::Builder::InDesign;
 EOF
 
     is $p->parse($in), <<EOF;
+<SJIS-MAC>
 <ParaStyle:本文><CharStyle:赤字>★<CharStyle:>テスト<CharStyle:赤字>★<CharStyle:>
 EOF
 }
@@ -47,6 +48,7 @@ EOF
 EOF
 
     is $p->parse($in), <<EOF;
+<SJIS-MAC>
 <ParaStyle:本文><CharStyle:赤字>★<CharStyle:>test<CharStyle:赤字>★<CharStyle:>
 EOF
 }

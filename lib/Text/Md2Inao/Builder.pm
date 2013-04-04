@@ -7,7 +7,6 @@ use Class::Accessor::Fast qw/antlers/;
 
 use JSON;
 use Path::Tiny;
-use Text::Md2Inao::Logger;
 
 has dispatch_table => ( is => 'rw' );
 
@@ -60,26 +59,5 @@ sub after_filter {
     }
     return $out;
 }
-
-## DSL
-use Exporter::Lite;
-our @EXPORT = qw/case fallback_to_html/;
-
-sub case ($&) {
-    my ($select, $code) = @_;
-    my $class = (caller)[0];
-    my $self = $class->new;
-    for (split ",", $select) {
-        s/\s+//g;
-        $self->dispatch_table->{$_} = $code;
-    }
-}
-
-sub fallback_to_html {
-    my $h = shift;
-    log warn => sprintf "HTMLタグは `<%s>` でエスケープしてください。しない場合の出力は不定です", $h->tag;
-    return $h->as_HTML('', '', {});
-}
-
 
 1;

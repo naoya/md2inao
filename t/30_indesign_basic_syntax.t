@@ -19,7 +19,9 @@ sub md2inao {
         max_inline_list_length => 55,
         builder                => $builder,
     });
-    $p->parse($_);
+    my $out = $p->parse($_);
+    $out =~ s/^<SJIS-MAC>\n//;
+    return $out;
 }
 
 __END__

@@ -3,8 +3,9 @@ use utf8;
 use strict;
 use warnings;
 
-use Text::Md2Inao::Builder;
 use parent qw/Text::Md2Inao::Builder/;
+
+use Text::Md2Inao::Builder::DSL;
 
 case default => sub {
     my ($c, $h) = @_;

@@ -4,13 +4,23 @@ use utf8;
 use strict;
 use warnings;
 
+use parent qw/Text::Md2Inao::Builder/;
+use Text::Md2Inao::Builder::DSL;
+
 use Text::Md2Inao::Logger;
 use Text::Md2Inao::Util;
 
-use Text::Md2Inao::Builder;
-use parent qw/Text::Md2Inao::Builder/;
-
 use List::Util qw/max/;
+
+sub after_filter {
+    my ($self, $c, $out) = @_;
+    $out = $self->SUPER::after_filter($c, $out);
+    chomp $out;
+    return <<EOF;
+<SJIS-MAC>
+$out
+EOF
+}
 
 sub list_marker {
     my ($style, $i) = @_;
@@ -178,11 +188,11 @@ case div => sub {
         $c->in_column(1);
 
         # HTMLとして取得してcolumn自信のdivタグを削除
-        my $html = $h->as_HTML('');
-        $html =~ s/^<div.+?>//;
-        $html =~ s/<\/div>$//;
+        my $md = $h->as_HTML('');
+        $md =~ s/^<div.+?>//;
+        $md =~ s/<\/div>$//;
 
-        my $column = $c->parse($html);
+        my $column = $c->parse_markdown($md);
         $c->in_column(0);
         return sprintf "<ParaStyle:コラム本文>\n%s", $column;
     } else {
