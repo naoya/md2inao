@@ -72,7 +72,7 @@ task carton => {
         my ($host, @args) = @_;
         my $deploy_to = get('deploy_to');
         remote {
-            run ". ~/perl5/perlbrew/etc/bashrc && cd $deploy_to && carton install";
+            run ". ~/perl5/perlbrew/etc/bashrc && cd $deploy_to && carton install --deployment";
         } $host;
     },
 };
