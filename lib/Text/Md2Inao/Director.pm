@@ -17,4 +17,14 @@ sub process {
     $self->builder->dispatch($select)->($c, $h);
 }
 
+sub process_before_filter {
+    my ($self, $c, $in) = @_;
+    return $self->builder->before_filter($c, $in);
+}
+
+sub process_after_filter {
+    my ($self, $c, $out) = @_;
+    return $self->builder->after_filter($c, $out);
+}
+
 1;
