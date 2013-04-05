@@ -13,8 +13,6 @@ use Text::Md2Inao::Util;
 use List::Util qw/max/;
 
 tie my %meta2label, "Tie::IxHash",
-#    title      => 'タイトル',
-#    subtitle   => 'キャッチ',
     author     => '著者',
     supervisor => '監修',
     url        => 'URL',
