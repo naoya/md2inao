@@ -180,7 +180,6 @@ case p => sub {
     }
 };
 
-## FIXME: https://github.com/inao/idtagreplacer/blob/master/sample/tagconf.xml の自由置換設定を反映させる必要
 case kbd => sub {
     my ($c, $h) = @_;
     sprintf "<cFont:KeyMother>%s<cFont:>" ,$h->as_trimmed_text;
