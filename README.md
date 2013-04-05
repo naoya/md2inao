@@ -33,6 +33,53 @@ How to test
 ----------
 
     % carton exec -Ilib -- prove  
+    
+自由置換の書き方
+----------
+
+```
+{
+    "before_filter": {
+        "<kbd>F10</kbd>" : "<cFont:Key Snd Mother>*<cFont:>",
+        "<kbd>F11</kbd>" : "<cFont:Key Snd Mother>+<cFont:>",
+        "<kbd>F12</kbd>" : "<cFont:Key Snd Mother>,<cFont:>",
+        "<kbd>F1</kbd>" : "<cFont:Key Snd Mother>!<cFont:>",
+        "<kbd>F2</kbd>" : "<cFont:Key Snd Mother>\"<cFont:>",
+        "<kbd>End</kbd>" : "<cFont:Key Snd Mother>n<cFont:>"
+    },
+    "after_filter": {
+        "★" : "<CharStyle:赤字>★<CharStyle:>",
+                
+        "◆→◆" : "<cTypeface:R-KL><cFont:A-OTF リュウミン Pr5><27A1><cTypeface:><cFont:>",
+        "◆←◆" : "<cTypeface:R-KL><cFont:A-OTF リュウミン Pr5><2B05><cTypeface:><cFont:>",
+        "◆↑◆" : "<cTypeface:R-KL><cFont:A-OTF リュウミン Pr5><2B06><cTypeface:><cFont:>",
+        "◆↓◆" : "<cTypeface:R-KL><cFont:A-OTF リュウミン Pr5><2B07><cTypeface:><cFont:>",
+        
+        "◆←→◆" : "<21D4>",
+        "◆＞＝◆" : "<2267>",
+        "◆＝＞◆" : "<2266>",
+        
+        "◆WDB◆" : "<cstyle:ストッパ>#<cstyle:>"
+    }
+}
+```
+
+- InDesign 出力時は config/id_filter.json に書いた設定通りに出力を置換できます
+- キーには正規表現が使えます
+- JSON の文法に注意 (末尾のカンマ、" のエスケープなど)
+
+### before_filter
+
+- Markdown parse の前に置換
+- Markdown のテキストを置換したい時は こちら
+- HTML を置換したい時もこちら
+- 値の &lt;, &gt; は実体参照にエスケープされてから Markdown parser に渡されます (つまり HTML としては解釈されない)
+        
+### after_filter
+
+- InDesign への変換が終わった後に置換
+- InDesign になったテキストを置換したい時はこちら
+- md 中の `<span class="symbol">…</spa>` は after_filter 前に` ◆…◆` になります
 
 Authors
 ----------
