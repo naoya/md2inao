@@ -4,6 +4,7 @@ use strict;
 use warnings;
 
 use List::Util qw/max/;
+use Tie::IxHash;
 
 use Text::Md2Inao::Logger;
 use Text::Md2Inao::Util;
@@ -11,6 +12,17 @@ use Text::Md2Inao::Util;
 use parent qw/Text::Md2Inao::Builder/;
 
 use Text::Md2Inao::Builder::DSL;
+
+tie my %meta2label, "Tie::IxHash",
+    title      => 'タイトル',
+    subtitle   => 'キャッチ',
+    author     => '著者',
+    supervisor => '監修',
+    url        => 'URL',
+    mail       => 'mail',
+    github     => 'Github',
+    twitter    => 'Twitter',
+;
 
 sub after_filter {
     my ($self, $c, $text) = @_;
@@ -25,12 +37,10 @@ sub after_filter {
             push @lines, sprintf "連載回数：第%d回", $serial;
         }
 
-        if (my $title = $c->metadata->{title}) {
-            push @lines, sprintf "タイトル：%s", $title;
-        }
-
-        if (my $subtitle = $c->metadata->{subtitle}) {
-            push @lines, sprintf "キャッチ：%s", $subtitle;
+        for (keys %meta2label) {
+            if (my $value = $c->metadata->{$_}) {
+                push @lines, sprintf "%s：%s", $meta2label{$_}, $value;
+            }
         }
         $text = join "\n", @lines, $text;
     }

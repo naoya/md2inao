@@ -8,6 +8,7 @@ requires 'Term::ANSIColor';
 requires 'Exporter::Lite';
 requires 'JSON';
 requires 'Path::Tiny';
+requires 'Tie::IxHash';
 
 ## for web app
 # requires 'Mojolicious::Lite';

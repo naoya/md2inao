@@ -24,6 +24,13 @@ Title: Markdown to Inao
 Subtitle: Convert markdown text to Inao format
 Chapter: 3
 Serial: 5
+Author: 伊藤 直也
+Supervisor: 稲尾
+URL: http://naoya.github.com/
+mail: i.naoya@gmail.com
+Github: naoya
+Twitter: @naoya_ito
+
 
 Hello, World
 --- expected
@@ -31,6 +38,12 @@ Hello, World
 連載回数：第5回
 タイトル：Markdown to Inao
 キャッチ：Convert markdown text to Inao format
+著者：伊藤 直也
+監修：稲尾
+URL：http://naoya.github.com/
+mail：i.naoya@gmail.com
+Github：naoya
+Twitter：@naoya_ito
 Hello, World
 
 === no metadata

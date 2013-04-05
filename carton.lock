@@ -5845,6 +5845,64 @@
          "target" : "Text::Markdown",
          "version" : "1.000031"
       },
+      "Tie::IxHash" : {
+         "dist" : "Tie-IxHash-1.23",
+         "mymeta" : {
+            "abstract" : "ordered associative arrays for Perl",
+            "author" : [
+               "Gurusamy Sarathy        gsar@umich.edu"
+            ],
+            "dynamic_config" : 0,
+            "generated_by" : "Module::Build version 0.4003, CPAN::Meta::Converter version 2.120921",
+            "license" : [
+               "perl_5"
+            ],
+            "meta-spec" : {
+               "url" : "http://search.cpan.org/perldoc?CPAN::Meta::Spec",
+               "version" : "2"
+            },
+            "name" : "Tie-IxHash",
+            "prereqs" : {
+               "build" : {
+                  "requires" : {
+                     "Test::More" : "0"
+                  }
+               },
+               "runtime" : {
+                  "requires" : {
+                     "perl" : "5.005"
+                  }
+               }
+            },
+            "provides" : {
+               "Tie::IxHash" : {
+                  "file" : "lib/Tie/IxHash.pm",
+                  "version" : "1.23"
+               }
+            },
+            "release_status" : "stable",
+            "resources" : {
+               "license" : [
+                  "http://dev.perl.org/licenses/"
+               ],
+               "repository" : {
+                  "type" : "git",
+                  "url" : "git://github.com/chorny/Tie-IxHash.git"
+               }
+            },
+            "version" : "1.23"
+         },
+         "name" : "Tie::IxHash",
+         "pathname" : "C/CH/CHORNY/Tie-IxHash-1.23.tar.gz",
+         "provides" : {
+            "Tie::IxHash" : {
+               "file" : "Tie/IxHash.pm",
+               "version" : "1.23"
+            }
+         },
+         "target" : "Tie::IxHash",
+         "version" : "1.23"
+      },
       "Try::Tiny" : {
          "dist" : "Try-Tiny-0.12",
          "mymeta" : {
