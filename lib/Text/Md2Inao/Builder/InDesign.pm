@@ -183,7 +183,7 @@ case p => sub {
 ## FIXME: https://github.com/inao/idtagreplacer/blob/master/sample/tagconf.xml の自由置換設定を反映させる必要
 case kbd => sub {
     my ($c, $h) = @_;
-    sprintf "<cFont:Key Mother>%s<cFont:>" ,$h->as_trimmed_text;
+    sprintf "<cFont:KeyMother>%s<cFont:>" ,$h->as_trimmed_text;
 };
 
 case span => sub {
@@ -197,7 +197,7 @@ case span => sub {
         return $ruby;
     }
 
-    ## FIXME
+    ## ここでは inao に変換して、後で自由置換で変換
     elsif ($h->attr('class') eq 'symbol') {
         return sprintf "◆%s◆",$h->as_trimmed_text;
     }

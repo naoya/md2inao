@@ -20,7 +20,7 @@ sub md2inao {
         builder                => $builder,
     });
     my $out = $p->parse($_);
-    $out =~ s/^<SJIS-MAC>\n//;
+    $out =~ s/^<SJIS-MAC>\n//; # テストに毎回書くのめんどくさいので
     return $out;
 }
 

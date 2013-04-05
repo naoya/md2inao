@@ -44,7 +44,11 @@ sub before_filter {
     my ($self, $c, $in) = @_;
     if (my $config = $self->before_filter_config) {
         for my $k (keys %$config) {
-            $in =~ s/$k/$config->{$k}/eg;
+            my $v = $config->{$k};
+            $v =~ s/</&lt;/g;
+            $v =~ s/</&gt;/g;
+
+            $in =~ s/$k/$v/eg;
         }
     }
     return $in;
