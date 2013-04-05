@@ -9,6 +9,7 @@ requires 'Exporter::Lite';
 requires 'JSON';
 requires 'Path::Tiny';
 requires 'Tie::IxHash';
+requires 'JSON', '>= 2.55';
 
 ## for web app
 # requires 'Mojolicious::Lite';

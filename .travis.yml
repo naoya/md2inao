@@ -6,7 +6,6 @@ before_install:
   - cpanm Module::Install::Repository
   - cpanm Module::Install::ReadmeFromPod
   - cpanm Module::Install::CPANfile
-  - cpanm JSON
 notifications:
   email:
     - i.naoya+md2inao@gmail.com
