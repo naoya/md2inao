@@ -24,9 +24,8 @@ tie my %meta2label, "Tie::IxHash",
     twitter    => 'Twitter',
 ;
 
-sub after_filter {
+sub prepend_metadata {
     my ($self, $c, $text) = @_;
-
     if ($c->metadata) {
         my @lines;
         if (my $chapter = $c->metadata->{chapter}) {
@@ -44,7 +43,12 @@ sub after_filter {
         }
         $text = join "\n", @lines, $text;
     }
+    return $text;
+}
 
+sub after_filter {
+    my ($self, $c, $text) = @_;
+    $text = $self->prepend_metadata($c, $text);
     return $self->SUPER::after_filter($c, $text);
 }
 

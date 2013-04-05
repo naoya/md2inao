@@ -12,8 +12,50 @@ use Text::Md2Inao::Util;
 
 use List::Util qw/max/;
 
+tie my %meta2label, "Tie::IxHash",
+#    title      => 'タイトル',
+#    subtitle   => 'キャッチ',
+    author     => '著者',
+    supervisor => '監修',
+    url        => 'URL',
+    mail       => 'mail',
+    github     => 'Github',
+    twitter    => 'Twitter',
+;
+
+sub prepend_metadata {
+    my ($self, $c, $text) = @_;
+    if ($c->metadata) {
+        my @lines;
+        if (my $chapter = $c->metadata->{chapter}) {
+            push @lines, sprintf "<ParaStyle:章番号・連載回数>章番号：%d章", $chapter;
+        }
+
+        if (my $serial = $c->metadata->{serial}) {
+            push @lines, sprintf "<ParaStyle:章番号・連載回数>連載回数：第%d回", $serial;
+        }
+
+       if (my $title = $c->metadata->{title}) {
+            push @lines, sprintf "<ParaStyle:タイトル>タイトル：%s", $title;
+        }
+
+        if (my $subtitle = $c->metadata->{subtitle}) {
+            push @lines, sprintf "<ParaStyle:キャッチ>キャッチ：%s", $subtitle;
+        }
+
+        for (keys %meta2label) {
+            if (my $value = $c->metadata->{$_}) {
+                push @lines, sprintf "<ParaStyle:本文>%s：%s", $meta2label{$_}, $value;
+            }
+        }
+        $text = join "\n", @lines, $text;
+    }
+    return $text;
+}
+
 sub after_filter {
     my ($self, $c, $out) = @_;
+    $out = $self->prepend_metadata($c, $out);
     $out = $self->SUPER::after_filter($c, $out);
     chomp $out;
     return <<EOF;
