@@ -1,11 +1,4 @@
-// 【自由置換設定】
-// ・キーには正規表現が使えます
-// ・JSON の文法に注意 (末尾のカンマ、" のエスケープなど)
 {
-    // before_filter : Markdown parse の前に置換
-    // ・Markdown のテキストを置換したい時は こちら
-    // ・HTML を置換したい時もこちら
-    // ・値の <, > は &lt; &gt; にエスケープされてから Markdown parser に渡されます
     "before_filter": {
         "<kbd>F10</kbd>" : "<cFont:Key Snd Mother>*<cFont:>",
         "<kbd>F11</kbd>" : "<cFont:Key Snd Mother>+<cFont:>",
@@ -14,10 +7,6 @@
         "<kbd>F2</kbd>" : "<cFont:Key Snd Mother>\"<cFont:>",
         "<kbd>End</kbd>" : "<cFont:Key Snd Mother>n<cFont:>"
     },
-    
-    // after_filter : InDesign への変換が終わった後に置換
-    // ・InDesign になったテキストを置換したい時はこちら
-    // ・md 中の <span class="symbol">…</span> は after_filter 前に ◆…◆ になります
     "after_filter": {
         "★" : "<CharStyle:赤字>★<CharStyle:>",
                 
