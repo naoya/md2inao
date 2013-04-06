@@ -1,4 +1,3 @@
-## THIS MODULE IS STILL UNDER DEVELOPMENT
 package Text::Md2Inao::Builder::InDesign;
 use utf8;
 use strict;
