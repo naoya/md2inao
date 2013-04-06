@@ -99,6 +99,16 @@ sub replace_list_maker {
     return $text;
 }
 
+sub escape_html {
+    my $html = shift;
+    $html =~ s/([<>])/<005C>$1/g;
+    return $html;
+}
+
+sub fallback_to_escaped_html {
+    return escape_html(fallback_to_html(shift));
+}
+
 case default => sub {
     my ($c, $h) = @_;
     $h->as_HTML('', '', {});
@@ -106,6 +116,8 @@ case default => sub {
 
 case text => sub {
     my ($c, $text) = @_;
+    $text = escape_html($text);
+
     if ($text =~ m!\(注:! or $c->in_footnote) {
         $text = replace_note_parenthesis($c, $text, '注');
         $text =~ s!◆注/◆!<cstyle:上付き><fnStart:><pstyle:注釈>!g;
@@ -123,46 +135,46 @@ case text => sub {
 
 case "h1" => sub {
     my ($c, $h) = @_;
-    return sprintf "<ParaStyle:大見出し>%s\n", $h->as_trimmed_text;
+    return sprintf "<ParaStyle:大見出し>%s\n", $c->parse_element($h);
 };
 
 case "h2" => sub {
     my ($c, $h) = @_;
-    return sprintf "<ParaStyle:中見出し>%s\n", $h->as_trimmed_text;
+    return sprintf "<ParaStyle:中見出し>%s\n", $c->parse_element($h);
 };
 
 case "h3" => sub {
     my ($c, $h) = @_;
-    return sprintf "<ParaStyle:小見出し>%s\n", $h->as_trimmed_text;
+    return sprintf "<ParaStyle:小見出し>%s\n", $c->parse_element($h);
 };
 
 case "h4" => sub {
     my ($c, $h) = @_;
-    return sprintf "<ParaStyle:コラムタイトル>%s\n", $h->as_trimmed_text;
+    return sprintf "<ParaStyle:コラムタイトル>%s\n", $c->parse_element($h);
 };
 
 case "h5" => sub {
     my ($c, $h) = @_;
-    return sprintf "<ParaStyle:コラム小見出し>%s\n", $h->as_trimmed_text;
+    return sprintf "<ParaStyle:コラム小見出し>%s\n", $c->parse_element($h);
 };
 
 case strong => sub {
     my ($c, $h) = @_;
-    return sprintf "<CharStyle:太字>%s<CharStyle:>", $h->as_trimmed_text;
+    return sprintf "<CharStyle:太字>%s<CharStyle:>", $c->parse_element($h);
 };
 
 case em => sub {
     my ($c, $h) = @_;
     my $ret;
     $ret .= $c->use_special_italic ? '<CharStyle:イタリック（変形斜体）>' : '<CharStyle:イタリック（変形斜体）>';
-    $ret .= $h->as_trimmed_text;
+    $ret .= $c->parse_element($h);
     $ret .= '<CharStyle:>';
     return $ret;
 };
 
 case code => sub {
     my ($c, $h) = @_;
-    return sprintf "<CharStyle:コマンド>%s<CharStyle:>", $h->as_trimmed_text;
+    return sprintf "<CharStyle:コマンド>%s<CharStyle:>", $c->parse_element($h);
 };
 
 case p => sub {
@@ -180,27 +192,27 @@ case p => sub {
 
 case kbd => sub {
     my ($c, $h) = @_;
-    sprintf "<cFont:KeyMother>%s<cFont:>" ,$h->as_trimmed_text;
+    sprintf "<cFont:KeyMother>%s<cFont:>" , $c->parse_element($h);
 };
 
 case span => sub {
     my ($c, $h) = @_;
     if ($h->attr('class') eq 'red') {
-        return sprintf "<CharStyle:赤字>%s<CharStyle:>", $h->as_trimmed_text;
+        return sprintf "<CharStyle:赤字>%s<CharStyle:>", $c->parse_element($h);
     }
     elsif ($h->attr('class') eq 'ruby') {
-        my $ruby = $h->as_trimmed_text;
+        my $ruby = $c->parse_element($h);
         $ruby =~ s!(.+)\((.+)\)!<cr:1><crstr:$2><cmojir:0>$1<cr:><crstr:><cmojir:>!;
         return $ruby;
     }
 
     ## ここでは inao に変換して、後で自由置換で変換
     elsif ($h->attr('class') eq 'symbol') {
-        return sprintf "◆%s◆",$h->as_trimmed_text;
+        return sprintf "◆%s◆", $c->parse_element($h);
     }
 
     else {
-        return fallback_to_html($h);
+        return fallback_to_escaped_html($h);
     }
 };
 
@@ -234,7 +246,7 @@ case div => sub {
         $c->in_column(0);
         return $column;
     } else {
-        return fallback_to_html($h);
+        return fallback_to_escaped_html($h);
     }
 };
 
@@ -275,12 +287,13 @@ case ol => sub {
     return $out;
 };
 
-case pre=> sub {
+case pre => sub {
     my ($c, $h) = @_;
     $c->in_code_block(1);
 
     my $code = $h->find('code');
     my $text = $code ? $code->as_text : '';
+    $text = escape_html($text);
 
     my $list_label = 'リスト';
     my $comment_label = 'リストコメント';
@@ -347,7 +360,7 @@ case a => sub {
     if ($url and $title) {
         return sprintf "%s<cstyle:上付き><fnStart:><pstyle:注釈>%s<fnEnd:><cstyle:>", $title, $url;
     } else {
-        return fallback_to_html($h);
+        return fallback_to_escaped_html($h);
     }
 };
 

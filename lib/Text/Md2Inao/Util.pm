@@ -6,7 +6,9 @@ use warnings;
 use Exporter::Lite;
 use Unicode::EastAsianWidth;
 
-our @EXPORT = qw/to_list_style visual_length replace_note_parenthesis/;
+use Text::Md2Inao::Logger;
+
+our @EXPORT = qw/to_list_style visual_length replace_note_parenthesis fallback_to_html/;
 
 # 本文中に（◯1）や（1）など、リストを参照するときの形式に変換する
 # 「リスト1.1(c1)を見てください」
@@ -97,6 +99,12 @@ sub replace_note_parenthesis {
 
     $line =~ s!\(注:!◆$label/◆!g;
     return $line;
+}
+
+sub fallback_to_html {
+    my $h = shift;
+    log warn => sprintf "HTMLタグは `<%s>` もしくは実体参照でエスケープしてください。しない場合の出力は不定です", $h->tag;
+    return $h->as_HTML('', '', {});
 }
 
 1;

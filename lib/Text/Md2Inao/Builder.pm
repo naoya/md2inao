@@ -45,8 +45,12 @@ sub before_filter {
     if (my $config = $self->before_filter_config) {
         for my $k (keys %$config) {
             my $v = $config->{$k};
-            $v =~ s/</&lt;/g;
-            $v =~ s/</&gt;/g;
+
+            ## Markdown が html として処理しないようエスケープ
+            ## 実体参照へのエスケープだと InDesign で困る
+            ## 独自に escape して after_filter で戻す
+            $v =~ s/</◆lt◆/g;
+            $v =~ s/>/◆gt◆/g;
 
             $in =~ s/$k/$v/eg;
         }
@@ -56,6 +60,8 @@ sub before_filter {
 
 sub after_filter {
     my ($self, $c, $out) = @_;
+    $out =~ s/◆lt◆/</g;
+    $out =~ s/◆gt◆/>/g;
     if (my $config = $self->after_filter_config) {
         for my $k (keys %$config) {
             $out =~ s/$k/$config->{$k}/eg;
