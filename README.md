@@ -79,7 +79,7 @@ How to test
 
 - InDesign への変換が終わった後に置換
 - InDesign になったテキストを置換したい時はこちら
-- md 中の `<span class="symbol">…</spa>` は after_filter 前に` ◆…◆` になります
+- md 中の `<span class="symbol">…</span>` は after_filter 前に` ◆…◆` になります
 
 Authors
 ----------
