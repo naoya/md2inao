@@ -73,7 +73,7 @@ How to test
 - Markdown parse の前に置換
 - Markdown のテキストを置換したい時は こちら
 - HTML を置換したい時もこちら
-- 値の &lt;, &gt; は実体参照にエスケープされてから Markdown parser に渡されます (つまり HTML としては解釈されない)
+- 値の &lt;, &gt; はエスケープされてから Markdown parser に渡されます。その後 after_filter で復元されます。(要するに書いたとおりに出力される。HTMLとして処理されることは期待できない、ということ)
         
 ### after_filter
 
