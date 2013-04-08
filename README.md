@@ -1,6 +1,12 @@
 # Markdown to Inao-Format
 
+Build Status
+----------
+
 [![Build Status](https://travis-ci.org/naoya/md2inao.pl.png?branch=master)](https://travis-ci.org/naoya/md2inao.pl)
+
+Description
+----------
 
 Markdown で書かれたテキストを「inaoフォーマット」に変換します。
 
