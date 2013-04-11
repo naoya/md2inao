@@ -28,6 +28,7 @@ Title: Markdown to Inao
 Subtitle: Convert markdown text to Inao format
 Author: 伊藤 直也
 Supervisor: 稲尾
+Affiliation: 技術評論社
 URL: http://naoya.github.com/
 mail: i.naoya@gmail.com
 Github: naoya
@@ -43,6 +44,7 @@ Hello, World
 <ParaStyle:キャッチ>キャッチ：Convert markdown text to Inao format
 <ParaStyle:本文>著者：伊藤 直也
 <ParaStyle:本文>監修：稲尾
+<ParaStyle:本文>所属：技術評論社
 <ParaStyle:本文>URL：http://naoya.github.com/
 <ParaStyle:本文>mail：i.naoya@gmail.com
 <ParaStyle:本文>Github：naoya
