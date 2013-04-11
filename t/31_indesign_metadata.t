@@ -22,10 +22,10 @@ sub md2inao {
 __END__
 === basic spec
 --- in md2inao
-Title: Markdown to Inao
-Subtitle: Convert markdown text to Inao format
 Chapter: 3
 Serial: 5
+Title: Markdown to Inao
+Subtitle: Convert markdown text to Inao format
 Author: 伊藤 直也
 Supervisor: 稲尾
 URL: http://naoya.github.com/
