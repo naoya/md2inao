@@ -37,7 +37,7 @@ Twitter: @naoya_ito
 Hello, World
 --- expected
 <SJIS-MAC>
-<ParaStyle:章番号・連載回数>章番号：3章
+<ParaStyle:章番号・連載回数>章番号：第3章
 <ParaStyle:章番号・連載回数>連載回数：第5回
 <ParaStyle:タイトル>タイトル：Markdown to Inao
 <ParaStyle:キャッチ>キャッチ：Convert markdown text to Inao format
