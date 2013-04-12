@@ -12,12 +12,15 @@ use Text::Md2Inao::Util;
 use List::Util qw/max/;
 
 tie my %meta2label, "Tie::IxHash",
-    author     => '著者',
-    supervisor => '監修',
-    url        => 'URL',
-    mail       => 'mail',
-    github     => 'Github',
-    twitter    => 'Twitter',
+    author               => '著者',
+    'author(romaji)'     => '著者（ローマ字）',
+    supervisor           => '監修',
+    'supervisor(romaji)' => '監修（ローマ字）',
+    affiliation          => '所属',
+    url                  => 'URL',
+    mail                 => 'mail',
+    github               => 'Github',
+    twitter              => 'Twitter',
 ;
 
 sub prepend_metadata {
@@ -25,7 +28,7 @@ sub prepend_metadata {
     if ($c->metadata) {
         my @lines;
         if (my $chapter = $c->metadata->{chapter}) {
-            push @lines, sprintf "<ParaStyle:章番号・連載回数>章番号：%d章", $chapter;
+            push @lines, sprintf "<ParaStyle:章番号・連載回数>章番号：第%d章", $chapter;
         }
 
         if (my $serial = $c->metadata->{serial}) {

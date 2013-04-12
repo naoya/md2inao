@@ -34,7 +34,7 @@ Twitter: @naoya_ito
 
 Hello, World
 --- expected
-章番号：3章
+章番号：第3章
 連載回数：第5回
 タイトル：Markdown to Inao
 キャッチ：Convert markdown text to Inao format

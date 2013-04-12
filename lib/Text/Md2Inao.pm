@@ -101,13 +101,13 @@ sub parse_markdown {
 
 sub parse_metadata {
     my ($self, $in) = @_;
-    if ($in =~ /^\w+?:.+\n/m) {
+    if ($in =~ /^[\w\(\)]+?:.+\n/m) {
         my $has_metadata;
         my @lines = split /\n/, $in;
         my %meta;
 
         for (@lines) {
-            if (m/^(\w+?):(.+)/) {
+            if (m/^([\w\(\)]+?):(.+)/) {
                 my ($k, $v) = ($1, $2);
                 $v =~ s/^\s+//;
                 $v =~ s/\s+$//;

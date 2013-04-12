@@ -14,14 +14,16 @@ use parent qw/Text::Md2Inao::Builder/;
 use Text::Md2Inao::Builder::DSL;
 
 tie my %meta2label, "Tie::IxHash",
-    title      => 'タイトル',
-    subtitle   => 'キャッチ',
-    author     => '著者',
-    supervisor => '監修',
-    url        => 'URL',
-    mail       => 'mail',
-    github     => 'Github',
-    twitter    => 'Twitter',
+    title                => 'タイトル',
+    subtitle             => 'キャッチ',
+    author               => '著者',
+    'author(romaji)'     => '著者（ローマ字）',
+    supervisor           => '監修',
+    'supervisor(romaji)' => '監修（ローマ字）',
+    url                  => 'URL',
+    mail                 => 'mail',
+    github               => 'Github',
+    twitter              => 'Twitter',
 ;
 
 sub prepend_metadata {
@@ -29,7 +31,7 @@ sub prepend_metadata {
     if ($c->metadata) {
         my @lines;
         if (my $chapter = $c->metadata->{chapter}) {
-            push @lines, sprintf "章番号：%d章", $chapter;
+            push @lines, sprintf "章番号：第%d章", $chapter;
         }
 
         if (my $serial = $c->metadata->{serial}) {
