@@ -10,4 +10,4 @@ notifications:
   email:
     - i.naoya+md2inao@gmail.com
   irc:
-    - "irc.freenode.org#md2inao"
+    - "irc.freenode.net#md2inao"
