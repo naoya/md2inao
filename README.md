@@ -1,9 +1,6 @@
 # Markdown to Inao-Format
 
-Build Status
-----------
-
-[![Build Status](https://travis-ci.org/naoya/md2inao.pl.png?branch=master)](https://travis-ci.org/naoya/md2inao.pl)
+[![Build Status](https://travis-ci.org/naoya/md2inao.pl.png?branch=master)](https://travis-ci.org/naoya/md2inao.pl) [![Coverage Status](https://coveralls.io/repos/naoya/md2inao.pl/badge.png?branch=master)](https://coveralls.io/r/naoya/md2inao.pl)
 
 Description
 ----------
