@@ -21,5 +21,5 @@ requires 'JSON', '>= 2.55';
 on 'test' => sub {
     requires 'Test::More';
     requires 'Test::Base';
+    requires 'Devel::Cover';
 };
-
