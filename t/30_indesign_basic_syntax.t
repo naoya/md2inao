@@ -331,7 +331,7 @@ __END__
 ![Command Line Tool](http://cdn.bloghackers.net/images/20130220_204748.png)
 --- expected
 <ParaStyle:キャプション>●図1	Command Line Tool
-<ParaStyle:赤字>http://cdn.bloghackers.net/images/20130220_204748.png
+<ParaStyle:赤字段落>http://cdn.bloghackers.net/images/20130220_204748.png
 
 === dl
 --- in md2inao
