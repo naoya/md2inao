@@ -53,28 +53,49 @@ app->start;
 __DATA__
 
 @@ index.html.ep
-<html>
+<!DOCTYPE html>
+<html lang="ja">
 <head>
+  <meta charset="utf8">
   <title>Markdown to Inao converter</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Jasny's Bootstrap : http://jasny.github.io/bootstrap/ -->
+  <link href="/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
 
-<div id="container">
-<div id="main">
-<h1>markdown2inao</h1>
+<div class="container">
+
+<div class="masthead">
+  <h3 class="muted">Markdown2Inao</h3>
+</div><!-- /.masthead -->
 
 %= form_for upload => (enctype => 'multipart/form-data') => begin
-  %= file_field 'markdown'
-  %= submit_button 'upload markdown file'
-  %= check_box in_design => 1, id => 'in_design'
-  <label for='in_design'>InDesign出力</label>
+  <fieldset>
+    <legend>Upload Markdown</legend>
+    <label>Select File</label>
+    <div class="fileupload fileupload-new" data-provides="fileupload">
+      <div class="input-append">
+        <div class="uneditable-input span3"><i class="icon-file fileupload-exists"></i> <span class="fileupload-preview"></span></div><span class="btn btn-file"><span class="fileupload-new">Select file</span><span class="fileupload-exists">Change</span><input type="file"  name="markdown" /></span><a href="#" class="btn fileupload-exists" data-dismiss="fileupload">Remove</a>
+      </div>
+    </div>
+
+    <label for='in_design' class="checkbox">
+    %= check_box in_design => 1, id => 'in_design'
+    InDesign出力
+    </label>
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </fieldset>
 %end
-</div>
 
-<div id="footer">
-  <p><a href="http://github.com/naoya/md2inao.pl">Text::Md2Inao</code> <%= $version %></a> (github)</p>
-</div>
-</div>
+<hr />
 
+<div class="footer">
+  <p class="text-right"><a href="http://github.com/naoya/md2inao.pl">Text::Md2Inao</code> <%= $version %></a> (github)</p>
+</div><!-- /.footer -->
+</div><!-- /.container -->
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script src="/js/bootstrap.min.js"></script>
 </body>
 </html>
