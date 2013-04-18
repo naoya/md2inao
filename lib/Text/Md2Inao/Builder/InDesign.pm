@@ -372,7 +372,7 @@ case img => sub {
 
     my $template = <<EOF;
 <ParaStyle:キャプション>●図%d\t%s
-<ParaStyle:赤字>%s
+<ParaStyle:赤字段落>%s
 EOF
 
     return sprintf (
