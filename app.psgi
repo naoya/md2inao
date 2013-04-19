@@ -8,12 +8,8 @@ use Encode qw/decode_utf8/;
 use Text::Md2Inao;
 use Text::Md2Inao::Builder::InDesign;
 
-# Increase limit to 1GB from 1GB
-# $ENV{MOJO_MAX_MESSAGE_SIZE} = 1073741824;
-
 get '/' => sub {
     my $self = shift;
-    $self->app->types->type(txt => "text/plain;charset=UTF-8");
     $self->render('index', version => $Text::Md2Inao::VERSION);
 };
 
@@ -37,31 +33,27 @@ post '/upload' => sub {
         my $builder = Text::Md2Inao::Builder::InDesign->new;
         $builder->load_filter_config('./config/id_filter.json');
         $p->builder($builder);
-
-        ### FIXME: hmm, looks like dirty way...
-        $self->app->types->type(txt => "text/plain;charset=Shift_JIS");
-        $self->app->plugin(Charset => { charset => 'Shift_JIS' });
-    } else {
-        $self->app->types->type(txt => "text/plain;charset=UTF-8");
     }
 
     $self->render(text => $p->parse(decode_utf8 $md), format => 'txt');
 };
 
+app->types->type(txt => "text/plain;charset=UTF-8");
 app->start;
 
 __DATA__
 
 @@ index.html.ep
 % layout 'main';
+% title 'Markdown to Inao converter';
 
-%= form_for upload => (enctype => 'multipart/form-data') => begin
+%= form_for upload => (enctype => 'multipart/form-data', id => 'form') => begin
   <fieldset>
     <legend>Upload Markdown</legend>
     <label>Select File</label>
     <div class="fileupload fileupload-new" data-provides="fileupload">
       <div class="input-append">
-        <div class="uneditable-input span3"><i class="icon-file fileupload-exists"></i> <span class="fileupload-preview"></span></div><span class="btn btn-file"><span class="fileupload-new">Select file</span><span class="fileupload-exists">Change</span><input type="file"  name="markdown" /></span><a href="#" class="btn fileupload-exists" data-dismiss="fileupload">Remove</a>
+        <div class="uneditable-input span3"><i class="icon-file fileupload-exists"></i> <span class="fileupload-preview"></span></div><span class="btn btn-file"><span class="fileupload-new">Select file</span><span class="fileupload-exists">Change</span><input type="file" name="markdown" /></span><a href="#" class="btn fileupload-exists" id="dismiss" data-dismiss="fileupload">Remove</a>
       </div>
     </div>
 
@@ -73,15 +65,17 @@ __DATA__
   </fieldset>
 % end
 
+<textarea id="result"></textarea>
+
 @@ layouts/main.html.ep
 <!DOCTYPE html>
 <html lang="ja">
 <head>
   <meta charset="utf8">
-  <title>Markdown to Inao converter</title>
+  <title><%= title %></title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <!-- Jasny's Bootstrap : http://jasny.github.io/bootstrap/ -->
   <link href="/css/bootstrap.min.css" rel="stylesheet">
+  <link href="/css/md2inao.css" rel="stylesheet">
 </head>
 <body>
 
@@ -104,5 +98,6 @@ __DATA__
 
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 <script src="/js/bootstrap.min.js"></script>
+<script src="/js/md2inao.js"></script>
 </body>
 </html>
