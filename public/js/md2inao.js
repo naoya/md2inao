@@ -7,8 +7,13 @@ $(function () {
       data: new FormData($(this)[0]),
       dataType: 'text'
     }).done(function(data) {
-      console.log(data);
-      $('#result').val(data).slideDown("fast");
+      $('#result').slideDown("fast").find('textarea').val(data);
+
+      // Download Anchor
+      var filename = $('#form').find('.fileupload-preview').text().replace(/.md$/, ".txt");
+      var blob = new Blob([ data ], {"type": "text/plain"});
+      window.URL = window.URL || window.webkitURL;
+      $('#download').attr("href", window.URL.createObjectURL(blob)).attr("download", filename);
     }).fail(function(data) {
       alert('Failed to upload');
       console.log(data);
@@ -18,10 +23,10 @@ $(function () {
   });
 
   $('#dismiss').on('click', function() {
-    $('#result').val('').slideUp("fast");
+    $('#result').slideUp("fast").find('textarea').val('');
   });
 
-  $('#result').on('click', function() {
+  $('#content').on('click', function() {
     this.selectionStart = 0;
     this.selectionEnd = this.value.length;
   });

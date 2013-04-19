@@ -34,7 +34,6 @@ post '/upload' => sub {
         $builder->load_filter_config('./config/id_filter.json');
         $p->builder($builder);
     }
-
     $self->render(text => $p->parse(decode_utf8 $md), format => 'txt');
 };
 
@@ -61,11 +60,14 @@ __DATA__
     %= check_box in_design => 1, id => 'in_design'
     InDesign出力
     </label>
-    <button type="submit" class="btn btn-primary">Submit</button>
+    <button type="submit" class="btn btn-primary">Convert File</button>
   </fieldset>
 % end
 
-<textarea id="result"></textarea>
+<div id="result">
+  <p class="text-right"><a href="" id="download">ダウンロード (Google Chromeのみ)</a></p>
+  <textarea id="content"></textarea>
+</div>
 
 @@ layouts/main.html.ep
 <!DOCTYPE html>
