@@ -53,6 +53,27 @@ app->start;
 __DATA__
 
 @@ index.html.ep
+% layout 'main';
+
+%= form_for upload => (enctype => 'multipart/form-data') => begin
+  <fieldset>
+    <legend>Upload Markdown</legend>
+    <label>Select File</label>
+    <div class="fileupload fileupload-new" data-provides="fileupload">
+      <div class="input-append">
+        <div class="uneditable-input span3"><i class="icon-file fileupload-exists"></i> <span class="fileupload-preview"></span></div><span class="btn btn-file"><span class="fileupload-new">Select file</span><span class="fileupload-exists">Change</span><input type="file"  name="markdown" /></span><a href="#" class="btn fileupload-exists" data-dismiss="fileupload">Remove</a>
+      </div>
+    </div>
+
+    <label for='in_design' class="checkbox">
+    %= check_box in_design => 1, id => 'in_design'
+    InDesign出力
+    </label>
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </fieldset>
+% end
+
+@@ layouts/main.html.ep
 <!DOCTYPE html>
 <html lang="ja">
 <head>
@@ -72,23 +93,7 @@ __DATA__
   <h3 class="muted">Markdown2Inao</h3>
 </div><!-- /.masthead -->
 
-%= form_for upload => (enctype => 'multipart/form-data') => begin
-  <fieldset>
-    <legend>Upload Markdown</legend>
-    <label>Select File</label>
-    <div class="fileupload fileupload-new" data-provides="fileupload">
-      <div class="input-append">
-        <div class="uneditable-input span3"><i class="icon-file fileupload-exists"></i> <span class="fileupload-preview"></span></div><span class="btn btn-file"><span class="fileupload-new">Select file</span><span class="fileupload-exists">Change</span><input type="file"  name="markdown" /></span><a href="#" class="btn fileupload-exists" data-dismiss="fileupload">Remove</a>
-      </div>
-    </div>
-
-    <label for='in_design' class="checkbox">
-    %= check_box in_design => 1, id => 'in_design'
-    InDesign出力
-    </label>
-    <button type="submit" class="btn btn-primary">Submit</button>
-  </fieldset>
-%end
+<%= content %>
 
 <hr />
 
