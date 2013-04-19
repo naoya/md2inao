@@ -111,6 +111,11 @@ sub fallback_to_escaped_html {
     return escape_html(fallback_to_html(shift));
 }
 
+sub blank_line {
+    my $c = shift;
+    ($c->blank_style and $c->blank_style eq 'full') ? '<ParaStyle:本文>' : '<ParaStyle:半行アキ>';
+}
+
 case default => sub {
     my ($c, $h) = @_;
     $h->as_HTML('', '', {});
@@ -270,7 +275,12 @@ case ul => sub {
             $ret .= '<ParaStyle:箇条書き>・' . $c->parse_element($list) . "\n";
             $c->in_list(0);
         }
-        return $ret;
+        chomp $ret;
+        my $blank = blank_line($c);
+        return <<EOF;
+$blank
+$ret
+EOF
     }
 };
 
@@ -286,7 +296,12 @@ case ol => sub {
             $c->parse_element($list)
         );
     }
-    return $out;
+    chomp $out;
+    my $blank = blank_line($c);
+    return <<EOF;
+$blank
+$out
+EOF
 };
 
 case pre => sub {
@@ -350,7 +365,9 @@ case pre => sub {
     } split /\n/, $text;
 
     my $lines = join "\n", @lines;
+    my $blank = blank_line($c);
     return <<EOF;
+$blank
 $lines
 EOF
 };

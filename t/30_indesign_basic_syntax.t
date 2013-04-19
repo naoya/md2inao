@@ -126,6 +126,7 @@ __END__
 * **強調**
 * _イタリック_
 --- expected
+<ParaStyle:半行アキ>
 <ParaStyle:箇条書き>・通常の箇条書き
 <ParaStyle:箇条書き>・通常の箇条書き
 <ParaStyle:箇条書き>・通常の箇条書き
@@ -139,6 +140,7 @@ __END__
     - Inao
     - InDesign
 --- expected
+<ParaStyle:半行アキ>
 <ParaStyle:箇条書き>・Hello
 <ParaStyle:箇条書き2階層目>・Markdown
 <ParaStyle:箇条書き2階層目>・Inao
@@ -152,6 +154,7 @@ __END__
 4. 連番箇条書き（黒丸数字）
 5. 連番箇条書き（黒丸数字）
 --- expected
+<ParaStyle:半行アキ>
 <ParaStyle:箇条書き><CharStyle:丸文字><2776><CharStyle:>連番箇条書き（黒丸数字）
 <ParaStyle:箇条書き><CharStyle:丸文字><2777><CharStyle:>連番箇条書き（黒丸数字）
 <ParaStyle:箇条書き><CharStyle:丸文字><2778><CharStyle:>連番箇条書き（黒丸数字）
@@ -168,6 +171,7 @@ __END__
     <li>連番箇条書き（白丸数字）</li>
 </ol>
 --- expected
+<ParaStyle:半行アキ>
 <ParaStyle:箇条書き><CharStyle:丸文字><2460><CharStyle:>連番箇条書き（白丸数字）
 <ParaStyle:箇条書き><CharStyle:丸文字><2461><CharStyle:>連番箇条書き（白丸数字）
 <ParaStyle:箇条書き><CharStyle:丸文字><2462><CharStyle:>連番箇条書き（白丸数字）
@@ -184,6 +188,7 @@ __END__
     <li>連番箇条書き（黒四角数字）</li>
 </ol>
 --- expected
+<ParaStyle:半行アキ>
 <ParaStyle:箇条書き><cTypeface:B><cFont:A-OTF ゴシックMB101 Pro><cotfcalt:0><cotfl:nalt,7>1<cTypeface:><cFont:><cotfcalt:><cotfl:>連番箇条書き（黒四角数字）
 <ParaStyle:箇条書き><cTypeface:B><cFont:A-OTF ゴシックMB101 Pro><cotfcalt:0><cotfl:nalt,7>2<cTypeface:><cFont:><cotfcalt:><cotfl:>連番箇条書き（黒四角数字）
 <ParaStyle:箇条書き><cTypeface:B><cFont:A-OTF ゴシックMB101 Pro><cotfcalt:0><cotfl:nalt,7>3<cTypeface:><cFont:><cotfcalt:><cotfl:>連番箇条書き（黒四角数字）
@@ -200,6 +205,7 @@ __END__
     <li>連番箇条書き（アルファベット）</li>
 </ol>
 --- expected
+<ParaStyle:半行アキ>
 <ParaStyle:箇条書き><CharStyle:丸文字><cLigatures:0><cOTFContAlt:0><cOTFeatureList:nalt,3>a<cLigatures:><cOTFContAlt:><cOTFeatureList:><CharStyle:>連番箇条書き（アルファベット）
 <ParaStyle:箇条書き><CharStyle:丸文字><cLigatures:0><cOTFContAlt:0><cOTFeatureList:nalt,3>b<cLigatures:><cOTFContAlt:><cOTFeatureList:><CharStyle:>連番箇条書き（アルファベット）
 <ParaStyle:箇条書き><CharStyle:丸文字><cLigatures:0><cOTFContAlt:0><cOTFeatureList:nalt,3>c<cLigatures:><cOTFContAlt:><cOTFeatureList:><CharStyle:>連番箇条書き（アルファベット）
@@ -240,9 +246,11 @@ __END__
 --- expected
 <ParaStyle:小見出し>本文やリスト中での番号
 <ParaStyle:本文>　箇条書き以外の本文やリスト中で番号を書きたいときは、<CharStyle:丸文字><2776><CharStyle:>、<CharStyle:丸文字><2777><CharStyle:>、<CharStyle:丸文字><2460><CharStyle:>、<CharStyle:丸文字><2461><CharStyle:>、<cTypeface:B><cFont:A-OTF ゴシックMB101 Pro><cotfcalt:0><cotfl:nalt,7>1<cTypeface:><cFont:><cotfcalt:><cotfl:>、<cTypeface:B><cFont:A-OTF ゴシックMB101 Pro><cotfcalt:0><cotfl:nalt,7>2<cTypeface:><cFont:><cotfcalt:><cotfl:>、<CharStyle:丸文字><cLigatures:0><cOTFContAlt:0><cOTFeatureList:nalt,3>a<cLigatures:><cOTFContAlt:><cOTFeatureList:><CharStyle:>、<CharStyle:丸文字><cLigatures:0><cOTFContAlt:0><cOTFeatureList:nalt,3>b<cLigatures:><cOTFContAlt:><cOTFeatureList:><CharStyle:>のように書いてください。
+<ParaStyle:半行アキ>
 <ParaStyle:箇条書き><cTypeface:B><cFont:A-OTF ゴシックMB101 Pro><cotfcalt:0><cotfl:nalt,7>1<cTypeface:><cFont:><cotfcalt:><cotfl:>hogehogeをします
 <ParaStyle:箇条書き><cTypeface:B><cFont:A-OTF ゴシックMB101 Pro><cotfcalt:0><cotfl:nalt,7>2<cTypeface:><cFont:><cotfcalt:><cotfl:>fugafugaと<cTypeface:B><cFont:A-OTF ゴシックMB101 Pro><cotfcalt:0><cotfl:nalt,7>1<cTypeface:><cFont:><cotfcalt:><cotfl:>の結果を足し合わせます
 <ParaStyle:本文>　リスト1.1<CharStyle:丸文字><2460><CharStyle:>ではアラートを出しています。<CharStyle:丸文字><2461><CharStyle:>でもアラートを出しています。(a1)エスケープできます。
+<ParaStyle:半行アキ>
 <ParaStyle:キャプション>リスト1.1	キャプション（コードのタイトル）
 <ParaStyle:リスト>function hoge() {
 <ParaStyle:リスト>    alert(foo);　… <CharStyle:丸文字><2460><CharStyle:>
@@ -257,6 +265,7 @@ __END__
         alert(b);
     }
 --- expected
+<ParaStyle:半行アキ>
 <ParaStyle:リスト>function bar(b) {
 <ParaStyle:リスト>    alert(b);
 <ParaStyle:リスト>}
@@ -267,6 +276,7 @@ __END__
         alert(b); (注:コメント)
     }
 --- expected
+<ParaStyle:半行アキ>
 <ParaStyle:リスト>function bar(b) {
 <ParaStyle:リスト>    alert(b); <CharStyle:リストコメント> コメント <CharStyle:>
 <ParaStyle:リスト>}
@@ -278,6 +288,7 @@ __END__
         alert(b);
     }
 --- expected
+<ParaStyle:半行アキ>
 <ParaStyle:リスト><CharStyle:リストコメント> 見出し的にも使えます <CharStyle:>
 <ParaStyle:リスト>function bar(b) {
 <ParaStyle:リスト>    alert(b);
@@ -288,6 +299,7 @@ __END__
     ●リスト1.1::キャプション
     use strict;
 --- expected
+<ParaStyle:半行アキ>
 <ParaStyle:キャプション>リスト1.1	キャプション
 <ParaStyle:リスト>use strict;
 
@@ -296,6 +308,7 @@ __END__
     **use strict**;
     ___foo('bar');___ // コード内___イタリック___
 --- expected
+<ParaStyle:半行アキ>
 <ParaStyle:リスト><CharStyle:コマンド太字>use strict<CharStyle:>;
 <ParaStyle:リスト><CharStyle:イタリック（変形斜体）>foo('bar');<CharStyle:> // コード内<CharStyle:イタリック（変形斜体）>イタリック<CharStyle:>
 
@@ -311,6 +324,7 @@ __END__
         alert(b);
     }
 --- expected
+<ParaStyle:半行アキ>
 <ParaStyle:キャプション>図1.1	キャプション（コマンドのタイトル）
 <ParaStyle:リスト白文字>$ command  <CharStyle:コマンド太字>foo<CharStyle:> // コマンド内強調
 <ParaStyle:リスト白文字>bar <CharStyle:リストコメント白地黒文字> こんな風にコメントがつけられます <CharStyle:>

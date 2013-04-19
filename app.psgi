@@ -27,6 +27,7 @@ post '/upload' => sub {
         default_list           => 'disc',
         max_list_length        => 63,
         max_inline_list_length => 55,
+        blank_style            => $self->req->param('blank_style'),
     });
 
     if ($self->req->param('in_design')) {
@@ -60,7 +61,11 @@ __DATA__
     %= check_box in_design => 1, id => 'in_design'
     InDesign出力
     </label>
-    <button type="submit" class="btn btn-primary">Convert File</button>
+    <select name="blank_style">
+      <option value="half">空行半行アキ</option>
+      <option value="full">空行1行アキ</option>
+    </select>
+    <p><button type="submit" class="btn btn-primary">Convert File</button></p>
   </fieldset>
 % end
 

@@ -47,6 +47,7 @@ This is not html `<code>`
 Hello, World;
 --- expected
 <SJIS-MAC>
+<ParaStyle:半行アキ>
 <ParaStyle:リスト><005C><html<005C>>
 <ParaStyle:リスト><005C><body<005C>><005C></body<005C>>
 <ParaStyle:リスト><005C></html<005C>>
