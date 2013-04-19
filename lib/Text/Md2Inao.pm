@@ -3,7 +3,7 @@ use utf8;
 use strict;
 use warnings;
 
-our $VERSION = '0.05';
+our $VERSION = '0.06';
 
 use Carp;
 use Class::Accessor::Fast qw/antlers/;
@@ -30,6 +30,10 @@ has max_list_length => ( is => 'rw', isa => 'Num' );
 # WEB+DB PRESSの場合、本文リストは1行55桁（文字）まで
 # 書籍の場合、本文リストは1行73桁（文字）まで
 has max_inline_list_length => ( is => 'rw', isa => 'Num' );
+
+# 空行のスタイル
+# half | full
+has blank_style => ( is => 'rw', isa => 'Str' );
 
 # コンテキスト判定のための属性
 has in_footnote    => (is => 'rw', isa => 'Bool');
