@@ -65,7 +65,7 @@ __DATA__
       <option value="half">空行半行アキ</option>
       <option value="full">空行1行アキ</option>
     </select>
-    <p><button type="submit" class="btn btn-primary">Convert File</button></p>
+    <p><button type="submit" class="btn btn-primary">Convert File</button> <img src="/img/ajax-loader.gif" alt="loading" title="loading" id="indicator"></p>
   </fieldset>
 % end
 

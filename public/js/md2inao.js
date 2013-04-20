@@ -22,6 +22,15 @@ $(function () {
     return false;
   });
 
+  $(document).ajaxStart(function () {
+    $('#indicator').show();
+  });
+  
+  $(document).ajaxStop(function () {
+    $('#indicator').hide();
+  });
+  
+
   $('#dismiss').on('click', function() {
     $('#result').slideUp("fast").find('textarea').val('');
   });
