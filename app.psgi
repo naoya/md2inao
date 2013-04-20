@@ -61,7 +61,7 @@ __DATA__
     %= check_box in_design => 1, id => 'in_design'
     InDesign出力
     </label>
-    <select name="blank_style">
+    <select name="blank_style" id="blank_style">
       <option value="half">空行半行アキ</option>
       <option value="full">空行1行アキ</option>
     </select>

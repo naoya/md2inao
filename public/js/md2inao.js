@@ -30,4 +30,8 @@ $(function () {
     this.selectionStart = 0;
     this.selectionEnd = this.value.length;
   });
+
+  $('#in_design').on('change', function() {
+    $('#blank_style').toggle();
+  });
 });
