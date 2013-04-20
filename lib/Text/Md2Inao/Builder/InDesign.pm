@@ -355,8 +355,10 @@ case pre => sub {
 
     $c->in_code_block(0);
 
+    my $has_caption;
     my @lines = map {
         if (m/^●(.+?)::(.+)/) {
+            $has_caption = 1;
             sprintf "<ParaStyle:キャプション>%s\t%s", $1, $2;
         }
         else {
@@ -365,11 +367,15 @@ case pre => sub {
     } split /\n/, $text;
 
     my $lines = join "\n", @lines;
-    my $blank = blank_line($c);
-    return <<EOF;
+    if ($has_caption) {
+        return $lines . "\n";
+    } else {
+        my $blank = blank_line($c);
+        return <<EOF;
 $blank
 $lines
 EOF
+    }
 };
 
 case a => sub {
