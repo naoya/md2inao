@@ -362,3 +362,22 @@ WEB+DB PRESSなどでは未使用で、未使用の媒体では、コマンド�
 [RubyMotion](http://rubymotion.com/)は、RubyでiOSアプリを作るれるツールです。
 $199程度(注:日本円で20,000円程度です。)です。
 ```
+
+### 表
+
+```
+<table summary='表1::キャプション'>
+    <tr>
+        <th>列の説明1</th>
+        <th>列の説明2</th>
+    </tr>
+    <tr>
+        <td>内容1-1</td>
+        <td>内容2-1</td>
+    </tr>
+    <tr>
+        <td>内容1-2</td>
+        <td>内容2-2</td>
+    </tr>
+</table>
+```
