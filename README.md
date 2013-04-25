@@ -121,3 +121,31 @@ IRC
 取り扱い説明書
 ----------
 
+### メタデータ（タイトル、著者名など）
+
+テキストファイルの冒頭に、以下のメタデータを書けます。
+
+```
+Chapter: 3（章番号）
+Serial: 5（連載回数）
+Title: Markdown to Inao（タイトル）
+Subtitle: Convert markdown text to Inao format（キャッチコピー）
+Author: 伊藤 直也（著者名）
+Author(romaji): ITO Naoya（著者名のローマ字表記）
+Supervisor: 稲尾 尚徳（監修者名）
+Supervisor(romaji): INAO Naonori（監修者名のローマ字表記）
+Affiliation: 技術評論社（所属）
+URL: http://naoya.github.com/
+mail: i.naoya@gmail.com
+Github: naoya
+Twitter: @naoya_ito
+
+Hello, World（本文）
+```
+
+#### 注意事項
+
+* Title、Subtitle、Author、Author(romaji)は必須です
+* テキストファイルの冒頭に書く必要があります
+* メタデータと本文の間に空行が必要です
+* 任意のメタデータを追加可能ですが、キーにマルチバイト文字は使えません
