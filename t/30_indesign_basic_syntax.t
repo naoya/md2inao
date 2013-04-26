@@ -331,6 +331,18 @@ __END__
 <ParaStyle:リスト白文字>    alert(b);
 <ParaStyle:リスト白文字>}
 
+=== pre for command, no caption
+--- in md2inao
+    !!! cmd
+    function bar(b) {
+        alert(b); (注:コメント)
+    }
+--- expected
+<ParaStyle:半行アキ>
+<ParaStyle:リスト白文字>function bar(b) {
+<ParaStyle:リスト白文字>    alert(b); <CharStyle:リストコメント白地黒文字> コメント <CharStyle:>
+<ParaStyle:リスト白文字>}
+
 === anchor
 --- in md2inao
 [RubyMotion](http://rubymotion.com)
