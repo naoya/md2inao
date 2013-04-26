@@ -90,11 +90,13 @@ Markdown は Markdown プロセッサで解釈すると、通常は HTML に変�
 
 また、Markdown で定義されてない記述も HTML を使うことによって定義することもできます。一部の記法は HTML で書くことが前提になっています。
 
+いまのところ Github Flavored Markdown などの拡張には対応していませんのでその点に注意してください。
+
 #### 文中に HTML を書く際の注意事項
 
 Markdown の仕様では当然のことながら、HTML タグは HTML タグとして解釈されます。文中に HTML を書きたい場合は以下のいずれかの方法でエスケープしてください。
 
-##### Github の code 記法を使う
+##### code 記法を使う
 
     `<strong>`
 
