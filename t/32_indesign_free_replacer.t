@@ -72,3 +72,8 @@ __END__
 --- expected
 <ParaStyle:本文><cstyle:ストッパ>#<cstyle:>
 
+=== kbd
+--- in md2inao
+通常の本文<kbd>Enter</kbd>（←キーボードフォント）
+--- expected
+<ParaStyle:本文>通常の本文<cFont:Key Mother><00A9><cFont:>（←キーボードフォント）

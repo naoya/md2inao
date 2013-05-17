@@ -74,12 +74,6 @@ __END__
 --- expected
 <ParaStyle:本文>これは<cstyle:上付き><fnStart:><pstyle:注釈>ここは注釈です<fnEnd:><cstyle:>です
 
-=== kbd
---- SKIP in md2inao
-通常の本文<kbd>Enter</kbd>（←キーボードフォント）
---- expected
-<ParaStyle:本文>通常の本文<cFont:Key Mother><00A9><cFont:>（←キーボードフォント）
-
 === red
 --- in md2inao
 これは<span class="red">赤文字</span>です

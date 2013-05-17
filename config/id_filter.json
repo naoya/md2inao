@@ -5,7 +5,8 @@
         "<kbd>F12</kbd>" : "<cFont:Key Snd Mother>,<cFont:>",
         "<kbd>F1</kbd>" : "<cFont:Key Snd Mother>!<cFont:>",
         "<kbd>F2</kbd>" : "<cFont:Key Snd Mother>\"<cFont:>",
-        "<kbd>End</kbd>" : "<cFont:Key Snd Mother>n<cFont:>"
+        "<kbd>End</kbd>" : "<cFont:Key Snd Mother>n<cFont:>",
+        "<kbd>Enter</kbd>" : "<cFont:Key Mother><00A9><cFont:>"
     },
     "after_filter": {
         "★" : "<CharStyle:赤字>★<CharStyle:>",
