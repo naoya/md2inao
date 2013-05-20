@@ -299,3 +299,21 @@ __END__
 □
 --- expected
 <ParaStyle:本文><CharStyle:赤字>□<CharStyle:>
+
+=== strong
+--- in md2inao
+◆b/◆強調◆/b◆
+--- expected
+<ParaStyle:本文><CharStyle:太字>強調<CharStyle:>
+
+=== italic
+--- in md2inao
+◆i/◆イタリック◆/i◆
+--- expected
+<ParaStyle:本文><CharStyle:イタリック>イタリック<CharStyle:>
+
+=== italic
+--- in md2inao
+◆i-j/◆イタリック（変形斜体）◆/i-j◆
+--- expected
+<ParaStyle:本文><CharStyle:イタリック（変形斜体）>イタリック（変形斜体）<CharStyle:>
