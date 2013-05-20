@@ -395,9 +395,3 @@ World
 <ParaStyle:本文>Hello
 <ParaStyle:区切り線>
 <ParaStyle:本文>World
-
-=== star
---- in md2inao
-★
---- expected
-<ParaStyle:本文><CharStyle:赤字>★<CharStyle:>

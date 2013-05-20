@@ -77,3 +77,9 @@ __END__
 通常の本文<kbd>Enter</kbd>（←キーボードフォント）
 --- expected
 <ParaStyle:本文>通常の本文<cFont:Key Mother><00A9><cFont:>（←キーボードフォント）
+
+=== star
+--- in md2inao
+★
+--- expected
+<ParaStyle:本文><CharStyle:赤字>★<CharStyle:>
