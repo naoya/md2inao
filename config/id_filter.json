@@ -34,7 +34,12 @@
         "<kbd>Pgdn</kbd>" : "<cFont:Key Snd Mother>b<cFont:>",
         "<kbd>Enter</kbd>" : "<cFont:Key Mother><00A9><cFont:>",
         "<kbd><</kbd>" : "<cFont:Key Mother><005C><<cFont:>",
-        "<kbd>></kbd>" : "<cFont:Key Mother><005C>><cFont:>"
+        "<kbd>></kbd>" : "<cFont:Key Mother><005C>><cFont:>",
+
+        "<sup>" : "<CharStyle:上付き>",
+        "</sup>" : "<CharStyle:>",
+        "<sup2>" : "<cp:Superscript>",
+        "</sup2>" : "<cp:>"
     },
     "after_filter": {
         "★" : "<CharStyle:赤字>★<CharStyle:>",
