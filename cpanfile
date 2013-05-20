@@ -22,4 +22,5 @@ on 'test' => sub {
     requires 'Test::More';
     requires 'Test::Base';
     requires 'Devel::Cover';
+    requires 'TAP::Formatter::JUnit'
 };
