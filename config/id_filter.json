@@ -56,6 +56,14 @@
         "◆＞＝◆" : "<2267>",
         "◆＝＞◆" : "<2266>",
         
-        "◆WDB◆" : "<cstyle:ストッパ>#<cstyle:>"
+        "◆WDB◆" : "<cstyle:ストッパ>#<cstyle:>",
+
+        "◆b/◆" : "<CharStyle:太字>",
+        "◆/b◆" : "<CharStyle:>",
+        "◆i/◆" : "<CharStyle:イタリック>",
+        "◆/i◆" : "<CharStyle:>",
+        "◆i-j/◆" : "<CharStyle:イタリック（変形斜体）>",
+        "◆/i-j◆" : "<CharStyle:>"
+
     }
 }
