@@ -83,3 +83,21 @@ __END__
 ★
 --- expected
 <ParaStyle:本文><CharStyle:赤字>★<CharStyle:>
+
+=== red
+--- in md2inao
+☆
+--- expected
+<ParaStyle:本文><CharStyle:赤字>☆<CharStyle:>
+
+=== red
+--- in md2inao
+▲
+--- expected
+<ParaStyle:本文><CharStyle:赤字>▲<CharStyle:>
+
+=== red
+--- in md2inao
+□
+--- expected
+<ParaStyle:本文><CharStyle:赤字>□<CharStyle:>
