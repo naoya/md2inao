@@ -275,3 +275,27 @@ __END__
 <sup2>上付き（その場のフォントで上付き）</sup2>
 --- expected
 <ParaStyle:本文><cp:Superscript>上付き（その場のフォントで上付き）<cp:>
+
+=== red
+--- in md2inao
+★
+--- expected
+<ParaStyle:本文><CharStyle:赤字>★<CharStyle:>
+
+=== red
+--- in md2inao
+☆
+--- expected
+<ParaStyle:本文><CharStyle:赤字>☆<CharStyle:>
+
+=== red
+--- in md2inao
+▲
+--- expected
+<ParaStyle:本文><CharStyle:赤字>▲<CharStyle:>
+
+=== red
+--- in md2inao
+□
+--- expected
+<ParaStyle:本文><CharStyle:赤字>□<CharStyle:>
