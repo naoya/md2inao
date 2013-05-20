@@ -263,3 +263,39 @@ __END__
 ◆WDB◆
 --- expected
 <ParaStyle:本文><cstyle:ストッパ>#<cstyle:>
+
+=== sup
+--- in md2inao
+<sup>上付き（ゴシック、コラムなどでの注記用）</sup>
+--- expected
+<ParaStyle:本文><CharStyle:上付き>上付き（ゴシック、コラムなどでの注記用）<CharStyle:>
+
+=== sup
+--- in md2inao
+<sup2>上付き（その場のフォントで上付き）</sup2>
+--- expected
+<ParaStyle:本文><cp:Superscript>上付き（その場のフォントで上付き）<cp:>
+
+=== red
+--- in md2inao
+★
+--- expected
+<ParaStyle:本文><CharStyle:赤字>★<CharStyle:>
+
+=== red
+--- in md2inao
+☆
+--- expected
+<ParaStyle:本文><CharStyle:赤字>☆<CharStyle:>
+
+=== red
+--- in md2inao
+▲
+--- expected
+<ParaStyle:本文><CharStyle:赤字>▲<CharStyle:>
+
+=== red
+--- in md2inao
+□
+--- expected
+<ParaStyle:本文><CharStyle:赤字>□<CharStyle:>
