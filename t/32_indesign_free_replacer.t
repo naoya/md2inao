@@ -78,7 +78,7 @@ __END__
 --- expected
 <ParaStyle:本文>通常の本文<cFont:Key Mother><00A9><cFont:>（←キーボードフォント）
 
-=== star
+=== red
 --- in md2inao
 ★
 --- expected
