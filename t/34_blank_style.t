@@ -1,12 +1,9 @@
 use utf8;
-
 use Test::Base;
 use Text::Md2Inao;
-use Encode;
 use Text::Md2Inao::Builder::InDesign;
 
 plan tests => 1 * blocks;
-
 run_is in => 'expected';
 
 sub md2inao {

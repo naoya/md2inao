@@ -1,9 +1,5 @@
-use strict;
-use warnings;
-
 use utf8;
 use Test::More;
-
 use Text::Md2Inao;
 
 my $p = Text::Md2Inao->new({

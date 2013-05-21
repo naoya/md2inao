@@ -1,27 +1,13 @@
 use utf8;
-
 use Test::Base;
-use Text::Md2Inao;
-use Encode;
-use Text::Md2Inao::Builder::InDesign;
+use Text::Md2Inao::TestHelper;
 
 plan tests => 1 * blocks;
-
 run_is in => 'expected';
-
-sub md2inao {
-    my $p = Text::Md2Inao->new({
-        default_list           => 'disc',
-        max_list_length        => 63,
-        max_inline_list_length => 55,
-        builder                => Text::Md2Inao::Builder::InDesign->new,
-    });
-    $p->parse($_);
-}
 
 __END__
 === basic spec
---- in md2inao
+--- in md2id
 Chapter: 3
 Serial: 5
 Title: Markdown to Inao
