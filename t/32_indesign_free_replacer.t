@@ -299,3 +299,9 @@ __END__
 □
 --- expected
 <ParaStyle:本文><CharStyle:赤字>□<CharStyle:>
+
+=== 
+--- in md2inao
+㈱(株)
+--- expected
+<ParaStyle:本文><3231><3231>
