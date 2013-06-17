@@ -7,7 +7,7 @@ before_install:
   - cpanm Module::Install::ReadmeFromPod
   - cpanm Module::Install::CPANfile
   - cpanm -n git://github.com/kan/coveralls-perl.git
-script: perl Makefile.PL && make && cover -test
+script: yes | (perl Makefile.PL && make && cover -test)
 after_success:
   - cover -report coveralls
 notifications:
