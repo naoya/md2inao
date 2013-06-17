@@ -9638,6 +9638,61 @@
          "target" : "Test::Fatal",
          "version" : "0.010"
       },
+      "Test::LongString" : {
+         "dist" : "Test-LongString-0.15",
+         "mymeta" : {
+            "abstract" : "unknown",
+            "author" : [
+               "Rafael Garcia-Suarez <rgs@consttype.org>"
+            ],
+            "dynamic_config" : 0,
+            "generated_by" : "ExtUtils::MakeMaker version 6.55_02, CPAN::Meta::Converter version 2.120921",
+            "license" : [
+               "perl_5"
+            ],
+            "meta-spec" : {
+               "url" : "http://search.cpan.org/perldoc?CPAN::Meta::Spec",
+               "version" : "2"
+            },
+            "name" : "Test-LongString",
+            "no_index" : {
+               "directory" : [
+                  "t",
+                  "inc"
+               ]
+            },
+            "prereqs" : {
+               "build" : {
+                  "requires" : {
+                     "ExtUtils::MakeMaker" : "0"
+                  }
+               },
+               "configure" : {
+                  "requires" : {
+                     "ExtUtils::MakeMaker" : "0"
+                  }
+               },
+               "runtime" : {
+                  "requires" : {
+                     "Test::Builder" : "0.12",
+                     "Test::Builder::Tester" : "1.04"
+                  }
+               }
+            },
+            "release_status" : "stable",
+            "version" : "0.15"
+         },
+         "name" : "Test::LongString",
+         "pathname" : "R/RG/RGARCIA/Test-LongString-0.15.tar.gz",
+         "provides" : {
+            "Test::LongString" : {
+               "file" : "Test/LongString.pm",
+               "version" : "0.15"
+            }
+         },
+         "target" : "Test::LongString",
+         "version" : "0.15"
+      },
       "Test::NoWarnings" : {
          "dist" : "Test-NoWarnings-1.04",
          "mymeta" : {

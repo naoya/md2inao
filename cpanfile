@@ -20,6 +20,7 @@ requires 'JSON', '>= 2.55';
 
 on 'test' => sub {
     requires 'Test::More';
+    requires 'Test::LongString';
     requires 'Test::Base';
     requires 'Devel::Cover';
     requires 'TAP::Formatter::JUnit'
