@@ -59,7 +59,7 @@ sub prepare_text_for_markdown {
     my $text = shift;
 
     ## Work Around: 先頭空白は字下げとみなし全角空白に置き換える (issue #4)
-    $text =~ s/^[ ]{1,3}([^ ])/　$1/mg;
+    $text =~ s/^[ ]{1,3}([^ <])/　$1/mg;
 
     ## Work Around: リストの後にコードブロックが続くとだめな問題 (issue #6)
     $text =~ s![-*+] (.*?)\n\n    !- $1\n\n　\n\n    !g;
