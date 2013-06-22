@@ -34,3 +34,18 @@ __END__
 <ParaStyle:コラム半行アキ>
 <ParaStyle:コラム箇条書き>・abc
 <ParaStyle:コラム箇条書き説明>def
+
+===
+--- in md2id
+あいうえお。
+
+<dl>
+  <dt>abc</dt>
+  <dd>def</dd>
+</dl>
+--- expected
+<SJIS-MAC>
+<ParaStyle:本文>あいうえお。
+<ParaStyle:半行アキ>
+<ParaStyle:箇条書き>・abc
+<ParaStyle:箇条書き説明>def
