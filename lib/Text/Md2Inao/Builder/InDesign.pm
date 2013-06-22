@@ -113,7 +113,11 @@ sub fallback_to_escaped_html {
 
 sub blank_line {
     my $c = shift;
-    ($c->blank_style and $c->blank_style eq 'full') ? '<ParaStyle:本文>' : '<ParaStyle:半行アキ>';
+    if ($c->blank_style and $c->blank_style eq 'full') {
+        return '<ParaStyle:本文>';
+    } else {
+        $c->in_column ? return '<ParaStyle:コラム半行アキ>' : return '<ParaStyle:半行アキ>'
+    }
 }
 
 case default => sub {
@@ -263,11 +267,13 @@ case div => sub {
 
 case ul => sub {
     my ($c, $h) = @_;
+    my $label = $c->in_column ? 'コラム箇条書き' : '箇条書き';
+    
     if ($c->in_list) {
         my $ret = "\n";
         for ($h->content_list) {
             if ($_->tag eq 'li') {
-                $ret .= sprintf "<ParaStyle:箇条書き2階層目>・%s\n", $c->parse_element($_);
+                $ret .= sprintf "<ParaStyle:%s2階層目>・%s\n", $label, $c->parse_element($_);
             }
         }
         chomp $ret;
@@ -276,7 +282,7 @@ case ul => sub {
         my $ret;
         for my $list ($h->content_list) {
             $c->in_list(1);
-            $ret .= '<ParaStyle:箇条書き>・' . $c->parse_element($list) . "\n";
+            $ret .= sprintf("<ParaStyle:%s>・%s\n", $label, $c->parse_element($list));
             $c->in_list(0);
         }
         chomp $ret;
@@ -291,11 +297,13 @@ EOF
 case ol => sub {
     my ($c, $h) = @_;
     my $out = '';
+    my $label = $c->in_column ? 'コラム箇条書き' : '箇条書き';
     my $style = $h->attr('class') || $c->default_list;
     my $i = 0;
     for my $list ($h->find('li')) {
         $out .= sprintf(
-            "<ParaStyle:箇条書き>%s%s\n",
+            "<ParaStyle:%s>%s%s\n",
+            $label,
             list_marker($style, ++$i),
             $c->parse_element($list)
         );
@@ -413,14 +421,20 @@ EOF
 case dl => sub {
     my ($c, $h) = @_;
     my $out = '';
+    my $label = $c->in_column ? 'コラム箇条書き' : '箇条書き';
     for ($h->descendants) {
         if ($_->tag eq 'dt') {
-            $out .= sprintf "<ParaStyle:箇条書き>・%s\n", $c->parse_element($_);
+            $out .= sprintf "<ParaStyle:%s>・%s\n", $label, $c->parse_element($_);
         } elsif ($_->tag eq 'dd') {
-            $out .= sprintf "<ParaStyle:箇条書き説明>%s\n", $c->parse_element($_);
+            $out .= sprintf "<ParaStyle:%s説明>%s\n", $label, $c->parse_element($_);
         }
     }
-    return $out;
+    chomp $out;
+    my $blank = blank_line($c);
+    return <<EOF;
+$blank
+$out
+EOF
 };
 
 case table => sub {

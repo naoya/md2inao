@@ -358,6 +358,7 @@ __END__
   <dd>Shulk</dd>
 </dl>
 --- expected
+<ParaStyle:半行アキ>
 <ParaStyle:箇条書き>・Xenoblade
 <ParaStyle:箇条書き説明>Fiorung
 <ParaStyle:箇条書き説明>Shulk
