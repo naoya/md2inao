@@ -219,7 +219,7 @@ case span => sub {
         return sprintf "<CharStyle:赤字>%s<CharStyle:>", $c->parse_element($h);
     }
     elsif ($h->attr('class') eq 'ruby') {
-        my $ruby = $c->parse_element($h);
+        my $ruby = $h->as_trimmed_text;
         $ruby =~ s!(.+)\((.+)\)!<cr:1><crstr:$2><cmojir:0>$1<cr:><crstr:><cmojir:>!;
         return $ruby;
     }
