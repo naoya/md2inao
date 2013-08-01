@@ -90,7 +90,7 @@ Markdown は Markdown プロセッサで解釈すると、通常は HTML に変�
 
 また、Markdown で定義されてない記述も HTML を使うことによって定義することもできます。一部の記法は HTML で書くことが前提になっています。
 
-いまのところ Github Flavored Markdown などの拡張には対応していませんのでその点に注意してください。
+いまのところ GitHub Flavored Markdown などの拡張には対応していませんのでその点に注意してください。
 
 #### 文中に HTML を書く際の注意事項
 
@@ -106,7 +106,7 @@ Markdown の仕様では当然のことながら、HTML タグは HTML タグと
 
 ### メタデータ（タイトル、著者名など）
 
-テキストファイルの冒頭に、以下のメタデータを書きます。メタデータには原稿や書籍のタイトル、章番号、著者名などの情報を入力してください。本メタデータは http://hiltmon.com/blog/2012/06/18/markdown-metadata/ の仕様に従っていますが、Github Flavored Markdown では解釈されないため、Github 上では HTML での表示が崩れますがスルーしてください。
+テキストファイルの冒頭に、以下のメタデータを書きます。メタデータには原稿や書籍のタイトル、章番号、著者名などの情報を入力してください。本メタデータは http://hiltmon.com/blog/2012/06/18/markdown-metadata/ の仕様に従っていますが、GitHub Flavored Markdown では解釈されないため、GitHub 上では HTML での表示が崩れますがスルーしてください。
 
     Chapter: 3（章番号）
     Serial: 5（連載回数）
@@ -119,7 +119,7 @@ Markdown の仕様では当然のことながら、HTML タグは HTML タグと
     Affiliation: 技術評論社（所属）
     URL: http://naoya.github.com/
     mail: i.naoya@gmail.com
-    Github: naoya
+    GitHub: naoya
     Twitter: @naoya_ito
     
     Hello, World（本文）
@@ -246,7 +246,7 @@ Markdown の説明つき箇条書きには対応していないので、HTML で
 
 #### 本文中のコードブロック
 
-行頭半角スペース4つで字下げします。Github Flavored Markdown のコードブロック記法には今のところ対応していません。
+行頭半角スペース4つで字下げします。GitHub Flavored Markdown のコードブロック記法には今のところ対応していません。
 
         function bar(b) {
             alert(b);
