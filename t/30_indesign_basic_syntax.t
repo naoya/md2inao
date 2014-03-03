@@ -263,11 +263,37 @@ __END__
 <ParaStyle:リスト>    alert(b);
 <ParaStyle:リスト>}
 
+=== pre
+--- in md2inao
+```
+function bar(b) {
+    alert(b);
+}
+```
+--- expected
+<ParaStyle:半行アキ>
+<ParaStyle:リスト>function bar(b) {
+<ParaStyle:リスト>    alert(b);
+<ParaStyle:リスト>}
+
 === notes in pre
 --- in md2inao
     function bar(b) {
         alert(b); (注:コメント)
     }
+--- expected
+<ParaStyle:半行アキ>
+<ParaStyle:リスト>function bar(b) {
+<ParaStyle:リスト>    alert(b); <CharStyle:リストコメント> コメント <CharStyle:>
+<ParaStyle:リスト>}
+
+=== notes in pre
+--- in md2inao
+```
+function bar(b) {
+    alert(b); (注:コメント)
+}
+```
 --- expected
 <ParaStyle:半行アキ>
 <ParaStyle:リスト>function bar(b) {
@@ -287,6 +313,21 @@ __END__
 <ParaStyle:リスト>    alert(b);
 <ParaStyle:リスト>}
 
+=== notes in pre #2
+--- in md2inao
+```
+(注:見出し的にも使えます)
+function bar(b) {
+    alert(b);
+}
+```
+--- expected
+<ParaStyle:半行アキ>
+<ParaStyle:リスト><CharStyle:リストコメント> 見出し的にも使えます <CharStyle:>
+<ParaStyle:リスト>function bar(b) {
+<ParaStyle:リスト>    alert(b);
+<ParaStyle:リスト>}
+
 === caption in pre
 --- in md2inao
     ●リスト1.1::キャプション
@@ -295,10 +336,31 @@ __END__
 <ParaStyle:キャプション>リスト1.1	キャプション
 <ParaStyle:リスト>use strict;
 
+=== caption in pre
+--- in md2inao
+```
+●リスト1.1::キャプション
+use strict;
+```
+--- expected
+<ParaStyle:キャプション>リスト1.1	キャプション
+<ParaStyle:リスト>use strict;
+
 === em/italic in pre
 --- in md2inao
     **use strict**;
     ___foo('bar');___ // コード内___イタリック___
+--- expected
+<ParaStyle:半行アキ>
+<ParaStyle:リスト><CharStyle:コマンド太字>use strict<CharStyle:>;
+<ParaStyle:リスト><CharStyle:イタリック（変形斜体）>foo('bar');<CharStyle:> // コード内<CharStyle:イタリック（変形斜体）>イタリック<CharStyle:>
+
+=== em/italic in pre
+--- in md2inao
+```
+**use strict**;
+___foo('bar');___ // コード内___イタリック___
+```
 --- expected
 <ParaStyle:半行アキ>
 <ParaStyle:リスト><CharStyle:コマンド太字>use strict<CharStyle:>;
@@ -325,12 +387,49 @@ __END__
 <ParaStyle:リスト白文字>    alert(b);
 <ParaStyle:リスト白文字>}
 
+=== pre for command
+--- in md2inao
+```
+!!! cmd
+●図1.1::キャプション（コマンドのタイトル）
+$ command  **foo** // コマンド内強調
+bar (注:こんな風にコメントがつけられます)
+
+(注:見出し的にも使えます)
+function bar(b) {
+    alert(b);
+}
+```
+--- expected
+<ParaStyle:キャプション>図1.1	キャプション（コマンドのタイトル）
+<ParaStyle:リスト白文字>$ command  <CharStyle:コマンド太字>foo<CharStyle:> // コマンド内強調
+<ParaStyle:リスト白文字>bar <CharStyle:リストコメント白地黒文字> こんな風にコメントがつけられます <CharStyle:>
+<ParaStyle:リスト白文字>
+<ParaStyle:リスト白文字><CharStyle:リストコメント白地黒文字> 見出し的にも使えます <CharStyle:>
+<ParaStyle:リスト白文字>function bar(b) {
+<ParaStyle:リスト白文字>    alert(b);
+<ParaStyle:リスト白文字>}
+
 === pre for command, no caption
 --- in md2inao
     !!! cmd
     function bar(b) {
         alert(b); (注:コメント)
     }
+--- expected
+<ParaStyle:半行アキ>
+<ParaStyle:リスト白文字>function bar(b) {
+<ParaStyle:リスト白文字>    alert(b); <CharStyle:リストコメント白地黒文字> コメント <CharStyle:>
+<ParaStyle:リスト白文字>}
+
+=== pre for command, no caption
+--- in md2inao
+```
+!!! cmd
+function bar(b) {
+    alert(b); (注:コメント)
+}
+```
 --- expected
 <ParaStyle:半行アキ>
 <ParaStyle:リスト白文字>function bar(b) {
