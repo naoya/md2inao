@@ -235,8 +235,8 @@ DISTRIBUTIONS
       overload 0
       strict 0
       warnings 0
-  FindBin-libs-1.65.2
-    pathname: L/LE/LEMBARK/FindBin-libs-1.65.2.tar.gz
+  FindBin-libs-1.8
+    pathname: L/LE/LEMBARK/FindBin-libs-1.8.tar.gz
     provides:
       FindBin::libs undef
     requirements:
