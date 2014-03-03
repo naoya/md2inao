@@ -1,7 +1,7 @@
 Markdown to Inao-Format
 ================
 
-[![Build Status](https://travis-ci.org/naoya/md2inao.pl.png?branch=master)](https://travis-ci.org/naoya/md2inao.pl) [![Coverage Status](https://coveralls.io/repos/naoya/md2inao.pl/badge.png?branch=master)](https://coveralls.io/r/naoya/md2inao.pl)
+[![Build Status](https://travis-ci.org/naoya/md2inao.png?branch=master)](https://travis-ci.org/naoya/md2inao) [![Coverage Status](https://coveralls.io/repos/naoya/md2inao/badge.png?branch=master)](https://coveralls.io/r/naoya/md2inao)
 
 概要
 ----
@@ -25,7 +25,7 @@ markdown2inao.pl 改め md2inao.pl のこれまでについては https://gist.g
 ### Web版
 
 - http://md2inao.bloghackers.net/
-    
+
 出力見本
 -------
 
@@ -51,37 +51,37 @@ md2inao を利用すると Markdown フォーマットで原稿を書くこと�
     Author: 伊藤 直也
     Author(romaji): ITO Naoya
     Twitter: @naoya_ito
-    
+
     # RubyMotion とは
-    
+
     　[RubyMotion](http://rubymotion.com/) は、RubyでiOSのネイティブアプリケーションが作れるツールチェインです。Apple で MacRuby を開発していた Laurent Sansonetti さんが Apple 退職後に興した会社 Hipbyte が、2012年5月に発売を開始しました。
-    
+
     # RubyMotion で Hello, World
-    
+
     　早速コードを書いてみましょう。以下が Hello, World のコードです。
-    
+
         class HelloViewController < UIViewController
           def viewDidLoad
             super
             @label = UILabel.new
             @label.frame = [[10, 10], [320, 20]]
             @label.text = "Hello, World"
-            
+
             view.addSubview(@label)
           end
         end
 
     簡単ですね！
-    
+
     - HelloViewController を定義
     - `viewDidLoad` をオーバーライド
     - `UILabel.new` でラベルインスタンスを作成
     - `view.addSubview` でビューに追加
-    
+
     しているだけです。出力は以下のようになります。
-    
+
     ![Hello, Worldの出力](images/hello_world.png)
-    
+
 ### 基本的な考え方
 
 Markdown は Markdown プロセッサで解釈すると、通常は HTML に変換されます。md2inao はその書 HTML の各要素を Inao 記法 (もしくは技術評論社の InDesign フォーマット) に変換して最終的な出力を作っています。
@@ -101,7 +101,7 @@ Markdown の仕様では当然のことながら、HTML タグは HTML タグと
     `<strong>`
 
 ##### 実体参照を使う
-    
+
     &lt;strong&gt;
 
 ### メタデータ（タイトル、著者名など）
@@ -121,9 +121,9 @@ Markdown の仕様では当然のことながら、HTML タグは HTML タグと
     mail: i.naoya@gmail.com
     GitHub: naoya
     Twitter: @naoya_ito
-    
+
     Hello, World（本文）
-    
+
 #### 注意事項
 
 - Title、Subtitle、Author、Author(romaji)は必須です
@@ -138,14 +138,14 @@ Markdown の仕様では当然のことながら、HTML タグは HTML タグと
     # 大見出し（節）
     ## 中見出し（項）
     ### 小見出し（目）
-    
+
 #### 非推奨
 
 md2inao的には以下の記法にも対応していますが、現状は非推奨です（アウトラインの作成がちょっとめんどうになるので）。
 
     大見出し（節）
     ===============
-    
+
     中見出し（項）
     ---------------
 
@@ -158,11 +158,11 @@ md2inao的には以下の記法にも対応していますが、現状は非推�
     * 箇条書き
     * 箇条書き
     * 箇条書き
-    
+
     - 箇条書き
     - 箇条書き
     - 箇条書き
-    
+
 #### 階層付き箇条書き（ネストしたリスト）
 
 両記法に対応していますが、同一原稿では、どちらかで統一していただきたいです。
@@ -171,12 +171,12 @@ md2inao的には以下の記法にも対応していますが、現状は非推�
         * 箇条書き2階層目
         * 箇条書き2階層目
         * 箇条書き2階層目
-    
+
     - 箇条書き
         - 箇条書き2階層目
         - 箇条書き2階層目
         - 箇条書き2階層目
-    
+
 ##### 注意事項
 
 * GitHub Flavored Markdownでは半角スペース1～3つの行頭字下げによるネストにも対応していますが、md2inaoは4つ以上にのみ対応しています
@@ -192,7 +192,7 @@ Markdown の説明つき箇条書きには対応していないので、HTML で
       <dt>箇条書き</dt>
       <dd>箇条書きの説明文</dd>
     </dl>
-    
+
 ##### 注意事項
 
 * この説明つき箇条書きのようなHTMLで記述した箇条書き中では、`_イタリック_`や`**強調**`などの文中記号は使えません（以降のHTML系の箇条書きでも同様です）
@@ -204,7 +204,7 @@ Markdown の説明つき箇条書きには対応していないので、HTML で
     1. 連番箇条書き
     2. 連番箇条書き
     3. 連番箇条書き
-    
+
 本文で黒丸囲みの1、2、3……を書く場合は、(d1)、(d2)、(d3)と書いてください（discのdです）。
 
 - 手順など順列の箇条書きにのみ使用してください。
@@ -219,7 +219,7 @@ Markdown の説明つき箇条書きには対応していないので、HTML で
         <li>連番箇条書き（白丸数字）</li>
         <li>連番箇条書き（白丸数字）</li>
     </ol>
-    
+
 本文で白丸囲みの1、2、3……を書く場合は、(c1)、(c2)、(c3)と書いてください（circleのcです）。
 
     <ol class='square'>
@@ -227,7 +227,7 @@ Markdown の説明つき箇条書きには対応していないので、HTML で
         <li>連番箇条書き（黒四角数字）</li>
         <li>連番箇条書き（黒四角数字）</li>
     </ol>
-    
+
 本文で黒四角囲みの1、2、3……を書く場合は、(s1)、(s2)、(s3)と書いてください（squareのsです）。
 
 #### アルファベット箇条書き（黒丸囲み）
@@ -239,7 +239,7 @@ Markdown の説明つき箇条書きには対応していないので、HTML で
         <li>アルファベット箇条書き</li>
         <li>アルファベット箇条書き</li>
     </ol>
-    
+
 本文で黒丸囲みのa、b、c……を書く場合は、(a1)、(a2)、(a3)と書いてください（alphabetのaです）。
 
 ### コードブロック（ソースコード、コマンド）
@@ -251,14 +251,14 @@ Markdown の説明つき箇条書きには対応していないので、HTML で
         function bar(b) {
             alert(b);
         }
-    
+
 `(注:)`は黒地に白文字となり、見出しやコメント的に使えます。
 
         (注:見出し的に使う)
         function bar(b) {
             alert(b); (注:こんな風にコメントがつけられます)
         }
-    
+
 #### 本文中のコマンドブロック（WEB+DB PRESSは未使用）
 
 先頭行を`!!! cmd`とすると、コマンドラインっぽく黒地に白文字になります。
@@ -269,7 +269,7 @@ Markdown の説明つき箇条書きには対応していないので、HTML で
         (注:見出し的に使う)
         $ command
         bar (注:こんな風にコメントがつけられます)
-    
+
 コマンド行の行頭には、上記のようにプロンプト（$など）を書いてください。
 
 なお、この記法を使うのは一部の書籍のみです。WEB+DB PRESSなどでは未使用で、未使用の媒体では、コマンドの場合もインラインのコードブロックと同様の書き方をしてください。
@@ -283,7 +283,7 @@ Markdown の説明つき箇条書きには対応していないので、HTML で
         function bar(b) {
             alert(b); (注:こんな風にコメントがつけられます)
         }
-    
+
 #### 別ボックスのコマンドブロック（図）
 
 別ボックスの「図」として掲載するコマンドには、先頭行に`!!! cmd`と`●図1::キャプション`を書いてください。
@@ -293,7 +293,7 @@ Markdown の説明つき箇条書きには対応していないので、HTML で
         (注:見出し的に使う)
         $ command
         bar (注:こんな風にコメントがつけられます)
-    
+
 コマンド行の行頭には、上記のようにプロンプト（$など）を書いてください。
 
 こちらはWEB+DB PRESSなどでも使います。
@@ -313,14 +313,14 @@ Markdown の説明つき箇条書きには対応していないので、HTML で
 次の2つの記法が使えます。紙面ではいずれも注釈になり、両者の違いはありません。
 
     [リンクの対象](URL)
-    
+
     注釈の対象(注:注釈文。)
-    
+
 たとえば次のように書きます。
 
     [RubyMotion](http://rubymotion.com/)は、RubyでiOSアプリを作るれるツールです。
     $199程度(注:日本円で20,000円程度です。)です。
-    
+
 ### 表
 
 HTMLでマークアップしてください。
@@ -339,7 +339,7 @@ HTMLでマークアップしてください。
             <td>内容2-2</td>
         </tr>
     </table>
-    
+
 ### 引用
 
 引用は次のように書きます。
@@ -353,7 +353,7 @@ GitHub Flavored Markdownとは異なり、複数行に分けて書いても1行�
     > 引
     > 用
     > です。
-    
+
 ### 区切り線（`<hr>`）
 
     ---
@@ -368,7 +368,7 @@ GitHub Flavored Markdownとは異なり、複数行に分けて書いても1行�
     ##### コラム小見出し
     本文
     </div>
-    
+
 ### 字下げ
 
 段落行頭の字下げは手動です。全角スペースを入れてください。
@@ -380,9 +380,9 @@ GitHub Flavored Markdownとは異なり、複数行に分けて書いても1行�
 段落分けをするには、空行（2連続の改行）を入れる必要があります。
 
     　こんにちは。伊藤です。
-    
+
     　今号から、新連載を始めます。
-    
+
 
 ただし、行頭で全角スペースによりインデントされている場合のみ、空行がなくても段落分けされ、上記の空行を入れた場合と同じ出力になります。
 
@@ -433,7 +433,7 @@ md2inao デベロッパー向け情報
 ### テストの実行の仕方
 
     % carton exec -Ilib -- prove
-    
+
 ### 自由置換の書き方
 
 ```
@@ -448,16 +448,16 @@ md2inao デベロッパー向け情報
     },
     "after_filter": {
         "★" : "<CharStyle:赤字>★<CharStyle:>",
-                
+
         "◆→◆" : "<cTypeface:R-KL><cFont:A-OTF リュウミン Pr5><27A1><cTypeface:><cFont:>",
         "◆←◆" : "<cTypeface:R-KL><cFont:A-OTF リュウミン Pr5><2B05><cTypeface:><cFont:>",
         "◆↑◆" : "<cTypeface:R-KL><cFont:A-OTF リュウミン Pr5><2B06><cTypeface:><cFont:>",
         "◆↓◆" : "<cTypeface:R-KL><cFont:A-OTF リュウミン Pr5><2B07><cTypeface:><cFont:>",
-        
+
         "◆←→◆" : "<21D4>",
         "◆＞＝◆" : "<2267>",
         "◆＝＞◆" : "<2266>",
-        
+
         "◆WDB◆" : "<cstyle:ストッパ>#<cstyle:>"
     }
 }
@@ -473,7 +473,7 @@ md2inao デベロッパー向け情報
 - Markdown のテキストを置換したい時は こちら
 - HTML を置換したい時もこちら
 - 値の &lt;, &gt; はエスケープされてから Markdown parser に渡されます。その後 after_filter で復元されます。(要するに書いたとおりに出力される。HTMLとして処理されることは期待できない、ということ)
-        
+
 #### after_filter
 
 - InDesign への変換が終わった後に置換
