@@ -24,3 +24,9 @@ on 'test' => sub {
     requires 'Test::Base';
     requires 'Devel::Cover';
 };
+
+on 'configure' => sub {
+    requires 'ExtUtils::MakeMaker::CPANfile'
+};
+
+# vim: set ft=perl:
