@@ -501,6 +501,7 @@ Authors
 * @hsbt
 * @hokaccha
 * @suzuki
+* @gfx : Release to CPAN
 
 LICENSE
 ----------
