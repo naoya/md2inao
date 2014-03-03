@@ -23,5 +23,4 @@ on 'test' => sub {
     requires 'Test::LongString';
     requires 'Test::Base';
     requires 'Devel::Cover';
-    requires 'TAP::Formatter::JUnit'
 };
