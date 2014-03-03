@@ -41,7 +41,7 @@ sub to_list_style {
 # 文字幅計算
 # http://d.hatena.ne.jp/tokuhirom/20070514/1179108961
 sub visual_length {
-    local $_ = Encode::decode_utf8(shift);
+    local $_ = shift;
     my $ret = 0;
     while (/(?:(\p{InFullwidth}+)|(\p{InHalfwidth}+))/g) { $ret += ($1 ? length($1)*2 : length($2)) }
     return $ret;
