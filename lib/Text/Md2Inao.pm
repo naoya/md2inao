@@ -9,7 +9,7 @@ use Carp;
 use Class::Accessor::Fast qw/antlers/;
 use Encode;
 use HTML::TreeBuilder;
-use Text::Markdown 'markdown';
+use Text::Markdown::Hoedown;
 
 use Text::Md2Inao::Director;
 use Text::Md2Inao::Builder::Inao;
@@ -82,9 +82,7 @@ sub to_html_tree {
     my $text = shift;
 
     $text = prepare_text_for_markdown($text);
-
-    ## Work Around: Text::Markdown が flagged string だと一部 buggy なので encode してから渡している
-    my $html = decode_utf8 markdown(encode_utf8 $text);
+    my $html = markdown($text);
     $html = prepare_html_for_inao($html);
 
     my $tree = HTML::TreeBuilder->new;

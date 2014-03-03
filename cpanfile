@@ -1,4 +1,4 @@
-requires 'Text::Markdown';
+requires 'Text::Markdown::Hoedown';
 requires 'HTML::TreeBuilder';
 requires 'Unicode::EastAsianWidth';
 requires 'Pod::Usage';

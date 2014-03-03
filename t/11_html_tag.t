@@ -104,8 +104,6 @@ RubyMotion◆注/◆http://www.rubymotion.org/◆/注◆
 
 === div but unknown class
 --- in md2inao
-test
 <div class="unknown">foobar</div>
 --- expected chomp
-test
 <div class="unknown">foobar</div>
