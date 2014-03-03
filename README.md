@@ -30,6 +30,10 @@ CPANからインストール
     % carton
     % carton exec -- perl bin/md2inao.pl your_markdown.md > path/to/output.txt
 
+cpanmは以下のコマンドでインストールできます
+
+    % curl -L http://cpanmin.us > ~/bin/cpanm && chmod +x ~/cpanm
+
 ### Web版
 
 - http://md2inao.bloghackers.net/
