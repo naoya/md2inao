@@ -159,6 +159,10 @@ Text::Md2Inao - Convert markdown text to Inao-format
 
     print encode_utf8 $p->parse($markdown_text);
 
+=head1 DESCRIPTION
+
+This is a text converter for WEB+DB PRESS articles.
+
 =head1 AUTHOR
 
 Naoya Ito E<lt>i.naoya@gmail.comE<gt>
