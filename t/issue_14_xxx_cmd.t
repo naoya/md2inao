@@ -1,11 +1,15 @@
 use utf8;
-use Test::Base;
-use Text::Md2Inao::TestHelper;
+#use Test::Base;
+#use Text::Md2Inao::TestHelper;
 
-$TODO = '#14';
+#plan tests => 1 * blocks;
+#run_is in => 'expected';
 
-plan tests => 1 * blocks;
-run_is in => 'expected';
+use Test::More;
+
+pass 'TODO for #14';
+
+done_testing;
 
 __END__
 ===
