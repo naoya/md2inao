@@ -12,6 +12,7 @@ requires 'Tie::IxHash';
 requires 'JSON', '>= 2.55';
 
 feature 'psgi', 'web app support' => sub {
+    requires 'Project::Libs';
     requires 'Mojolicious::Lite';
     requires 'Plack';
     requires 'Server::Starter';
