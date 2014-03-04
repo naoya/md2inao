@@ -27,7 +27,7 @@ my $p = Text::Md2Inao->new({
     max_inline_list_length => 55,
 });
 
-print encode($output_encoding // 'utf-8', $p->parse($text));
+print encode(defined($output_encoding) ? $output_encoding : 'utf-8', $p->parse($text));
 
 __END__
 
