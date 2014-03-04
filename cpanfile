@@ -11,7 +11,7 @@ requires 'Path::Tiny';
 requires 'Tie::IxHash';
 requires 'JSON', '>= 2.55';
 
-on 'feature', 'web app support' => sub {
+feature 'psgi', 'web app support' => sub {
     requires 'Mojolicious::Lite';
     requires 'Plack';
     requires 'Server::Starter';
