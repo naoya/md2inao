@@ -7,7 +7,6 @@ requires 'Class::Accessor::Fast';
 requires 'FindBin::libs';
 requires 'Term::ANSIColor';
 requires 'Exporter::Lite';
-requires 'JSON';
 requires 'Path::Tiny';
 requires 'Tie::IxHash';
 requires 'JSON', '>= 2.55';
