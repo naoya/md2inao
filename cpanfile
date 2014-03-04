@@ -11,7 +11,7 @@ requires 'Path::Tiny';
 requires 'Tie::IxHash';
 requires 'JSON', '>= 2.55';
 
-on 'feature' => sub { # for web app
+on 'feature', 'web app support' => sub {
     requires 'Mojolicious::Lite';
     requires 'Plack';
     requires 'Server::Starter';
