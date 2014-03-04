@@ -28,7 +28,7 @@ __END__
 --- in md2inao
 <kbd>A</kbd>～<kbd>Z</kbd>
 --- expected
-<ParaStyle:本文><cFont:KeyMother>A<cFont:>～<cFont:KeyMother>Z<cFont:>
+<ParaStyle:本文><cFont:KeyMother>A<cFont:>〜<cFont:KeyMother>Z<cFont:>
 
 === right arrow
 --- in md2inao
@@ -300,13 +300,13 @@ __END__
 --- expected
 <ParaStyle:本文><CharStyle:赤字>□<CharStyle:>
 
-=== 
+===
 --- in md2inao
 ㈱(株)
 --- expected
 <ParaStyle:本文><3231><3231>
 
-=== 
+===
 --- in md2inao
 ✓
 --- expected
@@ -320,7 +320,7 @@ __END__
 
 === shiftjis
 --- in md2inao
-\
+\\
 --- expected
 <ParaStyle:本文><005C><005C>
 
