@@ -11,12 +11,13 @@ requires 'Path::Tiny';
 requires 'Tie::IxHash';
 requires 'JSON', '>= 2.55';
 
-## for web app
-# requires 'Mojolicious::Lite';
-# requires 'Plack';
-# requires 'Server::Starter';
-# requires 'Starman';
-# requires 'Net::Server::SS::PreFork';
+on 'feature' => sub { # for web app
+    requires 'Mojolicious::Lite';
+    requires 'Plack';
+    requires 'Server::Starter';
+    requires 'Starman';
+    requires 'Net::Server::SS::PreFork';
+};
 
 on 'test' => sub {
     requires 'Test::More';
@@ -26,6 +27,7 @@ on 'test' => sub {
 };
 
 on 'configure' => sub {
+    requires 'ExtUtils::MakeMaker' => '>= 6.74';
     requires 'ExtUtils::MakeMaker::CPANfile'
 };
 
