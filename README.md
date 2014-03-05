@@ -47,6 +47,10 @@ zshで使う場合は、上記`perlbrew init`の前に、`~/.zshrc`に以下の1
     % source ~/.zshrc
 
 ##### cpanmのインストール
+
+    ・Perlbrewなどローカルperlで使う場合
+    % curl -L http://cpanmin.us  | perl - App::cpanminus
+    ・★○○の場合★
     % curl -L http://cpanmin.us > ~/bin/cpanm && chmod +x ~/cpanm
 
 ### Web版
