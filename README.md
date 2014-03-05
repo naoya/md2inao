@@ -18,20 +18,19 @@ markdown2inao.pl 改め md2inao.pl のこれまでについては https://gist.g
 
 ### CUI版
 
-CPANからインストール
+#### CPANからインストールして使う場合
 
     % cpanm Text::Md2Inao
     % md2inao.pl your_markdown.md > path/to/output.txt
 
-
-リポジトリからインストール
+#### リポジトリからインストールして使う場合
 
     % cpanm Carton
     % carton
     % carton exec -- perl bin/md2inao.pl your_markdown.md > path/to/output.txt
 
-cpanmは以下のコマンドでインストールできます
 
+##### cpanmのインストール
     % curl -L http://cpanmin.us > ~/bin/cpanm && chmod +x ~/cpanm
 
 ### Web版
