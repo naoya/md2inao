@@ -53,6 +53,10 @@ zshで使う場合は、上記`perlbrew init`の前に、`~/.zshrc`に以下の1
     ・★○○の場合★
     % curl -L http://cpanmin.us > ~/bin/cpanm && chmod +x ~/cpanm
 
+##### 参考文献
+* 『[Perl徹底攻略](http://gihyo.jp/magazine/wdpress/plus/978-4-7741-5864-8)』（技術評論社）pp.8-9、pp.25-26
+* [perlbrewコマンドをzshで使えるようにする - eratostennis's blog](http://eratostennis.hatenablog.com/entry/2014/01/21/215640)
+
 ### Web版
 
 - http://md2inao.bloghackers.net/
