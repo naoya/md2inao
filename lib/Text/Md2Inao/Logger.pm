@@ -8,6 +8,7 @@ use Term::ANSIColor;
 use parent qw/Exporter/;
 our @EXPORT = qw/log/;
 
+our $LOG;
 our $STOP;
 
 my %COLOR = (
@@ -19,8 +20,11 @@ my %COLOR = (
 
 sub log ($$) {
     my ($type, $msg) = @_;
-    my $color ||= $COLOR{$type};
-    if (not $STOP) {
+    if ($LOG) {
+        $LOG->($type, $msg);
+    }
+    elsif (not $STOP) {
+        my $color ||= $COLOR{$type};
         print STDERR encode_utf8(Term::ANSIColor::colored sprintf("[%s] %s\n", $type, $msg), $color);
     }
     return;
