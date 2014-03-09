@@ -10,6 +10,7 @@ $(function () {
       $('#result').slideDown("fast").find('textarea').val(data.content);
 
       var error = $('#error');
+      error.empty();
       for (var i = 0; i < data.errors.length; ++i) {
         var element = $('<pre/>');
         element.addClass(data.errors[i].type);
