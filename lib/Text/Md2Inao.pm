@@ -82,7 +82,9 @@ sub to_html_tree {
     my $text = shift;
 
     $text = prepare_text_for_markdown($text);
-    my $html = markdown($text);
+    my $html = markdown($text,
+        extensions => HOEDOWN_EXT_FENCED_CODE,
+    );
     $html = prepare_html_for_inao($html);
 
     my $tree = HTML::TreeBuilder->new;
