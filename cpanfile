@@ -27,6 +27,10 @@ on 'test' => sub {
     requires 'Devel::Cover';
 };
 
+on 'development' => sub {
+    requires 'Data::Recursive::Encode';
+};
+
 on 'configure' => sub {
     requires 'ExtUtils::MakeMaker' => '>= 6.74';
     requires 'ExtUtils::MakeMaker::CPANfile'
