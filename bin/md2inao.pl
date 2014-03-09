@@ -5,10 +5,17 @@ use warnings;
 use Encode;
 use Pod::Usage;
 use File::Spec;
+use FindBin qw($Bin);
 use FindBin::libs;
-use Getopt::Long qw/:config posix_default no_ignore_case bundling auto_help/;
+use Getopt::Long qw/:config posix_default no_ignore_case bundling auto_help auto_version/;
 
 use Text::Md2Inao;
+
+our $VERSION = $Text::Md2Inao::VERSION;
+if (-e "$Bin/../.git/HEAD") {
+    chomp(my $rev = `git rev-parse --short HEAD`);
+    $VERSION .= " ($rev)";
+}
 
 GetOptions(
     'output-encoding=s' => \my $output_encoding,
