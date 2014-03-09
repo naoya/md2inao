@@ -24,6 +24,8 @@ lib/Text/Md2Inao/Util.pm
 Makefile.PL
 MANIFEST			This list of files
 md2inao.run
+META.json
+META.yml
 old_files/00_sample.md
 old_files/01_sample_inao.txt
 old_files/02_sample_id.txt
@@ -71,5 +73,6 @@ t/99_rt_paragraph.t
 t/99_rt_quotes.t
 t/99_rt_ruby_in_footnote.t
 t/99_rt_table_indent.t
+t/issue_14_xxx_cmd.t
 t/x_input.txt
 t/x_output.txt
