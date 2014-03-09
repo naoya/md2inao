@@ -1,5 +1,6 @@
 #!perl
-
+use strict;
+use warnings;
 use Mojolicious::Lite;
 use Project::Libs;
 use Plack::Builder;
@@ -31,9 +32,8 @@ post '/upload' => sub {
     });
 
     if ($self->req->param('in_design')) {
-        my $builder = Text::Md2Inao::Builder::InDesign->new;
-        $builder->load_filter_config('./config/id_filter.json');
-        $p->builder($builder);
+        my $id_builder = Text::Md2Inao::Builder::InDesign->new();
+        $p->builder($id_builder);
     }
 
     my @errors;

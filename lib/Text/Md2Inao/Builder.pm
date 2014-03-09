@@ -17,10 +17,13 @@ has after_filter_config  => ( is => 'rw' );
     my %singleton;
     sub new {
         my $class = shift;
-        $singleton{$class}
-            ? return $singleton{$class}
-            : return $singleton{$class} = $class->SUPER::new({ dispatch_table => {} });
+        return $singleton{$class} //= $class->_new();
     }
+}
+
+sub _new {
+    my $class = shift;
+    return $class->SUPER::new({ dispatch_table => {} });
 }
 
 sub dispatch {

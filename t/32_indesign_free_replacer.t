@@ -1,3 +1,6 @@
+use 5.10.0;
+use strict;
+use warnings;
 use utf8;
 
 use Test::Base;
@@ -10,13 +13,11 @@ plan tests => 1 * blocks;
 run_is in => 'expected';
 
 sub md2inao {
-    my $builder =Text::Md2Inao::Builder::InDesign->new;
-    $builder->load_filter_config('./config/id_filter.json');
-    my $p = Text::Md2Inao->new({
+    state $p = Text::Md2Inao->new({
         default_list           => 'disc',
         max_list_length        => 63,
         max_inline_list_length => 55,
-        builder                => $builder,
+        builder                => Text::Md2Inao::Builder::InDesign->new,
     });
     my $out = $p->parse($_);
     $out =~ s/^<SJIS-MAC>\n//; # テストに毎回書くのめんどくさいので
@@ -300,7 +301,7 @@ __END__
 --- expected
 <ParaStyle:本文><CharStyle:赤字>□<CharStyle:>
 
-=== 
+===
 --- in md2inao
 ㈱(株)
 --- expected

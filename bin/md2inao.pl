@@ -26,7 +26,6 @@ my $builder;
 if (!$format || $format eq 'in_design') {
     require Text::Md2Inao::Builder::InDesign;
     $builder = Text::Md2Inao::Builder::InDesign->new;
-    $builder->load_filter_config('./config/id_filter.json');
 } elsif ($format eq 'inao') {
     require Text::Md2Inao::Builder::Inao;
     $builder = Text::Md2Inao::Builder::Inao->new;

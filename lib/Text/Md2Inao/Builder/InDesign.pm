@@ -8,7 +8,8 @@ use Text::Md2Inao::Builder::DSL;
 
 use Text::Md2Inao::Logger;
 use Text::Md2Inao::Util;
-
+use File::ShareDir qw(dist_dir);
+use Path::Tiny;
 use List::Util qw/max/;
 
 tie my %meta2label, "Tie::IxHash",
@@ -22,6 +23,18 @@ tie my %meta2label, "Tie::IxHash",
     github               => 'Github',
     twitter              => 'Twitter',
 ;
+
+sub _new {
+    my $class = shift;
+    my $self = $class->SUPER::_new(@_);
+    for my $dir('config', dist_dir('Text-Md2Inao')) {
+        if (-d $dir) {
+            $self->load_filter_config(path($dir, 'id_filter.json'));
+            last;
+        }
+    }
+    return $self;
+}
 
 sub prepend_metadata {
     my ($self, $c, $text) = @_;
@@ -268,7 +281,7 @@ case div => sub {
 case ul => sub {
     my ($c, $h) = @_;
     my $label = $c->in_column ? 'コラム箇条書き' : '箇条書き';
-    
+
     if ($c->in_list) {
         my $ret = "\n";
         for ($h->content_list) {

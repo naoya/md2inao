@@ -8,7 +8,6 @@ use Text::Md2Inao;
 use Text::Md2Inao::Builder::InDesign;
 
 my $builder = Text::Md2Inao::Builder::InDesign->new;
-$builder->load_filter_config('./config/id_filter.json');
 
 my $p = Text::Md2Inao->new({
     default_list           => 'disc',

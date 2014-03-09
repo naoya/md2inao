@@ -3,6 +3,14 @@ use warnings;
 
 use ExtUtils::MakeMaker;
 use ExtUtils::MakeMaker::CPANfile;
+use File::ShareDir::Install;
+
+install_share dist => 'config';
+
+{
+    package MY;
+    use File::ShareDir::Install qw(postamble);
+}
 
 WriteMakefile(
     NAME => 'Text::Md2Inao',
@@ -19,3 +27,4 @@ WriteMakefile(
         },
     },
 );
+

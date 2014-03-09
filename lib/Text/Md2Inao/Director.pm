@@ -2,6 +2,7 @@ package Text::Md2Inao::Director;
 use strict;
 use warnings;
 
+use Carp;
 use Class::Accessor::Fast qw/antlers/;
 
 has builder => ( is => 'rw', isa => 'Text::Md2Inao::Builder' );
@@ -14,7 +15,8 @@ sub new {
 sub process {
     my ($self, $c, $h) = @_;
     my $select = ref $h eq '' ? 'text' : $h->tag;
-    $self->builder->dispatch($select)->($c, $h);
+    my $proc = $self->builder->dispatch($select) or croak("Missing case: $select");
+    $proc->($c, $h);
 }
 
 sub process_before_filter {
