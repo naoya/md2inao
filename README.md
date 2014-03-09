@@ -18,21 +18,44 @@ markdown2inao.pl 改め md2inao.pl のこれまでについては https://gist.g
 
 ### CUI版
 
-CPANからインストール
+#### CPANからインストールして使う場合
 
     % cpanm Text::Md2Inao
     % md2inao.pl your_markdown.md > path/to/output.txt
 
-
-リポジトリからインストール
+#### リポジトリからインストールして使う場合
 
     % cpanm Carton
     % carton
     % carton exec -- perl bin/md2inao.pl your_markdown.md > path/to/output.txt
 
-cpanmは以下のコマンドでインストールできます
+#### 参考：Perl環境の構築
 
+##### Perlのインストール（Perlbrew）
+
+    % curl -kL http://install.perlbrew.pl | bash
+    % perlbrew init
+    % perlbrew install 5.18.2（使いたいバージョン）
+    % perlbrew switch 5.18.2
+
+zshで使う場合は、上記`perlbrew init`の前に、`~/.zshrc`に以下の1行を追記し、
+
+    source $HOME/perl5/perlbrew/etc/bashrc
+
+以下のコマンドを実行してください。
+
+    % source ~/.zshrc
+
+##### cpanmのインストール
+
+    ・Perlbrewなどローカルperlで使う場合
+    % curl -L http://cpanmin.us  | perl - App::cpanminus
+    ・★○○の場合★
     % curl -L http://cpanmin.us > ~/bin/cpanm && chmod +x ~/cpanm
+
+##### 参考文献
+* 『[Perl徹底攻略](http://gihyo.jp/magazine/wdpress/plus/978-4-7741-5864-8)』（技術評論社）pp.8-9、pp.25-26
+* [perlbrewコマンドをzshで使えるようにする - eratostennis's blog](http://eratostennis.hatenablog.com/entry/2014/01/21/215640)
 
 ### Web版
 
