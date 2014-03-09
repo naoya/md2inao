@@ -6,33 +6,33 @@ Markdown to Inao-Format
 概要
 ----
 
-Markdown で書かれたテキストを「inaoフォーマット」に変換します。
+Markdown で書かれたテキストをWEB+DB編集部で使用しているInDesign用フォーマットに変換します。主にWEB+DB編集部の方のためのツールですが、執筆者にとってもmarkdownの原稿がWEB+DBの原稿のスタイルに従っているかどうかをチェックするツールとして使えます。
 
 - bin/md2inao.pl : CUIコマンド版
 - http://md2inao.bloghackers.net/ : Web版
 
-markdown2inao.pl 改め md2inao.pl のこれまでについては https://gist.github.com/inao/baea09bc6fc53551886b を見て下さい。
+markdown2inao.pl 改め md2inao.pl のこれまでについては https://gist.github.com/inao/baea09bc6fc53551886b を見て下さい。なお、md2inaoは当初「inao記法」に変換していましたが、現在はWEB+DB編集部用InDesignフォーマットを出力します。
 
 使い方
 -----
 
 ### CUI版
 
-CPANからインストール
-
-    % cpanm Text::Md2Inao
     % md2inao.pl your_markdown.md > path/to/output.txt
 
+#### CPANからインストール
 
-リポジトリからインストール
+    # webからcpanmをDLしてそのままそれを使ってmd2inaoをインストール
+    % curl -L http://cpanmin.us | perl - --sudo Text::Md2Inao
+    % md2inao.pl your_markdown.md > path/to/output.txt
+
+#### リポジトリからインストール
+
+リポジトリからインストールする場合、Perl/CPANの知識が必要です。
 
     % cpanm Carton
-    % carton
+    % carton install
     % carton exec -- perl bin/md2inao.pl your_markdown.md > path/to/output.txt
-
-cpanmは以下のコマンドでインストールできます
-
-    % curl -L http://cpanmin.us > ~/bin/cpanm && chmod +x ~/cpanm
 
 ### Web版
 
@@ -102,7 +102,7 @@ Markdown は Markdown プロセッサで解釈すると、通常は HTML に変�
 
 また、Markdown で定義されてない記述も HTML を使うことによって定義することもできます。一部の記法は HTML で書くことが前提になっています。
 
-いまのところ GitHub Flavored Markdown などの拡張には対応していませんのでその点に注意してください。
+いまのところ GitHub Flavored Markdown などの拡張すべてには対応していませんのでその点に注意してください。
 
 #### 文中に HTML を書く際の注意事項
 
