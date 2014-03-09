@@ -337,6 +337,30 @@ __END__
 <ParaStyle:リスト白文字>    alert(b); <CharStyle:リストコメント白地黒文字> コメント <CharStyle:>
 <ParaStyle:リスト白文字>}
 
+=== list
+--- in md2inao
+    * ハイフンになる
+
+    a
+
+あ
+
+    * ハイフンにならない
+    * ハイフンになる
+
+    a
+--- expected
+<ParaStyle:半行アキ>
+<ParaStyle:リスト>* ハイフンになる
+<ParaStyle:半行アキ>
+<ParaStyle:リスト>a
+<ParaStyle:本文>あ
+<ParaStyle:半行アキ>
+<ParaStyle:リスト>* ハイフンにならない
+<ParaStyle:リスト>* ハイフンになる
+<ParaStyle:半行アキ>
+<ParaStyle:リスト>a
+
 === anchor
 --- in md2inao
 [RubyMotion](http://rubymotion.com)
