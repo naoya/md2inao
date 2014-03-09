@@ -58,7 +58,7 @@ __DATA__
     </div>
 
     <label for='in_design' class="checkbox">
-    %= check_box in_design => 1, id => 'in_design'
+    %= check_box in_design => 1, id => 'in_design', checked => 'checked'
     InDesign出力
     </label>
     <select name="blank_style" id="blank_style">
