@@ -8,11 +8,17 @@ use Unicode::EastAsianWidth;
 
 use Text::Md2Inao::Logger;
 
-our @EXPORT = qw/to_list_style visual_length replace_note_parenthesis fallback_to_html/;
+our @EXPORT = qw/
+    to_list_style
+    visual_length
+    replace_note_parenthesis
+    fallback_to_html
+    Dumper
+/;
 
 # 本文中に（◯1）や（1）など、リストを参照するときの形式に変換する
 # 「リスト1.1(c1)を見てください」
-# -> 
+# ->
 # 「リスト1.1（◯1）を見てください」となる
 #
 # (d1) -> （1）   # desc
@@ -105,6 +111,17 @@ sub fallback_to_html {
     my $h = shift;
     log warn => sprintf "HTMLタグは `<%s>` もしくは実体参照でエスケープしてください。しない場合の出力は不定です", $h->tag;
     return $h->as_HTML('', '', {});
+}
+
+sub Dumper {
+    require Data::Recursive::Encode;
+    require Data::Dumper;
+    my $dd = Data::Dumper->new([map { Data::Recursive::Encode->encode_utf8($_) } @_]);
+    $dd->Indent(1);
+    $dd->Useqq(0);
+    $dd->Sortkeys(1);
+    $dd->Terse(1);
+    return $dd->Dump();
 }
 
 1;

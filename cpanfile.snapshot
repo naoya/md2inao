@@ -837,6 +837,15 @@ DISTRIBUTIONS
       Proc::Wait3 0.04
     requirements:
       ExtUtils::MakeMaker 0
+  Project-Libs-0.02
+    pathname: K/KE/KENTARO/Project-Libs-0.02.tar.gz
+    provides:
+      Project::Libs 0.02
+    requirements:
+      ExtUtils::MakeMaker 6.59
+      FindBin::libs 0
+      Test::More 0.96
+      perl 5.008001
   Scope-Guard-0.20
     pathname: C/CH/CHOCOLATE/Scope-Guard-0.20.tar.gz
     provides:

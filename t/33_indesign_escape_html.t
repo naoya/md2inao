@@ -1,24 +1,24 @@
+use 5.10.0;
+use strict;
+use warnings;
 use utf8;
 
 use Test::Base;
 use Text::Md2Inao;
-use Encode;
 use Text::Md2Inao::Builder::InDesign;
+
+$Text::Md2Inao::Logger::STOP = 1;
 
 plan tests => 1 * blocks;
 
 run_is in => 'expected';
 
 sub md2inao {
-    $Text::Md2Inao::Logger::STOP = 1;
-
-    my $builder =Text::Md2Inao::Builder::InDesign->new;
-    $builder->load_filter_config('./config/id_filter.json');
-    my $p = Text::Md2Inao->new({
+    state $p = Text::Md2Inao->new({
         default_list           => 'disc',
         max_list_length        => 63,
         max_inline_list_length => 55,
-        builder                => $builder,
+        builder                => Text::Md2Inao::Builder::InDesign->new,
     });
     return $p->parse($_);
 }

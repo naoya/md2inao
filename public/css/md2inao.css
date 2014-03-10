@@ -8,9 +8,22 @@
 }
 
 #blank_style {
-  display: none;    
+  display: default;
 }
 
 #indicator {
   display: none;
+}
+
+.success {
+    color: lime;
+}
+.warn {
+    color: red;
+}
+.error {
+    color: red;
+}
+.info {
+    color: gray;
 }

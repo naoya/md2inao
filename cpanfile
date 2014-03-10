@@ -10,6 +10,7 @@ requires 'Exporter::Lite';
 requires 'Path::Tiny';
 requires 'Tie::IxHash';
 requires 'JSON', '>= 2.55';
+requires 'File::ShareDir';
 
 feature 'psgi', 'web app support' => sub {
     requires 'Project::Libs';
@@ -27,9 +28,14 @@ on 'test' => sub {
     requires 'Devel::Cover';
 };
 
+on 'development' => sub {
+    requires 'Data::Recursive::Encode';
+};
+
 on 'configure' => sub {
     requires 'ExtUtils::MakeMaker' => '>= 6.74';
-    requires 'ExtUtils::MakeMaker::CPANfile'
+    requires 'ExtUtils::MakeMaker::CPANfile';
+    requires 'File::ShareDir::Install';
 };
 
 # vim: set ft=perl:
