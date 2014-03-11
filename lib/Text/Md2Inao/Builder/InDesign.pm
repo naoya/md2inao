@@ -27,12 +27,13 @@ tie my %meta2label, "Tie::IxHash",
 sub _new {
     my $class = shift;
     my $self = $class->SUPER::_new(@_);
-    for my $dir('config', dist_dir('Text-Md2Inao')) {
-        if (-d $dir) {
-            $self->load_filter_config(path($dir, 'id_filter.json'));
-            last;
-        }
-    }
+    # for my $dir('config', dist_dir('Text-Md2Inao')) {
+    #     if (-d $dir) {
+    #         $self->load_filter_config(path($dir, 'id_filter.json'));
+    #         last;
+    #     }
+    # }
+    $self->load_filter_config('./config/id_filter.json');
     return $self;
 }
 
