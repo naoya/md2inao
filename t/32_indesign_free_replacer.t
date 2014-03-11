@@ -321,7 +321,7 @@ __END__
 
 === shiftjis
 --- in md2inao
-\\
+\
 --- expected
 <ParaStyle:本文><005C><005C>
 
