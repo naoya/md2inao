@@ -198,13 +198,13 @@
 
 ## キーボードフォント
 
-<kbd>A</kbd>～<kbd>Z</kbd>
+<kbd>A</kbd>〜<kbd>Z</kbd>
 
-<kbd>a</kbd>～<kbd>z</kbd>
+<kbd>a</kbd>〜<kbd>z</kbd>
 
-<kbd>0</kbd>～<kbd>9</kbd>
+<kbd>0</kbd>〜<kbd>9</kbd>
 
-<kbd>F1</kbd>～<kbd>F12</kbd>
+<kbd>F1</kbd>〜<kbd>F12</kbd>
 
 <kbd>→</kbd><kbd>↓</kbd><kbd>↑</kbd><kbd>←</kbd>
 
