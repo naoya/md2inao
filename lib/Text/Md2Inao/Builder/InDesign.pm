@@ -27,7 +27,9 @@ tie my %meta2label, "Tie::IxHash",
 sub _new {
     my $class = shift;
     my $self = $class->SUPER::_new(@_);
-    for my $dir('config', dist_dir('Text-Md2Inao')) {
+
+    # check the repo's config/ first, and then try to get dist_dir()
+    for my $dir('config', eval { dist_dir('Text-Md2Inao') }) {
         if (-d $dir) {
             $self->load_filter_config(path($dir, 'id_filter.json'));
             last;
