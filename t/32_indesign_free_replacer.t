@@ -27,7 +27,7 @@ sub md2inao {
 __END__
 === kbd
 --- in md2inao
-<kbd>A</kbd>～<kbd>Z</kbd>
+<kbd>A</kbd>〜<kbd>Z</kbd>
 --- expected
 <ParaStyle:本文><cFont:KeyMother>A<cFont:>〜<cFont:KeyMother>Z<cFont:>
 
@@ -331,8 +331,8 @@ __END__
 --- expected
 <ParaStyle:本文><007E>
 
-=== shiftjis
+=== fullwidth tilde to wave dash
 --- in md2inao
 ～
 --- expected
-<ParaStyle:本文><FF5E>
+<ParaStyle:本文><301C>
