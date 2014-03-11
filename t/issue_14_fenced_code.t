@@ -266,3 +266,30 @@ abcd
 <ParaStyle:半行アキ>
 <ParaStyle:リスト>abcd
 
+=== code (blank line)
+--- in md2inao
+```
+abcd
+
+efgh
+```
+--- expected
+<ParaStyle:半行アキ>
+<ParaStyle:リスト>abcd
+<ParaStyle:リスト>
+<ParaStyle:リスト>efgh
+
+=== command (blank line)
+--- in md2inao
+```
+!!! cmd
+abcd
+
+efgh
+```
+--- expected
+<ParaStyle:半行アキ>
+<ParaStyle:リスト白文字>abcd
+<ParaStyle:リスト白文字>
+<ParaStyle:リスト白文字>efgh
+
