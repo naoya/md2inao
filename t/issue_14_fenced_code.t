@@ -28,9 +28,12 @@ sub md2inao {
 __END__
 === code, code
 --- in md2inao
-    abcd
-
-    efgh
+```
+abcd
+```
+```
+efgh
+```
 --- expected
 <ParaStyle:半行アキ>
 <ParaStyle:リスト>abcd
@@ -40,11 +43,14 @@ __END__
 
 === command, command
 --- in md2inao
-    !!! cmd
-    abcd
-
-    !!! cmd
-    efgh
+```
+!!! cmd
+abcd
+```
+```
+!!! cmd
+efgh
+```
 --- expected
 <ParaStyle:半行アキ>
 <ParaStyle:リスト白文字>abcd
@@ -54,11 +60,14 @@ __END__
 
 === caption-code, caption-code
 --- in md2inao
-    ●リスト1::LTSVのParse結果
-    abcd
-
-    ●リスト1::LTSVのParse結果
-    abcd
+```
+●リスト1::LTSVのParse結果
+abcd
+```
+```
+●リスト1::LTSVのParse結果
+abcd
+```
 --- expected
 <ParaStyle:キャプション>リスト1	LTSVのParse結果
 <ParaStyle:リスト>abcd
@@ -68,13 +77,16 @@ __END__
 
 === caption-command, caption-command
 --- in md2inao
-    !!! cmd
-    ●図1::LTSVのParse結果
-    abcd
-
-    !!! cmd
-    ●図1::LTSVのParse結果
-    abcd
+```
+!!! cmd
+●図1::LTSVのParse結果
+abcd
+```
+```
+!!! cmd
+●図1::LTSVのParse結果
+abcd
+```
 --- expected
 <ParaStyle:キャプション>図1	LTSVのParse結果
 <ParaStyle:リスト白文字>abcd
@@ -84,12 +96,15 @@ __END__
 
 === caption-code, caption-command
 --- in md2inao
-    ●リスト1::Rubyによる簡易LTSV Parser
-    abcd
-
-    !!! cmd
-    ●図1::LTSVのParse結果
-    abcd
+```
+●リスト1::Rubyによる簡易LTSV Parser
+abcd
+```
+```
+!!! cmd
+●図1::LTSVのParse結果
+abcd
+```
 --- expected
 <ParaStyle:キャプション>リスト1	Rubyによる簡易LTSV Parser
 <ParaStyle:リスト>abcd
@@ -99,12 +114,15 @@ __END__
 
 === caption-command, caption-code
 --- in md2inao
-    !!! cmd
-    ●図1::LTSVのParse結果
-    abcd
-
-    ●リスト1::Rubyによる簡易LTSV Parser
-    abcd
+```
+!!! cmd
+●図1::LTSVのParse結果
+abcd
+```
+```
+●リスト1::Rubyによる簡易LTSV Parser
+abcd
+```
 --- expected
 <ParaStyle:キャプション>図1	LTSVのParse結果
 <ParaStyle:リスト白文字>abcd
@@ -114,10 +132,13 @@ __END__
 
 === code, caption-code
 --- in md2inao
-    abcd
-
-    ●リスト1::LTSVのParse結果
-    abcd
+```
+abcd
+```
+```
+●リスト1::LTSVのParse結果
+abcd
+```
 --- expected
 <ParaStyle:半行アキ>
 <ParaStyle:リスト>abcd
@@ -127,10 +148,13 @@ __END__
 
 === caption-code, code
 --- in md2inao
-    ●リスト1::LTSVのParse結果
-    abcd
-
-    abcd
+```
+●リスト1::LTSVのParse結果
+abcd
+```
+```
+abcd
+```
 --- expected
 <ParaStyle:キャプション>リスト1	LTSVのParse結果
 <ParaStyle:リスト>abcd
@@ -140,12 +164,15 @@ __END__
 
 === command, caption-command
 --- in md2inao
-    !!! cmd
-    abcd
-
-    !!! cmd
-    ●図1::LTSVのParse結果
-    abcd
+```
+!!! cmd
+abcd
+```
+```
+!!! cmd
+●図1::LTSVのParse結果
+abcd
+```
 --- expected
 <ParaStyle:半行アキ>
 <ParaStyle:リスト白文字>abcd
@@ -155,12 +182,15 @@ __END__
 
 === caption-command, command
 --- in md2inao
-    !!! cmd
-    ●図1::LTSVのParse結果
-    abcd
-
-    !!! cmd
-    abcd
+```
+!!! cmd
+●図1::LTSVのParse結果
+abcd
+```
+```
+!!! cmd
+abcd
+```
 --- expected
 <ParaStyle:キャプション>図1	LTSVのParse結果
 <ParaStyle:リスト白文字>abcd
@@ -170,11 +200,14 @@ __END__
 
 === code, caption-command
 --- in md2inao
-    abcd
-
-    !!! cmd
-    ●図1::LTSVのParse結果
-    abcd
+```
+abcd
+```
+```
+!!! cmd
+●図1::LTSVのParse結果
+abcd
+```
 --- expected
 <ParaStyle:半行アキ>
 <ParaStyle:リスト>abcd
@@ -184,11 +217,14 @@ __END__
 
 === caption-code, command
 --- in md2inao
-    ●リスト1::LTSVのParse結果
-    abcd
-
-    !!! cmd
-    abcd
+```
+●リスト1::LTSVのParse結果
+abcd
+```
+```
+!!! cmd
+abcd
+```
 --- expected
 <ParaStyle:キャプション>リスト1	LTSVのParse結果
 <ParaStyle:リスト>abcd
@@ -198,11 +234,14 @@ __END__
 
 === command, caption-code
 --- in md2inao
-    !!! cmd
-    abcd
-
-    ●リスト1::LTSVのParse結果
-    abcd
+```
+!!! cmd
+abcd
+```
+```
+●リスト1::LTSVのParse結果
+abcd
+```
 --- expected
 <ParaStyle:半行アキ>
 <ParaStyle:リスト白文字>abcd
@@ -212,11 +251,14 @@ __END__
 
 === caption-command, code
 --- in md2inao
-    !!! cmd
-    ●図1::LTSVのParse結果
-    abcd
-
-    abcd
+```
+!!! cmd
+●図1::LTSVのParse結果
+abcd
+```
+```
+abcd
+```
 --- expected
 <ParaStyle:キャプション>図1	LTSVのParse結果
 <ParaStyle:リスト白文字>abcd
