@@ -335,4 +335,4 @@ __END__
 --- in md2inao
 ～
 --- expected
-<ParaStyle:本文>〜
+<ParaStyle:本文><FF5E>
