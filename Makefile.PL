@@ -24,6 +24,7 @@ WriteMakefile(
     META_MERGE => {
         resources => {
             repository => 'https://github.com/naoya/md2inao.git',
+            bugtracker => 'https://github.com/naoya/md2inao/issues',
         },
     },
 );
