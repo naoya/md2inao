@@ -35,6 +35,7 @@ __END__
 --- in md2inao
     <kbd>R</kbd>
 --- expected
+<ParaStyle:半行アキ>
 <ParaStyle:リスト><cFont:KeyMother>R<cFont:>
 
 === right arrow
