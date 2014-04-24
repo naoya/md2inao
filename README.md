@@ -258,11 +258,19 @@ Markdown の説明つき箇条書きには対応していないので、HTML で
 
 #### 本文中のコードブロック
 
-行頭半角スペース4つで字下げします。GitHub Flavored Markdown のコードブロック記法には今のところ対応していません。
+行頭半角スペース4つで字下げします。
 
         function bar(b) {
             alert(b);
         }
+
+GitHub Flavored Markdown のFenced code blocks記法にも対応しています。
+
+    ```
+    function bar(b) {
+        alert(b);
+    }
+    ```
 
 `(注:)`は黒地に白文字となり、見出しやコメント的に使えます。
 
