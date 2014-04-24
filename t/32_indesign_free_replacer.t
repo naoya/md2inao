@@ -31,6 +31,12 @@ __END__
 --- expected
 <ParaStyle:本文><cFont:KeyMother>A<cFont:>～<cFont:KeyMother>Z<cFont:>
 
+=== kbd
+--- in md2inao
+    <kbd>R</kbd>
+--- expected
+<ParaStyle:リスト><cFont:KeyMother>R<cFont:>
+
 === right arrow
 --- in md2inao
 <span class='symbol'>→</span>
