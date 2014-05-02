@@ -1,4 +1,7 @@
 
+0.11 2014-04-24 22:59:18+0900
+    - Fixed RT 93674 "Tarball cannot be extracted with a non-utf8 locale"
+
 0.10 2014-03-10 08:32:33+0900
     - Add --version option to md2inao.pl
 

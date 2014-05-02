@@ -337,6 +337,10 @@ case pre => sub {
 
     my $code = $h->find('code');
     my $text = $code ? $code->as_text : '';
+
+    # <kbd>を一旦退避する (#88)
+    $text =~ s!<(/?)kbd>!◆${1}kbd◆!g;
+
     $text = escape_html($text);
 
     my $list_label = 'リスト';
@@ -377,6 +381,8 @@ case pre => sub {
 
     # コード内イタリック
     $text =~ s!\___(.+?)\___!<CharStyle:イタリック（変形斜体）>$1<CharStyle:>!g;
+    # コード内キーボードフォント https://github.com/naoya/md2inao/pull/88
+    $text =~ s!◆kbd◆(.+?)◆/kbd◆!<cFont:KeyMother>$1<cFont:>!g;
 
     chomp $text;
 

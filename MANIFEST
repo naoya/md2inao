@@ -23,15 +23,8 @@ lib/Text/Md2Inao/TestHelper.pm
 lib/Text/Md2Inao/Util.pm
 Makefile.PL
 MANIFEST			This list of files
+MANIFEST.SKIP
 md2inao.run
-META.json
-META.yml
-old_files/00_sample.md
-old_files/01_sample_inao.txt
-old_files/02_sample_id.txt
-old_files/x_input.txt
-old_files/x_output.txt
-old_files/出力見本
 public/css/bootstrap-responsive.css
 public/css/bootstrap-responsive.min.css
 public/css/bootstrap.css
