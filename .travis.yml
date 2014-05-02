@@ -19,8 +19,9 @@ notifications:
     - "irc.freenode.net#md2inao"
 deploy:
   provider: heroku
+  buildpack: "https://github.com/naoya/heroku-buildpack-perl.git#cpanm-with-psgi"
   app: md2inao
   api_key:
     secure: IbLmvicDRtQJwz5CqeEoQHIZfq+BJBgc6TIeLHFuxtJX0bqVoNxTX/0eQHUQfS4ZQypL7yFWK4t5z2q0FGLppGjZDdR2Iy+hz0AG/ND9hLp8wO8AwRpZfzDXLUwQg5FkIBTf9329s2wCgEUWu7GKum20g9BvLfboXPUNawJB6k8=
   on:
-    perl: 5.10
+    perl: "5.10"
