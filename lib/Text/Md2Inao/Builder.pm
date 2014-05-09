@@ -67,7 +67,7 @@ sub after_filter {
     $out =~ s/◆gt◆/>/g;
     if (my $config = $self->after_filter_config) {
         for my $k (keys %$config) {
-            $out =~ s/$k/$config->{$k}/eg;
+            $out =~ s/\Q$k/$config->{$k}/eg;
         }
     }
     return $out;

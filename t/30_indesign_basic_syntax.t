@@ -249,7 +249,7 @@ __END__
 <ParaStyle:リスト>function hoge() {
 <ParaStyle:リスト>    alert(foo);　… <CharStyle:丸文字><2460><CharStyle:>
 <ParaStyle:リスト>    alert(bar);　… <CharStyle:丸文字><2461><CharStyle:>
-<ParaStyle:リスト>    alert(c1); // \でエスケープできます
+<ParaStyle:リスト>    alert(c1); // <005C><005C>でエスケープできます
 <ParaStyle:リスト>}
 
 

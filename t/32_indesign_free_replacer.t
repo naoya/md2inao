@@ -27,9 +27,9 @@ sub md2inao {
 __END__
 === kbd
 --- in md2inao
-<kbd>A</kbd>～<kbd>Z</kbd>
+<kbd>A</kbd>〜<kbd>Z</kbd>
 --- expected
-<ParaStyle:本文><cFont:KeyMother>A<cFont:>～<cFont:KeyMother>Z<cFont:>
+<ParaStyle:本文><cFont:KeyMother>A<cFont:>〜<cFont:KeyMother>Z<cFont:>
 
 === kbd
 --- in md2inao
@@ -313,3 +313,33 @@ __END__
 ㈱(株)
 --- expected
 <ParaStyle:本文><3231><3231>
+
+===
+--- in md2inao
+✓
+--- expected
+<ParaStyle:本文><ct:Regular><cf:Zapf Dingbats><2713><ct:><cf:>
+
+=== shiftjis
+--- in md2inao
+✖
+--- expected
+<ParaStyle:本文><ct:Regular><cf:Zapf Dingbats><2716><ct:><cf:>
+
+=== shiftjis
+--- in md2inao
+\
+--- expected
+<ParaStyle:本文><005C><005C>
+
+=== shiftjis
+--- in md2inao
+~
+--- expected
+<ParaStyle:本文><007E>
+
+=== fullwidth tilde to wave dash
+--- in md2inao
+～
+--- expected
+<ParaStyle:本文><301C>
