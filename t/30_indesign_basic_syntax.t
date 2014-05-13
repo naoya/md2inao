@@ -63,6 +63,15 @@ __END__
 --- expected
 <ParaStyle:本文>これは<CharStyle:イタリック（変形斜体）>イタリック<CharStyle:>です
 
+=== em
+--- in md2inao
+_あいうabcえお、寿司_
+
+_a-zA-Z0-9!"#$%&'()-=^@`[]{};+:*<>,./?_
+--- expected
+<ParaStyle:本文><CharStyle:イタリック（変形斜体）>あいう<CharStyle:><CharStyle:イタリック>abc<CharStyle:><CharStyle:イタリック（変形斜体）>えお、寿司<CharStyle:>
+<ParaStyle:本文><CharStyle:イタリック>a-zA-Z0-9!"#$%&'()-=^@`[]{};+:*<005C><<005C>>,./?<CharStyle:>
+
 === code
 --- in md2inao
 これは`インラインのコード`です
