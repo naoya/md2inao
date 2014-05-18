@@ -120,7 +120,7 @@ _a-zA-Z0-9!"#$%&'()-=^@`[]{};+:*<>,./?_
 <ParaStyle:コラムタイトル>コラム見出し
 <ParaStyle:コラム本文>　コラム本文コラム本文コラム本文コラム本文コラム本文コラム本文コラム本文コラム本文コラム本文コラム本文コラム。
 <ParaStyle:コラム小見出し>コラム小見出し
-<ParaStyle:コラム本文>　コラム内でも<CharStyle:太字>強調<CharStyle:>や<CharStyle:イタリック（変形斜体）>イタリック<CharStyle:><CharStyle:イタリック>abc<CharStyle:>などが使えます。
+<ParaStyle:コラム本文>　コラム内でも<CharStyle:太字>強調<CharStyle:>や<CharStyle:イタリック（変形斜体）>イタリックabc<CharStyle:>などが使えます。
 
 === list
 --- in md2inao

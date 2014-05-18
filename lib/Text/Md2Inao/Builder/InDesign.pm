@@ -196,7 +196,7 @@ case strong => sub {
 case em => sub {
     my ($c, $h) = @_;
     my $s = $c->parse_element($h);
-    if ($c->in_list) {
+    if ($c->in_list || $c->in_column) {
         $s =  "<CharStyle:イタリック（変形斜体）>$s<CharStyle:>";
     }
     else {
