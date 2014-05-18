@@ -135,7 +135,7 @@ _a-zA-Z0-9!"#$%&'()-=^@`[]{};+:*<>,./?_
 <ParaStyle:箇条書き>・通常の箇条書き
 <ParaStyle:箇条書き>・通常の箇条書き
 <ParaStyle:箇条書き>・<CharStyle:太字>強調<CharStyle:>
-<ParaStyle:箇条書き>・<CharStyle:イタリック（変形斜体）>イタリック<CharStyle:><CharStyle:イタリック>abc<CharStyle:>
+<ParaStyle:箇条書き>・<CharStyle:イタリック（変形斜体）>イタリックabc<CharStyle:>
 
 === nested list
 --- in md2inao

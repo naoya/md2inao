@@ -196,11 +196,16 @@ case strong => sub {
 case em => sub {
     my ($c, $h) = @_;
     my $s = $c->parse_element($h);
-    $s =~ s{( [^[:ascii:]]+ ) | ( [[:ascii:]]+ )}{
-        length($1)
-            ? "<CharStyle:イタリック（変形斜体）>$1<CharStyle:>"
-            : "<CharStyle:イタリック>$2<CharStyle:>";
-    }xmsge;
+    if ($c->in_list) {
+        $s =  "<CharStyle:イタリック（変形斜体）>$s<CharStyle:>";
+    }
+    else {
+        $s =~ s{( [^[:ascii:]]+ ) | ( [[:ascii:]]+ )}{
+            length($1)
+                ? "<CharStyle:イタリック（変形斜体）>$1<CharStyle:>"
+                : "<CharStyle:イタリック>$2<CharStyle:>";
+        }xmsge;
+    }
     return $s;
 };
 
