@@ -103,7 +103,7 @@ _a-zA-Z0-9!"#$%&'()-=^@`[]{};+:*<>,./?_
 > これは引用です。
 > これは**強調**と_イタリックabc_です。
 --- expected
-<ParaStyle:引用>これは引用です。これは引用です。これは引用です。これは<CharStyle:太字>強調<CharStyle:>と<CharStyle:イタリック（変形斜体）>イタリックabc<CharStyle:>です。
+<ParaStyle:引用>これは引用です。これは引用です。これは引用です。これは<CharStyle:太字>強調<CharStyle:>と<CharStyle:イタリック（変形斜体）>イタリック<CharStyle:><CharStyle:イタリック>abc<CharStyle:>です。
 
 === column
 --- in md2inao
@@ -120,7 +120,7 @@ _a-zA-Z0-9!"#$%&'()-=^@`[]{};+:*<>,./?_
 <ParaStyle:コラムタイトル>コラム見出し
 <ParaStyle:コラム本文>　コラム本文コラム本文コラム本文コラム本文コラム本文コラム本文コラム本文コラム本文コラム本文コラム本文コラム。
 <ParaStyle:コラム小見出し>コラム小見出し
-<ParaStyle:コラム本文>　コラム内でも<CharStyle:太字>強調<CharStyle:>や<CharStyle:イタリック（変形斜体）>イタリックabc<CharStyle:>などが使えます。
+<ParaStyle:コラム本文>　コラム内でも<CharStyle:太字>強調<CharStyle:>や<CharStyle:イタリック（変形斜体）>イタリック<CharStyle:><CharStyle:イタリック>abc<CharStyle:>などが使えます。
 
 === list
 --- in md2inao
@@ -135,7 +135,7 @@ _a-zA-Z0-9!"#$%&'()-=^@`[]{};+:*<>,./?_
 <ParaStyle:箇条書き>・通常の箇条書き
 <ParaStyle:箇条書き>・通常の箇条書き
 <ParaStyle:箇条書き>・<CharStyle:太字>強調<CharStyle:>
-<ParaStyle:箇条書き>・<CharStyle:イタリック（変形斜体）>イタリックabc<CharStyle:>
+<ParaStyle:箇条書き>・<CharStyle:イタリック（変形斜体）>イタリック<CharStyle:><CharStyle:イタリック>abc<CharStyle:>
 
 === nested list
 --- in md2inao
