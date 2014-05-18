@@ -195,11 +195,13 @@ case strong => sub {
 
 case em => sub {
     my ($c, $h) = @_;
-    my $ret;
-    $ret .= $c->use_special_italic ? '<CharStyle:イタリック（変形斜体）>' : '<CharStyle:イタリック（変形斜体）>';
-    $ret .= $c->parse_element($h);
-    $ret .= '<CharStyle:>';
-    return $ret;
+    my $s = $c->parse_element($h);
+    $s =~ s{( [^[:ascii:]]+ ) | ( [[:ascii:]]+ )}{
+        length($1)
+            ? "<CharStyle:イタリック（変形斜体）>$1<CharStyle:>"
+            : "<CharStyle:イタリック>$2<CharStyle:>";
+    }xmsge;
+    return $s;
 };
 
 case code => sub {
