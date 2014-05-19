@@ -63,6 +63,15 @@ __END__
 --- expected
 <ParaStyle:本文>これは<CharStyle:イタリック（変形斜体）>イタリック<CharStyle:>です
 
+=== em
+--- in md2inao
+_あいうabcえお、寿司_
+
+_a-zA-Z0-9!"#$%&'()-=^@`[]{};+:*<>,./?_
+--- expected
+<ParaStyle:本文><CharStyle:イタリック（変形斜体）>あいう<CharStyle:><CharStyle:イタリック>abc<CharStyle:><CharStyle:イタリック（変形斜体）>えお、寿司<CharStyle:>
+<ParaStyle:本文><CharStyle:イタリック>a-zA-Z0-9!"#$%&'()-=^@`[]{};+:*<005C><<005C>>,./?<CharStyle:>
+
 === code
 --- in md2inao
 これは`インラインのコード`です
@@ -92,9 +101,9 @@ __END__
 > これは引用です。
 > これは引用です。
 > これは引用です。
-> これは**強調**と_イタリック_です。
+> これは**強調**と_イタリックabc_です。
 --- expected
-<ParaStyle:引用>これは引用です。これは引用です。これは引用です。これは<CharStyle:太字>強調<CharStyle:>と<CharStyle:イタリック（変形斜体）>イタリック<CharStyle:>です。
+<ParaStyle:引用>これは引用です。これは引用です。これは引用です。これは<CharStyle:太字>強調<CharStyle:>と<CharStyle:イタリック（変形斜体）>イタリック<CharStyle:><CharStyle:イタリック>abc<CharStyle:>です。
 
 === column
 --- in md2inao
@@ -105,13 +114,13 @@ __END__
 
 ##### コラム小見出し
 
-　コラム内でも**強調**や_イタリック_などが使えます。
+　コラム内でも**強調**や_イタリックabc_などが使えます。
 </div>
 --- expected
 <ParaStyle:コラムタイトル>コラム見出し
 <ParaStyle:コラム本文>　コラム本文コラム本文コラム本文コラム本文コラム本文コラム本文コラム本文コラム本文コラム本文コラム本文コラム。
 <ParaStyle:コラム小見出し>コラム小見出し
-<ParaStyle:コラム本文>　コラム内でも<CharStyle:太字>強調<CharStyle:>や<CharStyle:イタリック（変形斜体）>イタリック<CharStyle:>などが使えます。
+<ParaStyle:コラム本文>　コラム内でも<CharStyle:太字>強調<CharStyle:>や<CharStyle:イタリック（変形斜体）>イタリックabc<CharStyle:>などが使えます。
 
 === list
 --- in md2inao
@@ -119,14 +128,14 @@ __END__
 * 通常の箇条書き
 * 通常の箇条書き
 * **強調**
-* _イタリック_
+* _イタリックabc_
 --- expected
 <ParaStyle:半行アキ>
 <ParaStyle:箇条書き>・通常の箇条書き
 <ParaStyle:箇条書き>・通常の箇条書き
 <ParaStyle:箇条書き>・通常の箇条書き
 <ParaStyle:箇条書き>・<CharStyle:太字>強調<CharStyle:>
-<ParaStyle:箇条書き>・<CharStyle:イタリック（変形斜体）>イタリック<CharStyle:>
+<ParaStyle:箇条書き>・<CharStyle:イタリック（変形斜体）>イタリックabc<CharStyle:>
 
 === nested list
 --- in md2inao
@@ -350,22 +359,22 @@ use strict;
 === em/italic in pre
 --- in md2inao
     **use strict**;
-    ___foo('bar');___ // コード内___イタリック___
+    ___foo('bar');___ // コード内___イタリックabc___
 --- expected
 <ParaStyle:半行アキ>
 <ParaStyle:リスト><CharStyle:コマンド太字>use strict<CharStyle:>;
-<ParaStyle:リスト><CharStyle:イタリック（変形斜体）>foo('bar');<CharStyle:> // コード内<CharStyle:イタリック（変形斜体）>イタリック<CharStyle:>
+<ParaStyle:リスト><CharStyle:イタリック（変形斜体）>foo('bar');<CharStyle:> // コード内<CharStyle:イタリック（変形斜体）>イタリックabc<CharStyle:>
 
 === em/italic in pre
 --- in md2inao
 ```
 **use strict**;
-___foo('bar');___ // コード内___イタリック___
+___foo('bar');___ // コード内___イタリックabc___
 ```
 --- expected
 <ParaStyle:半行アキ>
 <ParaStyle:リスト><CharStyle:コマンド太字>use strict<CharStyle:>;
-<ParaStyle:リスト><CharStyle:イタリック（変形斜体）>foo('bar');<CharStyle:> // コード内<CharStyle:イタリック（変形斜体）>イタリック<CharStyle:>
+<ParaStyle:リスト><CharStyle:イタリック（変形斜体）>foo('bar');<CharStyle:> // コード内<CharStyle:イタリック（変形斜体）>イタリックabc<CharStyle:>
 
 === pre for command
 --- in md2inao
