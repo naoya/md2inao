@@ -1,6 +1,8 @@
 Markdown to Inao-Format
 ================
 
+[![Deploy](https://www.herokucdn.com/deploy/button.png)](https://heroku.com/deploy)
+
 [![Build Status](https://travis-ci.org/naoya/md2inao.png?branch=master)](https://travis-ci.org/naoya/md2inao) [![Coverage Status](https://coveralls.io/repos/naoya/md2inao/badge.png?branch=master)](https://coveralls.io/r/naoya/md2inao)
 
 概要
