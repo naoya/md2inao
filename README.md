@@ -344,8 +344,13 @@ GitHub Flavored Markdown のFenced code blocks記法にも対応しています�
 
 たとえば次のように書きます。
 
-    [RubyMotion](http://rubymotion.com/)は、RubyでiOSアプリを作るれるツールです。
-    $199程度(注:日本円で20,000円程度です。)です。
+    [RubyMotion](http://rubymotion.com/)は、RubyでiOSアプリを作るれるツールです(注:日本円で20,000円程度です。)。
+
+#### 注意事項
+上記のように、注釈文の末尾にも「。」は必要です。
+抜けがちですのでご注意ください。
+
+また、注釈文も「です・ます」調で統一してください。
 
 ### 表
 
