@@ -128,8 +128,8 @@ Markdown の仕様では当然のことながら、HTML タグは HTML タグと
     Subtitle: Convert markdown text to Inao format（キャッチコピー）
     Author: 伊藤 直也（著者名）
     Author(romaji): ITO Naoya（著者名のローマ字表記）
-    Supervisor: 稲尾 尚徳（監修者名）
-    Supervisor(romaji): INAO Naonori（監修者名のローマ字表記）
+    Supervisor: 山田 太郎（監修者名）
+    Supervisor(romaji): YAMADA Taro（監修者名のローマ字表記）
     Affiliation: 技術評論社（所属）
     URL: http://naoya.github.com/
     mail: i.naoya@gmail.com
