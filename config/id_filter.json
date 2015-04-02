@@ -64,6 +64,8 @@
         "✖" : "<ct:Regular><cf:Zapf Dingbats><2716><ct:><cf:>",
         "\\" : "<005C><005C>",
         "~" : "<007E>",
-        "～" : "<301C>"
+        "～" : "<301C>",
+        
+        "<cFont:KeyMother>Shift<cFont:>" : "<cFont:Key Snd Mother>`<cFont:>",
     }
 }
