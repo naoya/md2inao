@@ -529,3 +529,8 @@ World
 <ParaStyle:区切り線>
 <ParaStyle:本文>World
 
+=== no % encoding
+--- in md2inao
+[SynCha](http://あいうえお)
+--- expected
+<ParaStyle:本文>SynCha<cstyle:上付き><fnStart:><pstyle:注釈>http://あいうえお<fnEnd:><cstyle:>
