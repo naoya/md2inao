@@ -517,6 +517,28 @@ function bar(b) {
 <ParaStyle:表>内容1	内容2
 <ParaStyle:表>内容1	内容2
 
+=== table
+--- in md2inao
+<table summary='キャプション（表のタイトル）'>
+    <tr>
+        <th>表タイトル1</th>
+        <th>表タイトル2</th>
+    </tr>
+    <tr>
+        <td>内容1</td>
+        <td>内容2</td>
+    </tr>
+    <tr>
+        <td>内容1</td>
+        <td>内容2</td>
+    </tr>
+</table>
+--- expected
+<ParaStyle:キャプション>キャプション（表のタイトル）
+<ParaStyle:表見出し行>表タイトル1	表タイトル2
+<ParaStyle:表>内容1	内容2
+<ParaStyle:表>内容1	内容2
+
 === horizontal rule
 --- in md2inao
 Hello
