@@ -184,6 +184,12 @@ __END__
 
 === kbd
 --- in md2inao
+<kbd>Shift</kbd><kbd>Shift</kbd>
+--- expected
+<ParaStyle:本文><cFont:Key Snd Mother>`<cFont:><cFont:Key Snd Mother>`<cFont:>
+
+=== kbd
+--- in md2inao
 <kbd>Tab</kbd>
 --- expected
 <ParaStyle:本文><cFont:Key Snd Mother>k<cFont:>
