@@ -463,7 +463,8 @@ md2inao デベロッパー向け情報
 
 ### テストの実行の仕方
 
-    % carton exec -Ilib -- prove
+    % carton # モジュールのインストール。初回のみ必要
+    % carton exec prove -l
 
 ### 自由置換の書き方
 
