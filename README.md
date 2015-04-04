@@ -445,6 +445,12 @@ GitHub Flavored Markdownとは異なり、複数行に分けて書いても1行�
 
     <kbd>A</kbd>
 
+[Keyboard-JP-Regular.otf](https://github.com/n-yuji/keyboard-font)の[対応文字](https://github.com/n-yuji/keyboard-font/blob/master/Keyboardfont_list.pdf)に対応しています。
+
+ただし、現状はInDesignへの取り込み時にShift_JISに変換する必要があるため、Shift_JISにはない文字のキー（~\⇧↵⏎↹⌦⌫）には対応していません。また、 [Issue 95](https://github.com/naoya/md2inao/pull/95) と同様の問題が発生することを避けるため、バッククォート（`）にも対応させていません。
+
+これらの非対応文字も[自由置換](https://github.com/naoya/md2inao#%E8%87%AA%E7%94%B1%E7%BD%AE%E6%8F%9B%E3%81%AE%E6%9B%B8%E3%81%8D%E6%96%B9)に4桁のUnicodeスカラ値を記載する形で設定すれば利用可能ですが、特に使うことがなさそうなキーばかりですので、現状は設定していません。
+
 #### 上付き
 
     <sup>ゴシックフォントで上付き。コラムなどでの注記で使用</sup>
