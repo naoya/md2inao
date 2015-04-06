@@ -115,6 +115,25 @@ __END__
 --- expected
 <ParaStyle:本文><007E>
 
+=== shiftjis
+--- in md2inao
+```
+my_app
+├── lib
+│   ├── MyApp
+│   │   └── Controller
+│   │       └── Example.pm
+│   └── MyApp.pm
+```
+--- expected
+<ParaStyle:半行アキ>
+<ParaStyle:リスト>my_app
+<ParaStyle:リスト>├── lib
+<ParaStyle:リスト>│   ├── MyApp
+<ParaStyle:リスト>│   │   └── Controller
+<ParaStyle:リスト>│   │       └── Example.pm
+<ParaStyle:リスト>│   └── MyApp.pm
+
 === fullwidth tilde to wave dash
 --- in md2inao
 ～
