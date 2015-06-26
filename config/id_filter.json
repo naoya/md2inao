@@ -42,6 +42,8 @@
         "(資)" : "<323E>",
         "㈿"   : "<323F>",
         "(協)" : "<323F>",
+        "©" : "<00A9>",
+        "(C)" : "<00A9>",
         
         "✓" : "<ct:Regular><cf:Zapf Dingbats><2713><ct:><cf:>",
         "✖" : "<ct:Regular><cf:Zapf Dingbats><2716><ct:><cf:>",
