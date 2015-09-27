@@ -57,7 +57,7 @@ sub before_filter {
         "◆数式:D-$#math_table◆";
       }xegm;
       ## インライン数式
-      $in =~ s{(\$(?:[^\$]|\\\$)+\$)}{
+      $in =~ s{(\$(?:[^\$$ ]|\\\$)+\$)}{
         push @math_table, $1;
         "◆数式:I-$#math_table◆";
       }xeg;

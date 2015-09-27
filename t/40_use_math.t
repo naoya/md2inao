@@ -11,10 +11,18 @@ __END__
 UseMath: true
 
 Inline math text $x_1$ and $x_2$ should be preserved as-is.
+The following lines are note inline maths.
+
+    $ 1
+    $ 2
+    $ 3
 --- expected
 <SJIS-MAC>
-<ParaStyle:本文>Inline math text $x_1$ and $x_2$ should be preserved as-is.
-
+<ParaStyle:本文>Inline math text $x_1$ and $x_2$ should be preserved as-is.The following lines are note inline maths.
+<ParaStyle:半行アキ>
+<ParaStyle:リスト>$ 1
+<ParaStyle:リスト>$ 2
+<ParaStyle:リスト>$ 3
 === inline math inao
 --- in md2inao
 UseMath: true
