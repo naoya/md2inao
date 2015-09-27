@@ -101,3 +101,24 @@ $$
 \end{split}
 $$
 Here is normal markdown text.
+=== UseMath not specified
+--- in md2id
+Math texts are converted as Markdown without specifying UseMath.
+
+$x_1$
+This place is italic
+$x_2$
+This place is not italic.
+
+$$ x_1 $$
+
+This place is not italic.
+
+$$ x_2, x_3 $$
+--- expected
+<SJIS-MAC>
+<ParaStyle:本文>Math texts are converted as Markdown without specifying UseMath.
+<ParaStyle:本文>$x<CharStyle:イタリック>1$This place is italic$x<CharStyle:>2$This place is not italic.
+<ParaStyle:本文>$$ x_1 $$
+<ParaStyle:本文>This place is not italic.
+<ParaStyle:本文>$$ x<CharStyle:イタリック>2, x<CharStyle:>3 $$
