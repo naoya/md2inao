@@ -6,7 +6,7 @@ plan tests => 1 * blocks;
 run_is in => 'expected';
 
 __END__
-=== inline math
+=== inline math indesign
 --- in md2id
 UseMath: true
 
@@ -15,7 +15,15 @@ Inline math text $x_1$ and $x_2$ should be preserved as-is.
 <SJIS-MAC>
 <ParaStyle:本文>Inline math text $x_1$ and $x_2$ should be preserved as-is.
 
-=== display math
+=== inline math inao
+--- in md2inao
+UseMath: true
+
+Inline math text $x_1$ and $x_2$ should be preserved as-is.
+--- expected
+Inline math text $x_1$ and $x_2$ should be preserved as-is.
+
+=== display math indesign
 --- in md2id
 UseMath: true
 
@@ -55,3 +63,41 @@ $$
 $$
 <ParaStyle:本文>Here is normal markdown text.
 
+=== display math inao
+--- in md2inao
+UseMath: true
+
+Display math text like following should be kept as-is.
+
+$$
+\begin{split}
+  x_1, \\
+  x_2, \\
+  x_3
+\end{split}
+$$
+
+$$
+\begin{split}
+  x_4, \\
+  x_5
+\end{split}
+$$
+
+Here is normal markdown text.
+--- expected
+Display math text like following should be kept as-is.
+$$
+\begin{split}
+  x_1, \\
+  x_2, \\
+  x_3
+\end{split}
+$$
+$$
+\begin{split}
+  x_4, \\
+  x_5
+\end{split}
+$$
+Here is normal markdown text.
