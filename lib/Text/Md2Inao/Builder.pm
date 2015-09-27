@@ -9,6 +9,7 @@ use JSON;
 use Path::Tiny;
 
 has dispatch_table => ( is => 'rw' );
+has math_table => ( is => 'rw', isa => 'ArrayRef[Str]' );
 
 has before_filter_config  => ( is => 'rw' );
 has after_filter_config  => ( is => 'rw' );
@@ -23,7 +24,7 @@ has after_filter_config  => ( is => 'rw' );
 
 sub _new {
     my $class = shift;
-    return $class->SUPER::new({ dispatch_table => {} });
+    return $class->SUPER::new({ dispatch_table => {}, math_table => [] });
 }
 
 sub dispatch {
@@ -45,6 +46,23 @@ sub load_filter_config {
 
 sub before_filter {
     my ($self, $c, $in) = @_;
+    if ($c->metadata && $c->metadata->{usemath} eq "true") {
+      ## Markdown が数式を処理しないように math_table へ退避し
+      ### 目印で置き換えて after_filter で戻す
+
+      my @math_table = ();
+      ## ブロック数式
+      $in =~ s{(\$\$(?:[^\$]|\\\$)+\$\$)}{
+        push @math_table, $1;
+        "◆数式:D-$#math_table◆";
+      }xegm;
+      ## インライン数式
+      $in =~ s{(\$(?:[^\$]|\\\$)+\$)}{
+        push @math_table, $1;
+        "◆数式:I-$#math_table◆";
+      }xeg;
+      $self->math_table(\@math_table);
+    }
     if (my $config = $self->before_filter_config) {
         for my $k (keys %$config) {
             my $v = $config->{$k};
@@ -69,6 +87,12 @@ sub after_filter {
         for my $k (keys %$config) {
             $out =~ s/\Q$k/$config->{$k}/eg;
         }
+    }
+    if ($c->metadata && $c->metadata->{usemath} eq "true") {
+      ## math_table へ退避した数式を戻す
+      $out =~ s{◆数式:[DI]-(\d+)◆}{
+        $self->math_table->[$1];
+      }xeg;
     }
     return $out;
 }
