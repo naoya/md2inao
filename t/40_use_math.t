@@ -10,7 +10,7 @@ __END__
 --- in md2id
 UseMath: true
 
-Inline math text $x_1$ and $x_2$ should be preserved as-is.
+Inline math text $x_1$ and $\Delta x_2$ should be preserved as-is.
 The following lines are note inline maths.
 
     $ 1
@@ -18,7 +18,7 @@ The following lines are note inline maths.
     $ 3
 --- expected
 <SJIS-MAC>
-<ParaStyle:本文>Inline math text $x_1$ and $x_2$ should be preserved as-is.The following lines are note inline maths.
+<ParaStyle:本文>Inline math text $x_1$ and $\Delta x_2$ should be preserved as-is.The following lines are note inline maths.
 <ParaStyle:半行アキ>
 <ParaStyle:リスト>$ 1
 <ParaStyle:リスト>$ 2
@@ -27,9 +27,9 @@ The following lines are note inline maths.
 --- in md2inao
 UseMath: true
 
-Inline math text $x_1$ and $x_2$ should be preserved as-is.
+Inline math text $x_1$ and $\Delta x_2$ should be preserved as-is.
 --- expected
-Inline math text $x_1$ and $x_2$ should be preserved as-is.
+Inline math text $x_1$ and $\Delta x_2$ should be preserved as-is.
 
 === display math indesign
 --- in md2id
