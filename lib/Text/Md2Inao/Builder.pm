@@ -51,16 +51,21 @@ sub before_filter {
       ### 目印で置き換えて after_filter で戻す
 
       my @math_table = ();
+
       ## ブロック数式
       $in =~ s{(\$\$(?:[^\$]|\\\$)+\$\$)}{
         push @math_table, $1;
         "◆数式:D-$#math_table◆";
       }xegm;
+
       ## インライン数式
-      $in =~ s{(\$(?:[^\$$ ]|\\\$)+\$)}{
+      my @lines = split /\n/, $in;
+      s{(\$(?:[^\$]|\\\$)+\$)}{
         push @math_table, $1;
         "◆数式:I-$#math_table◆";
-      }xeg;
+      }xeg foreach @lines;
+      $in = join "\n", @lines;
+
       $self->math_table(\@math_table);
     }
     if (my $config = $self->before_filter_config) {
