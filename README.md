@@ -549,6 +549,7 @@ Authors
 * @hokaccha
 * @suzuki
 * @gfx : Release to CPAN
+* @mrkn
 
 LICENSE
 ----------
