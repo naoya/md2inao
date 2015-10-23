@@ -40,6 +40,9 @@ markdown2inao.pl 改め md2inao.pl のこれまでについては https://gist.g
 
 - http://md2inao.bloghackers.net/
 
+### 変換したテキストのInDesignへの取り込み方
+[こちら](indesign.md)にまとめました。
+
 出力見本
 -------
 
