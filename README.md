@@ -438,6 +438,8 @@ GitHub Flavored Markdownとは異なり、複数行に分けて書いても1行�
     f(t) = \lim_{p\to\infty}\frac{1}{2\pi i}\int_{c-ip}^{c+ip} F(s) e^{st} ds
     $$
 
+md2inaoでの変換後に[tex2id](https://github.com/mrkn/tex2id)で再変換すると、TeXの数式がInDesignタグ付きテキストに変換されます（InDesignでも表現できる一部の記法のみに対応しています）。
+
 ### 文字記法
 
 これまでの記法は段落全体を指定する段落スタイルでしたが、ここからは段落内の文中で使う文字スタイルです。
