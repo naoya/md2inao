@@ -90,11 +90,17 @@ _a-zA-Z0-9!"#$%&'()-=^@`[]{};+:*<>,./?_
 --- expected
 <ParaStyle:本文>これは<CharStyle:赤字>赤文字<CharStyle:>です
 
-=== ruby
+=== monoruby
 --- in md2inao
-ルビつきの語<span class="ruby">外村(ほかむら)</span>です
+ルビつきの語<span class='monoruby'>辟易(へき えき)</span>です
 --- expected
-<ParaStyle:本文>ルビつきの語<cr:1><crstr:ほかむら><cmojir:0>外村<cr:><crstr:><cmojir:>です
+<ParaStyle:本文>ルビつきの語<cr:1><crstr:へき えき><cmojir:1>辟易<cr:><crstr:><cmojir:>です
+
+=== groupruby
+--- in md2inao
+ルビつきの語<span class='groupruby'>欠伸(あくび)</span>です
+--- expected
+<ParaStyle:本文>ルビつきの語<cr:1><crstr:あくび><cmojir:0>欠伸<cr:><crstr:><cmojir:>です
 
 === blockquote
 --- in md2inao

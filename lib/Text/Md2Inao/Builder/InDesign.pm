@@ -244,7 +244,12 @@ case span => sub {
     if ($h->attr('class') eq 'red') {
         return sprintf "<CharStyle:赤字>%s<CharStyle:>", $c->parse_element($h);
     }
-    elsif ($h->attr('class') eq 'ruby') {
+    elsif ($h->attr('class') eq 'monoruby') {
+        my $ruby = $h->as_trimmed_text;
+        $ruby =~ s!(.+)\((.+)\)!<cr:1><crstr:$2><cmojir:1>$1<cr:><crstr:><cmojir:>!;
+        return $ruby;
+    }
+    elsif ($h->attr('class') eq 'groupruby') {
         my $ruby = $h->as_trimmed_text;
         $ruby =~ s!(.+)\((.+)\)!<cr:1><crstr:$2><cmojir:0>$1<cr:><crstr:><cmojir:>!;
         return $ruby;

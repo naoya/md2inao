@@ -462,7 +462,17 @@ md2inaoでの変換後に[tex2id](https://github.com/mrkn/tex2id)で再変換す
 
 #### ルビ
 
-    <span class='ruby'>外村(ほかむら)</span>
+モノルビ（一つの漢字ごとに読みを示す）を振りたい場合は`monoruby`クラスを使用し、カッコ内で一文字ごとに半角スペースを挟んでください。
+
+```
+<span class='monoruby'>辟易(へき えき)</span>
+```
+
+グループルビ（熟字訓など、まとめて読みを示す）を振りたい場合は`groupruby`クラスを使用してください。
+
+```
+<span class='groupruby'>欠伸(あくび)</span>
+```
 
 #### キーボードフォント
 
