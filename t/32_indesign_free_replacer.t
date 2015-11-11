@@ -214,3 +214,9 @@ my_app
 <ParaStyle:本文><2178>
 <ParaStyle:本文><2169>
 <ParaStyle:本文><2179>
+
+=== fullwidth hyphen-minus
+--- in md2inao
+－
+--- expected
+<ParaStyle:本文><FF0D>
