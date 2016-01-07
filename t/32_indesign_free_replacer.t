@@ -313,21 +313,11 @@ my_app
 
 Ç
 
-Ş
-
 Ã
 
 Õ
 
 Ñ
-
-Ą
-
-Ę
-
-Į
-
-Ų
 
 Æ
 
@@ -335,13 +325,9 @@ my_app
 
 Ø
 
-Ĳ
-
 Þ
 
 ç
-
-ş
 
 ã
 
@@ -349,21 +335,11 @@ my_app
 
 ñ
 
-ą
-
-ę
-
-į
-
-ų
-
 æ
 
 œ
 
 ø
-
-ĳ
 
 ß
 
@@ -414,31 +390,19 @@ my_app
 <ParaStyle:本文><00FC>
 <ParaStyle:本文><00FF>
 <ParaStyle:本文><00C7>
-<ParaStyle:本文><015E>
 <ParaStyle:本文><00C3>
 <ParaStyle:本文><00D5>
 <ParaStyle:本文><00D1>
-<ParaStyle:本文><0104>
-<ParaStyle:本文><0118>
-<ParaStyle:本文><012E>
-<ParaStyle:本文><0172>
 <ParaStyle:本文><00C6>
 <ParaStyle:本文><0152>
 <ParaStyle:本文><00D8>
-<ParaStyle:本文><0132>
 <ParaStyle:本文><00DE>
 <ParaStyle:本文><00E7>
-<ParaStyle:本文><015F>
 <ParaStyle:本文><00E3>
 <ParaStyle:本文><00F5>
 <ParaStyle:本文><00F1>
-<ParaStyle:本文><0105>
-<ParaStyle:本文><0119>
-<ParaStyle:本文><012F>
-<ParaStyle:本文><0173>
 <ParaStyle:本文><00E6>
 <ParaStyle:本文><0153>
 <ParaStyle:本文><00F8>
-<ParaStyle:本文><0133>
 <ParaStyle:本文><00DF>
 <ParaStyle:本文><00FE>
