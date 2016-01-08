@@ -1,6 +1,6 @@
 {
   "name": "md2inao",
   "env": {
-    "BUILDPACK_URL": "https://github.com/naoya/heroku-buildpack-perl.git#cpanm-with-psgi"
+    "BUILDPACK_URL": "https://github.com/pnu/heroku-buildpack-perl.git"
   }
 }
