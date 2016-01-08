@@ -15,8 +15,6 @@ after_success:
 notifications:
   email:
     - i.naoya+md2inao@gmail.com
-  irc:
-    - "irc.freenode.net#md2inao"
 deploy:
   provider: heroku
   buildpack: "https://github.com/pnu/heroku-buildpack-perl/"
