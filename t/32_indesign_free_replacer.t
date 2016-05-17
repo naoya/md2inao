@@ -406,3 +406,10 @@ my_app
 <ParaStyle:本文><00F8>
 <ParaStyle:本文><00DF>
 <ParaStyle:本文><00FE>
+
+=== right-pointing double angle quotation mark
+--- in md2inao
+»
+--- expected
+<ParaStyle:本文><00BB>
+
