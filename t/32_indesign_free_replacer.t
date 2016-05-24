@@ -344,6 +344,8 @@ my_app
 ß
 
 þ
+
+å
 --- expected
 <ParaStyle:本文><00C1>
 <ParaStyle:本文><00C9>
@@ -406,6 +408,7 @@ my_app
 <ParaStyle:本文><00F8>
 <ParaStyle:本文><00DF>
 <ParaStyle:本文><00FE>
+<ParaStyle:本文><00E5>
 
 === right-pointing double angle quotation mark
 --- in md2inao
