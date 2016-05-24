@@ -127,7 +127,8 @@
         "ø" : "<00F8>",
         "ß" : "<00DF>",
         "þ" : "<00FE>",
-        
+        "å" : "<00E5>",
+
         "✓" : "<ct:Regular><cf:Zapf Dingbats><2713><ct:><cf:>",
         "✖" : "<ct:Regular><cf:Zapf Dingbats><2716><ct:><cf:>",
         "\\" : "<005C><005C>",
