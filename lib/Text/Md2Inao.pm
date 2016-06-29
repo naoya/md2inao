@@ -13,6 +13,7 @@ use Text::Markdown::Hoedown;
 
 use Text::Md2Inao::Director;
 use Text::Md2Inao::Builder::Inao;
+use Text::Md2Inao::Logger;
 
 # デフォルトのリストスタイル
 # disc:   黒丸
@@ -64,7 +65,49 @@ sub prepare_text_for_markdown {
     ## Work Around: リストの後にコードブロックが続くとだめな問題 (issue #6)
     $text =~ s!([-*+] .*?)\n\n    !$1\n\n　\n\n    !g;
 
+    ## PHP Markdown Extraスタイルのfootnoteの変換 (issue #120)
+    $text = replace_markdown_extra_footnote($text);
+
     return $text;
+}
+
+sub replace_markdown_extra_footnote {
+    my $text = shift;
+    my %footnotes;
+    my %footnotes_used;
+    my @lines = split /\n/, $text;
+
+    ## 脚注の注釈を収集
+    for (@lines) {
+        if (m/^\[\^(\w+)\]:(.+)$/) {
+            my ($k, $v) = ($1, $2);
+            $v =~ s/^\s+//;
+            $v =~ s/\s+$//;
+            $footnotes{lc $k} = $v;
+            $footnotes_used{lc $k} = 0;
+            s/^.+$//;
+        }
+    }
+
+    ## 脚注をreplace
+    for (@lines) {
+        if (m/\[\^(\w+)\]/) {
+            my ($k) = ($1);
+            my $v = $footnotes{lc $k};
+            if ($v) {
+                s/\[\^$k\]/(注:$v)/g;
+                $footnotes_used{lc $k} = 1;
+            } else {
+                ## !!! error
+                log warn => "脚注'" . $k . "'が見つかりません";
+            }
+        }
+    }
+    my @unused = grep { !$footnotes_used{$_} } keys %footnotes_used;
+    if (@unused) {
+        log warn => "脚注'" . join(', ', @unused) . "'が使われていません";
+    }
+    return join "\n", @lines;
 }
 
 sub prepare_html_for_inao {
