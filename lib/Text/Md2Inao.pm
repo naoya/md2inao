@@ -58,8 +58,7 @@ sub use_special_italic {
 sub prepare_text_for_markdown {
     my $text = shift;
 
-    ## Work Around: 先頭空白は字下げとみなし全角空白に置き換える (issue #4)
-    $text =~ s/^[ ]{1,3}([^ <])/　$1/mg;
+    ## 先頭空白は字下げとみなして全角空白に置き換えていた仕様は撤回 (issue #4, #119)
 
     ## Work Around: リストの後にコードブロックが続くとだめな問題 (issue #6)
     $text =~ s!([-*+] .*?)\n\n    !$1\n\n　\n\n    !g;
