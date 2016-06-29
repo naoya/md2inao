@@ -23,6 +23,15 @@ __END__
 通常の本文◆注/◆注釈ですよ。◆/注◆通常の本文
 
 ===
+--- in md2inao
+通常の本文1[^1]通常の本文2[^2]通常の本文3
+
+[^1]: 注釈ですよ。
+[^2]: 注釈その2ですよ。
+--- expected
+通常の本文1◆注/◆注釈ですよ。◆/注◆通常の本文2◆注/◆注釈その2ですよ。◆/注◆通常の本文3
+
+===
 --- in md2id
 通常の本文[^1]通常の本文
 
@@ -39,3 +48,12 @@ __END__
 --- expected
 <SJIS-MAC>
 <ParaStyle:本文>通常の本文<cstyle:上付き><fnStart:><pstyle:注釈>注釈ですよ。<fnEnd:><cstyle:>通常の本文
+===
+--- in md2id
+通常の本文1[^1]通常の本文2[^2]通常の本文3
+
+[^1]: 注釈ですよ。
+[^2]: 注釈その2ですよ。
+--- expected
+<SJIS-MAC>
+<ParaStyle:本文>通常の本文1<cstyle:上付き><fnStart:><pstyle:注釈>注釈ですよ。<fnEnd:><cstyle:>通常の本文2<cstyle:上付き><fnStart:><pstyle:注釈>注釈その2ですよ。<fnEnd:><cstyle:>通常の本文3

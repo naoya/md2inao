@@ -91,7 +91,7 @@ sub replace_markdown_extra_footnote {
 
     ## 脚注をreplace
     for (@lines) {
-        if (m/\[\^(\w+)\]/) {
+        while (m/\[\^(\w+)\]/g) {
             my ($k) = ($1);
             my $v = $footnotes{lc $k};
             if ($v) {
