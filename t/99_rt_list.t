@@ -13,11 +13,11 @@ __END__
 * Baz
 
   Piyo
---- expected
+--- expected -trim
 ・Foo
 ・Bar
 ・Baz
-　Piyo
+Piyo
 
 === case 2
 --- in md2inao
@@ -38,10 +38,10 @@ Piyo
 * あ
 
   い
---- expected
+--- expected -trim
 ・あ
 ・あ
-　い
+い
 
 === case 4
 --- in md2inao
@@ -96,12 +96,12 @@ Piyo
   bar
 
   baz
---- expected
-　blah blah
+--- expected -trim
+blah blah
 ・Hoge
 ・Foo
-　bar
-　baz
+bar
+baz
 
 === case 8
 --- in md2inao
