@@ -51,7 +51,7 @@ my $p = Text::Md2Inao->new({
     builder                => $builder,
 });
 
-print encode($output_encoding // 'utf-8', $p->parse($text));
+print encode(defined($output_encoding) ? $output_encoding : 'utf-8', $p->parse($text));
 
 __END__
 
