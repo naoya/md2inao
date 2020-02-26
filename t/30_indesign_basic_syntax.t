@@ -224,9 +224,9 @@ _a-zA-Z0-9!"#$%&'()-=^@`[]{};+:*<>,./?_
 
 === numbers in body
 --- in md2inao
-　箇条書き以外の本文やリスト中で番号を書きたいときは、(d1)、(d2)、(c1)、(c2)、(s1)、(s2)、(a1)、(a2)のように書いてください。
+　箇条書き以外の本文やコード中で番号を書きたいときは、(d1)、(d2)、(c1)、(c2)、(s1)、(s2)、(a1)、(a2)のように書いてください。
 --- expected
-<ParaStyle:本文>　箇条書き以外の本文やリスト中で番号を書きたいときは、<CharStyle:丸文字><2776><CharStyle:>、<CharStyle:丸文字><2777><CharStyle:>、<CharStyle:丸文字><2460><CharStyle:>、<CharStyle:丸文字><2461><CharStyle:>、<cTypeface:B><cFont:A-OTF ゴシックMB101 Pro><cotfcalt:0><cotfl:nalt,7>1<cTypeface:><cFont:><cotfcalt:><cotfl:>、<cTypeface:B><cFont:A-OTF ゴシックMB101 Pro><cotfcalt:0><cotfl:nalt,7>2<cTypeface:><cFont:><cotfcalt:><cotfl:>、<CharStyle:丸文字><cLigatures:0><cOTFContAlt:0><cOTFeatureList:nalt,3>a<cLigatures:><cOTFContAlt:><cOTFeatureList:><CharStyle:>、<CharStyle:丸文字><cLigatures:0><cOTFContAlt:0><cOTFeatureList:nalt,3>b<cLigatures:><cOTFContAlt:><cOTFeatureList:><CharStyle:>のように書いてください。
+<ParaStyle:本文>　箇条書き以外の本文やコード中で番号を書きたいときは、<CharStyle:丸文字><2776><CharStyle:>、<CharStyle:丸文字><2777><CharStyle:>、<CharStyle:丸文字><2460><CharStyle:>、<CharStyle:丸文字><2461><CharStyle:>、<cTypeface:B><cFont:A-OTF ゴシックMB101 Pro><cotfcalt:0><cotfl:nalt,7>1<cTypeface:><cFont:><cotfcalt:><cotfl:>、<cTypeface:B><cFont:A-OTF ゴシックMB101 Pro><cotfcalt:0><cotfl:nalt,7>2<cTypeface:><cFont:><cotfcalt:><cotfl:>、<CharStyle:丸文字><cLigatures:0><cOTFContAlt:0><cOTFeatureList:nalt,3>a<cLigatures:><cOTFContAlt:><cOTFeatureList:><CharStyle:>、<CharStyle:丸文字><cLigatures:0><cOTFContAlt:0><cOTFeatureList:nalt,3>b<cLigatures:><cOTFContAlt:><cOTFeatureList:><CharStyle:>のように書いてください。
 
 === numbers in body but escaped
 --- in md2inao
@@ -236,9 +236,9 @@ _a-zA-Z0-9!"#$%&'()-=^@`[]{};+:*<>,./?_
 
 === numbers in body and lists
 --- in md2inao
-### 本文やリスト中での番号
+### 本文やコード中での番号
 
-　箇条書き以外の本文やリスト中で番号を書きたいときは、(d1)、(d2)、(c1)、(c2)、(s1)、(s2)、(a1)、(a2)のように書いてください。
+　箇条書き以外の本文やコード中で番号を書きたいときは、(d1)、(d2)、(c1)、(c2)、(s1)、(s2)、(a1)、(a2)のように書いてください。
 
 <ol class='square'>
     <li>hogehogeをします</li>
@@ -254,18 +254,18 @@ _a-zA-Z0-9!"#$%&'()-=^@`[]{};+:*<>,./?_
         alert(\c1); // \でエスケープできます
     }
 --- expected
-<ParaStyle:小見出し>本文やリスト中での番号
-<ParaStyle:本文>　箇条書き以外の本文やリスト中で番号を書きたいときは、<CharStyle:丸文字><2776><CharStyle:>、<CharStyle:丸文字><2777><CharStyle:>、<CharStyle:丸文字><2460><CharStyle:>、<CharStyle:丸文字><2461><CharStyle:>、<cTypeface:B><cFont:A-OTF ゴシックMB101 Pro><cotfcalt:0><cotfl:nalt,7>1<cTypeface:><cFont:><cotfcalt:><cotfl:>、<cTypeface:B><cFont:A-OTF ゴシックMB101 Pro><cotfcalt:0><cotfl:nalt,7>2<cTypeface:><cFont:><cotfcalt:><cotfl:>、<CharStyle:丸文字><cLigatures:0><cOTFContAlt:0><cOTFeatureList:nalt,3>a<cLigatures:><cOTFContAlt:><cOTFeatureList:><CharStyle:>、<CharStyle:丸文字><cLigatures:0><cOTFContAlt:0><cOTFeatureList:nalt,3>b<cLigatures:><cOTFContAlt:><cOTFeatureList:><CharStyle:>のように書いてください。
+<ParaStyle:小見出し>本文やコード中での番号
+<ParaStyle:本文>　箇条書き以外の本文やコード中で番号を書きたいときは、<CharStyle:丸文字><2776><CharStyle:>、<CharStyle:丸文字><2777><CharStyle:>、<CharStyle:丸文字><2460><CharStyle:>、<CharStyle:丸文字><2461><CharStyle:>、<cTypeface:B><cFont:A-OTF ゴシックMB101 Pro><cotfcalt:0><cotfl:nalt,7>1<cTypeface:><cFont:><cotfcalt:><cotfl:>、<cTypeface:B><cFont:A-OTF ゴシックMB101 Pro><cotfcalt:0><cotfl:nalt,7>2<cTypeface:><cFont:><cotfcalt:><cotfl:>、<CharStyle:丸文字><cLigatures:0><cOTFContAlt:0><cOTFeatureList:nalt,3>a<cLigatures:><cOTFContAlt:><cOTFeatureList:><CharStyle:>、<CharStyle:丸文字><cLigatures:0><cOTFContAlt:0><cOTFeatureList:nalt,3>b<cLigatures:><cOTFContAlt:><cOTFeatureList:><CharStyle:>のように書いてください。
 <ParaStyle:半行アキ>
 <ParaStyle:箇条書き><cTypeface:B><cFont:A-OTF ゴシックMB101 Pro><cotfcalt:0><cotfl:nalt,7>1<cTypeface:><cFont:><cotfcalt:><cotfl:>hogehogeをします
 <ParaStyle:箇条書き><cTypeface:B><cFont:A-OTF ゴシックMB101 Pro><cotfcalt:0><cotfl:nalt,7>2<cTypeface:><cFont:><cotfcalt:><cotfl:>fugafugaと<cTypeface:B><cFont:A-OTF ゴシックMB101 Pro><cotfcalt:0><cotfl:nalt,7>1<cTypeface:><cFont:><cotfcalt:><cotfl:>の結果を足し合わせます
 <ParaStyle:本文>　リスト1.1<CharStyle:丸文字><2460><CharStyle:>ではアラートを出しています。<CharStyle:丸文字><2461><CharStyle:>でもアラートを出しています。(a1)エスケープできます。
 <ParaStyle:キャプション>リスト1.1	キャプション（コードのタイトル）
-<ParaStyle:リスト>function hoge() {
-<ParaStyle:リスト>    alert(foo);　… <CharStyle:丸文字><2460><CharStyle:>
-<ParaStyle:リスト>    alert(bar);　… <CharStyle:丸文字><2461><CharStyle:>
-<ParaStyle:リスト>    alert(c1); // <005C><005C>でエスケープできます
-<ParaStyle:リスト>}
+<ParaStyle:コード>function hoge() {
+<ParaStyle:コード>    alert(foo);　… <CharStyle:丸文字><2460><CharStyle:>
+<ParaStyle:コード>    alert(bar);　… <CharStyle:丸文字><2461><CharStyle:>
+<ParaStyle:コード>    alert(c1); // <005C><005C>でエスケープできます
+<ParaStyle:コード>}
 
 
 === pre
@@ -275,9 +275,9 @@ _a-zA-Z0-9!"#$%&'()-=^@`[]{};+:*<>,./?_
     }
 --- expected
 <ParaStyle:半行アキ>
-<ParaStyle:リスト>function bar(b) {
-<ParaStyle:リスト>    alert(b);
-<ParaStyle:リスト>}
+<ParaStyle:コード>function bar(b) {
+<ParaStyle:コード>    alert(b);
+<ParaStyle:コード>}
 
 === pre
 --- in md2inao
@@ -288,9 +288,9 @@ function bar(b) {
 ```
 --- expected
 <ParaStyle:半行アキ>
-<ParaStyle:リスト>function bar(b) {
-<ParaStyle:リスト>    alert(b);
-<ParaStyle:リスト>}
+<ParaStyle:コード>function bar(b) {
+<ParaStyle:コード>    alert(b);
+<ParaStyle:コード>}
 
 === notes in pre
 --- in md2inao
@@ -299,9 +299,9 @@ function bar(b) {
     }
 --- expected
 <ParaStyle:半行アキ>
-<ParaStyle:リスト>function bar(b) {
-<ParaStyle:リスト>    alert(b); <CharStyle:リストコメント> コメント <CharStyle:>
-<ParaStyle:リスト>}
+<ParaStyle:コード>function bar(b) {
+<ParaStyle:コード>    alert(b); <CharStyle:コードコメント> コメント <CharStyle:>
+<ParaStyle:コード>}
 
 === notes in pre
 --- in md2inao
@@ -312,9 +312,9 @@ function bar(b) {
 ```
 --- expected
 <ParaStyle:半行アキ>
-<ParaStyle:リスト>function bar(b) {
-<ParaStyle:リスト>    alert(b); <CharStyle:リストコメント> コメント <CharStyle:>
-<ParaStyle:リスト>}
+<ParaStyle:コード>function bar(b) {
+<ParaStyle:コード>    alert(b); <CharStyle:コードコメント> コメント <CharStyle:>
+<ParaStyle:コード>}
 
 === notes in pre #2
 --- in md2inao
@@ -324,10 +324,10 @@ function bar(b) {
     }
 --- expected
 <ParaStyle:半行アキ>
-<ParaStyle:リスト><CharStyle:リストコメント> 見出し的にも使えます <CharStyle:>
-<ParaStyle:リスト>function bar(b) {
-<ParaStyle:リスト>    alert(b);
-<ParaStyle:リスト>}
+<ParaStyle:コード><CharStyle:コードコメント> 見出し的にも使えます <CharStyle:>
+<ParaStyle:コード>function bar(b) {
+<ParaStyle:コード>    alert(b);
+<ParaStyle:コード>}
 
 === notes in pre #2
 --- in md2inao
@@ -339,10 +339,10 @@ function bar(b) {
 ```
 --- expected
 <ParaStyle:半行アキ>
-<ParaStyle:リスト><CharStyle:リストコメント> 見出し的にも使えます <CharStyle:>
-<ParaStyle:リスト>function bar(b) {
-<ParaStyle:リスト>    alert(b);
-<ParaStyle:リスト>}
+<ParaStyle:コード><CharStyle:コードコメント> 見出し的にも使えます <CharStyle:>
+<ParaStyle:コード>function bar(b) {
+<ParaStyle:コード>    alert(b);
+<ParaStyle:コード>}
 
 === caption in pre
 --- in md2inao
@@ -350,7 +350,7 @@ function bar(b) {
     use strict;
 --- expected
 <ParaStyle:キャプション>リスト1.1	キャプション
-<ParaStyle:リスト>use strict;
+<ParaStyle:コード>use strict;
 
 === caption in pre
 --- in md2inao
@@ -360,7 +360,7 @@ use strict;
 ```
 --- expected
 <ParaStyle:キャプション>リスト1.1	キャプション
-<ParaStyle:リスト>use strict;
+<ParaStyle:コード>use strict;
 
 === em/italic in pre
 --- in md2inao
@@ -368,8 +368,8 @@ use strict;
     ___foo('bar');___ // コード内___イタリックabc___
 --- expected
 <ParaStyle:半行アキ>
-<ParaStyle:リスト><CharStyle:コマンド太字>use strict<CharStyle:>;
-<ParaStyle:リスト><CharStyle:イタリック（変形斜体）>foo('bar');<CharStyle:> // コード内<CharStyle:イタリック（変形斜体）>イタリックabc<CharStyle:>
+<ParaStyle:コード><CharStyle:コマンド太字>use strict<CharStyle:>;
+<ParaStyle:コード><CharStyle:イタリック（変形斜体）>foo('bar');<CharStyle:> // コード内<CharStyle:イタリック（変形斜体）>イタリックabc<CharStyle:>
 
 === em/italic in pre
 --- in md2inao
@@ -379,8 +379,8 @@ ___foo('bar');___ // コード内___イタリックabc___
 ```
 --- expected
 <ParaStyle:半行アキ>
-<ParaStyle:リスト><CharStyle:コマンド太字>use strict<CharStyle:>;
-<ParaStyle:リスト><CharStyle:イタリック（変形斜体）>foo('bar');<CharStyle:> // コード内<CharStyle:イタリック（変形斜体）>イタリックabc<CharStyle:>
+<ParaStyle:コード><CharStyle:コマンド太字>use strict<CharStyle:>;
+<ParaStyle:コード><CharStyle:イタリック（変形斜体）>foo('bar');<CharStyle:> // コード内<CharStyle:イタリック（変形斜体）>イタリックabc<CharStyle:>
 
 === pre for command
 --- in md2inao
@@ -395,13 +395,13 @@ ___foo('bar');___ // コード内___イタリックabc___
     }
 --- expected
 <ParaStyle:キャプション>図1.1	キャプション（コマンドのタイトル）
-<ParaStyle:リスト白文字>$ command  <CharStyle:コマンド太字>foo<CharStyle:> // コマンド内強調
-<ParaStyle:リスト白文字>bar <CharStyle:リストコメント白地黒文字> こんな風にコメントがつけられます <CharStyle:>
-<ParaStyle:リスト白文字>
-<ParaStyle:リスト白文字><CharStyle:リストコメント白地黒文字> 見出し的にも使えます <CharStyle:>
-<ParaStyle:リスト白文字>function bar(b) {
-<ParaStyle:リスト白文字>    alert(b);
-<ParaStyle:リスト白文字>}
+<ParaStyle:コード黒地白文字>$ command  <CharStyle:コマンド太字>foo<CharStyle:> // コマンド内強調
+<ParaStyle:コード黒地白文字>bar <CharStyle:コードコメント黒地白文字用> こんな風にコメントがつけられます <CharStyle:>
+<ParaStyle:コード黒地白文字>
+<ParaStyle:コード黒地白文字><CharStyle:コードコメント黒地白文字用> 見出し的にも使えます <CharStyle:>
+<ParaStyle:コード黒地白文字>function bar(b) {
+<ParaStyle:コード黒地白文字>    alert(b);
+<ParaStyle:コード黒地白文字>}
 
 === pre for command
 --- in md2inao
@@ -418,13 +418,13 @@ function bar(b) {
 ```
 --- expected
 <ParaStyle:キャプション>図1.1	キャプション（コマンドのタイトル）
-<ParaStyle:リスト白文字>$ command  <CharStyle:コマンド太字>foo<CharStyle:> // コマンド内強調
-<ParaStyle:リスト白文字>bar <CharStyle:リストコメント白地黒文字> こんな風にコメントがつけられます <CharStyle:>
-<ParaStyle:リスト白文字>
-<ParaStyle:リスト白文字><CharStyle:リストコメント白地黒文字> 見出し的にも使えます <CharStyle:>
-<ParaStyle:リスト白文字>function bar(b) {
-<ParaStyle:リスト白文字>    alert(b);
-<ParaStyle:リスト白文字>}
+<ParaStyle:コード黒地白文字>$ command  <CharStyle:コマンド太字>foo<CharStyle:> // コマンド内強調
+<ParaStyle:コード黒地白文字>bar <CharStyle:コードコメント黒地白文字用> こんな風にコメントがつけられます <CharStyle:>
+<ParaStyle:コード黒地白文字>
+<ParaStyle:コード黒地白文字><CharStyle:コードコメント黒地白文字用> 見出し的にも使えます <CharStyle:>
+<ParaStyle:コード黒地白文字>function bar(b) {
+<ParaStyle:コード黒地白文字>    alert(b);
+<ParaStyle:コード黒地白文字>}
 
 === pre for command, no caption
 --- in md2inao
@@ -434,9 +434,9 @@ function bar(b) {
     }
 --- expected
 <ParaStyle:半行アキ>
-<ParaStyle:リスト白文字>function bar(b) {
-<ParaStyle:リスト白文字>    alert(b); <CharStyle:リストコメント白地黒文字> コメント <CharStyle:>
-<ParaStyle:リスト白文字>}
+<ParaStyle:コード黒地白文字>function bar(b) {
+<ParaStyle:コード黒地白文字>    alert(b); <CharStyle:コードコメント黒地白文字用> コメント <CharStyle:>
+<ParaStyle:コード黒地白文字>}
 
 === pre for command, no caption
 --- in md2inao
@@ -448,9 +448,9 @@ function bar(b) {
 ```
 --- expected
 <ParaStyle:半行アキ>
-<ParaStyle:リスト白文字>function bar(b) {
-<ParaStyle:リスト白文字>    alert(b); <CharStyle:リストコメント白地黒文字> コメント <CharStyle:>
-<ParaStyle:リスト白文字>}
+<ParaStyle:コード黒地白文字>function bar(b) {
+<ParaStyle:コード黒地白文字>    alert(b); <CharStyle:コードコメント黒地白文字用> コメント <CharStyle:>
+<ParaStyle:コード黒地白文字>}
 === list
 --- in md2inao
     * ハイフンになる
@@ -465,15 +465,15 @@ function bar(b) {
     a
 --- expected
 <ParaStyle:半行アキ>
-<ParaStyle:リスト>* ハイフンになる
+<ParaStyle:コード>* ハイフンになる
 <ParaStyle:半行アキ>
-<ParaStyle:リスト>a
+<ParaStyle:コード>a
 <ParaStyle:本文>あ
 <ParaStyle:半行アキ>
-<ParaStyle:リスト>* ハイフンにならない
-<ParaStyle:リスト>* ハイフンになる
+<ParaStyle:コード>* ハイフンにならない
+<ParaStyle:コード>* ハイフンになる
 <ParaStyle:半行アキ>
-<ParaStyle:リスト>a
+<ParaStyle:コード>a
 
 === anchor
 --- in md2inao

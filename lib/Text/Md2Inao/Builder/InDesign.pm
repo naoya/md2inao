@@ -355,14 +355,14 @@ case pre => sub {
 
     $text = escape_html($text);
 
-    my $list_label = 'リスト';
-    my $comment_label = 'リストコメント';
+    my $list_label = 'コード';
+    my $comment_label = 'コードコメント';
 
     # 「!!! cmd」で始まるコードブロックはコマンドライン（黒背景）
     if ($text =~ /!!!(\s+)?cmd/) {
         $text =~ s/.+?\n//;
-        $list_label .= '白文字';
-        $comment_label .= '白地黒文字';
+        $list_label .= '黒地白文字';
+        $comment_label .= '黒地白文字用';
     }
 
     ## リストスタイル
@@ -377,7 +377,7 @@ case pre => sub {
     }
     else {
         if ($max > $c->max_inline_list_length) {
-            log warn => "本文埋め込みリストは" . $c->max_inline_list_length . "文字まで！(現在${max}使用):\n$text\n\n";
+            log warn => "本文埋め込みコードは" . $c->max_inline_list_length . "文字まで！(現在${max}使用):\n$text\n\n";
         }
     }
 

@@ -127,12 +127,12 @@ my_app
 ```
 --- expected
 <ParaStyle:半行アキ>
-<ParaStyle:リスト>my_app
-<ParaStyle:リスト>├── lib
-<ParaStyle:リスト>│   ├── MyApp
-<ParaStyle:リスト>│   │   └── Controller
-<ParaStyle:リスト>│   │       └── Example.pm
-<ParaStyle:リスト>│   └── MyApp.pm
+<ParaStyle:コード>my_app
+<ParaStyle:コード>├── lib
+<ParaStyle:コード>│   ├── MyApp
+<ParaStyle:コード>│   │   └── Controller
+<ParaStyle:コード>│   │       └── Example.pm
+<ParaStyle:コード>│   └── MyApp.pm
 
 === fullwidth tilde to wave dash
 --- in md2inao

@@ -22,14 +22,14 @@ use Text::Md2Inao::Logger;
 # alpha:  アルファベット
 has default_list => ( is => 'rw', isa => 'Str' );
 
-# リストの文字数上限
+# コードの文字数上限
 # WEB+DB PRESSの場合、リストは、1行63桁（文字）まで
 # 書籍の場合、リストは1行69桁（文字）まで
 has max_list_length => ( is => 'rw', isa => 'Num' );
 
-# 本文埋め込みリストの文字数上限
-# WEB+DB PRESSの場合、本文リストは1行55桁（文字）まで
-# 書籍の場合、本文リストは1行73桁（文字）まで
+# 本文埋め込みコードの文字数上限
+# WEB+DB PRESSの場合、本文コードは1行55桁（文字）まで
+# 書籍の場合、本文コードは1行73桁（文字）まで
 has max_inline_list_length => ( is => 'rw', isa => 'Num' );
 
 # 空行のスタイル
