@@ -82,7 +82,7 @@ _a-zA-Z0-9!"#$%&'()-=^@`[]{};+:*<>,./?_
 --- in md2inao
 これは(注:ここは脚注です)です
 --- expected
-<ParaStyle:本文>これは<cstyle:上付き><fnStart:><pstyle:脚注>ここは脚注です<fnEnd:><cstyle:>です
+<ParaStyle:本文>これは<cstyle:脚注上付き><fnStart:><pstyle:脚注>ここは脚注です<fnEnd:><cstyle:>です
 
 === red
 --- in md2inao
@@ -479,7 +479,7 @@ function bar(b) {
 --- in md2inao
 [RubyMotion](http://rubymotion.com)
 --- expected
-<ParaStyle:本文>RubyMotion<cstyle:上付き><fnStart:><pstyle:脚注>http://rubymotion.com<fnEnd:><cstyle:>
+<ParaStyle:本文>RubyMotion<cstyle:脚注上付き><fnStart:><pstyle:脚注>http://rubymotion.com<fnEnd:><cstyle:>
 
 === img
 --- in md2inao

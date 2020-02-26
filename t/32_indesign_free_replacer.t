@@ -53,7 +53,7 @@ __END__
 --- in md2inao
 <sup>上付き（ゴシック、コラムなどでの注記用）</sup>
 --- expected
-<ParaStyle:本文><CharStyle:上付き>上付き（ゴシック、コラムなどでの注記用）<CharStyle:>
+<ParaStyle:本文><CharStyle:脚注上付き>上付き（ゴシック、コラムなどでの注記用）<CharStyle:>
 
 === sup
 --- in md2inao

@@ -1,6 +1,6 @@
 {
     "before_filter": {
-        "<sup>" : "<CharStyle:上付き>",
+        "<sup>" : "<CharStyle:脚注上付き>",
         "</sup>" : "<CharStyle:>",
         "<sup2>" : "<cp:Superscript>",
         "</sup2>" : "<cp:>"
