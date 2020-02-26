@@ -36,7 +36,7 @@ This is not html &lt;code&gt;
 This is not html `<code>`
 --- expected
 <SJIS-MAC>
-<ParaStyle:本文>This is not html <CharStyle:コマンド><005C><code<005C>><CharStyle:>
+<ParaStyle:本文>This is not html <CharStyle:コード（文中）><005C><code<005C>><CharStyle:>
 
 === list context
 --- in md2inao

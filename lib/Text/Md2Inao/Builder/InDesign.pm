@@ -211,7 +211,7 @@ case em => sub {
 
 case code => sub {
     my ($c, $h) = @_;
-    return sprintf "<CharStyle:コマンド>%s<CharStyle:>", $c->parse_element($h);
+    return sprintf "<CharStyle:コード（文中）>%s<CharStyle:>", $c->parse_element($h);
 };
 
 case p => sub {
