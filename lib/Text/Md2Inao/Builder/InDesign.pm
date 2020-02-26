@@ -185,7 +185,7 @@ case "h4" => sub {
 
 case "h5" => sub {
     my ($c, $h) = @_;
-    return sprintf "<ParaStyle:コラム小見出し>%s\n", $c->parse_element($h);
+    return sprintf "<ParaStyle:コラム内見出し>%s\n", $c->parse_element($h);
 };
 
 case strong => sub {
