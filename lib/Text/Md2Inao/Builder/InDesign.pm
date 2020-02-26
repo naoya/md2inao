@@ -146,7 +146,7 @@ case text => sub {
 
     if ($text =~ m!\(注:! or $c->in_footnote) {
         $text = replace_note_parenthesis($c, $text, '注');
-        $text =~ s!◆注/◆!<cstyle:上付き><fnStart:><pstyle:注釈>!g;
+        $text =~ s!◆注/◆!<cstyle:上付き><fnStart:><pstyle:脚注>!g;
         $text =~ s!◆/注◆!<fnEnd:><cstyle:>!g;
     }
 
@@ -428,7 +428,7 @@ case a => sub {
     my $url   = $h->attr('href');
     my $title = $c->parse_element($h);
     if ($url and $title) {
-        return sprintf "%s<cstyle:上付き><fnStart:><pstyle:注釈>%s<fnEnd:><cstyle:>", $title, $url;
+        return sprintf "%s<cstyle:上付き><fnStart:><pstyle:脚注>%s<fnEnd:><cstyle:>", $title, $url;
     } else {
         return fallback_to_escaped_html($h);
     }

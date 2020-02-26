@@ -76,7 +76,7 @@ sub replace_markdown_extra_footnote {
     my %footnotes_used;
     my @lines = split /\n/, $text;
 
-    ## 脚注の注釈を収集
+    ## 脚注の脚注文を収集
     for (@lines) {
         if (m/^\[\^(\w+)\]:(.+)$/) {
             my ($k, $v) = ($1, $2);
