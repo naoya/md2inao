@@ -23,7 +23,7 @@ __END__
 * Hello
 * World
 --- expected
-<SJIS-MAC>
+<UNICODE-MAC>
 <ParaStyle:本文>
 <ParaStyle:箇条書き>・Hello
 <ParaStyle:箇条書き>・World
@@ -32,7 +32,7 @@ __END__
 --- in md2inao
     use strict;
 --- expected
-<SJIS-MAC>
+<UNICODE-MAC>
 <ParaStyle:本文>
 <ParaStyle:コード>use strict;
 
@@ -41,7 +41,7 @@ __END__
 1. Hello
 2. World
 --- expected
-<SJIS-MAC>
+<UNICODE-MAC>
 <ParaStyle:本文>
 <ParaStyle:箇条書き><CharStyle:丸文字><2776><CharStyle:>Hello
 <ParaStyle:箇条書き><CharStyle:丸文字><2777><CharStyle:>World

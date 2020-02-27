@@ -17,7 +17,7 @@ The following lines are note inline maths.
     $ 2
     $ 3
 --- expected
-<SJIS-MAC>
+<UNICODE-MAC>
 <ParaStyle:本文>Inline math text $x_1$ and $\Delta x_2$ should be preserved as-is.The following lines are note inline maths.
 <ParaStyle:半行アキ>
 <ParaStyle:コード>$ 1
@@ -54,7 +54,7 @@ $$
 
 Here is normal markdown text.
 --- expected
-<SJIS-MAC>
+<UNICODE-MAC>
 <ParaStyle:本文>Display math text like following should be kept as-is.
 <ParaStyle:本文>$$
 \begin{split}
@@ -124,7 +124,7 @@ This place is not italic.
 
 $$ x_2, x_3 $$
 --- expected
-<SJIS-MAC>
+<UNICODE-MAC>
 <ParaStyle:本文>Math texts are converted as Markdown without specifying UseMath.
 <ParaStyle:本文>$x<CharStyle:イタリック>1$This place is italic$x<CharStyle:>2$This place is not italic.
 <ParaStyle:本文>$$ x_1 $$

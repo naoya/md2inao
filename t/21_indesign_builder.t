@@ -22,7 +22,7 @@ hogehoge **piyo** hogehoge
 EOF
 
 is $out, <<EOF;
-<SJIS-MAC>
+<UNICODE-MAC>
 <ParaStyle:大見出し>blah blah
 <ParaStyle:本文>hogehoge <CharStyle:太字>piyo<CharStyle:>hogehoge
 EOF

@@ -7,7 +7,7 @@ run_is in => 'expected';
 
 sub _md2id {
     my $out = md2id($_);
-    $out =~ s/<SJIS-MAC>\n//;
+    $out =~ s/<UNICODE-MAC>\n//;
     return $out;
 }
 

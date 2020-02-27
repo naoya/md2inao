@@ -15,7 +15,7 @@ __END__
   </tr>
 </table>
 --- expected
-<SJIS-MAC>
+<UNICODE-MAC>
 <ParaStyle:キャプション>表1	キャプション
 <ParaStyle:表見出し行>列の説明1	列の説明2
 
@@ -28,6 +28,6 @@ __END__
 </tr>
 </table>
 --- expected
-<SJIS-MAC>
+<UNICODE-MAC>
 <ParaStyle:キャプション>表1	キャプション
 <ParaStyle:表見出し行>列の説明1	列の説明2

@@ -24,7 +24,7 @@ __END__
 </dl>
 </div>
 --- expected
-<SJIS-MAC>
+<UNICODE-MAC>
 <ParaStyle:コラムタイトル>コラム：タイトル
 <ParaStyle:コラム本文>あいうえお。
 <ParaStyle:コラム半行アキ>
@@ -44,7 +44,7 @@ __END__
   <dd>def</dd>
 </dl>
 --- expected
-<SJIS-MAC>
+<UNICODE-MAC>
 <ParaStyle:本文>あいうえお。
 <ParaStyle:半行アキ>
 <ParaStyle:箇条書き>・abc
