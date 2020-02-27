@@ -389,7 +389,7 @@ case pre => sub {
     }
 
     # コード内強調
-    $text =~ s!\*\*(.+?)\*\*!<CharStyle:コマンド太字>$1<CharStyle:>!g;
+    $text =~ s!\*\*(.+?)\*\*!<CharStyle:コード強調（文字単位）>$1<CharStyle:>!g;
 
     # コード内イタリック
     $text =~ s!\___(.+?)\___!<CharStyle:イタリック（変形斜体）>$1<CharStyle:>!g;

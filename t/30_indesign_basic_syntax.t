@@ -368,7 +368,7 @@ use strict;
     ___foo('bar');___ // コード内___イタリックabc___
 --- expected
 <ParaStyle:半行アキ>
-<ParaStyle:コード><CharStyle:コマンド太字>use strict<CharStyle:>;
+<ParaStyle:コード><CharStyle:コード強調（文字単位）>use strict<CharStyle:>;
 <ParaStyle:コード><CharStyle:イタリック（変形斜体）>foo('bar');<CharStyle:> // コード内<CharStyle:イタリック（変形斜体）>イタリックabc<CharStyle:>
 
 === em/italic in pre
@@ -379,7 +379,7 @@ ___foo('bar');___ // コード内___イタリックabc___
 ```
 --- expected
 <ParaStyle:半行アキ>
-<ParaStyle:コード><CharStyle:コマンド太字>use strict<CharStyle:>;
+<ParaStyle:コード><CharStyle:コード強調（文字単位）>use strict<CharStyle:>;
 <ParaStyle:コード><CharStyle:イタリック（変形斜体）>foo('bar');<CharStyle:> // コード内<CharStyle:イタリック（変形斜体）>イタリックabc<CharStyle:>
 
 === pre for command
@@ -395,7 +395,7 @@ ___foo('bar');___ // コード内___イタリックabc___
     }
 --- expected
 <ParaStyle:キャプション>図1.1	キャプション（コマンドのタイトル）
-<ParaStyle:コード黒地白文字>$ command  <CharStyle:コマンド太字>foo<CharStyle:> // コマンド内強調
+<ParaStyle:コード黒地白文字>$ command  <CharStyle:コード強調（文字単位）>foo<CharStyle:> // コマンド内強調
 <ParaStyle:コード黒地白文字>bar <CharStyle:コードコメント黒地白文字用> こんな風にコメントがつけられます <CharStyle:>
 <ParaStyle:コード黒地白文字>
 <ParaStyle:コード黒地白文字><CharStyle:コードコメント黒地白文字用> 見出し的にも使えます <CharStyle:>
@@ -418,7 +418,7 @@ function bar(b) {
 ```
 --- expected
 <ParaStyle:キャプション>図1.1	キャプション（コマンドのタイトル）
-<ParaStyle:コード黒地白文字>$ command  <CharStyle:コマンド太字>foo<CharStyle:> // コマンド内強調
+<ParaStyle:コード黒地白文字>$ command  <CharStyle:コード強調（文字単位）>foo<CharStyle:> // コマンド内強調
 <ParaStyle:コード黒地白文字>bar <CharStyle:コードコメント黒地白文字用> こんな風にコメントがつけられます <CharStyle:>
 <ParaStyle:コード黒地白文字>
 <ParaStyle:コード黒地白文字><CharStyle:コードコメント黒地白文字用> 見出し的にも使えます <CharStyle:>
