@@ -76,7 +76,7 @@ _a-zA-Z0-9!"#$%&'()-=^@`[]{};+:*<>,./?_
 --- in md2inao
 これは`インラインのコード`です
 --- expected
-<ParaStyle:本文>これは<CharStyle:コード（文中）>インラインのコード<CharStyle:>です
+<ParaStyle:本文>これは<CharStyle:コード（文字単位）>インラインのコード<CharStyle:>です
 
 === footnote
 --- in md2inao
