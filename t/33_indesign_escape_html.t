@@ -28,14 +28,14 @@ __END__
 --- in md2inao
 This is not html &lt;code&gt;
 --- expected
-<UNICODE-MAC>
+<SJIS-MAC>
 <ParaStyle:本文>This is not html <005C><code<005C>>
 
 === inline command
 --- in md2inao
 This is not html `<code>`
 --- expected
-<UNICODE-MAC>
+<SJIS-MAC>
 <ParaStyle:本文>This is not html <CharStyle:コード（文字単位）><005C><code<005C>><CharStyle:>
 
 === list context
@@ -46,7 +46,7 @@ This is not html `<code>`
 
 Hello, World;
 --- expected
-<UNICODE-MAC>
+<SJIS-MAC>
 <ParaStyle:半行アキ>
 <ParaStyle:コード><005C><html<005C>>
 <ParaStyle:コード><005C><body<005C>><005C></body<005C>>
@@ -57,5 +57,5 @@ Hello, World;
 --- in md2inao
 <span class="unknown">test</span>
 --- expected
-<UNICODE-MAC>
+<SJIS-MAC>
 <ParaStyle:本文><005C><span class="unknown"<005C>>test<005C></span<005C>>

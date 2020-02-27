@@ -13,6 +13,6 @@ __END__
 >
 > です。
 --- expected
-<UNICODE-MAC>
+<SJIS-MAC>
 <ParaStyle:引用>引用
 <ParaStyle:引用>です。

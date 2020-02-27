@@ -74,7 +74,7 @@ sub after_filter {
     $out = $self->SUPER::after_filter($c, $out);
     chomp $out;
     return <<EOF;
-<UNICODE-MAC>
+<SJIS-MAC>
 $out
 EOF
 }

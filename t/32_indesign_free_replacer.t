@@ -20,7 +20,7 @@ sub md2inao {
         builder                => Text::Md2Inao::Builder::InDesign->new,
     });
     my $out = $p->parse($_);
-    $out =~ s/^<UNICODE-MAC>\n//; # テストに毎回書くのめんどくさいので
+    $out =~ s/^<SJIS-MAC>\n//; # テストに毎回書くのめんどくさいので
     return $out;
 }
 
