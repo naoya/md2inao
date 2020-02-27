@@ -47,7 +47,7 @@ __END__
 --- in md2inao
 ◆WDB◆
 --- expected
-<ParaStyle:本文><cstyle:ストッパ>#<cstyle:>
+<ParaStyle:本文><cstyle:ストッパ>WDB<cstyle:>
 
 === sup
 --- in md2inao
