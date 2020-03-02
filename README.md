@@ -553,7 +553,7 @@ md2inao デベロッパー向け情報
 
 WEB+DB PRESS Vol.116（2020年4月発売）から、InDesignのバージョンアップに伴い、InDesignのスタイル名を[変更しました](https://github.com/naoya/md2inao/pull/126)。
 
-古い書籍の改訂時など、過去のスタイル名のまま変換したい場合は、タグ[「old\-style\-name](https://github.com/naoya/md2inao/releases/tag/old-style-name)段階のものを使用してください。
+古い書籍の改訂時など、過去のスタイル名のまま変換したい場合は、タグ[old\-style\-name](https://github.com/naoya/md2inao/releases/tag/old-style-name)段階のものを使用してください。
 
 Authors
 ----------
