@@ -47,13 +47,13 @@ __END__
 --- in md2inao
 ◆WDB◆
 --- expected
-<ParaStyle:本文><cstyle:ストッパ>#<cstyle:>
+<ParaStyle:本文><cstyle:ストッパ>WDB<cstyle:>
 
 === sup
 --- in md2inao
 <sup>上付き（ゴシック、コラムなどでの注記用）</sup>
 --- expected
-<ParaStyle:本文><CharStyle:上付き>上付き（ゴシック、コラムなどでの注記用）<CharStyle:>
+<ParaStyle:本文><CharStyle:脚注上付き>上付き（ゴシック、コラムなどでの注記用）<CharStyle:>
 
 === sup
 --- in md2inao
@@ -127,12 +127,12 @@ my_app
 ```
 --- expected
 <ParaStyle:半行アキ>
-<ParaStyle:リスト>my_app
-<ParaStyle:リスト>├── lib
-<ParaStyle:リスト>│   ├── MyApp
-<ParaStyle:リスト>│   │   └── Controller
-<ParaStyle:リスト>│   │       └── Example.pm
-<ParaStyle:リスト>│   └── MyApp.pm
+<ParaStyle:コード>my_app
+<ParaStyle:コード>├── lib
+<ParaStyle:コード>│   ├── MyApp
+<ParaStyle:コード>│   │   └── Controller
+<ParaStyle:コード>│   │       └── Example.pm
+<ParaStyle:コード>│   └── MyApp.pm
 
 === fullwidth tilde to wave dash
 --- in md2inao

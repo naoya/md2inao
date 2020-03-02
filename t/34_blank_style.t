@@ -34,7 +34,7 @@ __END__
 --- expected
 <SJIS-MAC>
 <ParaStyle:本文>
-<ParaStyle:リスト>use strict;
+<ParaStyle:コード>use strict;
 
 ===
 --- in md2inao

@@ -240,7 +240,7 @@ case pre => sub {
     }
     else {
         if ($max > $c->max_inline_list_length) {
-            log warn => "本文埋め込みリストは" . $c->max_inline_list_length . "文字まで！(現在${max}使用):\n$text\n\n";
+            log warn => "本文埋め込みコードは" . $c->max_inline_list_length . "文字まで！(現在${max}使用):\n$text\n\n";
         }
     }
 

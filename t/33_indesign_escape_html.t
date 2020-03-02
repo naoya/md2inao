@@ -36,7 +36,7 @@ This is not html &lt;code&gt;
 This is not html `<code>`
 --- expected
 <SJIS-MAC>
-<ParaStyle:本文>This is not html <CharStyle:コマンド><005C><code<005C>><CharStyle:>
+<ParaStyle:本文>This is not html <CharStyle:コード（文字単位）><005C><code<005C>><CharStyle:>
 
 === list context
 --- in md2inao
@@ -48,9 +48,9 @@ Hello, World;
 --- expected
 <SJIS-MAC>
 <ParaStyle:半行アキ>
-<ParaStyle:リスト><005C><html<005C>>
-<ParaStyle:リスト><005C><body<005C>><005C></body<005C>>
-<ParaStyle:リスト><005C></html<005C>>
+<ParaStyle:コード><005C><html<005C>>
+<ParaStyle:コード><005C><body<005C>><005C></body<005C>>
+<ParaStyle:コード><005C></html<005C>>
 <ParaStyle:本文>Hello, World;
 
 === passing througed tags

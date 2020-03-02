@@ -146,7 +146,7 @@ case text => sub {
 
     if ($text =~ m!\(注:! or $c->in_footnote) {
         $text = replace_note_parenthesis($c, $text, '注');
-        $text =~ s!◆注/◆!<cstyle:上付き><fnStart:><pstyle:注釈>!g;
+        $text =~ s!◆注/◆!<cstyle:脚注上付き><fnStart:><pstyle:脚注>!g;
         $text =~ s!◆/注◆!<fnEnd:><cstyle:>!g;
     }
 
@@ -185,7 +185,7 @@ case "h4" => sub {
 
 case "h5" => sub {
     my ($c, $h) = @_;
-    return sprintf "<ParaStyle:コラム小見出し>%s\n", $c->parse_element($h);
+    return sprintf "<ParaStyle:コラム内見出し>%s\n", $c->parse_element($h);
 };
 
 case strong => sub {
@@ -211,7 +211,7 @@ case em => sub {
 
 case code => sub {
     my ($c, $h) = @_;
-    return sprintf "<CharStyle:コマンド>%s<CharStyle:>", $c->parse_element($h);
+    return sprintf "<CharStyle:コード（文字単位）>%s<CharStyle:>", $c->parse_element($h);
 };
 
 case p => sub {
@@ -355,14 +355,14 @@ case pre => sub {
 
     $text = escape_html($text);
 
-    my $list_label = 'リスト';
-    my $comment_label = 'リストコメント';
+    my $list_label = 'コード';
+    my $comment_label = 'コードコメント';
 
     # 「!!! cmd」で始まるコードブロックはコマンドライン（黒背景）
     if ($text =~ /!!!(\s+)?cmd/) {
         $text =~ s/.+?\n//;
-        $list_label .= '白文字';
-        $comment_label .= '白地黒文字';
+        $list_label .= '黒地白文字';
+        $comment_label .= '黒地白文字用';
     }
 
     ## リストスタイル
@@ -377,7 +377,7 @@ case pre => sub {
     }
     else {
         if ($max > $c->max_inline_list_length) {
-            log warn => "本文埋め込みリストは" . $c->max_inline_list_length . "文字まで！(現在${max}使用):\n$text\n\n";
+            log warn => "本文埋め込みコードは" . $c->max_inline_list_length . "文字まで！(現在${max}使用):\n$text\n\n";
         }
     }
 
@@ -389,7 +389,7 @@ case pre => sub {
     }
 
     # コード内強調
-    $text =~ s!\*\*(.+?)\*\*!<CharStyle:コマンド太字>$1<CharStyle:>!g;
+    $text =~ s!\*\*(.+?)\*\*!<CharStyle:コード強調（文字単位）>$1<CharStyle:>!g;
 
     # コード内イタリック
     $text =~ s!\___(.+?)\___!<CharStyle:イタリック（変形斜体）>$1<CharStyle:>!g;
@@ -428,7 +428,7 @@ case a => sub {
     my $url   = $h->attr('href');
     my $title = $c->parse_element($h);
     if ($url and $title) {
-        return sprintf "%s<cstyle:上付き><fnStart:><pstyle:注釈>%s<fnEnd:><cstyle:>", $title, $url;
+        return sprintf "%s<cstyle:脚注上付き><fnStart:><pstyle:脚注>%s<fnEnd:><cstyle:>", $title, $url;
     } else {
         return fallback_to_escaped_html($h);
     }
