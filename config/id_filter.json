@@ -9,6 +9,7 @@
         "★" : "<CharStyle:赤字>★<CharStyle:>",
         "☆" : "<CharStyle:赤字>☆<CharStyle:>",
         "▲" : "<CharStyle:赤字>▲<CharStyle:>",
+        "△" : "<CharStyle:赤字>△<CharStyle:>",
         "□" : "<CharStyle:赤字>□<CharStyle:>",
 
         "◆→◆" : "<cTypeface:R-KL><cFont:A-OTF リュウミン Pr5><27A1><cTypeface:><cFont:>",
