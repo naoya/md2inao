@@ -330,8 +330,6 @@ GitHub Flavored Markdownの[Fenced code blocks](https://docs.github.com/ja/githu
         $ command
         bar (注:こんな風にコメントがつけられます)
 
-こちらはWEB+DB PRESSなどでも使います。
-
 ### 図の画像
 
 以下の両記法に対応していますが、同一原稿では、どちらかで統一していただきたいです。
