@@ -64,6 +64,16 @@ sub prepare_text_for_markdown {
     ## Work Around: リストの後にコードブロックが続くとだめな問題 (issue #6)
     $text =~ s!([-*+] .*?)\n\n    !$1\n\n　\n\n    !g;
 
+    ## シンタックスハイライトの言語指定をもとに、`!!! cmd`の自動付加
+    $text =~ s/(```sh\n)([^!])/$1!!! cmd\n$2/g;
+    $text =~ s/(```shell-script\n)([^!])/$1!!! cmd\n$2/g;
+    $text =~ s/(```bash\n)([^!])/$1!!! cmd\n$2/g;
+    $text =~ s/(```zsh\n)([^!])/$1!!! cmd\n$2/g;
+    $text =~ s/(```bash session\n)([^!])/$1!!! cmd\n$2/g;
+    $text =~ s/(```console\n)([^!])/$1!!! cmd\n$2/g;
+    $text =~ s/(```posh\n)([^!])/$1!!! cmd\n$2/g;
+    $text =~ s/(```pwsh\n)([^!])/$1!!! cmd\n$2/g;
+
     ## PHP Markdown Extraスタイルのfootnoteの変換 (issue #120)
     $text = replace_markdown_extra_footnote($text);
 

@@ -451,6 +451,47 @@ function bar(b) {
 <ParaStyle:コード黒地白文字>function bar(b) {
 <ParaStyle:コード黒地白文字>    alert(b); <CharStyle:コードコメント黒地白文字用> コメント <CharStyle:>
 <ParaStyle:コード黒地白文字>}
+
+=== pre for command, sh, no "!!! cmd"
+--- in md2inao
+```sh
+function bar(b) {
+    alert(b); (注:コメント)
+}
+```
+--- expected
+<ParaStyle:半行アキ>
+<ParaStyle:コード黒地白文字>function bar(b) {
+<ParaStyle:コード黒地白文字>    alert(b); <CharStyle:コードコメント黒地白文字用> コメント <CharStyle:>
+<ParaStyle:コード黒地白文字>}
+
+=== pre for command, shell-script, no "!!! cmd"
+--- in md2inao
+```shell-script
+function bar(b) {
+    alert(b); (注:コメント)
+}
+```
+--- expected
+<ParaStyle:半行アキ>
+<ParaStyle:コード黒地白文字>function bar(b) {
+<ParaStyle:コード黒地白文字>    alert(b); <CharStyle:コードコメント黒地白文字用> コメント <CharStyle:>
+<ParaStyle:コード黒地白文字>}
+
+=== pre for command, shell-script and "!!! cmd"
+--- in md2inao
+```shell-script
+!!! cmd
+function bar(b) {
+    alert(b); (注:コメント)
+}
+```
+--- expected
+<ParaStyle:半行アキ>
+<ParaStyle:コード黒地白文字>function bar(b) {
+<ParaStyle:コード黒地白文字>    alert(b); <CharStyle:コードコメント黒地白文字用> コメント <CharStyle:>
+<ParaStyle:コード黒地白文字>}
+
 === list
 --- in md2inao
     * ハイフンになる
