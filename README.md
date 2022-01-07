@@ -273,7 +273,7 @@ Markdown の説明つき箇条書きには対応していないので、HTML で
             alert(b);
         }
 
-GitHub Flavored Markdown のFenced code blocks記法にも対応しています。
+GitHub Flavored Markdownの[Fenced code blocks](https://docs.github.com/ja/github/writing-on-github/working-with-advanced-formatting/creating-and-highlighting-code-blocks#fenced-code-blocks)記法にも対応しています。
 
     ```
     function bar(b) {
@@ -290,7 +290,18 @@ GitHub Flavored Markdown のFenced code blocks記法にも対応しています�
 
 #### 本文中のコマンドブロック
 
-先頭行を`!!! cmd`とすると、コマンドラインっぽく黒地に白文字になります。
+上述した「本文中のコードブロック」の記述に加え、先頭行に`!!! cmd`と書くか、GitHub Flavored MarkdownのFenced code blocks記法でシェル系の言語（[Shell系](https://github.com/github/linguist/blob/master/lib/linguist/languages.yml#L5606-L5609)、[ShellSession系](https://github.com/github/linguist/blob/master/lib/linguist/languages.yml#L5689-L5691)、[PowerShell系](https://github.com/github/linguist/blob/master/lib/linguist/languages.yml#L4601-L4603)）を指定すると、コマンドラインっぽく黒地に白文字になります。
+
+        !!! cmd
+        $ command
+        bar
+
+    ```bash
+    $ command
+    bar
+    ```
+
+コマンド行の行頭には、上記のようにプロンプト（$など）を書いてください。
 
 この場合の`(注:)`は、逆に白地に黒文字となります。
 
@@ -299,11 +310,9 @@ GitHub Flavored Markdown のFenced code blocks記法にも対応しています�
         $ command
         bar (注:こんな風にコメントがつけられます)
 
-コマンド行の行頭には、上記のようにプロンプト（$など）を書いてください。
-
 #### 別ボックスのコードブロック（リスト）
 
-別ボックスの「リスト」として掲載するコードには、先頭行に`●リスト1::キャプション`を書いてください。
+別ボックスの「リスト」として掲載するコードには、上述した「本文中のコードブロック」の記述に加え、冒頭に`●リスト1::キャプション`を書いてください。
 
         ●リスト1::キャプション
         (注:見出し的に使う)
@@ -313,15 +322,13 @@ GitHub Flavored Markdown のFenced code blocks記法にも対応しています�
 
 #### 別ボックスのコマンドブロック（図）
 
-別ボックスの「図」として掲載するコマンドには、先頭行に`!!! cmd`と`●図1::キャプション`を書いてください。
+別ボックスの「図」として掲載するコマンドには、上述した「本文中のコマンドブロック」の記述に加え、冒頭に`●図1::キャプション`を書いてください。
 
         !!! cmd
         ●図1::キャプション`
         (注:見出し的に使う)
         $ command
         bar (注:こんな風にコメントがつけられます)
-
-コマンド行の行頭には、上記のようにプロンプト（$など）を書いてください。
 
 こちらはWEB+DB PRESSなどでも使います。
 
@@ -564,7 +571,8 @@ Authors
 * @suzuki
 * @gfx : Release to CPAN
 * @mrkn
-
+* @matobaa
+ 
 LICENSE
 ----------
 
