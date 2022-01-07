@@ -290,18 +290,19 @@ GitHub Flavored Markdownの[Fenced code blocks](https://docs.github.com/ja/githu
 
 #### 本文中のコマンドブロック
 
-上述した「本文中のコードブロック」の記述に加え、先頭行に`!!! cmd`と書くか、GitHub Flavored MarkdownのFenced code blocks記法でシェル系の言語（[Shell系](https://github.com/github/linguist/blob/master/lib/linguist/languages.yml#L5606-L5609)、[ShellSession系](https://github.com/github/linguist/blob/master/lib/linguist/languages.yml#L5689-L5691)、[PowerShell系](https://github.com/github/linguist/blob/master/lib/linguist/languages.yml#L4601-L4603)）を指定すると、コマンドラインっぽく黒地に白文字になります。
+上述した「本文中のコードブロック」の記述に加え、先頭行に`!!! cmd`と書いてください。  
+紙面では、コマンドラインっぽく黒地に白文字になります。
 
         !!! cmd
         $ command
         bar
 
+GitHub Flavored MarkdownのFenced code blocks記法の場合は、シェル系の言語（[Shell系](https://github.com/github/linguist/blob/master/lib/linguist/languages.yml#L5606-L5609)、[ShellSession系](https://github.com/github/linguist/blob/master/lib/linguist/languages.yml#L5689-L5691)、[PowerShell系](https://github.com/github/linguist/blob/master/lib/linguist/languages.yml#L4601-L4603)）を指定するだけで同様の挙動になります。
+
     ```bash
     $ command
     bar
     ```
-
-コマンド行の行頭には、上記のようにプロンプト（$など）を書いてください。
 
 この場合の`(注:)`は、逆に白地に黒文字となります。
 
@@ -309,6 +310,8 @@ GitHub Flavored Markdownの[Fenced code blocks](https://docs.github.com/ja/githu
         (注:見出し的に使う)
         $ command
         bar (注:こんな風にコメントがつけられます)
+
+なお、コマンド行の行頭には、上記のようにプロンプト（$など）を書いてください。
 
 #### 別ボックスのコードブロック（リスト）
 
