@@ -127,6 +127,10 @@ sub prepare_html_for_inao {
 
     ## 段落切り替えの意図が見えるのにそうならないケースを補正 (issue #8)
     $html =~ s!<p>(.*)\n　!<p>$1</p>\n<p>　!g;
+
+    ## イタリックの前後の空白を除去する
+    $html =~ s: (<em>.+?</em>) :$1:g;
+
     return $html;
 }
 
