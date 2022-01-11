@@ -1,5 +1,5 @@
 requires 'perl', '5.010_000';
-requires 'Text::Markdown::Hoedown';
+requires 'Text::Markdown::Discount';
 requires 'HTML::TreeBuilder';
 requires 'Unicode::EastAsianWidth';
 requires 'Pod::Usage';

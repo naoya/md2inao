@@ -9,7 +9,7 @@ use Carp;
 use Class::Accessor::Fast qw/antlers/;
 use Encode;
 use HTML::TreeBuilder;
-use Text::Markdown::Hoedown;
+use Text::Markdown::Discount qw(markdown);
 
 use Text::Md2Inao::Director;
 use Text::Md2Inao::Builder::Inao;
@@ -135,7 +135,7 @@ sub to_html_tree {
 
     $text = prepare_text_for_markdown($text);
     my $html = markdown($text,
-        extensions => HOEDOWN_EXT_FENCED_CODE,
+        # extensions => HOEDOWN_EXT_FENCED_CODE,
     );
     $html = prepare_html_for_inao($html);
 
