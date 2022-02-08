@@ -3,6 +3,11 @@ use Test::Base;
 use Text::Md2Inao::TestHelper;
 
 plan tests => 1 * blocks;
+
+filters {
+    expected => [qw/chomp/]
+};
+
 run_is in => 'expected';
 
 __END__
@@ -12,7 +17,8 @@ foo
 bar
 <div class="undefined">baz</div>
 --- expected
-foobar<div class="undefined">baz</div>
+foobar
+<div class="undefined">baz</div>
 
 === multi-line HTML tags with empty lines
 --- in md2inao
