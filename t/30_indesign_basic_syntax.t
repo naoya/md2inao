@@ -564,6 +564,32 @@ function bar(b) {
 <ParaStyle:表>内容1	内容2
 <ParaStyle:表>内容1	内容2
 
+=== table, markdown
+--- in md2inao
+●表1::キャプション
+
+| 列の説明1 | 列の説明2 |
+| ------- | -------- |
+| 内容1-1  | 内容2-1  |
+| 内容1-2  | 内容2-2  |
+| **強調** | **強調** |
+| _イタリック、italic_ | _イタリック、italic_ |
+| `code`  | `code`  |
+| <span class='monoruby'>辟易(へき えき)</span> | <span class='groupruby'>欠伸(あくび)</span> |
+| <kbd>A</kbd> | <kbd>B</kbd> |
+| <sup>ゴシックフォントで上付き</sup> | <sup2>その場のフォントで上付き</sup2> |
+--- expected
+<ParaStyle:キャプション>表1	キャプション
+<ParaStyle:表見出し行>列の説明1	列の説明2
+<ParaStyle:表>内容1-1	内容2-1
+<ParaStyle:表>内容1-2	内容2-2
+<ParaStyle:表><CharStyle:太字>強調<CharStyle:>	<CharStyle:太字>強調<CharStyle:>
+<ParaStyle:表><CharStyle:イタリック（変形斜体）>イタリック、<CharStyle:><CharStyle:イタリック>italic<CharStyle:>	<CharStyle:イタリック（変形斜体）>イタリック、<CharStyle:><CharStyle:イタリック>italic<CharStyle:>
+<ParaStyle:表><CharStyle:コード（文字単位）>code<CharStyle:>	<CharStyle:コード（文字単位）>code<CharStyle:>
+<ParaStyle:表><cr:1><crstr:へき えき><cmojir:1>辟易<cr:><crstr:><cmojir:>	<cr:1><crstr:あくび><cmojir:0>欠伸<cr:><crstr:><cmojir:>
+<ParaStyle:表><cFont:Keyboard-JP>A<cFont:>	<cFont:Keyboard-JP>B<cFont:>
+<ParaStyle:表><CharStyle:脚注上付き>ゴシックフォントで上付き<CharStyle:>	<cp:Superscript>その場のフォントで上付き<cp:>
+
 === horizontal rule
 --- in md2inao
 Hello
