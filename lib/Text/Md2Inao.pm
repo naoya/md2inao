@@ -9,7 +9,7 @@ use Carp;
 use Class::Accessor::Fast qw/antlers/;
 use Encode;
 use HTML::TreeBuilder;
-use Text::Markdown::Hoedown;
+use Text::Markdown::Discount qw(markdown);
 
 use Text::Md2Inao::Director;
 use Text::Md2Inao::Builder::Inao;
@@ -127,6 +127,10 @@ sub prepare_html_for_inao {
 
     ## 段落切り替えの意図が見えるのにそうならないケースを補正 (issue #8)
     $html =~ s!<p>(.*)\n　!<p>$1</p>\n<p>　!g;
+
+    ## イタリックの前後の空白を除去する
+    $html =~ s: (<em>.+?</em>) :$1:g;
+
     return $html;
 }
 
@@ -135,7 +139,7 @@ sub to_html_tree {
 
     $text = prepare_text_for_markdown($text);
     my $html = markdown($text,
-        extensions => HOEDOWN_EXT_FENCED_CODE,
+        # extensions => HOEDOWN_EXT_FENCED_CODE,
     );
     $html = prepare_html_for_inao($html);
 

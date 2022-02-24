@@ -155,10 +155,6 @@ case text => sub {
 
     # 改行を取り除く
     $text =~ s/(\n|\r)//g;
-    # キャプション
-    if ($text =~ s!^●(.+?)::(.+)!●$1\t$2!) {
-        $text =~ s!\[(.+)\]$!\n$1!;
-    }
 
     return replace_list_maker $text;
 };
@@ -230,6 +226,12 @@ case p => sub {
         } else {
             $label = '本文';
         }
+
+        if ($text =~ s!^●(.+?)::(.+)!$1\t$2!) {
+            $text =~ s!\[(.+)\]$!\n$1!;
+            $label = 'キャプション';
+        }
+
         return sprintf "<ParaStyle:%s>%s\n", $label, $text;
     }
 };
@@ -476,14 +478,14 @@ case table => sub {
 
     my $summary = $h->attr('summary') || '';
     $summary =~ m!(.+?)::(.+)!;
-    $out .= sprintf "<ParaStyle:キャプション>%s\t%s\n", $1, $2;
+    $out .= sprintf "<ParaStyle:キャプション>%s\t%s\n", $1, $2 if $1 && $2;
 
     for my $table ($h->find('tr')) {
-        if (my $header = join "\t", map { $c->parse_element($_) } $table->find('th')) {
+        if (my $header = join "\t", map { s!\s+$!!; $_ } map { $c->parse_element($_) } $table->find('th')) {
             $out .= sprintf "<ParaStyle:表見出し行>%s\n", $header;
         }
 
-        if (my $data = join "\t", map { $c->parse_element($_) } $table->find('td')) {
+        if (my $data = join "\t", map { s!\s+$!!; $_ } map { $c->parse_element($_) } $table->find('td')) {
             $out .= sprintf "<ParaStyle:表>%s\n", $data;
         }
     }
