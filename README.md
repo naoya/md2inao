@@ -370,7 +370,7 @@ GitHub Flavored MarkdownのFenced code blocks記法の場合は、シェル系�
 2つの記法があります。
 
 1つ目は、パイプ文字（`|`)とハイフン（`-`）を用いる記法です。  
-こちらの場合、[強調、イタリック、コードなどのMarkdown記法](..#Markdown記法)が使えます。
+こちらの場合、[強調、イタリック、コードなどのMarkdown記法](#markdown記法)が使えます。
 
     ●表1::キャプション
     
@@ -383,7 +383,7 @@ GitHub Flavored MarkdownのFenced code blocks記法の場合は、シェル系�
     | `code`  | `code`  |
 
 2つ目は、HTMLを用いる記法です。  
-こちらの場合、[強調、イタリック、コードなどのMarkdown記法](..#Markdown記法)は使えません。
+こちらの場合、[強調、イタリック、コードなどのMarkdown記法](#markdown記法)は使えません。
 
     <table summary='表1::キャプション'>
         <tr>
@@ -400,7 +400,7 @@ GitHub Flavored MarkdownのFenced code blocks記法の場合は、シェル系�
         </tr>
     </table>
 
-[ルビ、キーボードフォント、上付きなどのHTML記法](..#HTML記法)は、どちらでも使えます。
+[ルビ、キーボードフォント、上付きなどのHTML記法](#html記法)は、どちらでも使えます。
 
 ### 引用
 
