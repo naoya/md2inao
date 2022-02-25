@@ -275,6 +275,7 @@ GitHub Flavored Markdownの[Fenced code blocks](https://docs.github.com/ja/githu
     }
     ```
 
+![コードブロック](./images/codeblock.png)
 
 `(注:)`は黒地に白文字となり、見出し的に使えます。
 
@@ -285,6 +286,7 @@ GitHub Flavored Markdownの[Fenced code blocks](https://docs.github.com/ja/githu
     }
     ```
 
+![見出し付きコードブロック](./images/codeblock_with_headline.png)
 
 行頭を半角スペース4つで字下げする記法にも対応していますが、コードの空行も半角スペース4つで字下げする必要があります。  
 字下げ漏れがあると、そこは本文扱いとなります。  
@@ -304,6 +306,7 @@ GitHub Flavored MarkdownのFenced code blocks記法の場合は、シェル系�
     bar
     ```
 
+![コマンドブロック](./images/commandblock.png)
 
 この場合の`(注:)`は、逆に白地に黒文字となります。
 
@@ -313,6 +316,7 @@ GitHub Flavored MarkdownのFenced code blocks記法の場合は、シェル系�
     bar
     ```
 
+![見出し付きコマンドブロック](./images/commandblock_with_headline.png)
 
 行頭を半角スペース4つで字下げする記法の場合は、先頭行に`!!! cmd`と書いてください。  
 
