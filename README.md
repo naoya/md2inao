@@ -488,22 +488,6 @@ GitHub Flavored Markdownとは異なり、複数行に分けて書いても1行�
 
     　今号から、新連載を始めます。
 
-### 数式
-
-メタデータとして `UseMath: true` を書くと、インライン数式 `$...$` とディスプレイ数式 `$$...$$` の内部を Markdown として変換せずにそのまま保持するようになります。
-
-    UseMath: true
-    
-    インライン数式の例: $y = f(x_1, x_2)$
-    
-    ディスプレイ数式の例:
-    
-    $$
-    f(t) = \lim_{p\to\infty}\frac{1}{2\pi i}\int_{c-ip}^{c+ip} F(s) e^{st} ds
-    $$
-
-md2inaoでの変換後に[tex2id](https://github.com/mrkn/tex2id)で再変換すると、TeXの数式がInDesignタグ付きテキストに変換されます（InDesignでも表現できる一部の記法のみに対応しています）。
-
 ### 文字記法
 
 これまでの記法は段落全体を指定する段落スタイルでしたが、ここからは段落内の文中で使う文字スタイルです。  
@@ -565,6 +549,22 @@ Markdown由来の記法と、HTML由来の記法があります。
     <span class='red'>赤文字</span>
 
 ★☆□▲などの記号は、上記記法を用いずとも自動で赤字になります。
+
+### 数式
+
+メタデータとして `UseMath: true` を書くと、インライン数式 `$...$` とディスプレイ数式 `$$...$$` の内部を Markdown として変換せずにそのまま保持するようになります。
+
+    UseMath: true
+    
+    インライン数式の例: $y = f(x_1, x_2)$
+    
+    ディスプレイ数式の例:
+    
+    $$
+    f(t) = \lim_{p\to\infty}\frac{1}{2\pi i}\int_{c-ip}^{c+ip} F(s) e^{st} ds
+    $$
+
+md2inaoでの変換後に[tex2id](https://github.com/mrkn/tex2id)で再変換すると、TeXの数式がInDesignタグ付きテキストに変換されます（InDesignでも表現できる一部の記法のみに対応しています）。
 
 md2inao デベロッパー向け情報
 -------------------------
