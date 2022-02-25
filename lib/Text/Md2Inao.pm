@@ -28,7 +28,7 @@ has default_list => ( is => 'rw', isa => 'Str' );
 has max_list_length => ( is => 'rw', isa => 'Num' );
 
 # 本文埋め込みコードの文字数上限
-# WEB+DB PRESSの場合、本文コードは1行55桁（文字）まで
+# WEB+DB PRESSの場合、本文コードは1行53桁（文字）まで
 # 書籍の場合、本文コードは1行73桁（文字）まで
 has max_inline_list_length => ( is => 'rw', isa => 'Num' );
 
@@ -212,7 +212,7 @@ Text::Md2Inao - Convert markdown text to Inao-format
     my $p = Text::Md2Inao->new({
         default_list           => 'disc',
         max_list_length        => 63,
-        max_inline_list_length => 55,
+        max_inline_list_length => 53,
     });
 
     print encode_utf8 $p->parse($markdown_text);

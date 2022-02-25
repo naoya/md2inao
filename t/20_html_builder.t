@@ -10,7 +10,7 @@ use Text::Md2Inao::Builder::Html;
 my $p = Text::Md2Inao->new({
     default_list           => 'disc',
     max_list_length        => 63,
-    max_inline_list_length => 55,
+    max_inline_list_length => 53,
     builder                => Text::Md2Inao::Builder::Html->new,
 });
 
