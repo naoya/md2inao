@@ -267,13 +267,7 @@ Markdown の説明つき箇条書きには対応していないので、HTML で
 
 #### 本文中のコードブロック
 
-行頭半角スペース4つで字下げします。
-
-        function bar(b) {
-            alert(b);
-        }
-
-GitHub Flavored Markdownの[Fenced code blocks](https://docs.github.com/ja/github/writing-on-github/working-with-advanced-formatting/creating-and-highlighting-code-blocks#fenced-code-blocks)記法にも対応しています。
+GitHub Flavored Markdownの[Fenced code blocks](https://docs.github.com/ja/github/writing-on-github/working-with-advanced-formatting/creating-and-highlighting-code-blocks#fenced-code-blocks)記法でお書きください。
 
     ```
     function bar(b) {
@@ -281,35 +275,50 @@ GitHub Flavored Markdownの[Fenced code blocks](https://docs.github.com/ja/githu
     }
     ```
 
-`(注:)`は黒地に白文字となり、見出しやコメント的に使えます。
 
-        (注:見出し的に使う)
+`(注:)`は黒地に白文字となり、見出し的に使えます。
+
+    ```
+    (注:見出し的に使う)
+    function bar(b) {
+        alert(b);
+    }
+    ```
+
+
+行頭を半角スペース4つで字下げする記法にも対応していますが、コードの空行も半角スペース4つで字下げする必要があります。  
+字下げ漏れがあると、そこは本文扱いとなります。  
+ミスが混入しやすいので、基本的にはFenced code blocks記法でお書きください。
+
         function bar(b) {
-            alert(b); (注:こんな風にコメントがつけられます)
+            alert(b);
+            
         }
 
 #### 本文中のコマンドブロック
 
-上述した「本文中のコードブロック」の記述に加え、先頭行に`!!! cmd`と書いてください。  
-紙面では、コマンドラインっぽく黒地に白文字になります。
-
-        !!! cmd
-        $ command
-        bar
-
-GitHub Flavored MarkdownのFenced code blocks記法の場合は、シェル系の言語（[Shell系](https://github.com/github/linguist/blob/master/lib/linguist/languages.yml#L5606-L5609)、[ShellSession系](https://github.com/github/linguist/blob/master/lib/linguist/languages.yml#L5689-L5691)、[PowerShell系](https://github.com/github/linguist/blob/master/lib/linguist/languages.yml#L4601-L4603)）を指定するだけで同様の挙動になります。
+GitHub Flavored MarkdownのFenced code blocks記法の場合は、シェル系の言語（[Shell系](https://github.com/github/linguist/blob/master/lib/linguist/languages.yml#L5606-L5609)、[ShellSession系](https://github.com/github/linguist/blob/master/lib/linguist/languages.yml#L5689-L5691)、[PowerShell系](https://github.com/github/linguist/blob/master/lib/linguist/languages.yml#L4601-L4603)）を指定すると、紙面ではコマンドラインっぽく黒地に白文字になります。
 
     ```bash
     $ command
     bar
     ```
 
+
 この場合の`(注:)`は、逆に白地に黒文字となります。
 
+    ```bash
+    (注:見出し的に使う)
+    $ command
+    bar
+    ```
+
+
+行頭を半角スペース4つで字下げする記法の場合は、先頭行に`!!! cmd`と書いてください。  
+
         !!! cmd
-        (注:見出し的に使う)
         $ command
-        bar (注:こんな風にコメントがつけられます)
+        bar
 
 なお、コマンド行の行頭には、上記のようにプロンプト（$など）を書いてください。
 
@@ -317,21 +326,24 @@ GitHub Flavored MarkdownのFenced code blocks記法の場合は、シェル系�
 
 別ボックスの「リスト」として掲載するコードには、上述した「本文中のコードブロック」の記述に加え、冒頭に`●リスト1::キャプション`を書いてください。
 
-        ●リスト1::キャプション
-        (注:見出し的に使う)
-        function bar(b) {
-            alert(b); (注:こんな風にコメントがつけられます)
-        }
+    ```
+    ●リスト1::キャプション
+    (注:見出し的に使う)
+    function bar(b) {
+        alert(b);
+    }
+    ```
 
 #### 別ボックスのコマンドブロック（図）
 
 別ボックスの「図」として掲載するコマンドには、上述した「本文中のコマンドブロック」の記述に加え、冒頭に`●図1::キャプション`を書いてください。
 
-        !!! cmd
-        ●図1::キャプション`
-        (注:見出し的に使う)
-        $ command
-        bar (注:こんな風にコメントがつけられます)
+    ```bash
+    ●図1::キャプション`
+    (注:見出し的に使う)
+    $ command
+    bar
+    ```
 
 ### 図の画像
 
