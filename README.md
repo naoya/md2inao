@@ -265,7 +265,14 @@ Markdown の説明付き箇条書きには対応していないので、HTML で
 
 ### コードブロック（ソースコード、コマンド）
 
-#### 本文中のコードブロック
+本文中のソースコード、コマンドと、別ボックスのソースコード（リスト）、コマンド（図）がありますが、基本的には前者を使用してください。
+
+#### 本文中のソースコード、コマンド
+
+推奨記法です。  
+基本的にはこちらをお使いください。
+
+##### 本文中のコードブロック
 
 GitHub Flavored Markdownの[Fenced code blocks](https://docs.github.com/ja/github/writing-on-github/working-with-advanced-formatting/creating-and-highlighting-code-blocks#fenced-code-blocks)記法でお書きください。
 
@@ -297,7 +304,7 @@ GitHub Flavored Markdownの[Fenced code blocks](https://docs.github.com/ja/githu
             
         }
 
-#### 本文中のコマンドブロック
+##### 本文中のコマンドブロック
 
 GitHub Flavored MarkdownのFenced code blocks記法の場合は、シェル系の言語（[Shell系](https://github.com/github/linguist/blob/master/lib/linguist/languages.yml#L5606-L5609)、[ShellSession系](https://github.com/github/linguist/blob/master/lib/linguist/languages.yml#L5689-L5691)、[PowerShell系](https://github.com/github/linguist/blob/master/lib/linguist/languages.yml#L4601-L4603)）を指定すると、紙面ではコマンドラインっぽく黒地に白文字になります。
 
@@ -326,7 +333,12 @@ GitHub Flavored MarkdownのFenced code blocks記法の場合は、シェル系�
 
 なお、コマンド行の行頭には、上記のようにプロンプト（$など）を書いてください。
 
-#### 別ボックスのコードブロック（リスト）
+#### 別ボックスのソースコード（リスト）、コマンド（図）
+
+紙面での呼称は「リスト」「図」です。  
+記事の事情などにより、使う必要がある場合にのみ用いてください。
+
+##### 別ボックスのコードブロック（リスト）
 
 別ボックスの「リスト」として掲載するコードには、上述した「本文中のコードブロック」の記述に加え、冒頭に`●リスト1::キャプション`を書いてください。
 
@@ -338,7 +350,7 @@ GitHub Flavored MarkdownのFenced code blocks記法の場合は、シェル系�
     }
     ```
 
-#### 別ボックスのコマンドブロック（図）
+##### 別ボックスのコマンドブロック（図）
 
 別ボックスの「図」として掲載するコマンドには、上述した「本文中のコマンドブロック」の記述に加え、冒頭に`●図1::キャプション`を書いてください。
 
