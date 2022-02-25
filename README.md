@@ -8,12 +8,12 @@ Markdown to Inao-Format
 概要
 ----
 
-Markdown で書かれたテキストをWEB+DB編集部で使用しているInDesign用フォーマットに変換します。主にWEB+DB編集部の方のためのツールですが、執筆者にとってもmarkdownの原稿がWEB+DBの原稿のスタイルに従っているかどうかをチェックするツールとして使えます。
+Markdownで書かれたテキストをWEB+DB PRESS編集部で使用しているInDesign用フォーマットに変換します。主にWEB+DB PRESS編集部の方のためのツールですが、執筆者にとってもMarkdownの原稿がWEB+DB PRESSの原稿のスタイルに従っているかどうかをチェックするツールとして使えます。
 
 - bin/md2inao.pl : CUIコマンド版
 - http://md2inao.bloghackers.net/ : Web版
 
-markdown2inao.pl 改め md2inao.pl のこれまでについては https://gist.github.com/inao/baea09bc6fc53551886b を見て下さい。なお、md2inaoは当初「inao記法」に変換していましたが、現在はWEB+DB編集部用InDesignフォーマットを出力します。
+markdown2inao.pl 改め md2inao.pl のこれまでについては https://gist.github.com/inao/baea09bc6fc53551886b を見て下さい。なお、md2inaoは当初「inao記法」に変換していましたが、現在はWEB+DB PRESS編集部用InDesignフォーマットを出力します。
 
 使い方
 -----
@@ -101,7 +101,7 @@ md2inao を利用すると Markdown フォーマットで原稿を書くこと�
 
 ### 基本的な考え方
 
-Markdown は Markdown プロセッサで解釈すると、通常は HTML に変換されます。md2inao はその書 HTML の各要素を Inao 記法 (もしくは技術評論社の InDesign フォーマット) に変換して最終的な出力を作っています。
+Markdown は Markdown プロセッサで解釈すると、通常は HTML に変換されます。md2inao はその HTML の各要素を WEB+DB PRESS編集部用InDesignフォーマット に変換して最終的な出力を作っています。
 
 従って Markdown を書きながらも出力される HTML 構造がどの要素になって、その要素が論理構造的にどういったものか、をある程度想定しておけばだいたい想像した通りの出力になると思ってください。
 
