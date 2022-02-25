@@ -17,7 +17,7 @@ sub md2inao {
     state $p = Text::Md2Inao->new({
         default_list           => 'disc',
         max_list_length        => 63,
-        max_inline_list_length => 55,
+        max_inline_list_length => 53,
         builder                => Text::Md2Inao::Builder::InDesign->new,
     });
     my $out = $p->parse($_);

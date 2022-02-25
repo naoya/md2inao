@@ -8,12 +8,12 @@ Markdown to Inao-Format
 概要
 ----
 
-Markdown で書かれたテキストをWEB+DB編集部で使用しているInDesign用フォーマットに変換します。主にWEB+DB編集部の方のためのツールですが、執筆者にとってもmarkdownの原稿がWEB+DBの原稿のスタイルに従っているかどうかをチェックするツールとして使えます。
+Markdownで書かれたテキストをWEB+DB PRESS編集部で使用しているInDesign用フォーマットに変換します。主にWEB+DB PRESS編集部の方のためのツールですが、執筆者にとってもMarkdownの原稿がWEB+DB PRESSの原稿のスタイルに従っているかどうかをチェックするツールとして使えます。
 
 - bin/md2inao.pl : CUIコマンド版
 - http://md2inao.bloghackers.net/ : Web版
 
-markdown2inao.pl 改め md2inao.pl のこれまでについては https://gist.github.com/inao/baea09bc6fc53551886b を見て下さい。なお、md2inaoは当初「inao記法」に変換していましたが、現在はWEB+DB編集部用InDesignフォーマットを出力します。
+markdown2inao.pl 改め md2inao.pl のこれまでについては https://gist.github.com/inao/baea09bc6fc53551886b を見て下さい。なお、md2inaoは当初「inao記法」に変換していましたが、現在はWEB+DB PRESS編集部用InDesignフォーマットを出力します。
 
 使い方
 -----
@@ -41,6 +41,7 @@ markdown2inao.pl 改め md2inao.pl のこれまでについては https://gist.g
 - http://md2inao.bloghackers.net/
 
 ### 変換したテキストのInDesignへの取り込み方
+
 [こちら](indesign.md)にまとめました。
 
 出力見本
@@ -101,13 +102,11 @@ md2inao を利用すると Markdown フォーマットで原稿を書くこと�
 
 ### 基本的な考え方
 
-Markdown は Markdown プロセッサで解釈すると、通常は HTML に変換されます。md2inao はその書 HTML の各要素を Inao 記法 (もしくは技術評論社の InDesign フォーマット) に変換して最終的な出力を作っています。
+Markdown は Markdown プロセッサで解釈すると、通常は HTML に変換されます。md2inao はその HTML の各要素を WEB+DB PRESS編集部用InDesignフォーマット に変換して最終的な出力を作っています。
 
 従って Markdown を書きながらも出力される HTML 構造がどの要素になって、その要素が論理構造的にどういったものか、をある程度想定しておけばだいたい想像した通りの出力になると思ってください。
 
 また、Markdown で定義されてない記述も HTML を使うことによって定義することもできます。一部の記法は HTML で書くことが前提になっています。
-
-いまのところ GitHub Flavored Markdown などの拡張すべてには対応していませんのでその点に注意してください。
 
 #### 文中に HTML を書く際の注意事項
 
@@ -157,6 +156,7 @@ Markdown の仕様では当然のことながら、HTML タグは HTML タグと
     ### 小見出し（目）
 
 #### 注意事項
+
 章に`#`をお使いになる方が多いですが、`#`は上記のように大見出しにお使いください。
 章の分割はテキストファイルの分割で認識します。
 
@@ -186,7 +186,7 @@ md2inao的には以下の記法にも対応していますが、現状は非推�
 
 #### 階層付き箇条書き（ネストしたリスト）
 
-両記法に対応していますが、同一原稿では、どちらかで統一していただきたいです。
+両記法に対応していますが、同一原稿では、どちらかで統一してください。
 
     * 箇条書き
         * 箇条書き2階層目
@@ -203,9 +203,9 @@ md2inao的には以下の記法にも対応していますが、現状は非推�
 * GitHub Flavored Markdownでは半角スペース1～3つの行頭字下げによるネストにも対応していますが、md2inaoは4つ以上にのみ対応しています
 * 3階層目は使用できません
 
-#### 説明つき箇条書き（dt、dd）
+#### 説明付き箇条書き（dt、dd）
 
-Markdown の説明つき箇条書きには対応していないので、HTML でマークアップしてください。
+Markdown の説明付き箇条書きには対応していないので、HTML でマークアップしてください。
 
     <dl>
       <dt>箇条書き</dt>
@@ -216,11 +216,11 @@ Markdown の説明つき箇条書きには対応していないので、HTML で
 
 ##### 注意事項
 
-* この説明つき箇条書きのようなHTMLで記述した箇条書き中では、`_イタリック_`や`**強調**`などの文中記号は使えません（以降のHTML系の箇条書きでも同様です）
+* この説明付き箇条書きのようなHTMLで記述した箇条書き中では、`_イタリック_`や`**強調**`などの文中記号は使えません（以降のHTML系の箇条書きでも同様です）
 
 #### 連番箇条書き（黒丸数字）
 
-黒丸囲みの1、2、3……が行頭につきます。
+黒丸囲みの1、2、3……が行頭に付きます。
 
     1. 連番箇条書き
     2. 連番箇条書き
@@ -228,10 +228,10 @@ Markdown の説明つき箇条書きには対応していないので、HTML で
 
 本文で黒丸囲みの1、2、3……を書く場合は、(d1)、(d2)、(d3)と書いてください（discのdです）。
 
-- 手順など順列の箇条書きにのみ使用してください。
-- 順列ではないけど、行頭記号を区別したい場合は、次のアルファベット箇条書きを使ってください。
+- 手順など順列の箇条書きにのみ使用してください
+- 順列ではないけど、行頭記号を区別したい場合は、次のアルファベット箇条書きを使ってください
 
-###### そのほかの連番箇条書き（白丸数字、黒四角数字）
+##### そのほかの連番箇条書き（白丸数字、黒四角数字）
 
 上述した連番箇条書き（黒丸数字）がデフォルトですが、白丸数字や黒四角数字にすることもできます。連番箇条書きが連続して登場し紛らわしくなる場合などにご利用ください。
 
@@ -253,7 +253,7 @@ Markdown の説明つき箇条書きには対応していないので、HTML で
 
 #### アルファベット箇条書き（黒丸囲み）
 
-黒丸囲みのa、b、c……が行頭につきます。
+黒丸囲みのa、b、c……が行頭に付きます。
 
     <ol class='alpha'>
         <li>アルファベット箇条書き</li>
@@ -265,15 +265,16 @@ Markdown の説明つき箇条書きには対応していないので、HTML で
 
 ### コードブロック（ソースコード、コマンド）
 
-#### 本文中のコードブロック
+本文中のソースコード、コマンドと、別ボックスのソースコード（リスト）、コマンド（図）がありますが、基本的には前者を使用してください。
 
-行頭半角スペース4つで字下げします。
+#### 本文中のソースコード、コマンド
 
-        function bar(b) {
-            alert(b);
-        }
+推奨記法です。  
+基本的にはこちらをお使いください。
 
-GitHub Flavored Markdownの[Fenced code blocks](https://docs.github.com/ja/github/writing-on-github/working-with-advanced-formatting/creating-and-highlighting-code-blocks#fenced-code-blocks)記法にも対応しています。
+##### 本文中のコードブロック
+
+GitHub Flavored Markdownの[Fenced code blocks](https://docs.github.com/ja/github/writing-on-github/working-with-advanced-formatting/creating-and-highlighting-code-blocks#fenced-code-blocks)記法でお書きください。
 
     ```
     function bar(b) {
@@ -281,61 +282,102 @@ GitHub Flavored Markdownの[Fenced code blocks](https://docs.github.com/ja/githu
     }
     ```
 
-`(注:)`は黒地に白文字となり、見出しやコメント的に使えます。
+![コードブロック](./images/codeblock.png)
 
-        (注:見出し的に使う)
+`(注:)`は黒地に白文字となり、見出し的に使えます。
+
+    ```
+    (注:見出し的に使う)
+    function bar(b) {
+        alert(b);
+    }
+    ```
+
+![見出し付きコードブロック](./images/codeblock_with_headline.png)
+
+行頭を半角スペース4つで字下げする記法にも対応していますが、コードの空行も半角スペース4つで字下げする必要があります。  
+字下げ漏れがあると、そこは本文扱いとなります。  
+ミスが混入しやすいので、基本的にはFenced code blocks記法でお書きください。
+
         function bar(b) {
-            alert(b); (注:こんな風にコメントがつけられます)
+            alert(b);
+            
         }
 
-#### 本文中のコマンドブロック
+##### 本文中のコマンドブロック
 
-上述した「本文中のコードブロック」の記述に加え、先頭行に`!!! cmd`と書いてください。  
-紙面では、コマンドラインっぽく黒地に白文字になります。
-
-        !!! cmd
-        $ command
-        bar
-
-GitHub Flavored MarkdownのFenced code blocks記法の場合は、シェル系の言語（[Shell系](https://github.com/github/linguist/blob/master/lib/linguist/languages.yml#L5606-L5609)、[ShellSession系](https://github.com/github/linguist/blob/master/lib/linguist/languages.yml#L5689-L5691)、[PowerShell系](https://github.com/github/linguist/blob/master/lib/linguist/languages.yml#L4601-L4603)）を指定するだけで同様の挙動になります。
+GitHub Flavored MarkdownのFenced code blocks記法の場合は、シェル系の言語（[Shell系](https://github.com/github/linguist/blob/master/lib/linguist/languages.yml#L5606-L5609)、[ShellSession系](https://github.com/github/linguist/blob/master/lib/linguist/languages.yml#L5689-L5691)、[PowerShell系](https://github.com/github/linguist/blob/master/lib/linguist/languages.yml#L4601-L4603)）を指定すると、紙面ではコマンドラインっぽく黒地に白文字になります。
 
     ```bash
     $ command
     bar
     ```
 
+![コマンドブロック](./images/commandblock.png)
+
 この場合の`(注:)`は、逆に白地に黒文字となります。
 
+    ```bash
+    (注:見出し的に使う)
+    $ command
+    bar
+    ```
+
+![見出し付きコマンドブロック](./images/commandblock_with_headline.png)
+
+行頭を半角スペース4つで字下げする記法の場合は、先頭行に`!!! cmd`と書いてください。  
+
         !!! cmd
-        (注:見出し的に使う)
         $ command
-        bar (注:こんな風にコメントがつけられます)
+        bar
 
 なお、コマンド行の行頭には、上記のようにプロンプト（$など）を書いてください。
 
-#### 別ボックスのコードブロック（リスト）
+##### 注意事項
+
+* コードおよびコマンドは、半角55桁（文字）以内で整形してください
+    * 整形が難しい箇所は、コマンドは行末に「（実際は1行）」と書いてください。コードには何も書かないでください
+* 整形が必要なのはコードおよびコマンドのみです。コマンドの実行結果は、紙面の右端で折り返しますので整形不要です
+
+#### 別ボックスのソースコード（リスト）、コマンド（図）
+
+紙面での呼称は「リスト」「図」です。  
+記事の事情などにより、使う必要がある場合にのみ用いてください。
+
+##### 別ボックスのコードブロック（リスト）
 
 別ボックスの「リスト」として掲載するコードには、上述した「本文中のコードブロック」の記述に加え、冒頭に`●リスト1::キャプション`を書いてください。
 
-        ●リスト1::キャプション
-        (注:見出し的に使う)
-        function bar(b) {
-            alert(b); (注:こんな風にコメントがつけられます)
-        }
+    ```
+    ●リスト1::キャプション
+    (注:見出し的に使う)
+    function bar(b) {
+        alert(b);
+    }
+    ```
 
-#### 別ボックスのコマンドブロック（図）
+##### 別ボックスのコマンドブロック（図）
 
 別ボックスの「図」として掲載するコマンドには、上述した「本文中のコマンドブロック」の記述に加え、冒頭に`●図1::キャプション`を書いてください。
 
-        !!! cmd
-        ●図1::キャプション`
-        (注:見出し的に使う)
-        $ command
-        bar (注:こんな風にコメントがつけられます)
+    ```bash
+    ●図1::キャプション`
+    (注:見出し的に使う)
+    $ command
+    bar
+    ```
+
+##### 注意事項
+
+* コードおよびコマンドは、半角63桁（文字）以内で整形してください
+    * 整形が難しい箇所は、コマンドは行末に「（実際は1行）」と書いてください。コードには何も書かないでください
+* 整形が必要なのはコードおよびコマンドのみです。コマンドの実行結果は、紙面の右端で折り返しますので整形不要です
+
+なお、紙面片段ではなく、両段ぶち抜きのリストや図にすれば、100桁くらいまで入ります。
 
 ### 図の画像
 
-以下の両記法に対応していますが、同一原稿では、どちらかで統一していただきたいです。
+以下の両記法に対応していますが、前者を推奨します。
 
 また、必ず独立した段落としてお書きください（本文段落中に書かないでください）。
 
@@ -345,7 +387,7 @@ GitHub Flavored MarkdownのFenced code blocks記法の場合は、シェル系�
 
 ### 脚注、リンク
 
-次の2つの記法が使えます。紙面ではいずれも脚注になり、両者の違いはありません。
+次の2つの記法が使えます。いずれも脚注になり、紙面では両者の違いはありません。
 
     [リンクの対象](URL)
 
@@ -356,6 +398,7 @@ GitHub Flavored MarkdownのFenced code blocks記法の場合は、シェル系�
     [RubyMotion](http://rubymotion.com/)は、RubyでiOSアプリを作るれるツールです(注:日本円で20,000円程度です。)。
 
 #### 注意事項
+
 脚注文も「です・ます」調で統一してください。
 また、脚注文の末尾にも「。」は必要です。
 
@@ -370,7 +413,7 @@ GitHub Flavored MarkdownのFenced code blocks記法の場合は、シェル系�
 2つの記法があります。
 
 1つ目は、パイプ文字（`|`)とハイフン（`-`）を用いる記法です。  
-こちらの場合、[強調、イタリック、コードなどのMarkdown記法](..#Markdown記法)が使えます。
+こちらの場合、[強調、イタリック、コードなどのMarkdown記法](#markdown記法)が使えます。
 
     ●表1::キャプション
     
@@ -383,7 +426,7 @@ GitHub Flavored MarkdownのFenced code blocks記法の場合は、シェル系�
     | `code`  | `code`  |
 
 2つ目は、HTMLを用いる記法です。  
-こちらの場合、[強調、イタリック、コードなどのMarkdown記法](..#Markdown記法)は使えません。
+こちらの場合、[強調、イタリック、コードなどのMarkdown記法](#markdown記法)は使えません。
 
     <table summary='表1::キャプション'>
         <tr>
@@ -400,7 +443,7 @@ GitHub Flavored MarkdownのFenced code blocks記法の場合は、シェル系�
         </tr>
     </table>
 
-[ルビ、キーボードフォント、上付きなどのHTML記法](..#HTML記法)は、どちらでも使えます。
+[ルビ、キーボードフォント、上付きなどのHTML記法](#html記法)は、どちらでも使えます。
 
 ### 引用
 
@@ -444,22 +487,6 @@ GitHub Flavored Markdownとは異なり、複数行に分けて書いても1行�
     　こんにちは。伊藤です。
 
     　今号から、新連載を始めます。
-
-### 数式
-
-メタデータとして `UseMath: true` を書くと、インライン数式 `$...$` とディスプレイ数式 `$$...$$` の内部を Markdown として変換せずにそのまま保持するようになります。
-
-    UseMath: true
-    
-    インライン数式の例: $y = f(x_1, x_2)$
-    
-    ディスプレイ数式の例:
-    
-    $$
-    f(t) = \lim_{p\to\infty}\frac{1}{2\pi i}\int_{c-ip}^{c+ip} F(s) e^{st} ds
-    $$
-
-md2inaoでの変換後に[tex2id](https://github.com/mrkn/tex2id)で再変換すると、TeXの数式がInDesignタグ付きテキストに変換されます（InDesignでも表現できる一部の記法のみに対応しています）。
 
 ### 文字記法
 
@@ -522,6 +549,22 @@ Markdown由来の記法と、HTML由来の記法があります。
     <span class='red'>赤文字</span>
 
 ★☆□▲などの記号は、上記記法を用いずとも自動で赤字になります。
+
+### 数式
+
+メタデータとして `UseMath: true` を書くと、インライン数式 `$...$` とディスプレイ数式 `$$...$$` の内部を Markdown として変換せずにそのまま保持するようになります。
+
+    UseMath: true
+    
+    インライン数式の例: $y = f(x_1, x_2)$
+    
+    ディスプレイ数式の例:
+    
+    $$
+    f(t) = \lim_{p\to\infty}\frac{1}{2\pi i}\int_{c-ip}^{c+ip} F(s) e^{st} ds
+    $$
+
+md2inaoでの変換後に[tex2id](https://github.com/mrkn/tex2id)で再変換すると、TeXの数式がInDesignタグ付きテキストに変換されます（InDesignでも表現できる一部の記法のみに対応しています）。
 
 md2inao デベロッパー向け情報
 -------------------------

@@ -11,7 +11,7 @@ sub md2inao {
         default_list           => 'disc',
         blank_style            => 'full',
         max_list_length        => 63,
-        max_inline_list_length => 55,
+        max_inline_list_length => 53,
         builder                => Text::Md2Inao::Builder::InDesign->new,
     });
     $p->parse($_);
