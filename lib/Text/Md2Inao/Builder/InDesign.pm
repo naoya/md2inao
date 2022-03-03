@@ -371,17 +371,17 @@ case pre => sub {
     $text = replace_list_maker($text);
 
     # 文字数カウント
-    my $max = max(map { visual_length($_) } split /\r?\n/, $text);
-    if ($text =~ /^●/) {
-        if ($max > $c->max_list_length) {
-            log warn => "リストは" . $c->max_list_length . "文字まで！(現在${max}使用):\n$text\n\n";
-        }
-    }
-    else {
-        if ($max > $c->max_inline_list_length) {
-            log warn => "本文埋め込みコードは" . $c->max_inline_list_length . "文字まで！(現在${max}使用):\n$text\n\n";
-        }
-    }
+    # my $max = max(map { visual_length($_) } split /\r?\n/, $text);
+    # if ($text =~ /^●/) {
+    #     if ($max > $c->max_list_length) {
+    #         log warn => "リストは" . $c->max_list_length . "文字まで！(現在${max}使用):\n$text\n\n";
+    #     }
+    # }
+    # else {
+    #     if ($max > $c->max_inline_list_length) {
+    #         log warn => "本文埋め込みコードは" . $c->max_inline_list_length . "文字まで！(現在${max}使用):\n$text\n\n";
+    #     }
+    # }
 
     # コード内コメント
     if ($text =~ m!\(注:! or $c->in_footnote) {
