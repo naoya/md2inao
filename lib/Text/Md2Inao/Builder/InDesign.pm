@@ -441,7 +441,7 @@ case img => sub {
     $c->{img_number} += 1;
 
     my $template = <<EOF;
-<ParaStyle:キャプション>●図%d\t%s
+<ParaStyle:キャプション>図%d\t%s
 <ParaStyle:赤字段落>%s
 EOF
 
