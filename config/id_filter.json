@@ -152,6 +152,8 @@
         
         "<ParaStyle:本文>▼" : "<ParaStyle:見出し0.0>",
         "<ParaStyle:本文>──" : "<ParaStyle:出典>──",
-        "<ParaStyle:本文>※" : "<ParaStyle:図表脚注>※"
+        "<ParaStyle:本文>※" : "<ParaStyle:図表脚注>※",
+        "<ParaStyle:箇条書き>・<CharStyle:丸文字>" : "<ParaStyle:箇条書き><CharStyle:丸文字>",
+        "<ParaStyle:箇条書き2階層目>・<CharStyle:丸文字>" : "<ParaStyle:箇条書き2階層目><CharStyle:丸文字>"
     }
 }

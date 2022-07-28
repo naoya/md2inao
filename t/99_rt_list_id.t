@@ -30,6 +30,40 @@ __END__
 <ParaStyle:箇条書き>・Good Bye
 <ParaStyle:箇条書き2階層目>・World
 
+===
+--- in md2id
+<dl>
+  <dt>(d1)箇条書き</dt>
+  <dd>(d1)箇条書きの説明文</dd>
+  <dt>(d2)箇条書き</dt>
+  <dd>(d1)箇条書きの説明文</dd>
+</dl>
+--- expected
+<SJIS-MAC>
+<ParaStyle:半行アキ>
+<ParaStyle:箇条書き><CharStyle:丸文字><2776><CharStyle:>箇条書き
+<ParaStyle:箇条書き説明><CharStyle:丸文字><2776><CharStyle:>箇条書きの説明文
+<ParaStyle:箇条書き><CharStyle:丸文字><2777><CharStyle:>箇条書き
+<ParaStyle:箇条書き説明><CharStyle:丸文字><2776><CharStyle:>箇条書きの説明文
+
+===
+--- in md2id
+* (d1)箇条書き
+    * (d1)箇条書き2
+* (d2)箇条書き
+    * (d1)箇条書き2
+* (d3)箇条書き
+    * (d1)箇条書き2
+--- expected
+<SJIS-MAC>
+<ParaStyle:半行アキ>
+<ParaStyle:箇条書き><CharStyle:丸文字><2776><CharStyle:>箇条書き
+<ParaStyle:箇条書き2階層目><CharStyle:丸文字><2776><CharStyle:>箇条書き2
+<ParaStyle:箇条書き><CharStyle:丸文字><2777><CharStyle:>箇条書き
+<ParaStyle:箇条書き2階層目><CharStyle:丸文字><2776><CharStyle:>箇条書き2
+<ParaStyle:箇条書き><CharStyle:丸文字><2778><CharStyle:>箇条書き
+<ParaStyle:箇条書き2階層目><CharStyle:丸文字><2776><CharStyle:>箇条書き2
+
 === TODO: Markdown 側がバグってる
 --- SKIP in md2id
 * Hello
