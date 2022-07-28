@@ -150,6 +150,8 @@
         "<CharStyle:丸文字><2788><CharStyle:>" : "<CharStyle:丸文字><24F3><CharStyle:>",
         "<CharStyle:丸文字><2789><CharStyle:>" : "<CharStyle:丸文字><24F4><CharStyle:>",
         
-        "<ParaStyle:本文>▼" : "<ParaStyle:見出し0.0>"
+        "<ParaStyle:本文>▼" : "<ParaStyle:見出し0.0>",
+        "<ParaStyle:本文>──" : "<ParaStyle:出典>──",
+        "<ParaStyle:本文>※" : "<ParaStyle:図表脚注>※"
     }
 }
