@@ -461,16 +461,10 @@ GitHub Flavored MarkdownのFenced code blocks記法の場合は、シェル系�
 引用および出典は次のように書きます。
 
     > 引用です。
+    > 
+    > 引用です。
     
     ──出典
-
-#### 注意事項
-
-GitHub Flavored Markdownとは異なり、複数行に分けて書いても1行になります。
-
-    > 引
-    > 用
-    > です。
 
 ### 区切り線（`<hr>`）
 
