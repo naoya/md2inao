@@ -26,6 +26,14 @@ sub md2inao {
 }
 
 __END__
+== Section number
+--- in md2inao
+▼1.1
+# 見出し1（大見出し、節）
+--- expected
+<ParaStyle:見出し0.0>1.1
+<ParaStyle:大見出し>見出し1（大見出し、節）
+
 === h1
 --- in md2inao
 # 見出し1（大見出し、節）
