@@ -148,6 +148,8 @@
         "<CharStyle:丸文字><2786><CharStyle:>" : "<CharStyle:丸文字><24F1><CharStyle:>",
         "<CharStyle:丸文字><2787><CharStyle:>" : "<CharStyle:丸文字><24F2><CharStyle:>",
         "<CharStyle:丸文字><2788><CharStyle:>" : "<CharStyle:丸文字><24F3><CharStyle:>",
-        "<CharStyle:丸文字><2789><CharStyle:>" : "<CharStyle:丸文字><24F4><CharStyle:>"
+        "<CharStyle:丸文字><2789><CharStyle:>" : "<CharStyle:丸文字><24F4><CharStyle:>",
+        
+        "<ParaStyle:本文>▼" : "<ParaStyle:見出し0.0>"
     }
 }
