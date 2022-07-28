@@ -116,9 +116,11 @@ _a-zA-Z0-9!"#$%&'()-=^@`[]{};+:*<>,./?_
 > これは引用です。
 > これは引用です。
 > これは**強調**と_イタリックabc_です。
+
+──出典
 --- expected
 <ParaStyle:引用>これは引用です。これは引用です。これは引用です。これは<CharStyle:太字>強調<CharStyle:>と<CharStyle:イタリック（変形斜体）>イタリック<CharStyle:><CharStyle:イタリック>abc<CharStyle:>です。
-
+<ParaStyle:出典>──出典
 === column
 --- in md2inao
 <div class="column">
@@ -533,10 +535,12 @@ function bar(b) {
 === img
 --- in md2inao
 ![Command Line Tool](http://cdn.bloghackers.net/images/20130220_204748.png)
+
+※図表に対する脚注
 --- expected
 <ParaStyle:キャプション>図1	Command Line Tool
 <ParaStyle:赤字段落>http://cdn.bloghackers.net/images/20130220_204748.png
-
+<ParaStyle:図表脚注>※図表に対する脚注
 === dl
 --- in md2inao
 <dl>
