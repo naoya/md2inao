@@ -137,6 +137,17 @@
         "～" : "<301C>",
         "－" : "<FF0D>",
         "»" : "<00BB>",
-        " " : " "
+        " " : " ",
+        
+        "<CharStyle:丸文字><2780><CharStyle:>" : "<CharStyle:丸文字><24EB><CharStyle:>",
+        "<CharStyle:丸文字><2781><CharStyle:>" : "<CharStyle:丸文字><24EC><CharStyle:>",
+        "<CharStyle:丸文字><2782><CharStyle:>" : "<CharStyle:丸文字><24ED><CharStyle:>",
+        "<CharStyle:丸文字><2783><CharStyle:>" : "<CharStyle:丸文字><24EE><CharStyle:>",
+        "<CharStyle:丸文字><2784><CharStyle:>" : "<CharStyle:丸文字><24EF><CharStyle:>",
+        "<CharStyle:丸文字><2785><CharStyle:>" : "<CharStyle:丸文字><24F0><CharStyle:>",
+        "<CharStyle:丸文字><2786><CharStyle:>" : "<CharStyle:丸文字><24F1><CharStyle:>",
+        "<CharStyle:丸文字><2787><CharStyle:>" : "<CharStyle:丸文字><24F2><CharStyle:>",
+        "<CharStyle:丸文字><2788><CharStyle:>" : "<CharStyle:丸文字><24F3><CharStyle:>",
+        "<CharStyle:丸文字><2789><CharStyle:>" : "<CharStyle:丸文字><24F4><CharStyle:>"
     }
 }
