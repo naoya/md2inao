@@ -32,21 +32,50 @@ __END__
 
 ===
 --- in md2id
-* (d1)箇条書き
-    * (d1)箇条書き2
-* (d2)箇条書き
-    * (d1)箇条書き2
-* (d3)箇条書き
-    * (d1)箇条書き2
+<dl>
+  <dt>1. Hello</dt>
+  <dd>World</dd>
+  <dt>2. Hello</dt>
+  <dd>World</dd>
+  <dt>3. Hello</dt>
+  <dd>World</dd>
+</dl>
 --- expected
 <SJIS-MAC>
 <ParaStyle:半行アキ>
-<ParaStyle:箇条書き><CharStyle:丸文字><2776><CharStyle:>箇条書き
-<ParaStyle:箇条書き2階層目><CharStyle:丸文字><2776><CharStyle:>箇条書き2
-<ParaStyle:箇条書き><CharStyle:丸文字><2777><CharStyle:>箇条書き
-<ParaStyle:箇条書き2階層目><CharStyle:丸文字><2776><CharStyle:>箇条書き2
-<ParaStyle:箇条書き><CharStyle:丸文字><2778><CharStyle:>箇条書き
-<ParaStyle:箇条書き2階層目><CharStyle:丸文字><2776><CharStyle:>箇条書き2
+<ParaStyle:箇条書き><CharStyle:丸文字><2776><CharStyle:> Hello
+<ParaStyle:箇条書き説明>World
+<ParaStyle:箇条書き><CharStyle:丸文字><2777><CharStyle:> Hello
+<ParaStyle:箇条書き説明>World
+<ParaStyle:箇条書き><CharStyle:丸文字><2778><CharStyle:> Hello
+<ParaStyle:箇条書き説明>World
+
+===
+--- in md2id
+<ul>
+  <li>1. Hello</li>
+  <li>2. Hello
+    <ul>
+      <li>1. World</li>
+      <li>2. World</li>
+      <li>3. World</li>
+      <li>4. World</li>
+      <li>5. World</li>
+    </ul>
+  </li>
+  <li>3. Hello</li>
+</ul>
+--- expected
+<SJIS-MAC>
+<ParaStyle:半行アキ>
+<ParaStyle:箇条書き><CharStyle:丸文字><2776><CharStyle:> Hello
+<ParaStyle:箇条書き><CharStyle:丸文字><2777><CharStyle:> Hello
+<ParaStyle:箇条書き2階層目><CharStyle:丸文字><2776><CharStyle:> World
+<ParaStyle:箇条書き2階層目><CharStyle:丸文字><2777><CharStyle:> World
+<ParaStyle:箇条書き2階層目><CharStyle:丸文字><2778><CharStyle:> World
+<ParaStyle:箇条書き2階層目><CharStyle:丸文字><2779><CharStyle:> World
+<ParaStyle:箇条書き2階層目><CharStyle:丸文字><277a><CharStyle:> World
+<ParaStyle:箇条書き><CharStyle:丸文字><2778><CharStyle:> Hello
 
 === TODO: Markdown 側がバグってる
 --- SKIP in md2id
