@@ -41,7 +41,7 @@ __END__
 <kbd>Y</kbd>
 <kbd>Z</kbd>
 --- expected
-<ParaStyle:本文><cFont:Keyboard-JP>A<cFont:><cFont:Keyboard-JP>B<cFont:><cFont:Keyboard-JP>C<cFont:><cFont:Keyboard-JP>D<cFont:><cFont:Keyboard-JP>E<cFont:><cFont:Keyboard-JP>F<cFont:><cFont:Keyboard-JP>G<cFont:><cFont:Keyboard-JP>H<cFont:><cFont:Keyboard-JP>I<cFont:><cFont:Keyboard-JP>J<cFont:><cFont:Keyboard-JP>K<cFont:><cFont:Keyboard-JP>L<cFont:><cFont:Keyboard-JP>M<cFont:><cFont:Keyboard-JP>N<cFont:><cFont:Keyboard-JP>O<cFont:><cFont:Keyboard-JP>P<cFont:><cFont:Keyboard-JP>Q<cFont:><cFont:Keyboard-JP>R<cFont:><cFont:Keyboard-JP>S<cFont:><cFont:Keyboard-JP>T<cFont:><cFont:Keyboard-JP>U<cFont:><cFont:Keyboard-JP>V<cFont:><cFont:Keyboard-JP>W<cFont:><cFont:Keyboard-JP>X<cFont:><cFont:Keyboard-JP>Y<cFont:><cFont:Keyboard-JP>Z<cFont:>
+<ParaStyle:本文><CharStyle:キーボード>A<CharStyle:><CharStyle:キーボード>B<CharStyle:><CharStyle:キーボード>C<CharStyle:><CharStyle:キーボード>D<CharStyle:><CharStyle:キーボード>E<CharStyle:><CharStyle:キーボード>F<CharStyle:><CharStyle:キーボード>G<CharStyle:><CharStyle:キーボード>H<CharStyle:><CharStyle:キーボード>I<CharStyle:><CharStyle:キーボード>J<CharStyle:><CharStyle:キーボード>K<CharStyle:><CharStyle:キーボード>L<CharStyle:><CharStyle:キーボード>M<CharStyle:><CharStyle:キーボード>N<CharStyle:><CharStyle:キーボード>O<CharStyle:><CharStyle:キーボード>P<CharStyle:><CharStyle:キーボード>Q<CharStyle:><CharStyle:キーボード>R<CharStyle:><CharStyle:キーボード>S<CharStyle:><CharStyle:キーボード>T<CharStyle:><CharStyle:キーボード>U<CharStyle:><CharStyle:キーボード>V<CharStyle:><CharStyle:キーボード>W<CharStyle:><CharStyle:キーボード>X<CharStyle:><CharStyle:キーボード>Y<CharStyle:><CharStyle:キーボード>Z<CharStyle:>
 
 === alphabet
 --- in _md2id
@@ -72,7 +72,7 @@ __END__
 <kbd>y</kbd>
 <kbd>z</kbd>
 --- expected
-<ParaStyle:本文><cFont:Keyboard-JP>a<cFont:><cFont:Keyboard-JP>b<cFont:><cFont:Keyboard-JP>c<cFont:><cFont:Keyboard-JP>d<cFont:><cFont:Keyboard-JP>e<cFont:><cFont:Keyboard-JP>f<cFont:><cFont:Keyboard-JP>g<cFont:><cFont:Keyboard-JP>h<cFont:><cFont:Keyboard-JP>i<cFont:><cFont:Keyboard-JP>j<cFont:><cFont:Keyboard-JP>k<cFont:><cFont:Keyboard-JP>l<cFont:><cFont:Keyboard-JP>m<cFont:><cFont:Keyboard-JP>n<cFont:><cFont:Keyboard-JP>o<cFont:><cFont:Keyboard-JP>p<cFont:><cFont:Keyboard-JP>q<cFont:><cFont:Keyboard-JP>r<cFont:><cFont:Keyboard-JP>s<cFont:><cFont:Keyboard-JP>t<cFont:><cFont:Keyboard-JP>u<cFont:><cFont:Keyboard-JP>v<cFont:><cFont:Keyboard-JP>w<cFont:><cFont:Keyboard-JP>x<cFont:><cFont:Keyboard-JP>y<cFont:><cFont:Keyboard-JP>z<cFont:>
+<ParaStyle:本文><CharStyle:キーボード>a<CharStyle:><CharStyle:キーボード>b<CharStyle:><CharStyle:キーボード>c<CharStyle:><CharStyle:キーボード>d<CharStyle:><CharStyle:キーボード>e<CharStyle:><CharStyle:キーボード>f<CharStyle:><CharStyle:キーボード>g<CharStyle:><CharStyle:キーボード>h<CharStyle:><CharStyle:キーボード>i<CharStyle:><CharStyle:キーボード>j<CharStyle:><CharStyle:キーボード>k<CharStyle:><CharStyle:キーボード>l<CharStyle:><CharStyle:キーボード>m<CharStyle:><CharStyle:キーボード>n<CharStyle:><CharStyle:キーボード>o<CharStyle:><CharStyle:キーボード>p<CharStyle:><CharStyle:キーボード>q<CharStyle:><CharStyle:キーボード>r<CharStyle:><CharStyle:キーボード>s<CharStyle:><CharStyle:キーボード>t<CharStyle:><CharStyle:キーボード>u<CharStyle:><CharStyle:キーボード>v<CharStyle:><CharStyle:キーボード>w<CharStyle:><CharStyle:キーボード>x<CharStyle:><CharStyle:キーボード>y<CharStyle:><CharStyle:キーボード>z<CharStyle:>
 
 === number
 --- in _md2id
@@ -87,7 +87,7 @@ __END__
 <kbd>8</kbd>
 <kbd>9</kbd>
 --- expected
-<ParaStyle:本文><cFont:Keyboard-JP>0<cFont:><cFont:Keyboard-JP>1<cFont:><cFont:Keyboard-JP>2<cFont:><cFont:Keyboard-JP>3<cFont:><cFont:Keyboard-JP>4<cFont:><cFont:Keyboard-JP>5<cFont:><cFont:Keyboard-JP>6<cFont:><cFont:Keyboard-JP>7<cFont:><cFont:Keyboard-JP>8<cFont:><cFont:Keyboard-JP>9<cFont:>
+<ParaStyle:本文><CharStyle:キーボード>0<CharStyle:><CharStyle:キーボード>1<CharStyle:><CharStyle:キーボード>2<CharStyle:><CharStyle:キーボード>3<CharStyle:><CharStyle:キーボード>4<CharStyle:><CharStyle:キーボード>5<CharStyle:><CharStyle:キーボード>6<CharStyle:><CharStyle:キーボード>7<CharStyle:><CharStyle:キーボード>8<CharStyle:><CharStyle:キーボード>9<CharStyle:>
 
 === hiragana
 --- in _md2id
@@ -147,7 +147,7 @@ __END__
 <kbd>ょ</kbd>
 <kbd>っ</kbd>
 --- expected
-<ParaStyle:本文><cFont:Keyboard-JP>あ<cFont:><cFont:Keyboard-JP>い<cFont:><cFont:Keyboard-JP>う<cFont:><cFont:Keyboard-JP>え<cFont:><cFont:Keyboard-JP>お<cFont:><cFont:Keyboard-JP>か<cFont:><cFont:Keyboard-JP>き<cFont:><cFont:Keyboard-JP>く<cFont:><cFont:Keyboard-JP>け<cFont:><cFont:Keyboard-JP>こ<cFont:><cFont:Keyboard-JP>さ<cFont:><cFont:Keyboard-JP>し<cFont:><cFont:Keyboard-JP>す<cFont:><cFont:Keyboard-JP>せ<cFont:><cFont:Keyboard-JP>そ<cFont:><cFont:Keyboard-JP>た<cFont:><cFont:Keyboard-JP>ち<cFont:><cFont:Keyboard-JP>つ<cFont:><cFont:Keyboard-JP>て<cFont:><cFont:Keyboard-JP>と<cFont:><cFont:Keyboard-JP>な<cFont:><cFont:Keyboard-JP>に<cFont:><cFont:Keyboard-JP>ぬ<cFont:><cFont:Keyboard-JP>ね<cFont:><cFont:Keyboard-JP>の<cFont:><cFont:Keyboard-JP>は<cFont:><cFont:Keyboard-JP>ひ<cFont:><cFont:Keyboard-JP>ふ<cFont:><cFont:Keyboard-JP>へ<cFont:><cFont:Keyboard-JP>ほ<cFont:><cFont:Keyboard-JP>ま<cFont:><cFont:Keyboard-JP>み<cFont:><cFont:Keyboard-JP>む<cFont:><cFont:Keyboard-JP>め<cFont:><cFont:Keyboard-JP>も<cFont:><cFont:Keyboard-JP>や<cFont:><cFont:Keyboard-JP>ゆ<cFont:><cFont:Keyboard-JP>よ<cFont:><cFont:Keyboard-JP>ら<cFont:><cFont:Keyboard-JP>り<cFont:><cFont:Keyboard-JP>る<cFont:><cFont:Keyboard-JP>れ<cFont:><cFont:Keyboard-JP>ろ<cFont:><cFont:Keyboard-JP>わ<cFont:><cFont:Keyboard-JP>を<cFont:><cFont:Keyboard-JP>ん<cFont:><cFont:Keyboard-JP>ぁ<cFont:><cFont:Keyboard-JP>ぃ<cFont:><cFont:Keyboard-JP>ぅ<cFont:><cFont:Keyboard-JP>ぇ<cFont:><cFont:Keyboard-JP>ぉ<cFont:><cFont:Keyboard-JP>ゃ<cFont:><cFont:Keyboard-JP>ゅ<cFont:><cFont:Keyboard-JP>ょ<cFont:><cFont:Keyboard-JP>っ<cFont:>
+<ParaStyle:本文><CharStyle:キーボード>あ<CharStyle:><CharStyle:キーボード>い<CharStyle:><CharStyle:キーボード>う<CharStyle:><CharStyle:キーボード>え<CharStyle:><CharStyle:キーボード>お<CharStyle:><CharStyle:キーボード>か<CharStyle:><CharStyle:キーボード>き<CharStyle:><CharStyle:キーボード>く<CharStyle:><CharStyle:キーボード>け<CharStyle:><CharStyle:キーボード>こ<CharStyle:><CharStyle:キーボード>さ<CharStyle:><CharStyle:キーボード>し<CharStyle:><CharStyle:キーボード>す<CharStyle:><CharStyle:キーボード>せ<CharStyle:><CharStyle:キーボード>そ<CharStyle:><CharStyle:キーボード>た<CharStyle:><CharStyle:キーボード>ち<CharStyle:><CharStyle:キーボード>つ<CharStyle:><CharStyle:キーボード>て<CharStyle:><CharStyle:キーボード>と<CharStyle:><CharStyle:キーボード>な<CharStyle:><CharStyle:キーボード>に<CharStyle:><CharStyle:キーボード>ぬ<CharStyle:><CharStyle:キーボード>ね<CharStyle:><CharStyle:キーボード>の<CharStyle:><CharStyle:キーボード>は<CharStyle:><CharStyle:キーボード>ひ<CharStyle:><CharStyle:キーボード>ふ<CharStyle:><CharStyle:キーボード>へ<CharStyle:><CharStyle:キーボード>ほ<CharStyle:><CharStyle:キーボード>ま<CharStyle:><CharStyle:キーボード>み<CharStyle:><CharStyle:キーボード>む<CharStyle:><CharStyle:キーボード>め<CharStyle:><CharStyle:キーボード>も<CharStyle:><CharStyle:キーボード>や<CharStyle:><CharStyle:キーボード>ゆ<CharStyle:><CharStyle:キーボード>よ<CharStyle:><CharStyle:キーボード>ら<CharStyle:><CharStyle:キーボード>り<CharStyle:><CharStyle:キーボード>る<CharStyle:><CharStyle:キーボード>れ<CharStyle:><CharStyle:キーボード>ろ<CharStyle:><CharStyle:キーボード>わ<CharStyle:><CharStyle:キーボード>を<CharStyle:><CharStyle:キーボード>ん<CharStyle:><CharStyle:キーボード>ぁ<CharStyle:><CharStyle:キーボード>ぃ<CharStyle:><CharStyle:キーボード>ぅ<CharStyle:><CharStyle:キーボード>ぇ<CharStyle:><CharStyle:キーボード>ぉ<CharStyle:><CharStyle:キーボード>ゃ<CharStyle:><CharStyle:キーボード>ゅ<CharStyle:><CharStyle:キーボード>ょ<CharStyle:><CharStyle:キーボード>っ<CharStyle:>
 
 === modifier
 --- in _md2id
@@ -186,7 +186,7 @@ __END__
 <kbd>Tab</kbd>
 <kbd>Windows</kbd>
 --- expected
-<ParaStyle:本文><cFont:Keyboard-JP>Alt<cFont:><cFont:Keyboard-JP>Backspace<cFont:><cFont:Keyboard-JP>Break<cFont:><cFont:Keyboard-JP>Caps<cFont:><cFont:Keyboard-JP>CapsLock<cFont:><cFont:Keyboard-JP>Cmd<cFont:><cFont:Keyboard-JP>Command<cFont:><cFont:Keyboard-JP>Control<cFont:><cFont:Keyboard-JP>Ctrl<cFont:><cFont:Keyboard-JP>Del<cFont:><cFont:Keyboard-JP>Delete<cFont:><cFont:Keyboard-JP>End<cFont:><cFont:Keyboard-JP>Enter<cFont:><cFont:Keyboard-JP>Esc<cFont:><cFont:Keyboard-JP>Fn<cFont:><cFont:Keyboard-JP>Go<cFont:><cFont:Keyboard-JP>Home<cFont:><cFont:Keyboard-JP>Ins<cFont:><cFont:Keyboard-JP>Insert<cFont:><cFont:Keyboard-JP>NumLock<cFont:><cFont:Keyboard-JP>Option<cFont:><cFont:Keyboard-JP>PageDown<cFont:><cFont:Keyboard-JP>PageUp<cFont:><cFont:Keyboard-JP>Pause<cFont:><cFont:Keyboard-JP>PgDn<cFont:><cFont:Keyboard-JP>PgUp<cFont:><cFont:Keyboard-JP>PrintScreen<cFont:><cFont:Keyboard-JP>Return<cFont:><cFont:Keyboard-JP>ScrollLock<cFont:><cFont:Keyboard-JP>Shift<cFont:><cFont:Keyboard-JP>Space<cFont:><cFont:Keyboard-JP>SysRq<cFont:><cFont:Keyboard-JP>Tab<cFont:><cFont:Keyboard-JP>Windows<cFont:>
+<ParaStyle:本文><CharStyle:キーボード>Alt<CharStyle:><CharStyle:キーボード>Backspace<CharStyle:><CharStyle:キーボード>Break<CharStyle:><CharStyle:キーボード>Caps<CharStyle:><CharStyle:キーボード>CapsLock<CharStyle:><CharStyle:キーボード>Cmd<CharStyle:><CharStyle:キーボード>Command<CharStyle:><CharStyle:キーボード>Control<CharStyle:><CharStyle:キーボード>Ctrl<CharStyle:><CharStyle:キーボード>Del<CharStyle:><CharStyle:キーボード>Delete<CharStyle:><CharStyle:キーボード>End<CharStyle:><CharStyle:キーボード>Enter<CharStyle:><CharStyle:キーボード>Esc<CharStyle:><CharStyle:キーボード>Fn<CharStyle:><CharStyle:キーボード>Go<CharStyle:><CharStyle:キーボード>Home<CharStyle:><CharStyle:キーボード>Ins<CharStyle:><CharStyle:キーボード>Insert<CharStyle:><CharStyle:キーボード>NumLock<CharStyle:><CharStyle:キーボード>Option<CharStyle:><CharStyle:キーボード>PageDown<CharStyle:><CharStyle:キーボード>PageUp<CharStyle:><CharStyle:キーボード>Pause<CharStyle:><CharStyle:キーボード>PgDn<CharStyle:><CharStyle:キーボード>PgUp<CharStyle:><CharStyle:キーボード>PrintScreen<CharStyle:><CharStyle:キーボード>Return<CharStyle:><CharStyle:キーボード>ScrollLock<CharStyle:><CharStyle:キーボード>Shift<CharStyle:><CharStyle:キーボード>Space<CharStyle:><CharStyle:キーボード>SysRq<CharStyle:><CharStyle:キーボード>Tab<CharStyle:><CharStyle:キーボード>Windows<CharStyle:>
 
 === modifier
 --- in _md2id
@@ -213,7 +213,7 @@ __END__
 <kbd>space</kbd>
 <kbd>tab</kbd>
 --- expected
-<ParaStyle:本文><cFont:Keyboard-JP>alt<cFont:><cFont:Keyboard-JP>caps<cFont:><cFont:Keyboard-JP>capslock<cFont:><cFont:Keyboard-JP>clear<cFont:><cFont:Keyboard-JP>command<cFont:><cFont:Keyboard-JP>control<cFont:><cFont:Keyboard-JP>ctrl<cFont:><cFont:Keyboard-JP>del<cFont:><cFont:Keyboard-JP>delete<cFont:><cFont:Keyboard-JP>end<cFont:><cFont:Keyboard-JP>enter<cFont:><cFont:Keyboard-JP>esc<cFont:><cFont:Keyboard-JP>fn<cFont:><cFont:Keyboard-JP>home<cFont:><cFont:Keyboard-JP>ins<cFont:><cFont:Keyboard-JP>option<cFont:><cFont:Keyboard-JP>pagedown<cFont:><cFont:Keyboard-JP>pageup<cFont:><cFont:Keyboard-JP>return<cFont:><cFont:Keyboard-JP>shift<cFont:><cFont:Keyboard-JP>space<cFont:><cFont:Keyboard-JP>tab<cFont:>
+<ParaStyle:本文><CharStyle:キーボード>alt<CharStyle:><CharStyle:キーボード>caps<CharStyle:><CharStyle:キーボード>capslock<CharStyle:><CharStyle:キーボード>clear<CharStyle:><CharStyle:キーボード>command<CharStyle:><CharStyle:キーボード>control<CharStyle:><CharStyle:キーボード>ctrl<CharStyle:><CharStyle:キーボード>del<CharStyle:><CharStyle:キーボード>delete<CharStyle:><CharStyle:キーボード>end<CharStyle:><CharStyle:キーボード>enter<CharStyle:><CharStyle:キーボード>esc<CharStyle:><CharStyle:キーボード>fn<CharStyle:><CharStyle:キーボード>home<CharStyle:><CharStyle:キーボード>ins<CharStyle:><CharStyle:キーボード>option<CharStyle:><CharStyle:キーボード>pagedown<CharStyle:><CharStyle:キーボード>pageup<CharStyle:><CharStyle:キーボード>return<CharStyle:><CharStyle:キーボード>shift<CharStyle:><CharStyle:キーボード>space<CharStyle:><CharStyle:キーボード>tab<CharStyle:>
 
 === function
 --- in _md2id
@@ -236,7 +236,7 @@ __END__
 <kbd>F17</kbd>
 <kbd>F18</kbd>
 --- expected
-<ParaStyle:本文><cFont:Keyboard-JP>F1<cFont:><cFont:Keyboard-JP>F2<cFont:><cFont:Keyboard-JP>F3<cFont:><cFont:Keyboard-JP>F4<cFont:><cFont:Keyboard-JP>F5<cFont:><cFont:Keyboard-JP>F6<cFont:><cFont:Keyboard-JP>F7<cFont:><cFont:Keyboard-JP>F8<cFont:><cFont:Keyboard-JP>F9<cFont:><cFont:Keyboard-JP>F10<cFont:><cFont:Keyboard-JP>F11<cFont:><cFont:Keyboard-JP>F12<cFont:><cFont:Keyboard-JP>F13<cFont:><cFont:Keyboard-JP>F14<cFont:><cFont:Keyboard-JP>F15<cFont:><cFont:Keyboard-JP>F16<cFont:><cFont:Keyboard-JP>F17<cFont:><cFont:Keyboard-JP>F18<cFont:>
+<ParaStyle:本文><CharStyle:キーボード>F1<CharStyle:><CharStyle:キーボード>F2<CharStyle:><CharStyle:キーボード>F3<CharStyle:><CharStyle:キーボード>F4<CharStyle:><CharStyle:キーボード>F5<CharStyle:><CharStyle:キーボード>F6<CharStyle:><CharStyle:キーボード>F7<CharStyle:><CharStyle:キーボード>F8<CharStyle:><CharStyle:キーボード>F9<CharStyle:><CharStyle:キーボード>F10<CharStyle:><CharStyle:キーボード>F11<CharStyle:><CharStyle:キーボード>F12<CharStyle:><CharStyle:キーボード>F13<CharStyle:><CharStyle:キーボード>F14<CharStyle:><CharStyle:キーボード>F15<CharStyle:><CharStyle:キーボード>F16<CharStyle:><CharStyle:キーボード>F17<CharStyle:><CharStyle:キーボード>F18<CharStyle:>
 
 === omake
 --- in _md2id
@@ -245,7 +245,7 @@ __END__
 <kbd>SELECT</kbd>
 <kbd>START</kbd>
 --- expected
-<ParaStyle:本文><cFont:Keyboard-JP>POWER<cFont:><cFont:Keyboard-JP>EJECT<cFont:><cFont:Keyboard-JP>SELECT<cFont:><cFont:Keyboard-JP>START<cFont:>
+<ParaStyle:本文><CharStyle:キーボード>POWER<CharStyle:><CharStyle:キーボード>EJECT<CharStyle:><CharStyle:キーボード>SELECT<CharStyle:><CharStyle:キーボード>START<CharStyle:>
 
 === japanese
 --- in _md2id
@@ -261,7 +261,7 @@ __END__
 <kbd>変換</kbd>
 <kbd>無変換</kbd>
 --- expected
-<ParaStyle:本文><cFont:Keyboard-JP>改行<cFont:><cFont:Keyboard-JP>空白<cFont:><cFont:Keyboard-JP>英数<cFont:><cFont:Keyboard-JP>かな<cFont:><cFont:Keyboard-JP>漢字<cFont:><cFont:Keyboard-JP>スペース<cFont:><cFont:Keyboard-JP>ローマ字<cFont:><cFont:Keyboard-JP>カタカナひらがな<cFont:><cFont:Keyboard-JP>半角/全角<cFont:><cFont:Keyboard-JP>変換<cFont:><cFont:Keyboard-JP>無変換<cFont:>
+<ParaStyle:本文><CharStyle:キーボード>改行<CharStyle:><CharStyle:キーボード>空白<CharStyle:><CharStyle:キーボード>英数<CharStyle:><CharStyle:キーボード>かな<CharStyle:><CharStyle:キーボード>漢字<CharStyle:><CharStyle:キーボード>スペース<CharStyle:><CharStyle:キーボード>ローマ字<CharStyle:><CharStyle:キーボード>カタカナひらがな<CharStyle:><CharStyle:キーボード>半角/全角<CharStyle:><CharStyle:キーボード>変換<CharStyle:><CharStyle:キーボード>無変換<CharStyle:>
 
 === arrow
 --- in _md2id
@@ -270,7 +270,7 @@ __END__
 <kbd>→</kbd>
 <kbd>←</kbd>
 --- expected
-<ParaStyle:本文><cFont:Keyboard-JP>↑<cFont:><cFont:Keyboard-JP>↓<cFont:><cFont:Keyboard-JP>→<cFont:><cFont:Keyboard-JP>←<cFont:>
+<ParaStyle:本文><CharStyle:キーボード>↑<CharStyle:><CharStyle:キーボード>↓<CharStyle:><CharStyle:キーボード>→<CharStyle:><CharStyle:キーボード>←<CharStyle:>
 
 === symbol
 --- in _md2id
@@ -313,4 +313,4 @@ __END__
 <kbd>゜</kbd>
 <kbd>ー</kbd>
 --- expected
-<ParaStyle:本文><cFont:Keyboard-JP>!<cFont:><cFont:Keyboard-JP>"<cFont:><cFont:Keyboard-JP>#<cFont:><cFont:Keyboard-JP>$<cFont:><cFont:Keyboard-JP>%<cFont:><cFont:Keyboard-JP>&<cFont:><cFont:Keyboard-JP>'<cFont:><cFont:Keyboard-JP>(<cFont:><cFont:Keyboard-JP>)<cFont:><cFont:Keyboard-JP>=<cFont:><cFont:Keyboard-JP>-<cFont:><cFont:Keyboard-JP>^<cFont:><cFont:Keyboard-JP>|<cFont:><cFont:Keyboard-JP>¥<cFont:><cFont:Keyboard-JP>@<cFont:><cFont:Keyboard-JP>{<cFont:><cFont:Keyboard-JP>}<cFont:><cFont:Keyboard-JP>[<cFont:><cFont:Keyboard-JP>]<cFont:><cFont:Keyboard-JP>;<cFont:><cFont:Keyboard-JP>:<cFont:><cFont:Keyboard-JP>+<cFont:><cFont:Keyboard-JP>_<cFont:><cFont:Keyboard-JP>*<cFont:><cFont:Keyboard-JP>/<cFont:><cFont:Keyboard-JP>?<cFont:><cFont:Keyboard-JP>,<cFont:><cFont:Keyboard-JP>.<cFont:><cFont:Keyboard-JP><005C><<cFont:><cFont:Keyboard-JP><005C>><cFont:><cFont:Keyboard-JP>「<cFont:><cFont:Keyboard-JP>」<cFont:><cFont:Keyboard-JP>、<cFont:><cFont:Keyboard-JP>。<cFont:><cFont:Keyboard-JP>・<cFont:><cFont:Keyboard-JP>゛<cFont:><cFont:Keyboard-JP>゜<cFont:><cFont:Keyboard-JP>ー<cFont:>
+<ParaStyle:本文><CharStyle:キーボード>!<CharStyle:><CharStyle:キーボード>"<CharStyle:><CharStyle:キーボード>#<CharStyle:><CharStyle:キーボード>$<CharStyle:><CharStyle:キーボード>%<CharStyle:><CharStyle:キーボード>&<CharStyle:><CharStyle:キーボード>'<CharStyle:><CharStyle:キーボード>(<CharStyle:><CharStyle:キーボード>)<CharStyle:><CharStyle:キーボード>=<CharStyle:><CharStyle:キーボード>-<CharStyle:><CharStyle:キーボード>^<CharStyle:><CharStyle:キーボード>|<CharStyle:><CharStyle:キーボード>¥<CharStyle:><CharStyle:キーボード>@<CharStyle:><CharStyle:キーボード>{<CharStyle:><CharStyle:キーボード>}<CharStyle:><CharStyle:キーボード>[<CharStyle:><CharStyle:キーボード>]<CharStyle:><CharStyle:キーボード>;<CharStyle:><CharStyle:キーボード>:<CharStyle:><CharStyle:キーボード>+<CharStyle:><CharStyle:キーボード>_<CharStyle:><CharStyle:キーボード>*<CharStyle:><CharStyle:キーボード>/<CharStyle:><CharStyle:キーボード>?<CharStyle:><CharStyle:キーボード>,<CharStyle:><CharStyle:キーボード>.<CharStyle:><CharStyle:キーボード><005C><<CharStyle:><CharStyle:キーボード><005C>><CharStyle:><CharStyle:キーボード>「<CharStyle:><CharStyle:キーボード>」<CharStyle:><CharStyle:キーボード>、<CharStyle:><CharStyle:キーボード>。<CharStyle:><CharStyle:キーボード>・<CharStyle:><CharStyle:キーボード>゛<CharStyle:><CharStyle:キーボード>゜<CharStyle:><CharStyle:キーボード>ー<CharStyle:>

@@ -599,7 +599,7 @@ function bar(b) {
 <ParaStyle:表><CharStyle:イタリック（変形斜体）>イタリック、<CharStyle:><CharStyle:イタリック>italic<CharStyle:>	<CharStyle:イタリック（変形斜体）>イタリック、<CharStyle:><CharStyle:イタリック>italic<CharStyle:>
 <ParaStyle:表><CharStyle:コード（文字単位）>code<CharStyle:>	<CharStyle:コード（文字単位）>code<CharStyle:>
 <ParaStyle:表><cr:1><crstr:へき えき><cmojir:1>辟易<cr:><crstr:><cmojir:>	<cr:1><crstr:あくび><cmojir:0>欠伸<cr:><crstr:><cmojir:>
-<ParaStyle:表><cFont:Keyboard-JP>A<cFont:>	<cFont:Keyboard-JP>B<cFont:>
+<ParaStyle:表><CharStyle:キーボード>A<CharStyle:>	<CharStyle:キーボード>B<CharStyle:>
 <ParaStyle:表><CharStyle:脚注上付き>ゴシックフォントで上付き<CharStyle:>	<cp:Superscript>その場のフォントで上付き<cp:>
 
 === horizontal rule
