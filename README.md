@@ -628,10 +628,10 @@ md2inao デベロッパー向け情報
     "after_filter": {
         "★" : "<CharStyle:赤字>★<CharStyle:>",
 
-        "◆→◆" : "<cTypeface:R-KL><cFont:A-OTF リュウミン Pr5><27A1><cTypeface:><cFont:>",
-        "◆←◆" : "<cTypeface:R-KL><cFont:A-OTF リュウミン Pr5><2B05><cTypeface:><cFont:>",
-        "◆↑◆" : "<cTypeface:R-KL><cFont:A-OTF リュウミン Pr5><2B06><cTypeface:><cFont:>",
-        "◆↓◆" : "<cTypeface:R-KL><cFont:A-OTF リュウミン Pr5><2B07><cTypeface:><cFont:>",
+        "◆→◆" : "<27A1>",
+        "◆←◆" : "<2B05>",
+        "◆↑◆" : "<2B06>",
+        "◆↓◆" : "<2B07>",
 
         "◆←→◆" : "<21D4>",
         "◆＞＝◆" : "<2267>",
