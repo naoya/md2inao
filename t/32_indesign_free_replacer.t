@@ -29,7 +29,7 @@ __END__
 --- in md2inao
 <span class='symbol'>→</span>
 --- expected
-<ParaStyle:本文><cTypeface:R-KL><cFont:A-OTF リュウミン Pr5><27A1><cTypeface:><cFont:>
+<ParaStyle:本文><27A1>
 
 ===
 --- in md2inao
