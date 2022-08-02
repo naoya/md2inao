@@ -138,6 +138,20 @@ _a-zA-Z0-9!"#$%&'()-=^@`[]{};+:*<>,./?_
 <ParaStyle:コラム内見出し>コラム内見出し
 <ParaStyle:コラム本文>　コラム内でも<CharStyle:太字>強調<CharStyle:>や<CharStyle:イタリック（変形斜体）>イタリックabc<CharStyle:>などが使えます。
 
+=== lead
+--- in md2inao
+<div class='lead'>
+リード文
+
+リード文
+
+リード文
+</div>
+--- expected
+<ParaStyle:リード文>リード文
+<ParaStyle:リード文>リード文
+<ParaStyle:リード文>リード文
+
 === list
 --- in md2inao
 * 通常の箇条書き
