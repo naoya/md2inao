@@ -513,6 +513,16 @@ GitHub Flavored MarkdownのFenced code blocks記法の場合は、シェル系�
     本文
     </div>
 
+### リード文
+
+    <div class='lead'>
+    リード文
+    
+    リード文
+    
+    リード文
+    </div>
+
 ### 字下げ
 
 段落行頭の字下げは手動です。全角スペースを入れてください。

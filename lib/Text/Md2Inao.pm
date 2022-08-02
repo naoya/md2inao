@@ -42,6 +42,7 @@ has in_column      => (is => 'rw', isa => 'Bool');
 has in_code_block  => (is => 'rw', isa => 'Bool');
 has in_list        => (is => 'rw', isa => 'Bool');
 has in_quote_block => (is => 'rw', isa => 'Bool');
+has in_lead        => (is => 'rw', isa => 'Bool');
 
 has director => ( is => 'rw' );
 has builder  => ( is => 'rw' );
@@ -53,6 +54,7 @@ sub use_special_italic {
     return 1 if $self->in_code_block;
     return 1 if $self->in_list;
     return 1 if $self->in_quote_block;
+    return 1 if $self->in_lead;
     return;
 }
 

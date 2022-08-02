@@ -223,6 +223,8 @@ case p => sub {
             $label = 'コラム本文';
         } elsif ($c->in_quote_block) {
             $label = '引用';
+        } elsif ($c->in_lead) {
+            $label = 'リード文';
         } else {
             $label = '本文';
         }
@@ -281,7 +283,7 @@ case div => sub {
     if ($h->attr('class') eq 'column') {
         $c->in_column(1);
 
-        # HTMLとして取得してcolumn自信のdivタグを削除
+        # HTMLとして取得してcolumn自身のdivタグを削除
         my $md = $h->as_HTML('');
         $md =~ s/^<div.+?>//;
         $md =~ s/<\/div>$//;
@@ -289,6 +291,17 @@ case div => sub {
         my $column = $c->parse_markdown($md);
         $c->in_column(0);
         return $column;
+    } elsif ($h->attr('class') eq 'lead') {
+        $c->in_lead(1);
+
+        # HTMLとして取得してlead自身のdivタグを削除
+        my $md = $h->as_HTML('');
+        $md =~ s/^<div.+?>//;
+        $md =~ s/<\/div>$//;
+
+        my $lead = $c->parse_markdown($md);
+        $c->in_lead(0);
+        return $lead;
     } else {
         return fallback_to_escaped_html($h);
     }
