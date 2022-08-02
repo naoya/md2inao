@@ -238,7 +238,7 @@ case p => sub {
 
 case kbd => sub {
     my ($c, $h) = @_;
-    sprintf "<cFont:Keyboard-JP>%s<cFont:>" , $c->parse_element($h);
+    sprintf "<CharStyle:キーボード>%s<CharStyle:>" , $c->parse_element($h);
 };
 
 case span => sub {
@@ -396,7 +396,7 @@ case pre => sub {
     # コード内イタリック
     $text =~ s!\___(.+?)\___!<CharStyle:イタリック（変形斜体）>$1<CharStyle:>!g;
     # コード内キーボードフォント https://github.com/naoya/md2inao/pull/88
-    $text =~ s!◆kbd◆(.+?)◆/kbd◆!<cFont:Keyboard-JP>$1<cFont:>!g;
+    $text =~ s!◆kbd◆(.+?)◆/kbd◆!<CharStyle:キーボード>$1<CharStyle:>!g;
 
     chomp $text;
 
