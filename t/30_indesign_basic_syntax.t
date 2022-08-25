@@ -316,16 +316,505 @@ function bar(b) {
 <ParaStyle:コード>    alert(b);
 <ParaStyle:コード>}
 
-=== notes in pre
---- in md2inao
-    function bar(b) {
-        alert(b); (注:コメント)
-    }
+=== TODO: pre https://github.com/naoya/md2inao/issues/124
+--- SKIP in md2inao
+```
+**a** b
+
+    c
+```
 --- expected
 <ParaStyle:半行アキ>
-<ParaStyle:コード>function bar(b) {
-<ParaStyle:コード>    alert(b); <CharStyle:コードコメント> コメント <CharStyle:>
-<ParaStyle:コード>}
+<ParaStyle:コード><CharStyle:コード強調（文字単位）>a<CharStyle:> b
+<ParaStyle:コード>
+<ParaStyle:コード>    c
+
+=== TODO: pre https://github.com/naoya/md2inao/issues/130
+--- SKIP in md2inao
+```
+[]:
+```
+--- expected
+<ParaStyle:半行アキ>
+<ParaStyle:コード>[]:
+
+=== TODO: pre（リスト、図） https://github.com/naoya/md2inao/issues/14
+--- SKIP in md2inao
+    ●リスト1::Rubyによる簡易LTSV Parser
+    abcd
+
+    !!! cmd
+    ●図1::LTSVのParse結果
+    abcd
+--- expected
+<ParaStyle:キャプション>リスト1	Rubyによる簡易LTSV Parser
+<ParaStyle:コード>abcd
+<ParaStyle:キャプション>図1	LTSVのParse結果
+<ParaStyle:コード黒地白文字>abcd
+
+=== pre（リスト、図）
+--- in md2inao
+```
+●リスト1::Rubyによる簡易LTSV Parser
+abcd
+```
+
+```
+!!! cmd
+●図1::LTSVのParse結果
+abcd
+```
+--- expected
+<ParaStyle:キャプション>リスト1	Rubyによる簡易LTSV Parser
+<ParaStyle:コード>abcd
+<ParaStyle:キャプション>図1	LTSVのParse結果
+<ParaStyle:コード黒地白文字>abcd
+
+=== TODO: pre（図、リスト） https://github.com/naoya/md2inao/issues/14
+--- SKIP in md2inao
+    !!! cmd
+    ●図1::LTSVのParse結果
+    abcd
+
+    ●リスト1::Rubyによる簡易LTSV Parser
+    abcd
+--- expected
+<ParaStyle:キャプション>図1	LTSVのParse結果
+<ParaStyle:コード黒地白文字>abcd
+<ParaStyle:キャプション>リスト1	Rubyによる簡易LTSV Parser
+<ParaStyle:コード>abcd
+
+=== pre（図、リスト）
+--- in md2inao
+```
+!!! cmd
+●図1::LTSVのParse結果
+abcd
+```
+```
+●リスト1::Rubyによる簡易LTSV Parser
+abcd
+``````
+--- expected
+<ParaStyle:キャプション>図1	LTSVのParse結果
+<ParaStyle:コード黒地白文字>abcd
+<ParaStyle:キャプション>リスト1	Rubyによる簡易LTSV Parser
+<ParaStyle:コード>abcd
+
+=== TODO: pre（図、図） https://github.com/naoya/md2inao/issues/14
+--- SKIP in md2inao
+    !!! cmd
+    ●図1::LTSVのParse結果
+    abcd
+
+    !!! cmd
+    ●図2::Rubyによる簡易LTSV Parser
+    abcd
+--- expected
+<ParaStyle:キャプション>図1	LTSVのParse結果
+<ParaStyle:コード黒地白文字>abcd
+<ParaStyle:キャプション>図2	Rubyによる簡易LTSV Parser
+<ParaStyle:コード黒地白文字>abcd
+
+=== pre（図、図）
+--- in md2inao
+```
+!!! cmd
+●図1::LTSVのParse結果
+abcd
+```
+```
+!!! cmd
+●図2::Rubyによる簡易LTSV Parser
+abcd
+``````
+--- expected
+<ParaStyle:キャプション>図1	LTSVのParse結果
+<ParaStyle:コード黒地白文字>abcd
+<ParaStyle:キャプション>図2	Rubyによる簡易LTSV Parser
+<ParaStyle:コード黒地白文字>abcd
+
+=== TODO: pre（リスト、リスト） https://github.com/naoya/md2inao/issues/14
+--- SKIP in md2inao
+    ●リスト1::Rubyによる簡易LTSV Parser
+    abcd
+
+    ●リスト2::LTSVのParse結果
+    abcd
+--- expected
+<ParaStyle:キャプション>リスト1	Rubyによる簡易LTSV Parser
+<ParaStyle:コード>abcd
+<ParaStyle:キャプション>リスト2	LTSVのParse結果
+<ParaStyle:コード>abcd
+
+=== pre（リスト、リスト）
+--- in md2inao
+```
+●リスト1::Rubyによる簡易LTSV Parser
+abcd
+```
+
+```
+●リスト2::LTSVのParse結果
+abcd
+```
+--- expected
+<ParaStyle:キャプション>リスト1	Rubyによる簡易LTSV Parser
+<ParaStyle:コード>abcd
+<ParaStyle:キャプション>リスト2	LTSVのParse結果
+<ParaStyle:コード>abcd
+
+=== TODO: pre（コード、コード） https://github.com/naoya/md2inao/issues/14
+--- SKIP in md2inao
+    abcd
+
+    abcd
+--- expected
+<ParaStyle:半行アキ>
+<ParaStyle:コード>abcd
+<ParaStyle:半行アキ>
+<ParaStyle:コード>abcd
+
+=== pre（コード、コード）
+--- in md2inao
+```
+abcd
+```
+
+```
+abcd
+```
+--- expected
+<ParaStyle:半行アキ>
+<ParaStyle:コード>abcd
+<ParaStyle:半行アキ>
+<ParaStyle:コード>abcd
+
+=== TODO: pre（コード、コマンド） https://github.com/naoya/md2inao/issues/14
+--- SKIP in md2inao
+    abcd
+
+    !!! cmd
+    abcd
+--- expected
+<ParaStyle:半行アキ>
+<ParaStyle:コード>abcd
+<ParaStyle:半行アキ>
+<ParaStyle:コード黒地白文字>abcd
+
+=== pre（コード、コマンド）
+--- in md2inao
+```
+abcd
+```
+
+```
+!!! cmd
+abcd
+```
+--- expected
+<ParaStyle:半行アキ>
+<ParaStyle:コード>abcd
+<ParaStyle:半行アキ>
+<ParaStyle:コード黒地白文字>abcd
+
+=== TODO: pre（コマンド、コマンド） https://github.com/naoya/md2inao/issues/14
+--- SKIP in md2inao
+    !!! cmd
+    abcd
+
+    !!! cmd
+    abcd
+--- expected
+<ParaStyle:半行アキ>
+<ParaStyle:コード黒地白文字>abcd
+<ParaStyle:半行アキ>
+<ParaStyle:コード黒地白文字>abcd
+
+=== pre（コマンド、コマンド）
+--- in md2inao
+```
+!!! cmd
+abcd
+```
+
+```
+!!! cmd
+abcd
+```
+--- expected
+<ParaStyle:半行アキ>
+<ParaStyle:コード黒地白文字>abcd
+<ParaStyle:半行アキ>
+<ParaStyle:コード黒地白文字>abcd
+
+=== TODO: pre（コマンド、コード） https://github.com/naoya/md2inao/issues/14
+--- SKIP in md2inao
+    !!! cmd
+    abcd
+
+    abcd
+--- expected
+<ParaStyle:半行アキ>
+<ParaStyle:コード黒地白文字>abcd
+<ParaStyle:半行アキ>
+<ParaStyle:コード>abcd
+
+=== pre（コマンド、コード）
+--- in md2inao
+```
+!!! cmd
+abcd
+```
+
+```
+abcd
+```
+--- expected
+<ParaStyle:半行アキ>
+<ParaStyle:コード黒地白文字>abcd
+<ParaStyle:半行アキ>
+<ParaStyle:コード>abcd
+
+=== TODO: pre（コード、リスト） https://github.com/naoya/md2inao/issues/14
+--- SKIP in md2inao
+    abcd
+
+    ●リスト1::LTSVのParse結果
+    abcd
+--- expected
+<ParaStyle:半行アキ>
+<ParaStyle:コード>abcd
+<ParaStyle:キャプション>リスト1	LTSVのParse結果
+<ParaStyle:コード>abcd
+
+=== pre（コード、リスト）
+--- in md2inao
+```
+abcd
+```
+
+```
+●リスト1::LTSVのParse結果
+abcd
+```
+--- expected
+<ParaStyle:半行アキ>
+<ParaStyle:コード>abcd
+<ParaStyle:キャプション>リスト1	LTSVのParse結果
+<ParaStyle:コード>abcd
+
+=== TODO: pre（コード、図） https://github.com/naoya/md2inao/issues/14
+--- SKIP in md2inao
+    abcd
+
+    !!! cmd
+    ●図1::LTSVのParse結果
+    abcd
+--- expected
+<ParaStyle:半行アキ>
+<ParaStyle:コード>abcd
+<ParaStyle:キャプション>図1	LTSVのParse結果
+<ParaStyle:コード黒地白文字>abcd
+
+=== pre（コード、図）
+--- in md2inao
+```
+abcd
+```
+
+```
+!!! cmd
+●図1::LTSVのParse結果
+abcd
+```
+--- expected
+<ParaStyle:半行アキ>
+<ParaStyle:コード>abcd
+<ParaStyle:キャプション>図1	LTSVのParse結果
+<ParaStyle:コード黒地白文字>abcd
+
+=== TODO: pre（リスト、コード） https://github.com/naoya/md2inao/issues/14
+--- SKIP in md2inao
+    ●リスト1::LTSVのParse結果
+    abcd
+
+    abcd
+--- expected
+<ParaStyle:キャプション>リスト1	LTSVのParse結果
+<ParaStyle:コード>abcd
+<ParaStyle:半行アキ>
+<ParaStyle:コード>abcd
+
+=== pre（リスト、コード）
+--- in md2inao
+```
+●リスト1::LTSVのParse結果
+abcd
+```
+
+```
+abcd
+```
+--- expected
+<ParaStyle:キャプション>リスト1	LTSVのParse結果
+<ParaStyle:コード>abcd
+<ParaStyle:半行アキ>
+<ParaStyle:コード>abcd
+
+=== TODO: pre（図、コード） https://github.com/naoya/md2inao/issues/14
+--- SKIP in md2inao
+    !!! cmd
+    ●図1::LTSVのParse結果
+    abcd
+
+    abcd
+--- expected
+<ParaStyle:キャプション>図1	LTSVのParse結果
+<ParaStyle:コード黒地白文字>abcd
+<ParaStyle:半行アキ>
+<ParaStyle:コード>abcd
+
+=== pre（図、コード）
+--- in md2inao
+```
+!!! cmd
+●図1::LTSVのParse結果
+abcd
+```
+
+```
+abcd
+```
+--- expected
+<ParaStyle:キャプション>図1	LTSVのParse結果
+<ParaStyle:コード黒地白文字>abcd
+<ParaStyle:半行アキ>
+<ParaStyle:コード>abcd
+
+=== TODO: pre（コマンド、リスト） https://github.com/naoya/md2inao/issues/14
+--- SKIP in md2inao
+    !!! cmd
+    abcd
+
+    ●リスト1::LTSVのParse結果
+    abcd
+--- expected
+<ParaStyle:半行アキ>
+<ParaStyle:コード黒地白文字>abcd
+<ParaStyle:キャプション>リスト1	LTSVのParse結果
+<ParaStyle:コード>abcd
+
+=== pre（コマンド、リスト）
+--- in md2inao
+```
+!!! cmd
+abcd
+```
+
+```
+●リスト1::LTSVのParse結果
+abcd
+```
+--- expected
+<ParaStyle:半行アキ>
+<ParaStyle:コード黒地白文字>abcd
+<ParaStyle:キャプション>リスト1	LTSVのParse結果
+<ParaStyle:コード>abcd
+
+=== TODO: pre（コマンド、図） https://github.com/naoya/md2inao/issues/14
+--- SKIP in md2inao
+    !!! cmd
+    abcd
+
+    !!! cmd
+    ●図1::LTSVのParse結果
+    abcd
+--- expected
+<ParaStyle:半行アキ>
+<ParaStyle:コード黒地白文字>abcd
+<ParaStyle:キャプション>図1	LTSVのParse結果
+<ParaStyle:コード黒地白文字>abcd
+
+=== pre（コマンド、図）
+--- in md2inao
+```
+!!! cmd
+abcd
+```
+
+```
+!!! cmd
+●図1::LTSVのParse結果
+abcd
+```
+--- expected
+<ParaStyle:半行アキ>
+<ParaStyle:コード黒地白文字>abcd
+<ParaStyle:キャプション>図1	LTSVのParse結果
+<ParaStyle:コード黒地白文字>abcd
+
+=== TODO: pre（リスト、コマンド） https://github.com/naoya/md2inao/issues/14
+--- SKIP in md2inao
+    ●リスト1::LTSVのParse結果
+    abcd
+
+    !!! cmd
+    abcd
+--- expected
+<ParaStyle:キャプション>リスト1	LTSVのParse結果
+<ParaStyle:コード>abcd
+<ParaStyle:半行アキ>
+<ParaStyle:コード黒地白文字>abcd
+
+=== pre（リスト、コマンド）
+--- in md2inao
+```
+●リスト1::LTSVのParse結果
+abcd
+```
+
+```
+!!! cmd
+abcd
+```
+--- expected
+<ParaStyle:キャプション>リスト1	LTSVのParse結果
+<ParaStyle:コード>abcd
+<ParaStyle:半行アキ>
+<ParaStyle:コード黒地白文字>abcd
+
+=== TODO: pre（図、コマンド） https://github.com/naoya/md2inao/issues/14
+--- SKIP in md2inao
+    !!! cmd
+    ●図1::LTSVのParse結果
+    abcd
+
+    !!! cmd
+    abcd
+--- expected
+<ParaStyle:キャプション>図1	LTSVのParse結果
+<ParaStyle:コード黒地白文字>abcd
+<ParaStyle:半行アキ>
+<ParaStyle:コード黒地白文字>abcd
+
+=== pre（図、コマンド）
+--- in md2inao
+```
+!!! cmd
+●図1::LTSVのParse結果
+abcd
+```
+
+```
+!!! cmd
+abcd
+```
+--- expected
+<ParaStyle:キャプション>図1	LTSVのParse結果
+<ParaStyle:コード黒地白文字>abcd
+<ParaStyle:半行アキ>
+<ParaStyle:コード黒地白文字>abcd
 
 === notes in pre
 --- in md2inao
@@ -334,6 +823,18 @@ function bar(b) {
     alert(b); (注:コメント)
 }
 ```
+--- expected
+<ParaStyle:半行アキ>
+<ParaStyle:コード>function bar(b) {
+<ParaStyle:コード>    alert(b); <CharStyle:コードコメント> コメント <CharStyle:>
+<ParaStyle:コード>}
+
+
+=== notes in pre
+--- in md2inao
+    function bar(b) {
+        alert(b); (注:コメント)
+    }
 --- expected
 <ParaStyle:半行アキ>
 <ParaStyle:コード>function bar(b) {

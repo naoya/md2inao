@@ -334,7 +334,7 @@ GitHub Flavored Markdownの[Fenced code blocks](https://docs.github.com/ja/githu
 
 行頭を半角スペース4つで字下げする記法にも対応していますが、コードの空行も半角スペース4つで字下げする必要があります。  
 字下げ漏れがあると、そこは本文扱いとなります。  
-ミスが混入しやすいので、基本的にはFenced code blocks記法でお書きください。
+ミスが混入しやすく、既知のバグ（[#14](https://github.com/naoya/md2inao/issues/14)、[#66](https://github.com/naoya/md2inao/issues/66)）もあるので、基本的にはFenced code blocks記法でお書きください。
 
         function bar(b) {
             alert(b);
