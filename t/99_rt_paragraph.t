@@ -25,16 +25,14 @@ fugafuga
 　hogehoge
 　fugafuga
 --- expected
-　hogehoge
-　fugafuga
+　hogehoge　fugafuga
 
 ===
 --- in md2inao
 hogehoge
 　fugafuga
 --- expected
-hogehoge
-　fugafuga
+hogehoge　fugafuga
 
 ===
 --- in md2inao
