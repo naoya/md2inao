@@ -170,6 +170,40 @@ __END__
 <ParaStyle:コード>}
 <ParaStyle:本文>　本文
 
+=== TODO: https://github.com/naoya/md2inao/issues/66
+--- SKIP in md2id
+1. abc
+2. def
+
+    !!! cmd
+    ●図1::abc
+    $ def
+--- expected
+<SJIS-MAC>
+<ParaStyle:半行アキ>
+<ParaStyle:箇条書き><CharStyle:丸文字><2776><CharStyle:>abc
+<ParaStyle:箇条書き><CharStyle:丸文字><2777><CharStyle:>def
+<ParaStyle:キャプション>図1	abc
+<ParaStyle:コード黒地白文字>$ def
+
+=== 
+--- in md2id
+1. abc
+2. def
+
+```
+!!! cmd
+●図1::abc
+$ def
+```
+--- expected
+<SJIS-MAC>
+<ParaStyle:半行アキ>
+<ParaStyle:箇条書き><CharStyle:丸文字><2776><CharStyle:>abc
+<ParaStyle:箇条書き><CharStyle:丸文字><2777><CharStyle:>def
+<ParaStyle:キャプション>図1	abc
+<ParaStyle:コード黒地白文字>$ def
+
 === TODO: Markdown 側がバグってる
 --- SKIP in md2id
 * Hello
