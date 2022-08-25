@@ -338,6 +338,69 @@ function bar(b) {
 <ParaStyle:半行アキ>
 <ParaStyle:コード>[]:
 
+=== TODO: pre https://github.com/naoya/md2inao/issues/14
+--- SKIP in md2inao
+    ●リスト1::Rubyによる簡易LTSV Parser
+    abcd
+
+    !!! cmd
+    ●図1::LTSVのParse結果
+    abcd
+--- expected
+<ParaStyle:キャプション>リスト1	Rubyによる簡易LTSV Parser
+<ParaStyle:コード>abcd
+<ParaStyle:キャプション>図1	LTSVのParse結果
+<ParaStyle:コード黒地白文字>abcd
+
+=== pre
+--- in md2inao
+```
+●リスト1::Rubyによる簡易LTSV Parser
+abcd
+```
+
+```
+!!! cmd
+●図1::LTSVのParse結果
+abcd
+```
+--- expected
+<ParaStyle:キャプション>リスト1	Rubyによる簡易LTSV Parser
+<ParaStyle:コード>abcd
+<ParaStyle:キャプション>図1	LTSVのParse結果
+<ParaStyle:コード黒地白文字>abcd
+
+=== TODO: pre https://github.com/naoya/md2inao/issues/14
+--- SKIP in md2inao
+    !!! cmd
+    ●図1::LTSVのParse結果
+    abcd
+
+    ●リスト1::Rubyによる簡易LTSV Parser
+    abcd
+--- expected
+<ParaStyle:キャプション>図1	LTSVのParse結果
+<ParaStyle:コード黒地白文字>abcd
+<ParaStyle:キャプション>リスト1	Rubyによる簡易LTSV Parser
+<ParaStyle:コード>abcd
+
+=== 
+--- in md2inao
+```
+!!! cmd
+●図1::LTSVのParse結果
+abcd
+```
+```
+●リスト1::Rubyによる簡易LTSV Parser
+abcd
+``````
+--- expected
+<ParaStyle:キャプション>図1	LTSVのParse結果
+<ParaStyle:コード黒地白文字>abcd
+<ParaStyle:キャプション>リスト1	Rubyによる簡易LTSV Parser
+<ParaStyle:コード>abcd
+
 === notes in pre
 --- in md2inao
     function bar(b) {
