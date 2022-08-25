@@ -127,8 +127,7 @@ sub prepare_html_for_inao {
     # see also: t/07_list.t
     $html =~ s!<li><p>(.+)</p></li>\n!<li>$1</li>\n!g;
 
-    ## 段落切り替えの意図が見えるのにそうならないケースを補正 (issue #8)
-    $html =~ s!<p>(.*)\n　!<p>$1</p>\n<p>　!g;
+    ## 行頭に全角スペースがある場合の段落切り替え処理は廃止(issue #8 #98)
 
     ## イタリックの前後の空白を除去する
     $html =~ s: (<em>.+?</em>) :$1:g;
