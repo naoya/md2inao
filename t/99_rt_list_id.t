@@ -77,6 +77,99 @@ __END__
 <ParaStyle:箇条書き2階層目><CharStyle:丸文字><277a><CharStyle:> World
 <ParaStyle:箇条書き><CharStyle:丸文字><2778><CharStyle:> Hello
 
+===
+--- in md2id
+　本文
+
+- 箇条書き1行目
+- 箇条書き2行目
+- 箇条書き3行目
+- 箇条書き4行目
+
+    ●リスト1::リストのキャプション
+    code {
+      code 
+      code
+    }
+
+　本文
+--- expected
+<SJIS-MAC>
+<ParaStyle:本文>　本文
+<ParaStyle:半行アキ>
+<ParaStyle:箇条書き>・箇条書き1行目
+<ParaStyle:箇条書き>・箇条書き2行目
+<ParaStyle:箇条書き>・箇条書き3行目
+<ParaStyle:箇条書き>・箇条書き4行目
+<ParaStyle:キャプション>リスト1	リストのキャプション
+<ParaStyle:コード>code {
+<ParaStyle:コード>  code 
+<ParaStyle:コード>  code
+<ParaStyle:コード>}
+<ParaStyle:本文>　本文
+
+===
+--- in md2id
+　本文
+
+* 箇条書き1行目
+* 箇条書き2行目
+* 箇条書き3行目
+* 箇条書き4行目
+
+    ●リスト1::リストのキャプション
+    code {
+      code 
+      code
+    }
+
+　本文
+--- expected
+<SJIS-MAC>
+<ParaStyle:本文>　本文
+<ParaStyle:半行アキ>
+<ParaStyle:箇条書き>・箇条書き1行目
+<ParaStyle:箇条書き>・箇条書き2行目
+<ParaStyle:箇条書き>・箇条書き3行目
+<ParaStyle:箇条書き>・箇条書き4行目
+<ParaStyle:キャプション>リスト1	リストのキャプション
+<ParaStyle:コード>code {
+<ParaStyle:コード>  code 
+<ParaStyle:コード>  code
+<ParaStyle:コード>}
+<ParaStyle:本文>　本文
+
+===
+--- in md2id
+　本文
+
++ 箇条書き1行目
++ 箇条書き2行目
++ 箇条書き3行目
++ 箇条書き4行目
+
+    ●リスト1::リストのキャプション
+    code {
+      code 
+      code
+    }
+
+　本文
+--- expected
+<SJIS-MAC>
+<ParaStyle:本文>　本文
+<ParaStyle:半行アキ>
+<ParaStyle:箇条書き>・箇条書き1行目
+<ParaStyle:箇条書き>・箇条書き2行目
+<ParaStyle:箇条書き>・箇条書き3行目
+<ParaStyle:箇条書き>・箇条書き4行目
+<ParaStyle:キャプション>リスト1	リストのキャプション
+<ParaStyle:コード>code {
+<ParaStyle:コード>  code 
+<ParaStyle:コード>  code
+<ParaStyle:コード>}
+<ParaStyle:本文>　本文
+
 === TODO: Markdown 側がバグってる
 --- SKIP in md2id
 * Hello
