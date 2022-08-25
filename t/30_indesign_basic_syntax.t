@@ -329,6 +329,15 @@ function bar(b) {
 <ParaStyle:コード>
 <ParaStyle:コード>    c
 
+=== TODO: pre https://github.com/naoya/md2inao/issues/130
+--- SKIP in md2inao
+```
+[]:
+```
+--- expected
+<ParaStyle:半行アキ>
+<ParaStyle:コード>[]:
+
 === notes in pre
 --- in md2inao
     function bar(b) {
