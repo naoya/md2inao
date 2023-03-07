@@ -623,6 +623,15 @@ md2inao デベロッパー向け情報
     % carton # モジュールのインストール。初回のみ必要
     % carton exec prove -l
 
+#### `git bisect`によるテストが失敗する最初のコミットの特定
+
+次のコマンドを実行すると、二分探索でテストが最初に失敗するコミットを探します。  
+（`ea2a55d`は、手動で確認したテストが成功するコミットです）
+
+    % chmod 755 bisect.sh
+    % git bisect start HEAD ea2a55d
+    % git bisect run ./bisect.sh
+
 ### 自由置換の書き方
 
 ```
